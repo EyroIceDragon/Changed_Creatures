@@ -95,6 +95,7 @@ public class ChangedCreatureModModels {
 		event.registerLayerDefinition(ChangedCreatureModModelLayers.TAIL_LAYER, TailModel::createBodyLayer);
 
 		event.registerLayerDefinition(ModelLatexPeanutButterWolf.LAYER_LOCATION, ModelLatexPeanutButterWolf::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexIngerteFox.LAYER_LOCATION, ModelLatexIngerteFox::createBodyLayer);
 	}
 
 }

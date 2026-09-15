@@ -92,6 +92,8 @@ public class ChangedCreatureModEntityRenderers {
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_XUAN_JIN_DRAGON.get(), LatexXuanJinDragonRenderer::new);
 		//LatexEyroEndDragonRenderer
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_EYRO_END_DRAGON.get(), LatexEyroEndDragonRenderer::new);
+		//LatexIngerteFoxRenderer
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_INGERTE_FOX.get(), LatexIngerteFoxRenderer::new);
 
 	}
 	@SubscribeEvent

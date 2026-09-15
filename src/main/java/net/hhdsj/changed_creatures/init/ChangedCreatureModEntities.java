@@ -73,7 +73,7 @@ public class ChangedCreatureModEntities {
     public static final RegistryObject<EntityType<LatexYueXiFoxFemaleEntity>> LATEX_YUE_XI_FOX_FEMALE;
     public static final RegistryObject<EntityType<LatexFloraFoxEntity>> LATEX_FLORA_FOX;
     public static final RegistryObject<EntityType<LatexEtanKindEntity>> LATEX_ETAN_KIND;
-
+    public static final RegistryObject<EntityType<LatexIngerteFoxEntity>> LATEX_INGERTE_FOX;
     // 鲨鱼变体
     public static final RegistryObject<EntityType<LatexKcahraSharkEntity>> LATEX_KCAHRA_SHARK;
     public static final RegistryObject<EntityType<LatexEnkangDragonSharkEntity>> LATEX_ENKANG_DRAGON_SHARK;
@@ -138,6 +138,14 @@ public class ChangedCreatureModEntities {
     public static final RegistryObject<EntityType<LatexXuanJinWolfDragonEntity>> LATEX_XUAN_JIN_WOLF_DRAGON;
 
     static {
+        LATEX_INGERTE_FOX = registerSpawning("latex_ingerte_fox", 0xfeb46b, 0xffeb7b,
+                EntityType.Builder.of(LatexIngerteFoxEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .sized(0.6f, 1.92f),
+                LatexIngerteFoxEntity::createLatexAttributes);
+
         LATEX_EYRO_END_DRAGON = registerSpawning("latex_eyro_end_dragon", 0x57e4ff, 0x98ffff,
                 EntityType.Builder.of(LatexEyroEndDragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
@@ -663,7 +671,9 @@ public class ChangedCreatureModEntities {
                         // 检查亮度是否小于4
                         if (level instanceof Level serverLevel) {
                             int brightness = serverLevel.getMaxLocalRawBrightness(pos);
-                            return brightness <= 3; // 亮度小于4
+                            if (brightness > 3) {
+								return false;
+							}
 
                             // 降低生成在矿洞的可能性.(同时会减少刷怪塔刷出的概率)
                             if (!serverLevel.canSeeSky(pos)) {
