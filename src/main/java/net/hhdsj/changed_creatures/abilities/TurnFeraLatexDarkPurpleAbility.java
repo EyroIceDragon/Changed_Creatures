@@ -18,7 +18,7 @@ public class TurnFeraLatexDarkPurpleAbility extends AbstractAbility<TurnFeralLat
     }
 
     public ResourceLocation getTextureLocation(IAbstractChangedEntity entity) {
-        return new ResourceLocation("changed_creatures:textures/screens/ability/normal_paw.png");
+        return new ResourceLocation("changed_creatures","textures/screens/ability/normal_paw.png");
     }
 
     @Nullable

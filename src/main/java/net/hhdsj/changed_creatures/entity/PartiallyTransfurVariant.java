@@ -169,7 +169,6 @@ public class PartiallyTransfurVariant {
         }
         UUID playerId = player.getUUID();
         boolean jumpPressed;
-
         if (player.level().isClientSide) {
             jumpPressed = clientJumpPressMap.getOrDefault(playerId, false);
         } else {
@@ -246,6 +245,7 @@ public class PartiallyTransfurVariant {
                 player.isInLava() ||
                 player.getAbilities().flying ||
                 !canFly(player) ||
+                !PlayerDataGetHelper.GetPlayerCanGliding(player) ||
                 (player.isFallFlying() && player.isShiftKeyDown());
 
         if (shouldGlide && !player.isFallFlying()) {
@@ -260,6 +260,9 @@ public class PartiallyTransfurVariant {
         } else if (shouldStopGliding && player.isFallFlying() && PlayerCanGlideMap.getOrDefault(playerId, false) == true) {
             PlayerCanGlideMap.put(playerId, false);
             player.stopFallFlying();
+        }
+        if (!canFly(player)){
+            PlayerCanGlideMap.put(playerId, false);
         }
     }
 

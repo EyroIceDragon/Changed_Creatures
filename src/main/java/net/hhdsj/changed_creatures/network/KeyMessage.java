@@ -63,11 +63,15 @@ public class KeyMessage {
 				}
 				break;
 			case 2:
-				if (!world.isClientSide) {
-					boolean currentGlide = PlayerDataGetHelper.GetPlayerCanGliding(entity);
+				GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(entity);
+				data.syncPlayerVariables(entity);
+				boolean can_fly = PlayerDataGetHelper.GetPlayerCanFly(entity);
+				boolean currentGlide = PlayerDataGetHelper.GetPlayerCanGliding(entity);
+				if (can_fly) {
 					PlayerDataGetHelper.SetPlayerCanGliding(entity, !currentGlide);
 					PartiallyTransfurVariant.manageGliding(entity);
 				}
+
 				break;
 			default :
 				break;
