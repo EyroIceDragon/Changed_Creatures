@@ -5,10 +5,7 @@ import net.hhdsj.changed_creatures.event.CrystalRingHandler;
 import net.hhdsj.changed_creatures.init.*;
 import net.hhdsj.changed_creatures.network.SyncCrystalRingPacket;
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
-import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
@@ -40,12 +37,14 @@ public class ChangedCreature {
 	public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(new ResourceLocation(MODID, MODID), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
 	private static int messageID = 0;
 
+
 	public ChangedCreature() {
 		registerPackets();
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+		bus.register(ChangedCreatureRegistry.class);
 		ChangedCreatureModSounds.REGISTRY.register(bus);
 		ChangedCreatureModFluidTypes.REGISTRY.register(bus);
-
+		ChangedCreaturesModNewAbiliies.register(bus);
 		ChangedCreatureModFluids.REGISTRY_TYPES.register(bus);
 		ChangedCreatureModFluids.REGISTRY_FLUIDS.register(bus);
 
