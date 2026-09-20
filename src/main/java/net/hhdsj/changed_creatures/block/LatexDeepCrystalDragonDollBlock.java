@@ -18,7 +18,7 @@ public class LatexDeepCrystalDragonDollBlock extends AbstractPlushyBlock {
         super(BlockBehaviour.Properties.of()
                 .instrument(NoteBlockInstrument.BASS)
                 .sound(SoundType.WOOL)
-                .strength(5f, 40f)
+                .strength(0.8f, 0.8f)
                 .noOcclusion()
                 .dynamicShape()
         );
