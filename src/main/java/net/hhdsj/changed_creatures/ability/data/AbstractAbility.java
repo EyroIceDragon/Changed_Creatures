@@ -1,0 +1,31 @@
+package net.hhdsj.changed_creatures.ability.data;
+
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+
+import java.util.List;
+
+public abstract class AbstractAbility {
+
+    private final String displayName;
+    private final int displayColor;
+    private final int maxLevel;
+
+    protected AbstractAbility(String displayName, int displayColor, int maxLevel) {
+        this.displayName = displayName;
+        this.displayColor = displayColor;
+        this.maxLevel = maxLevel;
+    }
+
+    public String getDisplayName() { return displayName; }
+    public int getDisplayColor() { return displayColor; }
+    public int getMaxLevel() { return maxLevel; }
+
+    public void onLevelUp(Player player, int newLevel) {}
+    public void onLevelDown(Player player, int newLevel) {}
+    public void onTick(Player player, int level) {}
+    public void onHurt(Player player, Entity attack, int level) {}
+    public void onVariantChanged(Player player, int level) {}
+    public void appendHoverText(List<Component> list, Player player, int level) {}
+}
