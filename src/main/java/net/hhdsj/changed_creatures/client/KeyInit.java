@@ -1,7 +1,7 @@
 package net.hhdsj.changed_creatures.client;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
-import net.hhdsj.changed_creatures.client.gui.SimpleDebugScreen;
+import net.hhdsj.changed_creatures.client.gui.AbilityScreen;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
@@ -31,7 +31,7 @@ public class KeyInit {
     @SubscribeEvent
     public static void onKeyInput(InputEvent.Key event) {
         if (OPEN_DEBUG_GUI.consumeClick()) {
-            Minecraft.getInstance().setScreen(new SimpleDebugScreen());
+            Minecraft.getInstance().setScreen(new AbilityScreen());
         }
     }
 }

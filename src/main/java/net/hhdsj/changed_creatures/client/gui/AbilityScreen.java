@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 @Mod.EventBusSubscriber(modid = ChangedCreature.MODID, value = Dist.CLIENT)
-public class SimpleDebugScreen extends Screen {
+public class AbilityScreen extends Screen {
 
     private static final int PANEL_WIDTH = 320;
     private static final int PANEL_HEIGHT = 220;
@@ -49,7 +49,7 @@ public class SimpleDebugScreen extends Screen {
 
     private final Map<ResourceLocation, Button[]> abilityButtons = new HashMap<>();
 
-    public SimpleDebugScreen() {
+    public AbilityScreen() {
         super(Component.literal("Test"));
     }
 
