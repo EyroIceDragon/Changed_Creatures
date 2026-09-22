@@ -139,35 +139,37 @@ public class HypnotizeAbility extends AbstractAbility {
 
     @Override
     public void appendHoverText(List<Component> list, Player player, int level) {
-        list.add(Component.literal("以目光为锁链，以低语为牢笼。").withStyle(ChatFormatting.GRAY));
-        list.add(Component.literal("让未转化的玩家注视你，并且逐渐侵蚀其意志。").withStyle(ChatFormatting.GRAY));
+        list.add(Component.translatable("ability.changed_creatures.hypnotize.desc1"));
+        list.add(Component.translatable("ability.changed_creatures.hypnotize.desc2"));
 
         if (level <= 0) {
-            list.add(Component.literal("§7当前等级: §f未解锁").withStyle(ChatFormatting.GRAY));
-            list.add(Component.literal("§8提升等级以激活此能力。").withStyle(ChatFormatting.DARK_GRAY));
+            list.add(Component.translatable("ability.changed_creatures.hypnotize.level.locked"));
+            list.add(Component.translatable("ability.changed_creatures.hypnotize.level.locked_hint"));
         } else {
-            list.add(Component.literal("§7效果范围: §f" + (3.0D + level) + " 格").withStyle(ChatFormatting.GRAY));
-            list.add(Component.literal("§7感染速度: §f" + (0.2F + level * 0.05F) + " / tick").withStyle(ChatFormatting.GRAY));
+            list.add(Component.translatable("ability.changed_creatures.hypnotize.range",
+                    (3.0D + level)));
+            list.add(Component.translatable("ability.changed_creatures.hypnotize.speed",
+                    (0.2F + level * 0.05F)));
 
-            list.add(Component.literal("§a· 强制目标视线跟随").withStyle(ChatFormatting.GREEN));
-            list.add(Component.literal("§a· 施加缓慢 II").withStyle(ChatFormatting.GREEN));
+            list.add(Component.translatable("ability.changed_creatures.hypnotize.effect.look"));
+            list.add(Component.translatable("ability.changed_creatures.hypnotize.effect.slow"));
             if (level >= 2) {
-                list.add(Component.literal("§a· 施加挖掘疲劳 II").withStyle(ChatFormatting.GREEN));
+                list.add(Component.translatable("ability.changed_creatures.hypnotize.effect.fatigue"));
             }
 
-            list.add(Component.literal("§7对未转化玩家发动攻击可标记目标。").withStyle(ChatFormatting.DARK_GRAY));
+            list.add(Component.translatable("ability.changed_creatures.hypnotize.mark_hint"));
         }
 
-        String whisper;
+        // 氛围台词（按等级切换 key）
+        String whisperKey;
         if (level < 1) {
-            whisper = "他们的脚步，开始变得迟疑……";
+            whisperKey = "ability.changed_creatures.hypnotize.whisper.0";
         } else if (level < 2) {
-            whisper = "他们的意志，正在一寸寸融化……";
+            whisperKey = "ability.changed_creatures.hypnotize.whisper.1";
         } else {
-            whisper = "他们的灵魂，已在你眼中沉没.";
+            whisperKey = "ability.changed_creatures.hypnotize.whisper.2";
         }
 
-        list.add(Component.literal(whisper)
-                .withStyle(ChatFormatting.DARK_PURPLE, ChatFormatting.ITALIC));
+        list.add(Component.translatable(whisperKey));
     }
 }
