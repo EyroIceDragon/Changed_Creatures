@@ -5,12 +5,12 @@ license="MIT License"
 [[mods]]
 modId="changed_creatures"
 displayName="Changed: More Creatures-1.20.1"
-version="1.3.1-Dev823"
+version="1.3.2"
 credits='''
 §bModel help:
 逸云,洛虹·早春,ChengXi程曦,Zirconia Hui(锆晖)
 §rDev help: 缘来007,Glitchkittenrocks
-@sTranslate Help:xxXMinionXxx
+@sTranslate Help:xxXMinionXxx,Glitchkittenrocks
 '''
 displayURL="https://github.com/hhdsjgit/Changed_Creatures"
 logoFile="logo.png"
@@ -30,13 +30,13 @@ side="BOTH"
 [[dependencies.changed_creatures]]
 modId="changed"
 mandatory=true
-versionRange="[0,)"  # 更稳健的版本写法
+versionRange="[0,)"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies.changed_creatures]]
 modId="changed_addon"
 mandatory=true
-versionRange="[0,)"  # 更稳健的版本写法
+versionRange="[0,)"
 ordering="AFTER"
 side="BOTH"
