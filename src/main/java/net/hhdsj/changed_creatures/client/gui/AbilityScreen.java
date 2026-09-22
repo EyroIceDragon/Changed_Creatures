@@ -31,10 +31,14 @@ public class AbilityScreen extends Screen {
 
     private static final int ROW_START_X = 15;
     private static final int ROW_START_Y = 70;
-    private static final int ROW_HEIGHT = 22;
+    private static final int ROW_HEIGHT = 30;
     private static final int BTN_SIZE = 14;
     private static final int BTN_GAP = 6;
     private static final int BTN_SPACING = 2;
+
+    // 图片尺寸
+    private static final int IMG_WIDTH = 114;
+    private static final int IMG_HEIGHT = 26;
 
     private static final int HOVER_BG_COLOR = 0x40FFFFFF;
     private static final int MIN_LEVEL = 0;
@@ -42,7 +46,7 @@ public class AbilityScreen extends Screen {
     private int panelX;
     private int panelY;
 
-    private static final RegistryObject<AbstractAbility>[] ABILITY_LIST = new RegistryObject[]{
+    private static RegistryObject<AbstractAbility>[] ABILITY_LIST = new RegistryObject[]{
             ChangedCreaturesModNewAbiliies.HYPNOSIE,
             ChangedCreaturesModNewAbiliies.ELECTRIC_RESISTANCE,
     };
@@ -66,10 +70,8 @@ public class AbilityScreen extends Screen {
             AbstractAbility ability = obj.get();
 
             int rowY = this.panelY + ROW_START_Y + i * ROW_HEIGHT;
-            String text = getAbilityText(obj, ability);
-            int textWidth = this.font.width(text);
-            int btnX = this.panelX + ROW_START_X + textWidth + BTN_GAP;
-            int btnY = rowY - 3;
+            int btnX = this.panelX + ROW_START_X + IMG_WIDTH + BTN_GAP;
+            int btnY = rowY + IMG_HEIGHT / 2;
 
             Button[] pair = addAbilityButtons(btnX, btnY, obj, ability);
             abilityButtons.put(obj.getId(), pair);
@@ -79,14 +81,13 @@ public class AbilityScreen extends Screen {
     private String getAbilityText(RegistryObject<AbstractAbility> obj, AbstractAbility ability) {
         Player player = Minecraft.getInstance().player;
         if (player == null) {
-            return ability.getDisplayName() + " Lv.0  (经验 0/100)";
+            return ability.getDisplayName() + " Lv.0";
         }
 
         PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
         ResourceLocation id = obj.getId();
         int level = abilities.getLevel(id);
-        int exp = abilities.get(id).exp;
-        return ability.getDisplayName() + " Lv." + level + "  (经验 " + exp + "/100)";
+        return ability.getDisplayName() + " Lv." + level;
     }
 
     private int getLevel(RegistryObject<AbstractAbility> obj) {
@@ -185,20 +186,27 @@ public class AbilityScreen extends Screen {
             int rowY = this.panelY + ROW_START_Y + i * ROW_HEIGHT;
             int rowX = this.panelX + ROW_START_X;
             String text = getAbilityText(obj, ability);
-            int textWidth = this.font.width(text);
 
-            boolean rowHovered = mouseX >= rowX && mouseX <= rowX + textWidth
-                    && mouseY >= rowY && mouseY <= rowY + 9;
+            int imgWidth = IMG_WIDTH;
+            int imgHeight = IMG_HEIGHT;
 
-            // 高亮
+            boolean rowHovered = mouseX >= rowX && mouseX <= rowX + imgWidth
+                    && mouseY >= rowY && mouseY <= rowY + imgHeight;
+
             if (rowHovered) {
                 graphics.fill(rowX - 2, rowY - 2,
-                        rowX + textWidth + 2, rowY + 11, HOVER_BG_COLOR);
+                        rowX + imgWidth + 2, rowY + imgHeight + 2, HOVER_BG_COLOR);
             }
 
-            graphics.blit(new ResourceLocation(ChangedCreature.MODID, "textures/gui/ability/latex_ability_0.png"), rowX,rowY,0, 0,114,26,114,26);
+            //如果可以获取到技能的图片那么就使用技能的图片.
+            if (ability.getAbilityTexture() == null) {
+                graphics.blit(new ResourceLocation(ChangedCreature.MODID, "textures/gui/ability/latex_ability_0.png"),
+                        rowX, rowY, 0, 0, imgWidth, imgHeight, imgWidth, imgHeight);
+            }else{
+                graphics.blit(ability.getAbilityTexture(), rowX, rowY, 0, 0, imgWidth, imgHeight, imgWidth, imgHeight);
+            }
 
-            graphics.drawString(this.font, text, rowX, rowY,
+            graphics.drawString(this.font, text, rowX, rowY + 3,
                     ability.getDisplayColor(), false);
 
             if (rowHovered) {
