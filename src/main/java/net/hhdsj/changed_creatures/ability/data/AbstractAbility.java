@@ -1,6 +1,7 @@
 package net.hhdsj.changed_creatures.ability.data;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 
@@ -12,7 +13,7 @@ public abstract class AbstractAbility {
     private final int displayColor;
     private final int maxLevel;
 
-    protected AbstractAbility(String displayName, int displayColor, int maxLevel) {
+    public AbstractAbility(String displayName, int displayColor, int maxLevel) {
         this.displayName = displayName;
         this.displayColor = displayColor;
         this.maxLevel = maxLevel;
@@ -21,6 +22,7 @@ public abstract class AbstractAbility {
     public String getDisplayName() { return displayName; }
     public int getDisplayColor() { return displayColor; }
     public int getMaxLevel() { return maxLevel; }
+    public ResourceLocation getAbilityTexture() { return null; }
 
     public void onLevelUp(Player player, int newLevel) {}
     public void onLevelDown(Player player, int newLevel) {}
