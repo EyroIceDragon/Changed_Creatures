@@ -70,7 +70,7 @@ public class AbilityScreen extends Screen {
             AbstractAbility ability = obj.get();
 
             int rowY = this.panelY + ROW_START_Y + i * ROW_HEIGHT;
-            int btnX = this.panelX + ROW_START_X + IMG_WIDTH + BTN_GAP;
+            int btnX = this.panelX + ROW_START_X + IMG_WIDTH + BTN_GAP - 8;
             int btnY = rowY + IMG_HEIGHT / 2;
 
             Button[] pair = addAbilityButtons(btnX, btnY, obj, ability);
@@ -157,16 +157,29 @@ public class AbilityScreen extends Screen {
         graphics.fill(this.panelX, this.panelY,
                 this.panelX + PANEL_WIDTH, this.panelY + PANEL_HEIGHT, 0xFF2B2B2B);
 
-        // 边框
-        int borderColor = 0xFF00AAFF;
-        graphics.fill(this.panelX, this.panelY,
-                this.panelX + PANEL_WIDTH, this.panelY + 1, borderColor);
-        graphics.fill(this.panelX, this.panelY + PANEL_HEIGHT - 1,
-                this.panelX + PANEL_WIDTH, this.panelY + PANEL_HEIGHT, borderColor);
-        graphics.fill(this.panelX, this.panelY, this.panelX + 1,
-                this.panelY + PANEL_HEIGHT, borderColor);
-        graphics.fill(this.panelX + PANEL_WIDTH - 1, this.panelY,
-                this.panelX + PANEL_WIDTH, this.panelY + PANEL_HEIGHT, borderColor);
+        // 绘制边框
+//        int borderColor = 0xFF00AAFF;
+        int viewX = this.panelX;
+        int viewY = this.panelY;
+        int viewW = 320;
+        int viewH = 220;
+        ResourceLocation TEXTURE = new ResourceLocation(ChangedCreature.MODID, "textures/gui/ability/drak_latex.png");
+        float scrollY = (System.currentTimeMillis() % 10000) / 10000f * viewH;
+        graphics.enableScissor(viewX, viewY, viewX + viewW, viewY + viewH);
+        graphics.blit(TEXTURE, viewX, (int)(viewY - scrollY), 0, 0, 320, 220, 320, 220);
+        graphics.blit(TEXTURE, viewX, (int)(viewY - scrollY + viewH), 0, 0, 320, 220, 320, 220);
+        graphics.disableScissor();
+
+        graphics.blit(new ResourceLocation(ChangedCreature.MODID, "textures/gui/ability/ability_gui_1.png"),
+                this.panelX-20, this.panelY-20, 0, 0, 340, 240, 340, 240);
+//        graphics.fill(this.panelX, this.panelY,
+//                this.panelX + PANEL_WIDTH, this.panelY + 1, borderColor);
+//        graphics.fill(this.panelX, this.panelY + PANEL_HEIGHT - 1,
+//                this.panelX + PANEL_WIDTH, this.panelY + PANEL_HEIGHT, borderColor);
+//        graphics.fill(this.panelX, this.panelY, this.panelX + 1,
+//                this.panelY + PANEL_HEIGHT, borderColor);
+//        graphics.fill(this.panelX + PANEL_WIDTH - 1, this.panelY,
+//                this.panelX + PANEL_WIDTH, this.panelY + PANEL_HEIGHT, borderColor);
 
         Component title = Component.literal("能力");
         int titleWidth = this.font.width(title);
@@ -206,8 +219,15 @@ public class AbilityScreen extends Screen {
                 graphics.blit(ability.getAbilityTexture(), rowX, rowY, 0, 0, imgWidth, imgHeight, imgWidth, imgHeight);
             }
 
-            graphics.drawString(this.font, text, rowX, rowY + 3,
-                    ability.getDisplayColor(), false);
+            //古法画描边.
+            int outlineColor = 0xFF000000;
+            int draw_x = 3, draw_y = 3;
+            graphics.drawString(this.font, text, rowX + draw_x - 1, rowY + draw_y, outlineColor, false);
+            graphics.drawString(this.font, text, rowX + draw_x + 1, rowY + draw_y, outlineColor, false);
+            graphics.drawString(this.font, text, rowX + draw_x, rowY + draw_y - 1, outlineColor, false);
+            graphics.drawString(this.font, text, rowX + draw_x, rowY + draw_y + 1, outlineColor, false);
+
+            graphics.drawString(this.font, text, rowX + draw_x, rowY + draw_y, ability.getDisplayColor(), false);
 
             if (rowHovered) {
                 Player player = Minecraft.getInstance().player;
@@ -221,7 +241,7 @@ public class AbilityScreen extends Screen {
                 List<Component> tooltip = new ArrayList<>();
                 tooltip.add(Component.literal("§b§l" + ability.getDisplayName()));
                 ability.appendHoverText(tooltip, player, level);
-                tooltip.add(Component.literal("§7等级: §f" + level + " §7/ §f" + ability.getMaxLevel()));
+                tooltip.add(Component.literal("§7Level: §f" + level + " §7/ §f" + ability.getMaxLevel()));
                 graphics.renderComponentTooltip(this.font, tooltip, mouseX, mouseY);
             }
         }
