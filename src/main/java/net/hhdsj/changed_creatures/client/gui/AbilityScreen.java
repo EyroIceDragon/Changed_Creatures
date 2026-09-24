@@ -27,10 +27,10 @@ import java.util.Map;
 public class AbilityScreen extends Screen {
 
     private static final int PANEL_WIDTH = 320;
-    private static final int PANEL_HEIGHT = 220;
+    private static final int PANEL_HEIGHT = 206;
 
     private static final int ROW_START_X = 15;
-    private static final int ROW_START_Y = 70;
+    private static final int ROW_START_Y = 50;
     private static final int ROW_HEIGHT = 30;
     private static final int BTN_SIZE = 14;
     private static final int BTN_GAP = 6;
@@ -39,6 +39,14 @@ public class AbilityScreen extends Screen {
     // 图片尺寸
     private static final int IMG_WIDTH = 114;
     private static final int IMG_HEIGHT = 26;
+
+    // 边框贴图尺寸（340x226，内框相对图片左上角偏移 20）
+    private static final int FRAME_WIDTH = 330;
+    private static final int FRAME_HEIGHT = 216;
+    private static final int FRAME_OFFSET = 0;
+
+    private static final int BG_WIDTH = 340;
+    private static final int BG_HEIGHT = 226;
 
     private static final int HOVER_BG_COLOR = 0x40FFFFFF;
     private static final int MIN_LEVEL = 0;
@@ -70,7 +78,7 @@ public class AbilityScreen extends Screen {
             AbstractAbility ability = obj.get();
 
             int rowY = this.panelY + ROW_START_Y + i * ROW_HEIGHT;
-            int btnX = this.panelX + ROW_START_X + IMG_WIDTH + BTN_GAP - 8;
+            int btnX = this.panelX + ROW_START_X + IMG_WIDTH + BTN_GAP - 4;
             int btnY = rowY + IMG_HEIGHT / 2;
 
             Button[] pair = addAbilityButtons(btnX, btnY, obj, ability);
@@ -119,7 +127,7 @@ public class AbilityScreen extends Screen {
                         btn -> ChangedCreature.PACKET_HANDLER.sendToServer(
                                 new AbilitiesMessage(id, 1))
                 )
-                .bounds(btnX + BTN_SIZE + BTN_SPACING, btnY, BTN_SIZE, BTN_SIZE)
+                .bounds(btnX , btnY - BTN_SIZE - 1, BTN_SIZE, BTN_SIZE)
                 .tooltip(Tooltip.create(Component.literal(
                         "§a提升 " + ability.getDisplayName() + " 等级")))
                 .build();
@@ -154,32 +162,34 @@ public class AbilityScreen extends Screen {
 
         this.renderBackground(graphics);
 
-        graphics.fill(this.panelX, this.panelY,
-                this.panelX + PANEL_WIDTH, this.panelY + PANEL_HEIGHT, 0xFF2B2B2B);
+        ResourceLocation TEXTURE = new ResourceLocation(
+                ChangedCreature.MODID, "textures/gui/ability/dark_latex.png");
 
-        // 绘制边框
-//        int borderColor = 0xFF00AAFF;
-        int viewX = this.panelX;
-        int viewY = this.panelY;
-        int viewW = 320;
-        int viewH = 220;
-        ResourceLocation TEXTURE = new ResourceLocation(ChangedCreature.MODID, "textures/gui/ability/drak_latex.png");
-        float scrollY = (System.currentTimeMillis() % 10000) / 10000f * viewH;
-        graphics.enableScissor(viewX, viewY, viewX + viewW, viewY + viewH);
-        graphics.blit(TEXTURE, viewX, (int)(viewY - scrollY), 0, 0, 320, 220, 320, 220);
-        graphics.blit(TEXTURE, viewX, (int)(viewY - scrollY + viewH), 0, 0, 320, 220, 320, 220);
+        float[] norm = getMouseNormalized(mouseX, mouseY);
+
+        float maxOffset = 5f;
+
+        float scrollY = (System.currentTimeMillis() % 15000) / 15000f * 220f;
+
+        float offsetX = norm[0] * maxOffset;
+        float offsetY = scrollY;
+
+        int baseX = this.panelX + (int) offsetX;
+        int baseY = this.panelY + (int) offsetY;
+
+        graphics.enableScissor(this.panelX + 10, this.panelY + 10,
+                this.panelX + PANEL_WIDTH, this.panelY + PANEL_HEIGHT);
+
+        graphics.blit(TEXTURE, baseX,            baseY,                0, 0, BG_WIDTH, BG_HEIGHT, BG_WIDTH, BG_HEIGHT);
+        graphics.blit(TEXTURE, baseX - BG_WIDTH, baseY,                0, 0, BG_WIDTH, BG_HEIGHT, BG_WIDTH, BG_HEIGHT);
+        graphics.blit(TEXTURE, baseX,            baseY - 220, 0, 0, BG_WIDTH, BG_HEIGHT, BG_WIDTH, BG_HEIGHT);
+        graphics.blit(TEXTURE, baseX - BG_WIDTH, baseY - 220, 0, 0, BG_WIDTH, BG_HEIGHT, BG_WIDTH, BG_HEIGHT);
+
         graphics.disableScissor();
 
         graphics.blit(new ResourceLocation(ChangedCreature.MODID, "textures/gui/ability/ability_gui_1.png"),
-                this.panelX-20, this.panelY-20, 0, 0, 340, 240, 340, 240);
-//        graphics.fill(this.panelX, this.panelY,
-//                this.panelX + PANEL_WIDTH, this.panelY + 1, borderColor);
-//        graphics.fill(this.panelX, this.panelY + PANEL_HEIGHT - 1,
-//                this.panelX + PANEL_WIDTH, this.panelY + PANEL_HEIGHT, borderColor);
-//        graphics.fill(this.panelX, this.panelY, this.panelX + 1,
-//                this.panelY + PANEL_HEIGHT, borderColor);
-//        graphics.fill(this.panelX + PANEL_WIDTH - 1, this.panelY,
-//                this.panelX + PANEL_WIDTH, this.panelY + PANEL_HEIGHT, borderColor);
+                this.panelX - FRAME_OFFSET, this.panelY - FRAME_OFFSET,
+                0, 0, FRAME_WIDTH, FRAME_HEIGHT, FRAME_WIDTH, FRAME_HEIGHT);
 
         Component title = Component.literal("能力");
         int titleWidth = this.font.width(title);
@@ -211,15 +221,14 @@ public class AbilityScreen extends Screen {
                         rowX + imgWidth + 2, rowY + imgHeight + 2, HOVER_BG_COLOR);
             }
 
-            //如果可以获取到技能的图片那么就使用技能的图片.
             if (ability.getAbilityTexture() == null) {
                 graphics.blit(new ResourceLocation(ChangedCreature.MODID, "textures/gui/ability/latex_ability_0.png"),
                         rowX, rowY, 0, 0, imgWidth, imgHeight, imgWidth, imgHeight);
-            }else{
+            } else {
                 graphics.blit(ability.getAbilityTexture(), rowX, rowY, 0, 0, imgWidth, imgHeight, imgWidth, imgHeight);
             }
 
-            //古法画描边.
+            // 描边
             int outlineColor = 0xFF000000;
             int draw_x = 3, draw_y = 3;
             graphics.drawString(this.font, text, rowX + draw_x - 1, rowY + draw_y, outlineColor, false);
@@ -252,5 +261,17 @@ public class AbilityScreen extends Screen {
     @Override
     public boolean isPauseScreen() {
         return false;
+    }
+    public float[] getMouseNormalized(float mouseX, float mouseY) {
+        float centerX = this.width / 2f;
+        float centerY = this.height / 2f;
+
+        float normX = (mouseX - centerX) / centerX;
+        float normY = (mouseY - centerY) / centerY;
+
+        normX = Math.max(-1f, Math.min(1f, normX));
+        normY = Math.max(-1f, Math.min(1f, normY));
+
+        return new float[]{normX, normY};
     }
 }

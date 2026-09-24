@@ -59,19 +59,18 @@ public class HypnotizeAbility extends AbstractAbility {
                         && e.isAlive()
                         && player.hasLineOfSight(e)
                         && TransfurVariant.getEntityVariant(e) == null
-                        && attackedPlayers.contains(e.getUUID())
+                        && !attackedPlayers.contains(e.getUUID())
         );
 
-        //清理已失效的目标
         Set<UUID> validIds = new HashSet<>();
         for (Player p : targets) validIds.add(p.getUUID());
-        attackedPlayers.removeIf(id -> !validIds.contains(id));
-
-        float amount = 0.2F + exp_level * 0.05F;
-        float max = (float) ProcessTransfur.getEntityTransfurTolerance(player);
+        attackedPlayers.retainAll(validIds);
 
         for (Player target : targets) {
-            if (ProcessTransfur.getPlayerTransfurVariant(target)==null) continue;
+            if (ProcessTransfur.getPlayerTransfurVariant(target) != null) continue;
+
+            float amount = 0.2F + exp_level * 0.05F;
+            float max = (float) ProcessTransfur.getEntityTransfurTolerance(target);
             float old = ProcessTransfur.getPlayerTransfurProgress(target);
             float next = old + amount;
 
@@ -82,34 +81,35 @@ public class HypnotizeAbility extends AbstractAbility {
                         TransfurContext.hazard(TransfurCause.GRAB_REPLICATE),
                         1.0F
                 );
-                attackedPlayers.remove(target.getUUID());
+                attackedPlayers.add(target.getUUID());
             } else {
                 ProcessTransfur.setPlayerTransfurProgress(target, next);
             }
-
-            level.getNearbyEntities(
-                    Player.class,
-                    TargetingConditions.DEFAULT,
-                    player,
-                    AABB.ofSize(player.position(), 4.0D, 4.0D, 4.0D)
-            ).forEach(Player -> {
-
-                double dot = Player.getLookAngle()
-                        .normalize()
-                        .dot(player.getEyePosition()
-                                .subtract(Player.getEyePosition())
-                                .normalize());
-                if (dot < 0.85D) return;
-
-                CameraUtil.tugEntityLookDirection(Player, player, 0.1D);
-                if (exp_level >= 1) {
-                    Player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 5, 2, false, false), player);
-                }
-                if (exp_level == 2) {
-                    Player.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 5, 2, false, false), player);
-                }
-            });
         }
+
+        level.getNearbyEntities(
+                Player.class,
+                TargetingConditions.DEFAULT,
+                player,
+                player.getBoundingBox().inflate(3.0D + exp_level)
+        ).forEach(other -> {
+            if (other == player || !other.isAlive()) return;
+
+            double dot = other.getLookAngle()
+                    .normalize()
+                    .dot(player.getEyePosition()
+                            .subtract(other.getEyePosition())
+                            .normalize());
+            if (dot < 0.85D) return;
+
+            CameraUtil.tugEntityLookDirection(other, player, 0.1D);
+            if (exp_level >= 1) {
+                other.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 5, 2, false, false), player);
+            }
+            if (exp_level == 2) {
+                other.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 5, 2, false, false), player);
+            }
+        });
     }
 
     @Override
