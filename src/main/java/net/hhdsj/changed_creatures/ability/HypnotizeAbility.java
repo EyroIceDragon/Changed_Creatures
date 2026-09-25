@@ -2,6 +2,7 @@ package net.hhdsj.changed_creatures.ability;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.ability.data.AbstractAbility;
+import net.hhdsj.changed_creatures.util.ProgressTransfurExt;
 import net.ltxprogrammer.changed.entity.ChangedEntity;
 import net.ltxprogrammer.changed.entity.TransfurCause;
 import net.ltxprogrammer.changed.entity.TransfurContext;
@@ -28,7 +29,7 @@ import java.util.UUID;
 
 public class HypnotizeAbility extends AbstractAbility {
     //技能图标
-    private final ResourceLocation texture = new ResourceLocation(ChangedCreature.MODID,"textures/gui/ability/latex_ability_hypnotize.png");
+    private final ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(ChangedCreature.MODID,"textures/gui/ability/latex_ability_hypnotize.png");
     private final Set<UUID> attackedPlayers = new HashSet<>();
 
     public HypnotizeAbility() {
@@ -59,7 +60,7 @@ public class HypnotizeAbility extends AbstractAbility {
                         && e.isAlive()
                         && player.hasLineOfSight(e)
                         && TransfurVariant.getEntityVariant(e) == null
-                        && !attackedPlayers.contains(e.getUUID())
+                        && attackedPlayers.contains(e.getUUID())
         );
 
         Set<UUID> validIds = new HashSet<>();
@@ -67,72 +68,56 @@ public class HypnotizeAbility extends AbstractAbility {
         attackedPlayers.retainAll(validIds);
 
         for (Player target : targets) {
+
             if (ProcessTransfur.getPlayerTransfurVariant(target) != null) continue;
 
             float amount = 0.2F + exp_level * 0.05F;
             float max = (float) ProcessTransfur.getEntityTransfurTolerance(target);
             float old = ProcessTransfur.getPlayerTransfurProgress(target);
             float next = old + amount;
+            System.out.println("Debug Player : "+ target + " / 进度: " + old);
 
             if (next >= max && old < max) {
                 ProcessTransfur.setPlayerTransfurProgress(target, 0.0F);
-                ProcessTransfur.setPlayerTransfurVariant(
-                        target, playerVariant,
-                        TransfurContext.hazard(TransfurCause.GRAB_REPLICATE),
-                        1.0F
-                );
-                attackedPlayers.add(target.getUUID());
+                ProcessTransfur.progressTransfur(target, 20f, playerVariant, TransfurContext.hazard(TransfurCause.FACE_HAZARD));
+                //attackedPlayers.remove(target.getUUID());
             } else {
                 ProcessTransfur.setPlayerTransfurProgress(target, next);
             }
-        }
 
-        level.getNearbyEntities(
-                Player.class,
-                TargetingConditions.DEFAULT,
-                player,
-                player.getBoundingBox().inflate(3.0D + exp_level)
-        ).forEach(other -> {
-            if (other == player || !other.isAlive()) return;
+            CameraUtil.tugEntityLookDirection(target, player, 1.25D);
 
-            double dot = other.getLookAngle()
-                    .normalize()
-                    .dot(player.getEyePosition()
-                            .subtract(other.getEyePosition())
-                            .normalize());
-            if (dot < 0.85D) return;
-
-            CameraUtil.tugEntityLookDirection(other, player, 0.1D);
             if (exp_level >= 1) {
-                other.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 5, 2, false, false), player);
+                target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 120, 4));
             }
             if (exp_level == 2) {
-                other.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 5, 2, false, false), player);
+                target.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 60, 2));
             }
-        });
+        }
+
     }
 
     @Override
-    public void onHurt(Player player, Entity attack, int exp_level) {
+    public void onAttack(Player player, LivingEntity target, int exp_level) {
         Level level = player.level();
+        if (level.isClientSide) return;
         if (exp_level == 0) return;
 
-        // 只记录被玩家攻击的玩家目标
-        if (attack instanceof Player targetPlayer && targetPlayer != player) {
+        if (target instanceof Player targetPlayer && targetPlayer != player) {
             attackedPlayers.add(targetPlayer.getUUID());
         }
 
-        level.getNearbyEntities(
-                Mob.class,
-                TargetingConditions.DEFAULT,
-                player,
-                AABB.ofSize(player.position(), 3.0D, 3.0D, 3.0D)
-        ).forEach(mob -> {
-            if (mob instanceof ChangedEntity) return;
-            if (mob.getTarget() != null && mob.getTarget().is(player)) {
-                mob.setTarget(null);
-            }
-        });
+//        level.getNearbyEntities(
+//                Mob.class,
+//                TargetingConditions.DEFAULT,
+//                player,
+//                AABB.ofSize(player.position(), 3.0D, 3.0D, 3.0D)
+//        ).forEach(mob -> {
+//            if (mob instanceof ChangedEntity) return;
+//            if (mob.getTarget() != null && mob.getTarget().is(player)) {
+//                mob.setTarget(null);
+//            }
+//        });
 
         
     }
@@ -160,7 +145,6 @@ public class HypnotizeAbility extends AbstractAbility {
             list.add(Component.translatable("ability.changed_creatures.hypnotize.mark_hint"));
         }
 
-        // 氛围台词（按等级切换 key）
         String whisperKey;
         if (level < 1) {
             whisperKey = "ability.changed_creatures.hypnotize.whisper.0";

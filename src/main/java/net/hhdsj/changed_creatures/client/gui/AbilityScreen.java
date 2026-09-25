@@ -1,11 +1,16 @@
 package net.hhdsj.changed_creatures.client.gui;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.ability.data.AbstractAbility;
 import net.hhdsj.changed_creatures.ability.data.PlayerAbilities;
 import net.hhdsj.changed_creatures.ability.data.PlayerAbilitiesCapability;
 import net.hhdsj.changed_creatures.init.ChangedCreaturesModNewAbiliies;
 import net.hhdsj.changed_creatures.network.AbilitiesMessage;
+import net.ltxprogrammer.changed.client.gui.AbstractRadialScreen;
+import net.ltxprogrammer.changed.entity.ChangedEntity;
+import net.ltxprogrammer.changed.process.ProcessTransfur;
+import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
@@ -67,7 +72,11 @@ public class AbilityScreen extends Screen {
 
     @Override
     protected void init() {
+        Player player = Minecraft.getInstance().player;
         super.init();
+        if (ProcessTransfur.getPlayerTransfurVariant(player)==null){
+            this.onClose();
+        }
         this.panelX = (this.width - PANEL_WIDTH) / 2;
         this.panelY = (this.height - PANEL_HEIGHT) / 2;
 
@@ -158,12 +167,16 @@ public class AbilityScreen extends Screen {
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
+        Player player = Minecraft.getInstance().player;
+        if (ProcessTransfur.getPlayerTransfurVariant(player)==null){
+            this.onClose();
+        }
         updateButtonStates();
 
         this.renderBackground(graphics);
 
         ResourceLocation TEXTURE = new ResourceLocation(
-                ChangedCreature.MODID, "textures/gui/ability/dark_latex.png");
+                ChangedCreature.MODID, "textures/gui/ability/background_latex.png");
 
         float[] norm = getMouseNormalized(mouseX, mouseY);
 
@@ -177,20 +190,26 @@ public class AbilityScreen extends Screen {
         int baseX = this.panelX + (int) offsetX;
         int baseY = this.panelY + (int) offsetY;
 
+        AbstractRadialScreen.ColorScheme colorPair = AbstractRadialScreen.getColors(ProcessTransfur.getPlayerTransfurVariant(player));
+        Color3 primary = colorPair.background();
+        Color3 secondary = colorPair.foreground();
+
+        RenderSystem.setShaderColor(primary.red(), primary.green(), primary.blue(),1.0F);
         graphics.enableScissor(this.panelX + 10, this.panelY + 10,
                 this.panelX + PANEL_WIDTH, this.panelY + PANEL_HEIGHT);
-
         graphics.blit(TEXTURE, baseX,            baseY,                0, 0, BG_WIDTH, BG_HEIGHT, BG_WIDTH, BG_HEIGHT);
         graphics.blit(TEXTURE, baseX - BG_WIDTH, baseY,                0, 0, BG_WIDTH, BG_HEIGHT, BG_WIDTH, BG_HEIGHT);
         graphics.blit(TEXTURE, baseX,            baseY - 220, 0, 0, BG_WIDTH, BG_HEIGHT, BG_WIDTH, BG_HEIGHT);
         graphics.blit(TEXTURE, baseX - BG_WIDTH, baseY - 220, 0, 0, BG_WIDTH, BG_HEIGHT, BG_WIDTH, BG_HEIGHT);
-
         graphics.disableScissor();
+
+        RenderSystem.setShaderColor(secondary.red(), secondary.green(), secondary.blue(),1.0F);
 
         graphics.blit(new ResourceLocation(ChangedCreature.MODID, "textures/gui/ability/ability_gui_1.png"),
                 this.panelX - FRAME_OFFSET, this.panelY - FRAME_OFFSET,
                 0, 0, FRAME_WIDTH, FRAME_HEIGHT, FRAME_WIDTH, FRAME_HEIGHT);
 
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         Component title = Component.literal("能力");
         int titleWidth = this.font.width(title);
         graphics.drawString(this.font, title,
@@ -239,7 +258,6 @@ public class AbilityScreen extends Screen {
             graphics.drawString(this.font, text, rowX + draw_x, rowY + draw_y, ability.getDisplayColor(), false);
 
             if (rowHovered) {
-                Player player = Minecraft.getInstance().player;
                 int level = 0, exp = 0;
                 if (player != null) {
                     PlayerAbilities pa = PlayerAbilitiesCapability.get(player);

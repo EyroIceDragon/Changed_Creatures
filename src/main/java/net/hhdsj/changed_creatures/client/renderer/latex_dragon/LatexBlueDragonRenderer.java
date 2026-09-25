@@ -2,6 +2,7 @@
 package net.hhdsj.changed_creatures.client.renderer.latex_dragon;
 
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
@@ -31,6 +32,6 @@ public class LatexBlueDragonRenderer extends AdvancedHumanoidRenderer<Latexblued
 
 	@Override
 	public ResourceLocation getTextureLocation(LatexbluedragonEntity entity) {
-		return new ResourceLocation("changed_creatures:textures/entities/latex/latex_bluegreen_texture_new1.png");
+		return ResourceLocation.fromNamespaceAndPath(ChangedCreature.MODID,"textures/entities/latex/latex_bluegreen_texture_new1.png");
 	}
 }

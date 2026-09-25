@@ -3,6 +3,7 @@ package net.hhdsj.changed_creatures.ability.data;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 
 import java.util.List;
@@ -27,7 +28,8 @@ public abstract class AbstractAbility {
     public void onLevelUp(Player player, int newLevel) {}
     public void onLevelDown(Player player, int newLevel) {}
     public void onTick(Player player, int level) {}
-    public void onHurt(Player player, Entity attack, int level) {}
+    public void onHurt(Player player, LivingEntity attack, int level) {}
+    public void onAttack(Player player, LivingEntity attack, int level) {}
     public void onVariantChanged(Player player, int level) {}
     public void appendHoverText(List<Component> list, Player player, int level) {}
 }

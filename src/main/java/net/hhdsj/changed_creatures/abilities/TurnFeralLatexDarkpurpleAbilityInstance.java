@@ -79,7 +79,7 @@ public class TurnFeralLatexDarkpurpleAbilityInstance extends AbstractAbilityInst
         if (tag.contains(OLD_TRANSFUR_VARIANT)) {
             ResourceLocation form;
             try {
-                form = new ResourceLocation(tag.getString(OLD_TRANSFUR_VARIANT));
+                form = ResourceLocation.parse(tag.getString(OLD_TRANSFUR_VARIANT));
             } catch (Exception e) {
                 form = null;
             }
