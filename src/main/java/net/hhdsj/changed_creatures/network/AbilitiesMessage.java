@@ -1,9 +1,7 @@
 package net.hhdsj.changed_creatures.network;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
-import net.hhdsj.changed_creatures.ability.data.AbilitySyncPacket;
-import net.hhdsj.changed_creatures.ability.data.PlayerAbilities;
-import net.hhdsj.changed_creatures.ability.data.PlayerAbilitiesCapability;
+import net.hhdsj.changed_creatures.ability.data.*;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -12,6 +10,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.network.PacketDistributor;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
@@ -60,6 +59,9 @@ public class AbilitiesMessage {
 			}
 			case 1 -> {
 				int lv = abilities.getLevel(abilityId);
+				AbstractAbility ability = AbilityRegistry.get(abilityId);
+				if (ability == null) return;
+				AbilityUseExp.useExp(player, ability, lv);
 				abilities.setLevel(abilityId, Math.min(10, lv + 1));
 			}
 			default -> {
