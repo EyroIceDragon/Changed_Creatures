@@ -76,6 +76,7 @@ public class ChangedCreature {
 
 		CrystalRingHandler.registerCapabilities(bus);
 		SyncCrystalRingPacket.register();
+		ChangedCreaturesModAbiliiesVariants.bindAll();
 		MinecraftForge.EVENT_BUS.register(new CrystalRingHandler());
 	}
 
