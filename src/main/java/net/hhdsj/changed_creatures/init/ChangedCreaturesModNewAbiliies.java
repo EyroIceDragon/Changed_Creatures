@@ -1,6 +1,7 @@
 package net.hhdsj.changed_creatures.init;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
+import net.hhdsj.changed_creatures.ability.DamageResistanceAbility;
 import net.hhdsj.changed_creatures.ability.data.AbstractAbility;
 import net.hhdsj.changed_creatures.ability.ElectricResistanceAbility;
 import net.hhdsj.changed_creatures.ability.FlyAbility;
@@ -25,6 +26,9 @@ public class ChangedCreaturesModNewAbiliies {
 
     public static final RegistryObject<AbstractAbility> HYPNOSIE =
             ABILITIES.register("hypnosis", HypnotizeAbility::new);
+
+    public static final RegistryObject<AbstractAbility> DAMAGE_RESISTANCE =
+            ABILITIES.register("damage_resistance", DamageResistanceAbility::new);
 
     /** 在主类里调用，挂到 mod 事件总线 */
     public static void register(IEventBus modBus) {
