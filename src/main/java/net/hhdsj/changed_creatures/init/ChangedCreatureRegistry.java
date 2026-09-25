@@ -2,6 +2,7 @@ package net.hhdsj.changed_creatures.init;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.ability.data.AbstractAbility;
+import net.ltxprogrammer.changed.entity.variant.TransfurVariant;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
