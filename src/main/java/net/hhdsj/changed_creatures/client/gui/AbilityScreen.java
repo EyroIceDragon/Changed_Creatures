@@ -56,13 +56,24 @@ public class AbilityScreen extends Screen {
 
     private static final int SLOT_COUNT = 4;
 
+    // ---- 语言键常量 ----
+    private static final String KEY_TITLE = "gui.changed_creatures.ability.title";
+    private static final String KEY_BTN_DECREASE = "gui.changed_creatures.ability.button.decrease";
+    private static final String KEY_BTN_INCREASE = "gui.changed_creatures.ability.button.increase";
+    private static final String KEY_NOT_ENOUGH_EXP = "gui.changed_creatures.ability.not_enough_exp";
+    private static final String KEY_PLAYER_EXP = "gui.changed_creatures.ability.player_exp";
+    private static final String KEY_EMPTY_SLOT = "gui.changed_creatures.ability.empty_slot";
+    private static final String KEY_NOT_OWNED = "gui.changed_creatures.ability.not_owned";
+    private static final String KEY_LEVEL = "gui.changed_creatures.ability.level";
+    private static final String KEY_LEVEL_SHORT = "gui.changed_creatures.ability.level_short";
+
     private int panelX;
     private int panelY;
     private int check_exp;
     private final Map<ResourceLocation, Button[]> abilityButtons = new HashMap<>();
 
     public AbilityScreen() {
-        super(Component.literal("Ability"));
+        super(Component.translatable(KEY_TITLE));
     }
 
     private List<RegistryObject<AbstractAbility>> getVariantAbilities() {
@@ -142,7 +153,8 @@ public class AbilityScreen extends Screen {
                                 new AbilitiesMessage(id, 0))
                 )
                 .bounds(btnX, btnY, BTN_SIZE, BTN_SIZE)
-                .tooltip(Tooltip.create(Component.literal("§c降低 " + ability.getDisplayName() + " 等级")))
+                .tooltip(Tooltip.create(Component.translatable(
+                        KEY_BTN_DECREASE, ability.getDisplayName())))
                 .build();
         minusBtn.active = owned;
         this.addRenderableWidget(minusBtn);
@@ -153,7 +165,8 @@ public class AbilityScreen extends Screen {
                                 new AbilitiesMessage(id, 1))
                 )
                 .bounds(btnX, btnY - BTN_SIZE - 1, BTN_SIZE, BTN_SIZE)
-                .tooltip(Tooltip.create(Component.literal("§提升 " + ability.getDisplayName() + " 等级")))
+                .tooltip(Tooltip.create(Component.translatable(
+                        KEY_BTN_INCREASE, ability.getDisplayName())))
                 .build();
         plusBtn.active = owned;
         this.addRenderableWidget(plusBtn);
@@ -175,11 +188,16 @@ public class AbilityScreen extends Screen {
 
             boolean owned = abilities.hasAbility(id);
             int level = abilities.getLevel(id);
-            boolean enough_exp = AbilityUseExp.enoughExp(player,ability,level);
-            Component text = Component.literal("§提升 " + ability.getDisplayName() + " 等级");
+            boolean enough_exp = AbilityUseExp.enoughExp(player, ability, level);
+
+            Component text;
             if (!enough_exp && level < ability.getMaxLevel()) {
-                text = Component.literal("经验不足 缺少经验: " + AbilityUseExp.missExp(player,ability,level));
+                text = Component.translatable(KEY_NOT_ENOUGH_EXP,
+                        AbilityUseExp.missExp(player, ability, level));
+            } else {
+                text = Component.translatable(KEY_BTN_INCREASE, ability.getDisplayName());
             }
+
             pair[1].setTooltip(Tooltip.create(text));
             pair[0].active = owned && (level > MIN_LEVEL);
             pair[1].active = owned && (level < ability.getMaxLevel()) && enough_exp;
@@ -230,7 +248,7 @@ public class AbilityScreen extends Screen {
 
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 
-        Component title = Component.literal("能力");
+        Component title = Component.translatable(KEY_TITLE);
         int titleWidth = this.font.width(title);
         graphics.drawString(this.font, title,
                 this.panelX + (PANEL_WIDTH - titleWidth) / 2,
@@ -248,10 +266,10 @@ public class AbilityScreen extends Screen {
             }
         }
 
-        drawExpBar(graphics, AbilityUseExp.getPlayerExp(player),primary,this.check_exp);
+        drawExpBar(graphics, AbilityUseExp.getPlayerExp(player), primary, this.check_exp);
 
         graphics.drawString(this.font,
-                Component.literal("你的经验(You Exp): " + AbilityUseExp.getPlayerExp(player)),
+                Component.translatable(KEY_PLAYER_EXP, AbilityUseExp.getPlayerExp(player)),
                 this.panelX + 15, this.panelY + 40, 0xAAAAAA, false);
 
         List<RegistryObject<AbstractAbility>> abilities = getVariantAbilities();
@@ -271,7 +289,7 @@ public class AbilityScreen extends Screen {
             boolean owned = playerHasAbility(id);
 
             int level = getLevel(id);
-            String text = ability.getDisplayName() + " Lv." + level;
+            String text = ability.getDisplayName() + " " + Component.translatable(KEY_LEVEL_SHORT).getString() + level;
 
             boolean rowHovered = mouseX >= rowX && mouseX <= rowX + IMG_WIDTH
                     && mouseY >= rowY && mouseY <= rowY + IMG_HEIGHT;
@@ -296,19 +314,17 @@ public class AbilityScreen extends Screen {
 
             int textColor = owned ? ability.getDisplayColor() : 0xFF808080;
 
-            int outlineColor = 0xFF000000;
-            int draw_x = 3, draw_y = 3;
-            drawStringWithBorder(graphics,text,rowX + draw_x, rowY + draw_y,textColor,outlineColor);
+            drawStringWithBorder(graphics, text, rowX + 3, rowY + 3, textColor, 0xFF000000);
 
             if (rowHovered) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltip.add(Component.literal("§b§l" + ability.getDisplayName()));
+                tooltip.add(Component.literal("§b§l").append(ability.getDisplayName()));
 
                 if (!owned) {
-                    tooltip.add(Component.literal("§c未拥有该能力"));
+                    tooltip.add(Component.translatable(KEY_NOT_OWNED));
                 } else {
                     ability.appendHoverText(tooltip, player, level);
-                    tooltip.add(Component.literal("§7Level: §f" + level + " §7/ §f" + ability.getMaxLevel()));
+                    tooltip.add(Component.translatable(KEY_LEVEL, level, ability.getMaxLevel()));
                 }
 
                 graphics.renderComponentTooltip(this.font, tooltip, mouseX, mouseY);
@@ -325,7 +341,8 @@ public class AbilityScreen extends Screen {
         graphics.blit(emptyIcon, rowX, rowY, 0, 0, IMG_WIDTH, IMG_HEIGHT, IMG_WIDTH, IMG_HEIGHT);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 
-        graphics.drawString(this.font, "§7— 空 —", rowX + 3, rowY + 3, 0xFF808080, false);
+        graphics.drawString(this.font, Component.translatable(KEY_EMPTY_SLOT),
+                rowX + 3, rowY + 3, 0xFF808080, false);
     }
 
     @Override
@@ -372,7 +389,7 @@ public class AbilityScreen extends Screen {
             }
         }
 
-        drawStringWithBorder(graphics, String.valueOf(draw_level), barX + BAR_WIDTH / 2-3, barY - 3, 0xFFFFFF, 0x000000);
+        drawStringWithBorder(graphics, String.valueOf(draw_level), barX + BAR_WIDTH / 2 - 3, barY - 3, 0xFFFFFF, 0x000000);
     }
 
     private void drawStringWithBorder(GuiGraphics graphics, String text, int x, int y, int textColor, int borderColor) {

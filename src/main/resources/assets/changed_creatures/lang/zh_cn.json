@@ -152,6 +152,15 @@
   "fluid.changed_creatures.fluidhottest": "测试物品",
   "gamerule.initiateAchievements": "GoodBlocks成就",
   "gamerule.initiateAchievements.description": "设定是否启用优质方块模组的成就",
+  "gui.changed_creatures.ability.button.decrease": "§c降低 %s 等级",
+  "gui.changed_creatures.ability.button.increase": "§a提升 %s 等级",
+  "gui.changed_creatures.ability.empty_slot": "§7— 空 —",
+  "gui.changed_creatures.ability.level": "§7Level: §f%1$s §7/ §f%2$s",
+  "gui.changed_creatures.ability.level_short": "Lv.",
+  "gui.changed_creatures.ability.not_enough_exp": "经验不足 缺少经验: %s",
+  "gui.changed_creatures.ability.not_owned": "§c未拥有该能力",
+  "gui.changed_creatures.ability.player_exp": "你拥有的经验: %s",
+  "gui.changed_creatures.ability.title": "能力",
   "gui.changed_creatures.findgui.GUI_A": "无用的图形界面",
   "gui.changed_creatures.findgui.button_dian_wo": "此处",
   "gui.changed_creatures.findgui.label_changed_creatures_06_beta": "Goodblock 1.0.2 - 测试版",
@@ -334,6 +343,5 @@
   "items.changed_creatures.latex_xian_jin_dragon_spawn_egg": "Latex Xuan Jin Wolf Dragon",
   "key.changed_creatures.elyter_fly": "鞘翅飞行",
   "key.changed_creatures.keya": "按键 A",
-  "subtitles.anit_furry_music": "反毛茸茸音乐！！！",
   "subtitles.item.armor.equip_netherite": "穿戴盔甲"
 }
