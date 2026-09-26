@@ -58,7 +58,7 @@ public class AbilityScreen extends Screen {
 
     private int panelX;
     private int panelY;
-
+    private int check_exp;
     private final Map<ResourceLocation, Button[]> abilityButtons = new HashMap<>();
 
     public AbilityScreen() {
@@ -180,7 +180,6 @@ public class AbilityScreen extends Screen {
             if (!enough_exp && level < ability.getMaxLevel()) {
                 text = Component.literal("经验不足 缺少经验: " + AbilityUseExp.missExp(player,ability,level));
             }
-
             pair[1].setTooltip(Tooltip.create(text));
             pair[0].active = owned && (level > MIN_LEVEL);
             pair[1].active = owned && (level < ability.getMaxLevel()) && enough_exp;
@@ -237,7 +236,19 @@ public class AbilityScreen extends Screen {
                 this.panelX + (PANEL_WIDTH - titleWidth) / 2,
                 this.panelY + 15, 0xFFFFFF, false);
 
-        drawExpBar(graphics, AbilityUseExp.getPlayerExp(player),primary);
+        for (Map.Entry<ResourceLocation, Button[]> entry : abilityButtons.entrySet()) {
+            ResourceLocation id = entry.getKey();
+            Button plusBtn = entry.getValue()[1];
+
+            if (plusBtn.isMouseOver(mouseX, mouseY) && plusBtn.active) {
+                AbstractAbility ability = AbilityRegistry.get(id);
+                if (ability == null) continue;
+                int level = PlayerAbilitiesCapability.get(player).getLevel(id);
+                this.check_exp = Math.round(ability.useExp(level + 1));
+            }
+        }
+
+        drawExpBar(graphics, AbilityUseExp.getPlayerExp(player),primary,this.check_exp);
 
         graphics.drawString(this.font,
                 Component.literal("你的经验(You Exp): " + AbilityUseExp.getPlayerExp(player)),
@@ -339,24 +350,34 @@ public class AbilityScreen extends Screen {
         return new float[]{normX, normY};
     }
 
-    private void drawExpBar(GuiGraphics graphics,int exp ,Color3 color) {
+    private void drawExpBar(GuiGraphics graphics, int exp, Color3 color, int cost) {
         int barX = this.panelX - BAR_WIDTH / 2 + PANEL_WIDTH / 2;
         int barY = this.panelY - BAR_HEIGHT / 2 + 35;
 
         graphics.blit(ChangedCreature.ChangedCreatureResourceLocation("textures/gui/ability/latex_exp_bar.png"), barX, barY, 0, 0, BAR_WIDTH, BAR_HEIGHT, BAR_WIDTH, BAR_HEIGHT);
-
         int draw_level = exp / 100;
         int draw_exp = exp % 100;
-
         float progress = (float) draw_exp / 100;
         int draw_long = (int) (BAR_WIDTH * progress);
 
-        if (draw_long > 0){
-            RenderSystem.setShaderColor(color.red() - 15, color.green() - 15, color.blue() - 15, 1.0F);
-            graphics.blit(ChangedCreature.ChangedCreatureResourceLocation("textures/gui/ability/latex_exp_bar.png"), barX, barY, 0, 0, draw_long, BAR_HEIGHT, BAR_WIDTH, BAR_HEIGHT);
+        if (draw_long > 0) {
+            RenderSystem.setShaderColor(color.red(), color.green(), color.blue(), 1.0F);
+            graphics.blit(ChangedCreature.ChangedCreatureResourceLocation("textures/gui/ability/latex_exp_bar_0.png"), barX, barY, 0, 0, draw_long, BAR_HEIGHT, BAR_WIDTH, BAR_HEIGHT);
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         }
-        drawStringWithBorder(graphics,String.valueOf(draw_level), this.panelX, this.panelY - 1, 0xFFFFFF, 0x000000);
+
+        if (cost > 0) {
+            int costLong = (int) (BAR_WIDTH * ((float) Math.min(cost, exp) / 100));
+            int costX = barX + draw_long;
+            int costW = Math.min(costLong, BAR_WIDTH - draw_long);
+            if (costW > 0) {
+                RenderSystem.setShaderColor(0.5F, 0.0F, 0.0F, 0.8F);
+                graphics.blit(ChangedCreature.ChangedCreatureResourceLocation("textures/gui/ability/latex_exp_bar_0.png"), costX, barY, 0, 0, costW, BAR_HEIGHT, BAR_WIDTH, BAR_HEIGHT);
+                RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+            }
+        }
+
+        drawStringWithBorder(graphics, String.valueOf(draw_level), barX + BAR_WIDTH / 2, barY - 3, 0xFFFFFF, 0x000000);
     }
 
     private void drawStringWithBorder(GuiGraphics graphics, String text, int x, int y, int textColor, int borderColor) {

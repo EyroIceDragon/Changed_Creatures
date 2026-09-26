@@ -17,6 +17,7 @@ public class AbilityUseExp {
 
         return get_need_exp - get_player_exp;
     }
+
     public static void useExp(Player player, AbstractAbility ability, int level) {
         if (ability == null) return;
         PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
