@@ -344,13 +344,5 @@
   "key.changed_creatures.elyter_fly": "Kitinszárnyas repülés",
   "key.changed_creatures.keya": "Kulcs teszt",
   "subtitles.item.armor.equip_netherite": "Páncél felvétele",
-  "ability.changed_creatures.hypnotize.name": "◈ hypnotism",
-  "subtitles.anit_furry_music": "Anti-Furry zene!!!",
-  "subtitles.flutemusica_1records": "Fuvolazene 1 lemez",
-  "subtitles.gnusmas_gm_soundfont_2.00": "Gnusmas GM Soundfont",
-  "subtitles.ink_sans": "Zene",
-  "subtitles.no_stop": "Soha ne állj meg",
-  "subtitles.srening_ogg1": "Zene",
-  "subtitles.the_fluffy_heartbeat_in_the_cubicle": "A bolyhos szívverés a fülkében zene lejátszása",
-  "subtitles.the_fluffy_heartbeatinthe_cubiclemusic": "A bolyhos szívverés a fülkében zene"
+  "ability.changed_creatures.hypnotize.name": "◈ hypnotism"
 }
