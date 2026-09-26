@@ -1,6 +1,5 @@
 package net.hhdsj.changed_creatures.abilities;
 
-import net.foxyas.changedaddon.entity.advanced.LatexSnepEntity;
 import net.ltxprogrammer.changed.ability.AbstractAbility;
 import net.ltxprogrammer.changed.ability.IAbstractChangedEntity;
 import net.minecraft.network.chat.Component;
@@ -24,9 +23,6 @@ public class TurnFeraLatexDarkPurpleAbility extends AbstractAbility<TurnFeralLat
     @Nullable
     @Override
     public Component getSelectedDisplayText(IAbstractChangedEntity entity) {
-        if (entity.getChangedEntity() instanceof LatexSnepEntity) {
-            return Component.translatable("changed_addon.ability.turn_feral.can");
-        }
         return super.getSelectedDisplayText(entity);
     }
 
