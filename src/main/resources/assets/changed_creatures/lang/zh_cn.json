@@ -343,5 +343,6 @@
   "items.changed_creatures.latex_xian_jin_dragon_spawn_egg": "Latex Xuan Jin Wolf Dragon",
   "key.changed_creatures.elyter_fly": "鞘翅飞行",
   "key.changed_creatures.keya": "按键 A",
-  "subtitles.item.armor.equip_netherite": "穿戴盔甲"
+  "subtitles.item.armor.equip_netherite": "穿戴盔甲",
+  "ability.changed_creatures.hypnotize.name": "◈ 催眠"
 }

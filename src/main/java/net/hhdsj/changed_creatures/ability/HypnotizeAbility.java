@@ -33,7 +33,7 @@ public class HypnotizeAbility extends AbstractAbility {
     private final Set<UUID> attackedPlayers = new HashSet<>();
 
     public HypnotizeAbility() {
-        super("◈ 催眠 ", 0xFFFFFF, 2);
+        super(String.valueOf(Component.translatable("ability.changed_creatures.hypnotize.name")), 0xFFFFFF, 2);
     }
 
     @Override
@@ -75,7 +75,7 @@ public class HypnotizeAbility extends AbstractAbility {
             float max = (float) ProcessTransfur.getEntityTransfurTolerance(target);
             float old = ProcessTransfur.getPlayerTransfurProgress(target);
             float next = old + amount;
-            System.out.println("Debug Player : "+ target + " / 进度: " + old);
+            //System.out.println("Debug Player : "+ target + " / 进度: " + old);
 
             if (next >= max && old < max) {
                 ProcessTransfur.setPlayerTransfurProgress(target, 0.0F);

@@ -11,7 +11,7 @@ import java.util.List;
 public class ElectricResistanceAbility extends AbstractAbility {
     private final ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(ChangedCreature.MODID,"textures/gui/ability/latex_ability_anit_lightning.png");
     public ElectricResistanceAbility() {
-        super("◈ 抗电", 0xFFFF88, 5);
+        super(String.valueOf(Component.literal("◈ 抗电")), 0xFFFF88, 5);
     }
     @Override
     public void onTick(Player player, int level) {
