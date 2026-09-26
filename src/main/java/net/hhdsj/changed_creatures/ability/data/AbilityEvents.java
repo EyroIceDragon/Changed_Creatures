@@ -7,6 +7,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -65,5 +66,14 @@ public class AbilityEvents {
     @SubscribeEvent
     public void onAttackEntity(AttackEntityEvent event) {
 
+    }
+
+    @SubscribeEvent
+    public static void onLivingDeath(LivingDeathEvent event) {
+        if (!(event.getSource().getEntity() instanceof Player player)) return;
+        if (player.level().isClientSide()) return;
+        PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
+        abilities.addPlayerExp(5);
+        AbilitySyncPacket.SendAllAbilitiesPack(player);
     }
 }

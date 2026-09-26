@@ -6,35 +6,18 @@ import net.minecraftforge.registries.RegistryObject;
 public class AbilityUseExp {
     public static boolean enoughExp(Player player, AbstractAbility ability, int level) {
         if (ability == null) return false;
-        int total = getPlayerTotalExperience(player);
-        int exp = Math.round(ability.useExp(level+1));
-        return total >= exp;
+        PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
+        return abilities.enoughExp(ability, level);
     }
 
     public static void useExp(Player player, AbstractAbility ability, int level) {
         if (ability == null) return;
-        int total = getPlayerTotalExperience(player);
-        int exp = Math.round(ability.useExp(level+1));
-        if (total < exp) return;
-        player.giveExperiencePoints(-exp);
+        PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
+        abilities.consumeExp(ability, level);
     }
 
-    public static int getPlayerTotalExperience(Player player) {
-        int level = player.experienceLevel;
-        float progress = player.experienceProgress;
-        int expForLevel = getExperienceForLevel(level);
-        int neededForNext = player.getXpNeededForNextLevel();
-        int progressExp = Math.round(progress * neededForNext);
-        return expForLevel + progressExp;
-    }
-
-    private static int getExperienceForLevel(int level) {
-        if (level <= 16) {
-            return level * level + 6 * level;
-        } else if (level <= 31) {
-            return (int) (2.5 * level * level - 40.5 * level + 360);
-        } else {
-            return (int) (4.5 * level * level - 162.5 * level + 2220);
-        }
+    public static int getPlayerExp(Player player) {
+        if (player == null) return 0;
+        return PlayerAbilitiesCapability.get(player).getPlayerExp();
     }
 }

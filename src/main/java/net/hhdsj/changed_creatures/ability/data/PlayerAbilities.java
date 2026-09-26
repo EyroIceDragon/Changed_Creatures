@@ -1,43 +1,66 @@
 package net.hhdsj.changed_creatures.ability.data;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class PlayerAbilities {
 
-    /** 能力表：ID → 数据 */
     private final Map<ResourceLocation, AbilityData> abilities = new HashMap<>();
+    private int playerExp = 0;
 
-    // ---------- 读写 ----------
+    public int getPlayerExp() {
+        return playerExp;
+    }
+
+    public void setPlayerExp(int exp) {
+        this.playerExp = Math.max(0, exp);
+    }
+
+    public void addPlayerExp(int amount) {
+        this.playerExp = Math.max(0, this.playerExp + amount);
+    }
+
+    public boolean enoughExp(AbstractAbility ability, int level) {
+        if (ability == null) return false;
+        int cost = Math.round(ability.useExp(level + 1));
+        return playerExp >= cost;
+    }
+
+    public boolean consumeExp(AbstractAbility ability, int level) {
+        if (ability == null) return false;
+        int cost = Math.round(ability.useExp(level + 1));
+        if (playerExp < cost) return false;
+        playerExp -= cost;
+        return true;
+    }
+
+    // ---------- 能力读写 ----------
     public AbilityData get(ResourceLocation id) {
         return abilities.computeIfAbsent(id, k -> new AbilityData());
     }
 
     public int getLevel(ResourceLocation id) {
-        return get(id).level;
+        AbilityData data = abilities.get(id);
+        return data == null ? 0 : data.level;
     }
 
     public void setLevel(ResourceLocation id, int level) {
         get(id).level = Math.max(0, level);
     }
 
-    public void addExp(ResourceLocation id, int amount) {
-        AbilityData data = get(id);
-        data.exp += amount;
-        // 每 100 经验升 1 级，最多 10 级
-        while (data.exp >= 100 && data.level < 10) {
-            data.exp -= 100;
-            data.level++;
-        }
+    public boolean hasAbility(ResourceLocation id) {
+        Player player = Minecraft.getInstance().player;
+        AbilityData data = abilities.get(id);
+        if (player == null) return false;
+        return PlayerAbilitiesCapability.get(player).hasAbility(id);
     }
 
-    public boolean hasAbility(ResourceLocation id) {
-        return abilities.containsKey(id);
-    }
 
     public Map<ResourceLocation, AbilityData> getAll() {
         return abilities;
@@ -46,11 +69,11 @@ public class PlayerAbilities {
     // ---------- NBT ----------
     public Tag writeNBT() {
         CompoundTag nbt = new CompoundTag();
+        nbt.putInt("player_exp", playerExp);
         CompoundTag listTag = new CompoundTag();
         for (Map.Entry<ResourceLocation, AbilityData> e : abilities.entrySet()) {
             CompoundTag a = new CompoundTag();
             a.putInt("level", e.getValue().level);
-            a.putInt("exp", e.getValue().exp);
             a.putLong("cooldown", e.getValue().cooldown);
             listTag.put(e.getKey().toString(), a);
         }
@@ -60,7 +83,9 @@ public class PlayerAbilities {
 
     public void readNBT(Tag tag) {
         abilities.clear();
+        playerExp = 0;
         if (!(tag instanceof CompoundTag nbt)) return;
+        playerExp = nbt.getInt("player_exp");
         CompoundTag listTag = nbt.getCompound("abilities");
         for (String key : listTag.getAllKeys()) {
             try {
@@ -68,7 +93,6 @@ public class PlayerAbilities {
                 CompoundTag a = listTag.getCompound(key);
                 AbilityData data = new AbilityData();
                 data.level = a.getInt("level");
-                data.exp = a.getInt("exp");
                 data.cooldown = a.getLong("cooldown");
                 abilities.put(id, data);
             } catch (Exception ex) {
@@ -80,11 +104,11 @@ public class PlayerAbilities {
     // ---------- 复制（重生/换维度用） ----------
     public void copyFrom(PlayerAbilities other) {
         abilities.clear();
+        this.playerExp = other.playerExp;
         for (Map.Entry<ResourceLocation, AbilityData> e : other.abilities.entrySet()) {
             AbilityData src = e.getValue();
             AbilityData dst = new AbilityData();
             dst.level = src.level;
-            dst.exp = src.exp;
             dst.cooldown = src.cooldown;
             abilities.put(e.getKey(), dst);
         }

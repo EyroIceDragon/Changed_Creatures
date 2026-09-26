@@ -5,11 +5,4 @@ public class AbilityData {
     public int exp = 0;
     public long cooldown = 0;
 
-    public boolean isOnCooldown() {
-        return System.currentTimeMillis() < cooldown;
-    }
-
-    public void setCooldown(long ms) {
-        this.cooldown = System.currentTimeMillis() + ms;
-    }
 }

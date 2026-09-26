@@ -235,7 +235,7 @@ public class AbilityScreen extends Screen {
                 this.panelY + 15, 0xFFFFFF, false);
 
         graphics.drawString(this.font,
-                Component.literal("Check Button awa to test"),
+                Component.literal("你的经验(You Exp): " + AbilityUseExp.getPlayerExp(player)),
                 this.panelX + 15, this.panelY + 40, 0xAAAAAA, false);
 
         List<RegistryObject<AbstractAbility>> abilities = getVariantAbilities();

@@ -21,12 +21,14 @@ public class AbilitySyncPacket {
     private final int level;
     private final int exp;
     private final long cooldown;
+    private final int playerExp;
 
-    public AbilitySyncPacket(ResourceLocation abilityId, AbilityData data) {
+    public AbilitySyncPacket(ResourceLocation abilityId, AbilityData data, int playerExp) {
         this.abilityId = abilityId;
         this.level = data.level;
         this.exp = data.exp;
         this.cooldown = data.cooldown;
+        this.playerExp = playerExp;
     }
 
     public AbilitySyncPacket(FriendlyByteBuf buf) {
@@ -34,6 +36,7 @@ public class AbilitySyncPacket {
         this.level = buf.readInt();
         this.exp = buf.readInt();
         this.cooldown = buf.readLong();
+        this.playerExp = buf.readInt();
     }
 
     public void encode(FriendlyByteBuf buf) {
@@ -41,6 +44,7 @@ public class AbilitySyncPacket {
         buf.writeInt(level);
         buf.writeInt(exp);
         buf.writeLong(cooldown);
+        buf.writeInt(playerExp);
     }
 
     public void handle(Supplier<NetworkEvent.Context> ctxSup) {
@@ -56,6 +60,7 @@ public class AbilitySyncPacket {
             data.level = level;
             data.exp = exp;
             data.cooldown = cooldown;
+            abilities.setPlayerExp(playerExp);
         });
         ctx.setPacketHandled(true);
     }
@@ -71,13 +76,14 @@ public class AbilitySyncPacket {
 
 
 
-    public static void SendAllAbilitiesPack (Player player){
+    public static void SendAllAbilitiesPack(Player player) {
         if (!(player instanceof ServerPlayer sp)) return;
         PlayerAbilities abilities = PlayerAbilitiesCapability.get(sp);
+        int exp = abilities.getPlayerExp();
         for (var entry : abilities.getAll().entrySet()) {
             ChangedCreature.PACKET_HANDLER.send(
                     PacketDistributor.PLAYER.with(() -> sp),
-                    new AbilitySyncPacket(entry.getKey(), entry.getValue()));
+                    new AbilitySyncPacket(entry.getKey(), entry.getValue(), exp));
         }
     }
 }

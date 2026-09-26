@@ -2,6 +2,9 @@ package net.hhdsj.changed_creatures.network;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.ability.data.*;
+import net.ltxprogrammer.changed.entity.variant.TransfurVariant;
+import net.ltxprogrammer.changed.init.ChangedRegistry;
+import net.ltxprogrammer.changed.process.ProcessTransfur;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -12,6 +15,7 @@ import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -48,28 +52,36 @@ public class AbilitiesMessage {
 
 	// ---------- 服务端处理 ----------
 	public static void Action(ServerPlayer player, ResourceLocation abilityId, int action) {
+		if (player == null || !player.isAlive() || player.isSpectator()) return;
 		if (!player.level().hasChunkAt(player.blockPosition())) return;
+
+		AbstractAbility ability = AbilityRegistry.get(abilityId);
+		if (ability == null) return;
+
+		if (!isAbilityAllowedForPlayer(player, abilityId)) return;
 
 		PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
 
+		if (!abilities.hasAbility(abilityId)) return;
+
+		AbilityData data = abilities.get(abilityId);
+
 		switch (action) {
 			case 0 -> {
-				int lv = abilities.getLevel(abilityId);
-				abilities.setLevel(abilityId, Math.max(0, lv - 1));
+				if (data.level <= 0) return;
+				abilities.setLevel(abilityId, data.level - 1);
 			}
 			case 1 -> {
-				int lv = abilities.getLevel(abilityId);
-				AbstractAbility ability = AbilityRegistry.get(abilityId);
-				if (ability == null) return;
-				AbilityUseExp.useExp(player, ability, lv);
-				abilities.setLevel(abilityId, Math.min(10, lv + 1));
+				if (data.level >= ability.getMaxLevel()) return;
+				if (!abilities.enoughExp(ability, data.level)) return;
+				abilities.consumeExp(ability, data.level);
+				abilities.setLevel(abilityId, data.level + 1);
 			}
 			default -> {
 				return;
 			}
 		}
 
-		// 同步回客户端
 		ChangedCreature.PACKET_HANDLER.send(
 				PacketDistributor.PLAYER.with(() -> player),
 				new AbilitySyncPacket(abilityId, abilities.get(abilityId))
@@ -83,5 +95,18 @@ public class AbilitiesMessage {
 				AbilitiesMessage::buffer,
 				AbilitiesMessage::new,
 				AbilitiesMessage::handler);
+	}
+
+	private static boolean isAbilityAllowedForPlayer(ServerPlayer player, ResourceLocation abilityId) {
+		var instance = ProcessTransfur.getPlayerTransfurVariant(player);
+		if (instance == null) return false;
+		TransfurVariant<?> variant = instance.getParent();
+		if (variant == null) return false;
+
+		ResourceLocation variantId = ChangedRegistry.TRANSFUR_VARIANT.get().getKey(variant);
+		if (variantId == null) return false;
+
+		List<RegistryObject<AbstractAbility>> list = VariantAbilityMap.getFor(variantId);
+		return list.stream().anyMatch(obj -> obj.getId().equals(abilityId));
 	}
 }
