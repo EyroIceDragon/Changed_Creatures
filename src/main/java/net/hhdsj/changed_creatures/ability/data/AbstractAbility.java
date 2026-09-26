@@ -25,7 +25,7 @@ public abstract class AbstractAbility {
     public int getMaxLevel() { return maxLevel; }
     public ResourceLocation getAbilityTexture() { return null; }
 
-    public float useExp(int level) {return 10 + 10 * level * 0.5F;}
+    public float useExp(int level) {return 10 + 15 * level * 0.5F;}
     public void onTick(Player player, int level) {}
     public void onHurt(Player player, LivingEntity attack, int level) {}
     public void onAttack(Player player, LivingEntity attack, int level) {}
