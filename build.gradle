@@ -99,8 +99,8 @@ dependencies {
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    implementation files('/lib/ChangedAddon-m1.20.1-2.8.0-all-patches.jar')
-    implementation files('/lib/Changed-m1.20.1-v0.15.6-all.jar')
+    implementation files('/lib/Changed-Addon-Rework-2.9.9.jar')
+    implementation files('/lib/Changed-m1.20.1-v0.15.7-all.jar')
 }
 
 mixin {
