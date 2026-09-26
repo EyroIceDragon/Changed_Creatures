@@ -69,6 +69,7 @@ public class AbilitiesMessage {
 		switch (action) {
 			case 0 -> {
 				if (data.level <= 0) return;
+				abilities.ereturnExp(ability, data.level);
 				abilities.setLevel(abilityId, data.level - 1);
 			}
 			case 1 -> {
