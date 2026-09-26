@@ -318,7 +318,7 @@ public class AbilityScreen extends Screen {
                 graphics.renderComponentTooltip(this.font, tooltip, mouseX, mouseY);
             }
         }
-
+        this.check_exp = 0;
         super.render(graphics, mouseX, mouseY, partialTick);
     }
 
@@ -367,12 +367,11 @@ public class AbilityScreen extends Screen {
         }
 
         if (cost > 0) {
-            int costLong = (int) (BAR_WIDTH * ((float) Math.min(cost, exp) / 100));
-            int costX = barX + draw_long;
-            int costW = Math.min(costLong, BAR_WIDTH - draw_long);
+            int costLong = (int) (BAR_WIDTH * ((float) Math.min(cost, draw_exp) / 100));
+            int costW = Math.min(costLong, draw_long);
             if (costW > 0) {
-                RenderSystem.setShaderColor(0.5F, 0.0F, 0.0F, 0.8F);
-                graphics.blit(ChangedCreature.ChangedCreatureResourceLocation("textures/gui/ability/latex_exp_bar_0.png"), costX, barY, 0, 0, costW, BAR_HEIGHT, BAR_WIDTH, BAR_HEIGHT);
+                RenderSystem.setShaderColor(0.5F, 0.0F, 0.0F, 0.5F);
+                graphics.blit(ChangedCreature.ChangedCreatureResourceLocation("textures/gui/ability/latex_exp_bar_0.png"), barX + draw_long - costW, barY, 0, 0, costW, BAR_HEIGHT, BAR_WIDTH, BAR_HEIGHT);
                 RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
             }
         }
