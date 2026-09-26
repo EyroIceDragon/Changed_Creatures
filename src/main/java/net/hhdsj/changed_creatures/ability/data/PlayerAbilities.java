@@ -40,6 +40,13 @@ public class PlayerAbilities {
         return true;
     }
 
+    public void ereturnExp(AbstractAbility ability, int level) {
+        if (ability == null) return;
+        int cost = Math.round(ability.useExp(level));
+        if (playerExp < cost) return;
+        playerExp += cost;
+    }
+
     // ---------- 能力读写 ----------
     public AbilityData get(ResourceLocation id) {
         return abilities.computeIfAbsent(id, k -> new AbilityData());
