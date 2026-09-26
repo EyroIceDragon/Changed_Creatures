@@ -298,11 +298,7 @@ public class AbilityScreen extends Screen {
 
             int outlineColor = 0xFF000000;
             int draw_x = 3, draw_y = 3;
-            graphics.drawString(this.font, text, rowX + draw_x - 1, rowY + draw_y, outlineColor, false);
-            graphics.drawString(this.font, text, rowX + draw_x + 1, rowY + draw_y, outlineColor, false);
-            graphics.drawString(this.font, text, rowX + draw_x, rowY + draw_y - 1, outlineColor, false);
-            graphics.drawString(this.font, text, rowX + draw_x, rowY + draw_y + 1, outlineColor, false);
-            graphics.drawString(this.font, text, rowX + draw_x, rowY + draw_y, textColor, false);
+            drawStringWithBorder(graphics,text,rowX + draw_x, rowY + draw_y,textColor,outlineColor);
 
             if (rowHovered) {
                 List<Component> tooltip = new ArrayList<>();
@@ -370,13 +366,13 @@ public class AbilityScreen extends Screen {
             int costLong = (int) (BAR_WIDTH * ((float) Math.min(cost, draw_exp) / 100));
             int costW = Math.min(costLong, draw_long);
             if (costW > 0) {
-                RenderSystem.setShaderColor(0.5F, 0.0F, 0.0F, 0.5F);
+                RenderSystem.setShaderColor(0.5F, 0.0F, 0.0F, 0.2F);
                 graphics.blit(ChangedCreature.ChangedCreatureResourceLocation("textures/gui/ability/latex_exp_bar_0.png"), barX + draw_long - costW, barY, 0, 0, costW, BAR_HEIGHT, BAR_WIDTH, BAR_HEIGHT);
                 RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
             }
         }
 
-        drawStringWithBorder(graphics, String.valueOf(draw_level), barX + BAR_WIDTH / 2, barY - 3, 0xFFFFFF, 0x000000);
+        drawStringWithBorder(graphics, String.valueOf(draw_level), barX + BAR_WIDTH / 2-3, barY - 3, 0xFFFFFF, 0x000000);
     }
 
     private void drawStringWithBorder(GuiGraphics graphics, String text, int x, int y, int textColor, int borderColor) {
