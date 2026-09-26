@@ -9,7 +9,14 @@ public class AbilityUseExp {
         PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
         return abilities.enoughExp(ability, level);
     }
+    public static int missExp(Player player, AbstractAbility ability, int level){
+        if (ability == null) return 0;
+        PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
+        int get_need_exp = (int) ability.useExp(level+1);
+        int get_player_exp = abilities.getPlayerExp();
 
+        return get_need_exp - get_player_exp;
+    }
     public static void useExp(Player player, AbstractAbility ability, int level) {
         if (ability == null) return;
         PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
