@@ -73,7 +73,7 @@ public class AbilityEvents {
         if (!(event.getSource().getEntity() instanceof Player player)) return;
         if (player.level().isClientSide()) return;
         PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
-        abilities.addPlayerExp(5);
+        abilities.addPlayerExp(10);
         AbilitySyncPacket.SendAllAbilitiesPack(player);
     }
 }
