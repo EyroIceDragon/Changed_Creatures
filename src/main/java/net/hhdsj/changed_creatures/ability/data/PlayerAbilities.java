@@ -55,10 +55,8 @@ public class PlayerAbilities {
     }
 
     public boolean hasAbility(ResourceLocation id) {
-        Player player = Minecraft.getInstance().player;
         AbilityData data = abilities.get(id);
-        if (player == null) return false;
-        return PlayerAbilitiesCapability.get(player).hasAbility(id);
+        return data != null;
     }
 
 

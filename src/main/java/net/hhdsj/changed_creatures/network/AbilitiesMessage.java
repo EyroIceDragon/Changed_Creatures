@@ -84,7 +84,7 @@ public class AbilitiesMessage {
 
 		ChangedCreature.PACKET_HANDLER.send(
 				PacketDistributor.PLAYER.with(() -> player),
-				new AbilitySyncPacket(abilityId, abilities.get(abilityId))
+				new AbilitySyncPacket(abilityId, abilities.get(abilityId),abilities.getPlayerExp())
 		);
 	}
 
