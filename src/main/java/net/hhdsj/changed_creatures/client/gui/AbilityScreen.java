@@ -48,6 +48,9 @@ public class AbilityScreen extends Screen {
     private static final int BG_WIDTH = 340;
     private static final int BG_HEIGHT = 226;
 
+    private static final int BAR_WIDTH = 226;
+    private static final int BAR_HEIGHT = 5;
+
     private static final int HOVER_BG_COLOR = 0x40FFFFFF;
     private static final int MIN_LEVEL = 0;
 
@@ -141,7 +144,7 @@ public class AbilityScreen extends Screen {
                 .bounds(btnX, btnY, BTN_SIZE, BTN_SIZE)
                 .tooltip(Tooltip.create(Component.literal("§c降低 " + ability.getDisplayName() + " 等级")))
                 .build();
-        minusBtn.active = owned && (level > MIN_LEVEL);
+        minusBtn.active = owned;
         this.addRenderableWidget(minusBtn);
 
         Button plusBtn = Button.builder(
@@ -152,7 +155,7 @@ public class AbilityScreen extends Screen {
                 .bounds(btnX, btnY - BTN_SIZE - 1, BTN_SIZE, BTN_SIZE)
                 .tooltip(Tooltip.create(Component.literal("§提升 " + ability.getDisplayName() + " 等级")))
                 .build();
-        plusBtn.active = owned && (level < ability.getMaxLevel());
+        plusBtn.active = owned;
         this.addRenderableWidget(plusBtn);
 
         return new Button[]{minusBtn, plusBtn};
@@ -174,9 +177,10 @@ public class AbilityScreen extends Screen {
             int level = abilities.getLevel(id);
             boolean enough_exp = AbilityUseExp.enoughExp(player,ability,level);
             Component text = Component.literal("§提升 " + ability.getDisplayName() + " 等级");
-            if (!enough_exp) {
-                text = Component.literal("经验不足");
+            if (!enough_exp && level < ability.getMaxLevel()) {
+                text = Component.literal("经验不足 缺少经验: " + AbilityUseExp.missExp(player,ability,level));
             }
+
             pair[1].setTooltip(Tooltip.create(text));
             pair[0].active = owned && (level > MIN_LEVEL);
             pair[1].active = owned && (level < ability.getMaxLevel()) && enough_exp;
@@ -194,8 +198,7 @@ public class AbilityScreen extends Screen {
 
         this.renderBackground(graphics);
 
-        ResourceLocation TEXTURE = new ResourceLocation(
-                ChangedCreature.MODID, "textures/gui/ability/background_latex.png");
+        ResourceLocation TEXTURE = ChangedCreature.ChangedCreatureResourceLocation("textures/gui/ability/background_latex.png");
 
         float[] norm = getMouseNormalized(mouseX, mouseY);
         float maxOffset = 5f;
@@ -222,7 +225,7 @@ public class AbilityScreen extends Screen {
 
         RenderSystem.setShaderColor(secondary.red(), secondary.green(), secondary.blue(), 1.0F);
 
-        graphics.blit(new ResourceLocation(ChangedCreature.MODID, "textures/gui/ability/ability_gui_1.png"),
+        graphics.blit(ChangedCreature.ChangedCreatureResourceLocation("textures/gui/ability/ability_gui_1.png"),
                 this.panelX - FRAME_OFFSET, this.panelY - FRAME_OFFSET,
                 0, 0, FRAME_WIDTH, FRAME_HEIGHT, FRAME_WIDTH, FRAME_HEIGHT);
 
@@ -233,6 +236,8 @@ public class AbilityScreen extends Screen {
         graphics.drawString(this.font, title,
                 this.panelX + (PANEL_WIDTH - titleWidth) / 2,
                 this.panelY + 15, 0xFFFFFF, false);
+
+        drawExpBar(graphics, AbilityUseExp.getPlayerExp(player),primary);
 
         graphics.drawString(this.font,
                 Component.literal("你的经验(You Exp): " + AbilityUseExp.getPlayerExp(player)),
@@ -267,7 +272,7 @@ public class AbilityScreen extends Screen {
 
             ResourceLocation icon = ability.getAbilityTexture() != null
                     ? ability.getAbilityTexture()
-                    : new ResourceLocation(ChangedCreature.MODID, "textures/gui/ability/latex_ability_0.png");
+                    : ChangedCreature.ChangedCreatureResourceLocation("textures/gui/ability/latex_ability_0.png");
 
             if (owned) {
                 RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
@@ -307,8 +312,7 @@ public class AbilityScreen extends Screen {
     }
 
     private void renderEmptySlot(GuiGraphics graphics, int rowX, int rowY) {
-        ResourceLocation emptyIcon = new ResourceLocation(
-                ChangedCreature.MODID, "textures/gui/ability/latex_ability_0.png");
+        ResourceLocation emptyIcon = ChangedCreature.ChangedCreatureResourceLocation("textures/gui/ability/latex_ability_0.png");
 
         RenderSystem.setShaderColor(0.2F, 0.2F, 0.2F, 1.0F);
         graphics.blit(emptyIcon, rowX, rowY, 0, 0, IMG_WIDTH, IMG_HEIGHT, IMG_WIDTH, IMG_HEIGHT);
@@ -333,5 +337,34 @@ public class AbilityScreen extends Screen {
         normY = Math.max(-1f, Math.min(1f, normY));
 
         return new float[]{normX, normY};
+    }
+
+    private void drawExpBar(GuiGraphics graphics,int exp ,Color3 color) {
+        int barX = this.panelX - BAR_WIDTH / 2 + PANEL_WIDTH / 2;
+        int barY = this.panelY - BAR_HEIGHT / 2 + 35;
+
+        graphics.blit(ChangedCreature.ChangedCreatureResourceLocation("textures/gui/ability/latex_exp_bar.png"), barX, barY, 0, 0, BAR_WIDTH, BAR_HEIGHT, BAR_WIDTH, BAR_HEIGHT);
+
+        int draw_level = exp / 100;
+        int draw_exp = exp % 100;
+
+        float progress = (float) draw_exp / 100;
+        int draw_long = (int) (BAR_WIDTH * progress);
+
+        if (draw_long > 0){
+            RenderSystem.setShaderColor(color.red() - 15, color.green() - 15, color.blue() - 15, 1.0F);
+            graphics.blit(ChangedCreature.ChangedCreatureResourceLocation("textures/gui/ability/latex_exp_bar.png"), barX, barY, 0, 0, draw_long, BAR_HEIGHT, BAR_WIDTH, BAR_HEIGHT);
+            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+        }
+        drawStringWithBorder(graphics,String.valueOf(draw_level), this.panelX, this.panelY - 1, 0xFFFFFF, 0x000000);
+    }
+
+    private void drawStringWithBorder(GuiGraphics graphics, String text, int x, int y, int textColor, int borderColor) {
+        graphics.drawString(this.font, text, x - 1, y, borderColor, false);
+        graphics.drawString(this.font, text, x + 1, y, borderColor, false);
+        graphics.drawString(this.font, text, x, y - 1, borderColor, false);
+        graphics.drawString(this.font, text, x, y + 1, borderColor, false);
+
+        graphics.drawString(this.font, text, x, y, textColor, false);
     }
 }
