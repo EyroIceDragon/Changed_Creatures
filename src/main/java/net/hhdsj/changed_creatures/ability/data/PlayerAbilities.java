@@ -43,7 +43,6 @@ public class PlayerAbilities {
     public void ereturnExp(AbstractAbility ability, int level) {
         if (ability == null) return;
         int cost = Math.round(ability.useExp(level));
-        if (playerExp < cost) return;
         playerExp += cost;
     }
 
