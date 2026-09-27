@@ -1,20 +1,17 @@
 # Changed More Creatures - Minecraft 1.20.1 Forge Mod
 
-This mod is an add-on for Changed and its add-ons. 
-It adds various entities, blocks, items, and many other interesting things to the game. However, this mod is no longer being made with MCreator, so the MCreator-generated code and some messy parts need to be cleaned up and rewritten. If you could help me write some code and submit pull requests, I would be very happy and grateful!
+- This mod is an add-on for Changed and its add-ons. 
+It adds various entities, blocks, items, and many other interesting things to the game. However, this mod is no longer being made with **MCreator**, so the MCreator-generated code and some messy parts need to be cleaned up and rewritten. If you could **help** me write some code and submit pull requests, **<u>I would be very happy and grateful!</u>**
+![Changed More Creatures 展示图](https://i1.hdslb.com/bfs/new_dyn/11222436aca49dadbd2a60b10bdd804d1561962848.png)
+
 ---
 
-## World Warning
+## How to build this mod?
+- First clone this repo
+- Then you can see a bat file in the repo,Run bulid.bat will built this mod.
+- At last,you can see build/lib/ to find you build mod file.
+(Yeth,My English was very bad)
 
-- Due to the mod ID change in version 1.3, please use the Remap IDs mod and configure it by creating a `changed_creatures.json` file in the `config/remapids/remaps/` directory with the following content:
-
-```json
-{
-    "remaps": {
-        "goodblock": "changed_creatures"
-    }
-}
-```
 ## Terms of Use
 
 ### 1. Model Resources
