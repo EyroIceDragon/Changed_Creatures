@@ -90,13 +90,16 @@ public class ChangedCreature {
 	}
 
 	public static ResourceLocation ChangedCreatureResourceLocation(String txt){
-		return new ResourceLocation(MODID, txt);
+		return ResourceLocation.fromNamespaceAndPath(MODID, txt);
+	}
+	public static ResourceLocation ChangedCreatureResourceLocationAll(String txt){
+		return ResourceLocation.parse(txt);
 	}
 	public static ModelLayerLocation ChangedCreatureModelResourceLocation(String txt){
-        return new ModelLayerLocation(new ResourceLocation(MODID, txt),"main");
+        return new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(MODID, txt),"main");
 	}
 	public static ResourceLocation ModResource(String Path){
-		return new ResourceLocation(MODID, Path);
+		return ResourceLocation.fromNamespaceAndPath(MODID, Path);
 	}
 
 	private void registerPackets() {

@@ -9,6 +9,8 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -108,6 +110,9 @@ public class PlayerMixin {
             if (ability == null) continue;
 
             if (ability instanceof DamageResistanceAbility dr) {
+                if (!dr.enoughCostExp(abilities,data.level)) {
+                    return amount;
+                }
                 totalReduction += dr.getReduction(data.level);
             }
         }
@@ -115,4 +120,5 @@ public class PlayerMixin {
         totalReduction = Math.min(totalReduction, 0.90F);
         return amount * (1.0F - totalReduction);
     }
+
 }

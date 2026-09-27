@@ -33,7 +33,7 @@ public class HypnotizeAbility extends AbstractAbility {
     private final Set<UUID> attackedPlayers = new HashSet<>();
 
     public HypnotizeAbility() {
-        super(String.valueOf(Component.translatable("ability.changed_creatures.hypnotize.name")), 0xFFFFFF, 2);
+        super(Component.translatable("ability.changed_creatures.hypnotize.name"), 0xFFFFFF, 2);
     }
 
     @Override

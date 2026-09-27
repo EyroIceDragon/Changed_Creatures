@@ -32,6 +32,12 @@ public class PlayerAbilities {
         return playerExp >= cost;
     }
 
+    public void reduceExp(int exp){
+        if (playerExp > 0 && exp <= playerExp){
+            playerExp -= exp;
+        }
+    }
+
     public boolean consumeExp(AbstractAbility ability, int level) {
         if (ability == null) return false;
         int cost = Math.round(ability.useExp(level + 1));

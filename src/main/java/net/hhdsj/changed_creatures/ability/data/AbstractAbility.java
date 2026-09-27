@@ -10,17 +10,17 @@ import java.util.List;
 
 public abstract class AbstractAbility {
 
-    private final String displayName;
+    private final Component displayName;
     private final int displayColor;
     private final int maxLevel;
 
-    public AbstractAbility(String displayName, int displayColor, int maxLevel) {
+    public AbstractAbility(Component displayName, int displayColor, int maxLevel) {
         this.displayName = displayName;
         this.displayColor = displayColor;
         this.maxLevel = maxLevel;
     }
 
-    public String getDisplayName() { return displayName; }
+    public Component getDisplayName() { return Component.literal("◈ ").append(displayName); }
     public int getDisplayColor() { return displayColor; }
     public int getMaxLevel() { return maxLevel; }
     public ResourceLocation getAbilityTexture() { return null; }
