@@ -2,9 +2,9 @@ package net.hhdsj.changed_creatures.ability.data;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
@@ -25,9 +25,11 @@ public abstract class AbstractAbility {
     public int getMaxLevel() { return maxLevel; }
     public ResourceLocation getAbilityTexture() { return null; }
 
-    public float useExp(int level) {return 10 + 15 * level * 0.5F;}
+    public float useExp(int level) {return 20 + 30 * level * 0.5F;}
     public void onTick(Player player, int level) {}
     public void onHurt(Player player, LivingEntity attack, int level) {}
     public void onAttack(Player player, LivingEntity attack, int level) {}
     public void appendHoverText(List<Component> list, Player player, int level) {}
+    public void onFinishEat(Player player, int level, ItemStack item) {}
+    public void onRemove(Player player) {}
 }

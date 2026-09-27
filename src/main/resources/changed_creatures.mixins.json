@@ -8,6 +8,7 @@
   "mixins": [
     "CrashReportMixin",
     "changed.EntityUtilMixin",
+    "Player.FoodDataMixin",
     "Player.PlayerHurtMixin",
     "Player.PlayerMixin"
   ],
