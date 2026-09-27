@@ -106,6 +106,8 @@ public class AbilityScreen extends Screen {
             return;
         }
 
+        ChangedCreature.PACKET_HANDLER.sendToServer(new RequestAbilitySyncPacket());
+
         this.panelX = (this.width - PANEL_WIDTH) / 2;
         this.panelY = (this.height - PANEL_HEIGHT) / 2;
 
@@ -142,8 +144,6 @@ public class AbilityScreen extends Screen {
                                        RegistryObject<AbstractAbility> obj,
                                        AbstractAbility ability) {
         ResourceLocation id = obj.getId();
-        int level = getLevel(id);
-        Player player = Minecraft.getInstance().player;
         boolean owned = playerHasAbility(id);
 
 
@@ -289,7 +289,8 @@ public class AbilityScreen extends Screen {
             boolean owned = playerHasAbility(id);
 
             int level = getLevel(id);
-            String text = ability.getDisplayName() + " " + Component.translatable(KEY_LEVEL_SHORT).getString() + level;
+            Component text = ability.getDisplayName();
+            Component level_text = Component.empty().append(Component.translatable(KEY_LEVEL_SHORT)).append(String.valueOf(level)).append("/").append(String.valueOf(ability.getMaxLevel()));
 
             boolean rowHovered = mouseX >= rowX && mouseX <= rowX + IMG_WIDTH
                     && mouseY >= rowY && mouseY <= rowY + IMG_HEIGHT;
@@ -315,6 +316,7 @@ public class AbilityScreen extends Screen {
             int textColor = owned ? ability.getDisplayColor() : 0xFF808080;
 
             drawStringWithBorder(graphics, text, rowX + 3, rowY + 3, textColor, 0xFF000000);
+            drawStringWithBorder(graphics, level_text, rowX + 3, rowY + 14, textColor, 0xFF000000);
 
             if (rowHovered) {
                 List<Component> tooltip = new ArrayList<>();
@@ -393,6 +395,14 @@ public class AbilityScreen extends Screen {
     }
 
     private void drawStringWithBorder(GuiGraphics graphics, String text, int x, int y, int textColor, int borderColor) {
+        graphics.drawString(this.font, text, x - 1, y, borderColor, false);
+        graphics.drawString(this.font, text, x + 1, y, borderColor, false);
+        graphics.drawString(this.font, text, x, y - 1, borderColor, false);
+        graphics.drawString(this.font, text, x, y + 1, borderColor, false);
+
+        graphics.drawString(this.font, text, x, y, textColor, false);
+    }
+    private void drawStringWithBorder(GuiGraphics graphics, Component text, int x, int y, int textColor, int borderColor) {
         graphics.drawString(this.font, text, x - 1, y, borderColor, false);
         graphics.drawString(this.font, text, x + 1, y, borderColor, false);
         graphics.drawString(this.font, text, x, y - 1, borderColor, false);

@@ -1,11 +1,8 @@
 package net.hhdsj.changed_creatures.init;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
-import net.hhdsj.changed_creatures.ability.DamageResistanceAbility;
+import net.hhdsj.changed_creatures.ability.*;
 import net.hhdsj.changed_creatures.ability.data.AbstractAbility;
-import net.hhdsj.changed_creatures.ability.ElectricResistanceAbility;
-import net.hhdsj.changed_creatures.ability.FlyAbility;
-import net.hhdsj.changed_creatures.ability.HypnotizeAbility;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -17,7 +14,6 @@ public class ChangedCreaturesModNewAbiliies {
             DeferredRegister.create(ChangedCreatureRegistry.ABILITY,
                     ChangedCreature.MODID);
 
-    /** 每个能力一个 RegistryObject */
     public static final RegistryObject<AbstractAbility> FLY =
             ABILITIES.register("fly", FlyAbility::new);
 
@@ -30,7 +26,13 @@ public class ChangedCreaturesModNewAbiliies {
     public static final RegistryObject<AbstractAbility> DAMAGE_RESISTANCE =
             ABILITIES.register("damage_resistance", DamageResistanceAbility::new);
 
-    /** 在主类里调用，挂到 mod 事件总线 */
+    public static final RegistryObject<AbstractAbility> ENRAGE =
+            ABILITIES.register("enrage", EnrageAbility::new);
+
+    public static final RegistryObject<AbstractAbility> POISON_RESISTANCE =
+            ABILITIES.register("poison_resistance", PoisonResistanceAbility::new);
+
+
     public static void register(IEventBus modBus) {
         ABILITIES.register(modBus);
     }

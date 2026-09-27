@@ -28,12 +28,16 @@ import java.util.Set;
 import java.util.UUID;
 
 public class HypnotizeAbility extends AbstractAbility {
+
+    @Override
+    public float useExp(int level) {return 20 + 60 * level * 0.5F;}
+
     //技能图标
     private final ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(ChangedCreature.MODID,"textures/gui/ability/latex_ability_hypnotize.png");
     private final Set<UUID> attackedPlayers = new HashSet<>();
 
     public HypnotizeAbility() {
-        super(String.valueOf(Component.translatable("ability.changed_creatures.hypnotize.name")), 0xFFFFFF, 2);
+        super(Component.translatable("ability.changed_creatures.hypnotize.name"), 0xFFFFFF, 2);
     }
 
     @Override
