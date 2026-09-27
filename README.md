@@ -12,24 +12,9 @@ It adds various entities, blocks, items, and many other interesting things to th
 - At last,you can see build/lib/ to find you build mod file.
 (Yeth,My English was very bad)
 
-## Terms of Use
-
-### 1. Model Resources
-- Redistribution (including modified versions) is strictly prohibited
-- Personal use is permitted
-- Server use is permitted
-- Commercial use is strictly prohibited
-
-### 2. Latex Textures
-- Copyright remains with the original author
-- You must obtain permission from the original author before using these textures
-
-### 3. Compilation and Redistribution of the Mod
-- You are permitted to compile this mod
-- You are permitted to redistribute the compiled mod as a whole
-- You are NOT permitted to extract and redistribute the models/textures separately
-
----
+## License
+- Source code: MIT
+- Model/texture: CC BY-NC-ND 4.0
 
 ## Disclaimer
 
@@ -39,4 +24,4 @@ This mod is provided "as is". The author assumes no responsibility for any damag
 
 ## Contact
 
-For questions or permission requests, please contact the author.
+For questions or permission requests, please contact the author and art.
