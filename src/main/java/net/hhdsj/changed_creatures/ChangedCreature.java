@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures;
 
+import net.hhdsj.changed_creatures.ability.data.PlayerAbilities;
 import net.hhdsj.changed_creatures.capability.IAbilityData;
 import net.hhdsj.changed_creatures.event.CrystalRingHandler;
 import net.hhdsj.changed_creatures.init.*;

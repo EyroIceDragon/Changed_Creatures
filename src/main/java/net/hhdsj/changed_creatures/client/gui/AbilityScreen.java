@@ -106,6 +106,8 @@ public class AbilityScreen extends Screen {
             return;
         }
 
+        ChangedCreature.PACKET_HANDLER.sendToServer(new RequestAbilitySyncPacket());
+
         this.panelX = (this.width - PANEL_WIDTH) / 2;
         this.panelY = (this.height - PANEL_HEIGHT) / 2;
 

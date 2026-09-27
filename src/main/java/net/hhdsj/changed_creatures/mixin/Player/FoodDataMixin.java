@@ -19,7 +19,7 @@ import java.util.Map;
 public class FoodDataMixin {
 
     @Inject(method = "eat(Lnet/minecraft/world/item/Item;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;)V",
-            at = @At("TAIL"))
+            at = @At("TAIL"),remap = false)
     private void afterEat(Item item, ItemStack stack, LivingEntity entity, CallbackInfo ci) {
         if (entity instanceof Player player){
             if (player.level().isClientSide()) return;

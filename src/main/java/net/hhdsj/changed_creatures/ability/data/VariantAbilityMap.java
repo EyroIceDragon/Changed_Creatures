@@ -10,7 +10,7 @@ import java.util.*;
 
 public class VariantAbilityMap {
     private static final Map<ResourceLocation, List<RegistryObject<AbstractAbility>>> MAP = new HashMap<>();
-    private static final List<RegistryObject<AbstractAbility>> DEFAULT_ABILITIES =
+    public static final List<RegistryObject<AbstractAbility>> DEFAULT_ABILITIES =
             List.of(ChangedCreaturesModNewAbiliies.ELECTRIC_RESISTANCE,ChangedCreaturesModNewAbiliies.DAMAGE_RESISTANCE,ChangedCreaturesModNewAbiliies.ENRAGE,ChangedCreaturesModNewAbiliies.POISON_RESISTANCE);
 
     @SafeVarargs

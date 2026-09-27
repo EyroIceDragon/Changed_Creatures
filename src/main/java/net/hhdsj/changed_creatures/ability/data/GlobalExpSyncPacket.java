@@ -55,6 +55,7 @@ public class GlobalExpSyncPacket {
 
     public static void send(ServerPlayer player) {
         PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
+        System.out.println("[ChangedCreatures] Sending GlobalExpSyncPacket: " + abilities.getPlayerExp());
         ChangedCreature.PACKET_HANDLER.send(
                 PacketDistributor.PLAYER.with(() -> player),
                 new GlobalExpSyncPacket(abilities.getPlayerExp()));
