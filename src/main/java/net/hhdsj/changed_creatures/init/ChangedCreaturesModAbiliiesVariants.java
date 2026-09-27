@@ -11,11 +11,16 @@ public class ChangedCreaturesModAbiliiesVariants {
     final static List<RegistryObject<AbstractAbility>> ABILITY_TEST = List.of(
             ChangedCreaturesModNewAbiliies.HYPNOSIE,
             ChangedCreaturesModNewAbiliies.ELECTRIC_RESISTANCE,
-            ChangedCreaturesModNewAbiliies.DAMAGE_RESISTANCE
+            ChangedCreaturesModNewAbiliies.DAMAGE_RESISTANCE,
+            ChangedCreaturesModNewAbiliies.POISON_RESISTANCE
     );
     public static void bindAll() {
         VariantAbilityMap.register(
                 ChangedCreatureModTransfurVariants.LATEX_EYRO_END_DRAGON.getId(),
+                ABILITY_TEST
+        );
+        VariantAbilityMap.register(
+                ChangedCreatureModTransfurVariants.LATEX_FROST_SCALE_DRAGON_TAUR.getId(),
                 ABILITY_TEST
         );
     }

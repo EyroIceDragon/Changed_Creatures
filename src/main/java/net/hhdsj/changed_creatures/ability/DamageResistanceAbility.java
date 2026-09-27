@@ -12,7 +12,10 @@ import java.util.List;
 import java.util.Map;
 
 public class DamageResistanceAbility extends AbstractAbility {
-
+    @Override
+    public float useExp(int level) {return 20 + 80 * level * 0.5F;}
+    private static final float REDUCTION_PER_LEVEL = 0.10F;
+    private static final float MAX_REDUCTION = 0.80F;
 
     public DamageResistanceAbility() {
         super(Component.translatable("ability.changed_creatures.damage_resistance.name"), 0xFFFFFF, 5);
@@ -21,6 +24,10 @@ public class DamageResistanceAbility extends AbstractAbility {
     @Override
     public ResourceLocation getAbilityTexture() {
         return ChangedCreature.ChangedCreatureResourceLocation("textures/gui/ability/latex_ability_damage_resistance.png");
+    }
+    public float getReduction(int level) {
+        if (level <= 0) return 0.0F;
+        return Math.min(REDUCTION_PER_LEVEL * level, MAX_REDUCTION);
     }
 
     @Override
