@@ -7,7 +7,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 
 import net.hhdsj.changed_creatures.init.ChangedCreatureModMobEffects;
 
-public class FluidhottestDangShengWuWanJiaPengZhuangFangKuaiShiProcedure {
+public class FluidLatexLavaHurtProcedure {
 	public static void execute(Entity entity) {
 		if (entity == null)
 			return;

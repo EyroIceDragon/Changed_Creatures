@@ -9,7 +9,7 @@ import net.minecraft.core.BlockPos;
 
 import net.hhdsj.changed_creatures.init.ChangedCreatureModBlocks;
 
-public class PaletreeDangYouJianDianJiFangKuaiShiFangKuaiDeWeiZhiProcedure {
+public class PaleTreeUseBoneProcedure {
 	public static InteractionResult execute(LevelAccessor world, double x, double y, double z, Direction direction, ItemStack itemstack) {
 		if (direction == null)
 			return InteractionResult.PASS;

@@ -20,31 +20,31 @@ import java.util.function.Supplier;
 import java.util.HashMap;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class FINDGUIButtonMessage {
+public class CCGuiButtonMessage {
 	private final int buttonID, x, y, z;
 
-	public FINDGUIButtonMessage(FriendlyByteBuf buffer) {
+	public CCGuiButtonMessage(FriendlyByteBuf buffer) {
 		this.buttonID = buffer.readInt();
 		this.x = buffer.readInt();
 		this.y = buffer.readInt();
 		this.z = buffer.readInt();
 	}
 
-	public FINDGUIButtonMessage(int buttonID, int x, int y, int z) {
+	public CCGuiButtonMessage(int buttonID, int x, int y, int z) {
 		this.buttonID = buttonID;
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
 
-	public static void buffer(FINDGUIButtonMessage message, FriendlyByteBuf buffer) {
+	public static void buffer(CCGuiButtonMessage message, FriendlyByteBuf buffer) {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
 	}
 
-	public static void handler(FINDGUIButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
+	public static void handler(CCGuiButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
 		NetworkEvent.Context context = contextSupplier.get();
 		context.enqueueWork(() -> {
 			Player entity = context.getSender();
@@ -77,6 +77,6 @@ public class FINDGUIButtonMessage {
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		ChangedCreature.addNetworkMessage(FINDGUIButtonMessage.class, FINDGUIButtonMessage::buffer, FINDGUIButtonMessage::new, FINDGUIButtonMessage::handler);
+		ChangedCreature.addNetworkMessage(CCGuiButtonMessage.class, CCGuiButtonMessage::buffer, CCGuiButtonMessage::new, CCGuiButtonMessage::handler);
 	}
 }

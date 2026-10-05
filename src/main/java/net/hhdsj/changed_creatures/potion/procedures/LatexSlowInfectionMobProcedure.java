@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures.potion.procedures;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.ltxprogrammer.changed.entity.TransfurCause;
 import net.ltxprogrammer.changed.entity.TransfurContext;
 import net.ltxprogrammer.changed.init.ChangedRegistry;
@@ -8,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 
 public class LatexSlowInfectionMobProcedure {
-    private static final ResourceLocation FORM_VARIANT = new ResourceLocation("changed_creatures", "form_latex_dragon_fruit_wolf");
+    private static final ResourceLocation FORM_VARIANT = ChangedCreature.ChangedCreatureResourceLocation("form_latex_dragon_fruit_wolf");
     
     public static void execute(LivingEntity livingEntity) {
 

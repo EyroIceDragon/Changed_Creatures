@@ -21,7 +21,7 @@ import net.hhdsj.changed_creatures.world.inventory.FINDGUIMenu;
 import io.netty.buffer.Unpooled;
 import org.jetbrains.annotations.NotNull;
 
-public class LOOKGUIProcedure {
+public class OpenGuiProcedure {
 	public static void execute(double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;

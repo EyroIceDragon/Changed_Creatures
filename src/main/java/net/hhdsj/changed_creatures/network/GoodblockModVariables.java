@@ -113,7 +113,7 @@ public class GoodblockModVariables {
 		@SubscribeEvent
 		public static void onAttachCapabilities(AttachCapabilitiesEvent<Entity> event) {
 			if (event.getObject() instanceof Player && !(event.getObject() instanceof FakePlayer))
-				event.addCapability(new ResourceLocation("changed_creatures", "player_variables"), new PlayerVariablesProvider());
+				event.addCapability(ChangedCreature.ChangedCreatureResourceLocation( "player_variables"), new PlayerVariablesProvider());
 		}
 
 		private final PlayerVariables playerVariables = new PlayerVariables();

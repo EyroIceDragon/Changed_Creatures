@@ -7,7 +7,6 @@ package net.hhdsj.changed_creatures.init;
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.item.*;
 import net.hhdsj.changed_creatures.item.tool.*;
-import net.ltxprogrammer.changed.item.FilledMug;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.registries.RegistryObject;
@@ -167,7 +166,7 @@ public class ChangedCreatureModItems {
 		Impure_Frost_Condensed_Crystal_Cluster = ITEMS.register("impure_frost_condensed_crystal_clustert", ImpureFrostCondensedCrystalClusterItem::new);
 		FLUTE = ITEMS.register("flute", FluteItem::new);
 
-		PALETREE = ITEMS.register("pale_tree", PaletreeItem::new);
+		PALETREE = ITEMS.register("pale_tree", PaleTreeItem::new);
 		LatexCrystalJellyItem = ITEMS.register("latex_crystal_jelly", LatexCrystalJellyItem::new);
         LATEX_LAVA_CRYSTAL = ITEMS.register("latex_lava_crystal", LatexLavaCrystalItem::new);
 

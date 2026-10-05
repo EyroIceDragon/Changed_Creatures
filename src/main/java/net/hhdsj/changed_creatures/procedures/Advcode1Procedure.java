@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures.procedures;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
@@ -40,7 +41,7 @@ public class Advcode1Procedure {
 		if ((world.getBlockState(BlockPos.containing(x, y, z))) == Blocks.TNT.defaultBlockState()) {
 			if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == Items.FLINT_AND_STEEL) {
 				if (entity instanceof ServerPlayer _player) {
-					Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("changed_creatures:gha_7"));
+					Advancement _adv = _player.server.getAdvancements().getAdvancement(ChangedCreature.ChangedCreatureResourceLocation("gha_7"));
 					AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
 					if (!_ap.isDone()) {
                         for (String s : _ap.getRemainingCriteria()) _player.getAdvancements().award(_adv, s);

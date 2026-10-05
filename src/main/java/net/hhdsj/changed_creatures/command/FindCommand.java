@@ -11,7 +11,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Direction;
 import net.minecraft.commands.Commands;
 
-import net.hhdsj.changed_creatures.procedures.LOOKGUIProcedure;
+import net.hhdsj.changed_creatures.procedures.OpenGuiProcedure;
 
 @Mod.EventBusSubscriber
 public class FindCommand {
@@ -29,7 +29,7 @@ public class FindCommand {
 						entity = FakePlayerFactory.getMinecraft(world);
 					Direction direction = entity.getDirection();
 
-					LOOKGUIProcedure.execute(x, y, z, entity);
+					OpenGuiProcedure.execute(x, y, z, entity);
 					return 0;
 				}));
 	}
