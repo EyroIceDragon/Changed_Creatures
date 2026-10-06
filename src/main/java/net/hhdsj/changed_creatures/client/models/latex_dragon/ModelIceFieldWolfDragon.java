@@ -1,6 +1,7 @@
 package net.hhdsj.changed_creatures.client.models.latex_dragon;
 
-/*
+
+import net.hhdsj.changed_creatures.entity.simple.LatexIceFieldWolfDragonEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
@@ -249,4 +250,4 @@ public class ModelIceFieldWolfDragon extends AdvancedHumanoidModel<LatexIceField
     public HumanoidAnimator<LatexIceFieldWolfDragonEntity, ModelIceFieldWolfDragon> getAnimator(LatexIceFieldWolfDragonEntity entity) {
         return animator;
     }
-}*/
+}

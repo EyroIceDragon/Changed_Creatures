@@ -7,6 +7,7 @@ import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.entity.boss.*;
 import net.hhdsj.changed_creatures.entity.simple.*;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.registries.RegistryObject;
@@ -84,7 +85,7 @@ public class ChangedCreatureModEntities {
     public static final RegistryObject<EntityType<LatexpurplewswolfEntity>> LATEXPURPLEWSWOLF;
     public static final RegistryObject<EntityType<LatexthreemonthwolfEntity>> LATEXTHREEMONTHWOLF;
     public static final RegistryObject<EntityType<LatexPurplecoocwolfEntity>> LATEXPRTPLECOOCWOLF;
-    //public static final RegistryObject<EntityType<LatexIceFieldWolfDragonEntity>> LATEX_ICE_FIELD_WOLF_DRAGON;
+    public static final RegistryObject<EntityType<LatexIceFieldWolfDragonEntity>> LATEX_ICE_FIELD_WOLF_DRAGON;
     public static final RegistryObject<EntityType<LatexFruitDragonEntity>> LATEXFRUITDRAGONWOLF;
     public static final RegistryObject<EntityType<LatexNeondimnessWolfEntity>> LATEXNEONDIMNESSWOLF;
     public static final RegistryObject<EntityType<LatexChengXiEntity>> LATEX_CHENG_XI;
@@ -116,7 +117,7 @@ public class ChangedCreatureModEntities {
 
 
     // BOSS变体
-    //public static final RegistryObject<EntityType<LatexIceFieldWolfDragonBossEntity>> LATEX_ICE_FIELD_WOLF_DRAGON_BOSS;
+    public static final RegistryObject<EntityType<LatexIceFieldWolfDragonBossEntity>> LATEX_ICE_FIELD_WOLF_DRAGON_BOSS;
     public static final RegistryObject<EntityType<LatexNightOwlBossEntity>> LATEXNIGHTOWLDRAGONBOSS;
     public static final RegistryObject<EntityType<LatexNightOwlEntity>> LATEXNIGHTOWLDRAGON;
     public static final RegistryObject<EntityType<LatexIqGoldDragonEntity>> LATEXIQGOLDDRAGON;
@@ -419,7 +420,7 @@ public class ChangedCreatureModEntities {
                         .setCustomClientFactory(LatexPurplecoocwolfEntity::new)
                         .sized(0.6f, 1.8f),
                 LatexPurplecoocwolfEntity::createLatexAttributes);
-        /*
+
         LATEX_ICE_FIELD_WOLF_DRAGON = registerSpawning("latex_ice_field_wolf_dragon", 0x87CEEB, 0x4682B4,
                 EntityType.Builder.<LatexIceFieldWolfDragonEntity>of(LatexIceFieldWolfDragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
@@ -428,7 +429,7 @@ public class ChangedCreatureModEntities {
                         .setCustomClientFactory(LatexIceFieldWolfDragonEntity::new)
                         .sized(0.7f, 1.93f),
                 LatexIceFieldWolfDragonEntity::createLatexAttributes);
-        */
+
         LATEX_DIVINE_SWORD_KITSUNE = registerSpawning("latex_divine_sword_kitsune", 0xFD1C0A, 0xFFFFFF,
                 EntityType.Builder.<LatexDivineSwordKitsuneEntity>of(LatexDivineSwordKitsuneEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
@@ -539,7 +540,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.48f, 1.52f),
                 LatexLuoHongEarlySpringFoxDragonEntity::createLatexAttributes);
 
-        /*
+
         LATEX_ICE_FIELD_WOLF_DRAGON_BOSS = registerSpawning("latex_ice_field_wolf_dragon_boss", 0x4682B4, 0x5F9EA0,
                 EntityType.Builder.<LatexIceFieldWolfDragonBossEntity>of(LatexIceFieldWolfDragonBossEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
@@ -556,7 +557,7 @@ public class ChangedCreatureModEntities {
                     builder.add(Attributes.KNOCKBACK_RESISTANCE, 1.0);
                     return builder;
                 });
-        */
+
 
         LATEXNIGHTOWLDRAGONBOSS = registerSpawning("latex_night_owl_dragon_boss", 0x2C3E50, 0x34495E,
                 EntityType.Builder.<LatexNightOwlBossEntity>of(LatexNightOwlBossEntity::new, MobCategory.MONSTER)

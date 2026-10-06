@@ -191,7 +191,7 @@ public class ChangedCreatureModTransfurVariants {
 				.holdItemsInMouth()
 				//.reducedFall()
 				.build());
-	/*
+
 	public static final RegistryObject<TransfurVariant<LatexIceFieldWolfDragonEntity>> LATEX_KAMONA_HSGUY_DRAGON_WOLF = 
 			REGISTRY.register("form_latex_ice_field_wolf_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_ICE_FIELD_WOLF_DRAGON)
 				.addAbility(ChangedAddonAbilities.DODGE)
@@ -201,7 +201,7 @@ public class ChangedCreatureModTransfurVariants {
 				.transfurMode(TransfurMode.ABSORPTION)
 				.replicating()
 				.build());
-	*/
+
 	public static final RegistryObject<TransfurVariant<BlackpupmaleEntity>> BLACKPUPMALE = 
 			REGISTRY.register("form_black_pup", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.BLACKPUPMALE)
 				//.stepSize(0.7f)

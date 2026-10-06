@@ -7,6 +7,7 @@ package net.hhdsj.changed_creatures.init;
 import net.hhdsj.changed_creatures.client.models.ModelProtogenNyxarix;
 import net.hhdsj.changed_creatures.client.models.armors.ArmorLatexMaleWolfWingedDragonModel;
 import net.hhdsj.changed_creatures.client.models.armors.ArmorProtogenNyxarixWaterSquidDogModel;
+import net.hhdsj.changed_creatures.client.models.boss.ModelLatexIceFieldWolfDragonBoss;
 import net.hhdsj.changed_creatures.client.models.latex_taur.ModelLatexFrostScaleDragonTaur;
 import net.hhdsj.changed_creatures.client.models.latex_wolf_dragon.ModelLatexXuanJinWolfDragon;
 import net.hhdsj.changed_creatures.client.models.other.ModelLatexWing;
@@ -41,7 +42,7 @@ public class ChangedCreatureModModels {
 		event.registerLayerDefinition(ModelLatexIceDragon.LAYER_LOCATION, ModelLatexIceDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelDarkfuLatexWolfMale.LAYER_LOCATION, ModelDarkfuLatexWolfMale::createBodyLayer);
 		event.registerLayerDefinition(ModelInksuger.LAYER_LOCATION, ModelInksuger::createBodyLayer);
-		//event.registerLayerDefinition(ModelIceFieldWolfDragon.LAYER_LOCATION, ModelIceFieldWolfDragon::createBodyLayer);
+		event.registerLayerDefinition(ModelIceFieldWolfDragon.LAYER_LOCATION, ModelIceFieldWolfDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelWhiteBluePup.LAYER_LOCATION, ModelWhiteBluePup::createBodyLayer);
 		event.registerLayerDefinition(ModelBlackPupMale.LAYER_LOCATION, ModelBlackPupMale::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexPurpleWsWolf.LAYER_LOCATION, ModelLatexPurpleWsWolf::createBodyLayer);
@@ -56,7 +57,7 @@ public class ChangedCreatureModModels {
 		event.registerLayerDefinition(ModelLatexIqGoldDragon.LAYER_LOCATION, ModelLatexIqGoldDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexDarkPurpleDragonTaur.LAYER_LOCATION, ModelLatexDarkPurpleDragonTaur::createBodyLayer);
 		event.registerLayerDefinition(ModelDarkPurpleLatexDragon.LAYER_LOCATION, ModelDarkPurpleLatexDragon::createBodyLayer);
-		//event.registerLayerDefinition(ModelLatexIceFieldWolfDragonBoss.LAYER_LOCATION, ModelLatexIceFieldWolfDragonBoss::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexIceFieldWolfDragonBoss.LAYER_LOCATION, ModelLatexIceFieldWolfDragonBoss::createBodyLayer);
 		event.registerLayerDefinition(ModelLuoHongEarlySpringFoxDragon.LAYER_LOCATION, ModelLuoHongEarlySpringFoxDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexFruitDragonWolf.LAYER_LOCATION, ModelLatexFruitDragonWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelNeondimnessWolf.LAYER_LOCATION, ModelNeondimnessWolf::createBodyLayer);
