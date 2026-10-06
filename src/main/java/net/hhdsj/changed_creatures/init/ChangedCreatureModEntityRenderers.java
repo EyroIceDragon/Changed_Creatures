@@ -7,6 +7,7 @@ package net.hhdsj.changed_creatures.init;
 import net.hhdsj.changed_creatures.block.CryoSubjectChamberRenderer;
 import net.hhdsj.changed_creatures.client.renderer.ProtogenNyxarixRenderer;
 import net.hhdsj.changed_creatures.client.renderer.block.LatexDeepCrystalDragonDollRenderer;
+import net.hhdsj.changed_creatures.client.renderer.boss.LatexIceFieldWolfDragonBossRenderer;
 import net.hhdsj.changed_creatures.client.renderer.boss.LatexNightOwlBossRenderer;
 import net.hhdsj.changed_creatures.client.renderer.boss.LatexNightOwlRenderer;
 import net.hhdsj.changed_creatures.client.renderer.cat.LatexBlueveCatRenderer;
@@ -47,7 +48,7 @@ public class ChangedCreatureModEntityRenderers {
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXYUNXQHOTDRAGON.get(), LatexYunXqHotDragonRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXYUNXQICEDRAGON.get(), LatexYunXqIceDragonRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXBLUEDRAGON.get(), LatexBlueDragonRenderer::new);
-		//event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_ICE_FIELD_WOLF_DRAGON.get(), LatexIceFieldWolfDragonRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_ICE_FIELD_WOLF_DRAGON.get(), LatexIceFieldWolfDragonRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXPRTPLECOOCWOLF.get(), LatexPurpleCoocWolfRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXTHREEMONTHWOLF_PROJECTILE.get(), LatexArrowRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXYUNQIICEDRAGON.get(), LatexYunQiIceDragonRenderer::new);
@@ -57,7 +58,7 @@ public class ChangedCreatureModEntityRenderers {
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXIQGOLDDRAGON.get(), LatexIqGoldDragonRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXDARKPURPLEDRAGONTAUR.get(), LatexDarkPurpleDragonTaurRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXDARKPURPLEDRAGON.get(), LatexDarkPurpleDragonRenderer::new);
-		//event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_ICE_FIELD_WOLF_DRAGON_BOSS.get(), LatexIceFieldWolfDragonBossRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_ICE_FIELD_WOLF_DRAGON_BOSS.get(), LatexIceFieldWolfDragonBossRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXLUOHONGEARLYSPRINGFOXDRAGON.get(), LatexLuoHongEarlySpringFoxDragonRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXFRUITDRAGONWOLF.get(), LatexFruitDragonRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXNEONDIMNESSWOLF.get(), LatexNeondimnessWolfRenderer::new);

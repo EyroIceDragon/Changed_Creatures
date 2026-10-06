@@ -1,6 +1,6 @@
 package net.hhdsj.changed_creatures.client.models.boss;
 
-/*
+
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.hhdsj.changed_creatures.entity.boss.LatexIceFieldWolfDragonBossEntity;
@@ -237,4 +237,4 @@ public class ModelLatexIceFieldWolfDragonBoss extends AdvancedHumanoidModel<Late
     public HumanoidAnimator<LatexIceFieldWolfDragonBossEntity, ModelLatexIceFieldWolfDragonBoss> getAnimator(LatexIceFieldWolfDragonBossEntity entity) {
         return animator;
     }
-}*/
+}
