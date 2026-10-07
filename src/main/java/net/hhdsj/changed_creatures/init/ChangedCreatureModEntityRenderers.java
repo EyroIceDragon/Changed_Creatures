@@ -6,6 +6,7 @@ package net.hhdsj.changed_creatures.init;
 
 import net.hhdsj.changed_creatures.block.CryoSubjectChamberRenderer;
 import net.hhdsj.changed_creatures.client.renderer.ProtogenNyxarixRenderer;
+import net.hhdsj.changed_creatures.client.renderer.animals.bot.LatexAgmisnBotRenderer;
 import net.hhdsj.changed_creatures.client.renderer.block.LatexDeepCrystalDragonDollRenderer;
 import net.hhdsj.changed_creatures.client.renderer.boss.LatexNightOwlBossRenderer;
 import net.hhdsj.changed_creatures.client.renderer.boss.LatexNightOwlRenderer;
@@ -26,6 +27,7 @@ import net.hhdsj.changed_creatures.client.renderer.projectile.BlueCrystalProject
 import net.hhdsj.changed_creatures.client.renderer.projectile.CrystalArrowRenderer;
 import net.hhdsj.changed_creatures.client.renderer.projectile.LatexArrowRenderer;
 import net.hhdsj.changed_creatures.client.renderer.projectile.ThrownCrystalJavelinTridentRenderer;
+import net.hhdsj.changed_creatures.entity.animals.bot.LatexAgmisnBotEntity;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -94,7 +96,8 @@ public class ChangedCreatureModEntityRenderers {
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_EYRO_END_DRAGON.get(), LatexEyroEndDragonRenderer::new);
 		//LatexIngerteFoxRenderer
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_INGERTE_FOX.get(), LatexIngerteFoxRenderer::new);
-
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_MOCHA_WOLF.get(), LatexMoChaRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_AGMISN_BOT.get(), LatexAgmisnBotRenderer::new);
 	}
 	@SubscribeEvent
 	public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {

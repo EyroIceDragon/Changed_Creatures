@@ -59,6 +59,30 @@ public class GoodBlockAnimatorPresets extends AnimatorPresets {
     }
 
     public static <T extends ChangedEntity, M extends AdvancedHumanoidModel<T>> @NotNull Consumer<HumanoidAnimator<T, M>>
+    LesstaurLike(ModelPart head, ModelPart torso, ModelPart leftArm, ModelPart rightArm,
+                   ModelPart lowerTorso, ModelPart frontLeftLeg, ModelPart frontLeftLegLower, ModelPart frontLeftFoot,
+                   ModelPart frontRightLeg, ModelPart frontRightLegLower, ModelPart frontRightFoot, ModelPart backLeftLeg,
+                   ModelPart backLeftLegLower, ModelPart backLeftFoot, ModelPart backLeftPad, ModelPart backRightLeg,
+                   ModelPart backRightLegLower, ModelPart backRightFoot, ModelPart backRightPad,
+                   ModelPart tail, List<ModelPart> tailJoints) {
+        return (animator) -> {
+            animator.addPreset(
+                            taurLegs(lowerTorso, frontLeftLeg, frontLeftLegLower, frontLeftFoot,
+                                    frontRightLeg, frontRightLegLower, frontRightFoot, backLeftLeg,
+                                    backLeftLegLower, backLeftFoot, backLeftPad, backRightLeg,
+                                    backRightLegLower, backRightFoot, backRightPad)
+                    )
+                    .addPreset(taurUpperBody(head, torso, leftArm, rightArm))
+                    .addPreset(dragonTail(tail, tailJoints))
+                    .addAnimator(new WolfHeadInitAnimator<>(head))
+                    .addAnimator(new ArmSwimAnimator<>(leftArm, rightArm))
+                    .addAnimator(new ArmBobAnimator<>(leftArm, rightArm))
+                    .addAnimator(new ArmRideAnimator<>(leftArm, rightArm));
+
+        };
+    }
+
+    public static <T extends ChangedEntity, M extends AdvancedHumanoidModel<T>> @NotNull Consumer<HumanoidAnimator<T, M>>
     WingedWolfDragonLike(ModelPart head, ModelPart torso, ModelPart leftArm, ModelPart rightArm,
                      ModelPart tail, List<ModelPart> tailJoints, ModelPart leftLeg, ModelPart leftLegLower,
                      ModelPart leftFoot, ModelPart leftPad, ModelPart rightLeg, ModelPart rightLegLower,

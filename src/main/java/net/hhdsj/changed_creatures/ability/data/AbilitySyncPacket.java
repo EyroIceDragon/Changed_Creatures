@@ -1,12 +1,13 @@
 package net.hhdsj.changed_creatures.ability.data;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.network.NetworkEvent;
@@ -52,15 +53,8 @@ public class AbilitySyncPacket {
         ctx.enqueueWork(() -> {
             if (ctx.getDirection().getReceptionSide().isServer()) return;
 
-            Player player = Minecraft.getInstance().player;
-            if (player == null) return;
-
-            PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
-            AbilityData data = abilities.get(abilityId);
-            data.level = level;
-            data.exp = exp;
-            data.cooldown = cooldown;
-            abilities.setPlayerExp(playerExp);
+            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () ->
+                    ClientHandler.handle(this));
         });
         ctx.setPacketHandled(true);
     }
@@ -84,6 +78,20 @@ public class AbilitySyncPacket {
             ChangedCreature.PACKET_HANDLER.send(
                     PacketDistributor.PLAYER.with(() -> sp),
                     new AbilitySyncPacket(entry.getKey(), entry.getValue(), exp));
+        }
+    }
+
+    private static class ClientHandler {
+        static void handle(AbilitySyncPacket packet) {
+            Player player = net.minecraft.client.Minecraft.getInstance().player;
+            if (player == null) return;
+
+            PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
+            AbilityData data = abilities.get(packet.abilityId);
+            data.level = packet.level;
+            data.exp = packet.exp;
+            data.cooldown = packet.cooldown;
+            abilities.setPlayerExp(packet.playerExp);
         }
     }
 }

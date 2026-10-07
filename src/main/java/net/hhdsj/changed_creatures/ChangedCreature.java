@@ -90,15 +90,19 @@ public class ChangedCreature {
 		event.register(IAbilityData.class);
 	}
 
-	public static ResourceLocation ChangedCreatureResourceLocation(String txt){
-		return ResourceLocation.fromNamespaceAndPath(MODID, txt);
+	public static ResourceLocation ChangedCreatureResourceLocation(String path){
+		return ResourceLocation.fromNamespaceAndPath(MODID, path);
+	}
+	public static ResourceLocation CCRL(String path){
+		return ResourceLocation.fromNamespaceAndPath(MODID, path);
 	}
 	public static ResourceLocation ChangedCreatureResourceLocationAll(String txt){
 		return ResourceLocation.parse(txt);
 	}
-	public static ModelLayerLocation ChangedCreatureModelResourceLocation(String txt){
-        return new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(MODID, txt),"main");
+	public static ModelLayerLocation ChangedCreatureModelResourceLocation(String path){
+        return new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(MODID, path),"main");
 	}
+
 	public static ResourceLocation ModResource(String Path){
 		return ResourceLocation.fromNamespaceAndPath(MODID, Path);
 	}

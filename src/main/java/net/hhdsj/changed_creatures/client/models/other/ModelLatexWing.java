@@ -4,8 +4,6 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.hhdsj.changed_creatures.ChangedCreature;
-import net.hhdsj.changed_creatures.client.animation.WingAnimation;
-import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.minecraft.client.model.AgeableListModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -19,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class ModelLatexWing extends AgeableListModel<AbstractClientPlayer> implements WingAnimation {
+public class ModelLatexWing extends AgeableListModel<AbstractClientPlayer> {
     public static final ModelLayerLocation LAYER_LOCATION =
             ChangedCreature.ChangedCreatureModelResourceLocation("latex_wind");
 

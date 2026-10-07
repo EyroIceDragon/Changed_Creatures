@@ -4,6 +4,7 @@
 package net.hhdsj.changed_creatures.init;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
+import net.hhdsj.changed_creatures.entity.animals.bot.LatexAgmisnBotEntity;
 import net.hhdsj.changed_creatures.entity.boss.*;
 import net.hhdsj.changed_creatures.entity.simple.*;
 import net.minecraft.world.entity.*;
@@ -93,6 +94,7 @@ public class ChangedCreatureModEntities {
     public static final RegistryObject<EntityType<LatexDuskDawnDragonFemaleEntity>> LATEX_DUSK_DAWN_DRAGON_FEMALE;
     public static final RegistryObject<EntityType<LatexSteppenWolfEntity>> LATEX_STEPPEN_WOLF;
     public static final RegistryObject<EntityType<LatexPeanutButterWolfEntity>> LATEX_PEAUNT_BUTTER_WOLF;
+    public static final RegistryObject<EntityType<LatexMoChaWolfEntity>> LATEX_MOCHA_WOLF;
 
     // 幼崽变体
     public static final RegistryObject<EntityType<BlackpupmaleEntity>> BLACKPUPMALE;
@@ -137,7 +139,24 @@ public class ChangedCreatureModEntities {
     //龙狼变体
     public static final RegistryObject<EntityType<LatexXuanJinWolfDragonEntity>> LATEX_XUAN_JIN_WOLF_DRAGON;
 
+    //其它
+    public static final RegistryObject<EntityType<LatexAgmisnBotEntity>> LATEX_AGMISN_BOT;
     static {
+        LATEX_AGMISN_BOT = registerUnSpawning("latex_agmisn_bot",
+                EntityType.Builder.of(LatexAgmisnBotEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .sized(0.6f, 0.6f),
+                LatexAgmisnBotEntity::createLatexAttributes);
+        LATEX_MOCHA_WOLF = registerSpawning("latex_mocha_wolf",0x3b3b3b,0x84443a,
+                EntityType.Builder.of(LatexMoChaWolfEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .sized(0.6f, 1.92f),
+                LatexMoChaWolfEntity::createLatexAttributes);
+
         LATEX_INGERTE_FOX = registerSpawning("latex_ingerte_fox", 0xfeb46b, 0xffeb7b,
                 EntityType.Builder.of(LatexIngerteFoxEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
@@ -642,7 +661,7 @@ public class ChangedCreatureModEntities {
             EntityType.Builder<T> builder,
             Supplier<AttributeSupplier.Builder> attributes) {
 
-        ResourceLocation resourceLocation = new ResourceLocation(ChangedCreature.MODID, name);
+        ResourceLocation resourceLocation = ChangedCreature.ChangedCreatureResourceLocation(name);
         ENTITY_COLOR_MAP.put(resourceLocation, new Pair<>(eggBack, eggHighlight));
 
         String regName = resourceLocation.toString();
@@ -691,6 +710,22 @@ public class ChangedCreatureModEntities {
         return entityType;
     }
 
+    private static <T extends ChangedEntity> RegistryObject<EntityType<T>> registerUnSpawning(
+            String name,
+            EntityType.Builder<T> builder,
+            Supplier<AttributeSupplier.Builder> attributes) {
+
+        ResourceLocation resourceLocation = ChangedCreature.ChangedCreatureResourceLocation(name);
+
+        String regName = resourceLocation.toString();
+        RegistryObject<EntityType<T>> entityType = REGISTRY.register(name, () -> builder.build(regName));
+
+        // 存储属性构建器
+        ATTR_FUNC_REGISTRY.add(new Pair<>(entityType::get, attributes));
+
+        return entityType;
+    }
+
     // 在同一个类中添加事件监听器
     @SubscribeEvent
     public static void buildTabContentsVanilla(BuildCreativeModeTabContentsEvent tabData) {
@@ -717,7 +752,7 @@ public class ChangedCreatureModEntities {
             Supplier<AttributeSupplier.Builder> attributes,
             int requiredWaterHeight) {
 
-        ResourceLocation resourceLocation = new ResourceLocation(ChangedCreature.MODID, name);
+        ResourceLocation resourceLocation = ChangedCreature.ChangedCreatureResourceLocation(name);
         ENTITY_COLOR_MAP.put(resourceLocation, new Pair<>(eggBack, eggHighlight));
 
         String regName = resourceLocation.toString();
@@ -772,7 +807,7 @@ public class ChangedCreatureModEntities {
             String name,
             EntityType.Builder<T> builder) {
 
-        String regName = new ResourceLocation(ChangedCreature.MODID, name).toString();
+        String regName = ChangedCreature.ChangedCreatureResourceLocation(name).toString();
         return REGISTRY.register(name, () -> builder.build(regName));
     }
 
