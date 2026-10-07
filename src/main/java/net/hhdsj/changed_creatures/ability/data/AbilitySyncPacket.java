@@ -1,7 +1,6 @@
 package net.hhdsj.changed_creatures.ability.data;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -14,7 +13,6 @@ import net.minecraftforge.network.PacketDistributor;
 
 import java.util.function.Supplier;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class AbilitySyncPacket {
 
     private final ResourceLocation abilityId;
@@ -52,17 +50,26 @@ public class AbilitySyncPacket {
         ctx.enqueueWork(() -> {
             if (ctx.getDirection().getReceptionSide().isServer()) return;
 
-            Player player = Minecraft.getInstance().player;
+            ClientAbilityHandler.apply(this);
+        });
+        ctx.setPacketHandled(true);
+    }
+
+    // 客户端侧应用逻辑单独成类，避免服务端专用环境下加载 Minecraft/Client 类。
+    static class ClientAbilityHandler {
+        @SuppressWarnings("unused")
+        static void apply(AbilitySyncPacket pkt) {
+            net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
+            Player player = mc.player;
             if (player == null) return;
 
             PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
-            AbilityData data = abilities.get(abilityId);
-            data.level = level;
-            data.exp = exp;
-            data.cooldown = cooldown;
-            abilities.setPlayerExp(playerExp);
-        });
-        ctx.setPacketHandled(true);
+            AbilityData data = abilities.get(pkt.abilityId);
+            data.level = pkt.level;
+            data.exp = pkt.exp;
+            data.cooldown = pkt.cooldown;
+            abilities.setPlayerExp(pkt.playerExp);
+        }
     }
 
     @SubscribeEvent

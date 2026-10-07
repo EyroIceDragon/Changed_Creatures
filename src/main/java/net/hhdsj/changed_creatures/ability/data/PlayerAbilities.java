@@ -1,6 +1,5 @@
 package net.hhdsj.changed_creatures.ability.data;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;

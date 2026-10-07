@@ -1,7 +1,6 @@
 package net.hhdsj.changed_creatures.ability.data;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -35,13 +34,21 @@ public class GlobalExpSyncPacket {
         ctx.enqueueWork(() -> {
             if (ctx.getDirection().getReceptionSide().isServer()) return;
 
-            Player player = Minecraft.getInstance().player;
+            ClientGlobalExpHandler.apply(this.playerExp);
+        });
+        ctx.setPacketHandled(true);
+    }
+
+    // 客户端侧应用逻辑单独成类，避免服务端专用环境下加载 Minecraft/Client 类。
+    static class ClientGlobalExpHandler {
+        @SuppressWarnings("unused")
+        static void apply(int playerExp) {
+            Player player = net.minecraft.client.Minecraft.getInstance().player;
             if (player == null) return;
 
             PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
             abilities.setPlayerExp(playerExp);
-        });
-        ctx.setPacketHandled(true);
+        }
     }
 
     @SubscribeEvent

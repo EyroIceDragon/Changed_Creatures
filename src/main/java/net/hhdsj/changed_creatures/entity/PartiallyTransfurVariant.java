@@ -266,30 +266,34 @@ public class PartiallyTransfurVariant {
         }
     }
 
-    @OnlyIn(Dist.CLIENT)
-    @SubscribeEvent
-    public static void onClientTick(TickEvent.ClientTickEvent event) {
-        if (event.phase != TickEvent.Phase.END) return;
-
-        Minecraft mc = Minecraft.getInstance();
-        Player player = mc.player;
-        if (player == null || mc.screen != null) return;
-
-        UUID playerId = player.getUUID();
-        boolean currentJump = mc.options.keyJump.isDown();
-        boolean lastState = lastJumpStateMap.getOrDefault(playerId, false);
-        boolean pressed = currentJump && !lastState;
-
-        clientJumpPressMap.put(playerId, pressed);
-
-        if (pressed) {
-            ChangedCreature.PACKET_HANDLER.sendToServer(new KeyMessage(1, 0));
-        }
-
-        lastJumpStateMap.put(playerId, currentJump);
-    }
-
     public static void setServerJumpPressed(UUID playerId) {
         serverJumpPressMap.put(playerId, true);
+    }
+
+    // 仅客户端使用的事件订阅：必须放在独立的、带 Dist.CLIENT 限制的类中，
+    // 否则服务端专用环境下自动注册订阅器时会触发 RuntimeDistCleaner 崩溃。
+    @Mod.EventBusSubscriber(modid = ChangedCreature.MODID, value = Dist.CLIENT)
+    public static class PartiallyTransfurVariantClientEvents {
+        @SubscribeEvent
+        public static void onClientTick(TickEvent.ClientTickEvent event) {
+            if (event.phase != TickEvent.Phase.END) return;
+
+            Minecraft mc = Minecraft.getInstance();
+            Player player = mc.player;
+            if (player == null || mc.screen != null) return;
+
+            UUID playerId = player.getUUID();
+            boolean currentJump = mc.options.keyJump.isDown();
+            boolean lastState = lastJumpStateMap.getOrDefault(playerId, false);
+            boolean pressed = currentJump && !lastState;
+
+            clientJumpPressMap.put(playerId, pressed);
+
+            if (pressed) {
+                ChangedCreature.PACKET_HANDLER.sendToServer(new KeyMessage(1, 0));
+            }
+
+            lastJumpStateMap.put(playerId, currentJump);
+        }
     }
 }

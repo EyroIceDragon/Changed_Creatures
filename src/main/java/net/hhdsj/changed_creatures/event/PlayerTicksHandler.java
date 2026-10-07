@@ -1,6 +1,5 @@
 package net.hhdsj.changed_creatures.event;
 
-import net.hhdsj.changed_creatures.client.models.other.ModelLatexWing;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModGameRules;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModParticleTypes;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModTransfurVariants;
@@ -14,7 +13,7 @@ import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
 import net.ltxprogrammer.changed.init.ChangedRegistry;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.player.AbstractClientPlayer;
+
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
@@ -27,8 +26,8 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraft.world.entity.player.Player;
 import net.hhdsj.changed_creatures.network.GoodblockModVariables;
@@ -38,7 +37,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(value = Dist.DEDICATED_SERVER)
 public class PlayerTicksHandler {
     private static final UUID CRYSTAL_SLOW_UUID = UUID.fromString("c8e5c5a4-8f3a-4e2a-9b1c-7d6e5f4a3b2c");
     private static boolean wasFlying = false;
@@ -91,18 +90,14 @@ public class PlayerTicksHandler {
         Player_Crystal_Jelly_Infection(player,event);
 
     }
-    @SubscribeEvent
-    public void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
-        AbstractClientPlayer player = (AbstractClientPlayer) event.getEntity();
-        ModelLatexWing.cleanupPlayerState(player.getUUID());
-    }
+    // 翅膀渲染状态清理仅存在于客户端，服务端专用环境下不得加载任何客户端类，
+    // 因此将该逻辑移入独立的、带 Dist.CLIENT 限制的订阅类（见 ClientWingCleanupHandler）。
     public static void Player_crystal_draw(Player player,TransfurVariantInstance<?> variant){
         boolean shouldHaveRing = variant != null && variant.getParent() == ChangedCreatureModTransfurVariants.LATEX_LUOLONG_DRAGON_SHARK.get();
 
         if (player instanceof ServerPlayer sp) {
             sp.getCapability(CrystalRingHandler.CAPABILITY).ifPresent(c -> {
                 if (c.isActive() != shouldHaveRing) {
-                    System.out.println("OK0");
                     c.setActive(shouldHaveRing);
                     SyncCrystalRingPacket.sync(sp);
                 }
