@@ -82,6 +82,7 @@ public class PartiallyTransfurVariant {
         if (player == null) return false;
         if (player.getFoodData().getFoodLevel() <= MIN_FOOD_LEVEL) return false;
         if (player.isInWater()) return false;
+        if (player.isCreative() || player.isSpectator()) return false;
         if (player.getVehicle() != null) return false;
         return true;
     }
