@@ -1,5 +1,5 @@
 package net.hhdsj.changed_creatures.client.renderer.boss;
-/*
+
 import net.hhdsj.changed_creatures.client.models.boss.ModelLatexIceFieldWolfDragonBoss;
 import net.hhdsj.changed_creatures.entity.boss.LatexIceFieldWolfDragonBossEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
@@ -46,4 +46,3 @@ public class LatexIceFieldWolfDragonBossRenderer extends AdvancedHumanoidRendere
             return false;
     }
 }
-*/

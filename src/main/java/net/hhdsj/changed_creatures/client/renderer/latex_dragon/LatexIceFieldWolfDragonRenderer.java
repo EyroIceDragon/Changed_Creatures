@@ -1,12 +1,12 @@
 
 package net.hhdsj.changed_creatures.client.renderer.latex_dragon;
-/*
+
 import net.ltxprogrammer.changed.client.renderer.layers.*;
 import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
-import net.hhdsj.changed_creatures.entity.LatexIceFieldWolfDragonEntity;
+import net.hhdsj.changed_creatures.entity.simple.LatexIceFieldWolfDragonEntity;
 import net.hhdsj.changed_creatures.client.models.latex_dragon.ModelIceFieldWolfDragon;
 
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexBigTailDragonModel;
@@ -31,4 +31,4 @@ public class LatexIceFieldWolfDragonRenderer extends AdvancedHumanoidRenderer<La
 	public ResourceLocation getTextureLocation(LatexIceFieldWolfDragonEntity entity) {
 		return new ResourceLocation("changed_creatures:textures/entities/latex/latex_kamona_hsguy_dragonwolf_png1.png");
 	}
-}*/
+}
