@@ -4,11 +4,8 @@ import net.hhdsj.changed_creatures.ChangedCreature;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
@@ -78,9 +75,7 @@ public class AbilityEvents {
         if (!(event.getSource().getEntity() instanceof Player player)) return;
         if (player.level().isClientSide()) return;
         PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
-        ChangedCreature.LOGGER.info("Server exp before: {}", abilities.getPlayerExp());
         abilities.addPlayerExp(10);
-        ChangedCreature.LOGGER.info("Server exp after: {}", abilities.getPlayerExp());
         if (player instanceof ServerPlayer sp) {
             GlobalExpSyncPacket.send(sp);
         }
@@ -92,10 +87,10 @@ public class AbilityEvents {
         if (player.level().isClientSide()) return;
         if (!(player instanceof ServerPlayer sp)) return;   // 保险：用 ServerPlayer
 
-        // 1. 先拿到 transfur 实例
+        // 先拿到 transfur 实例
         var instance = ProcessTransfur.getPlayerTransfurVariant(player);
 
-        // 2. 判空：玩家还没 transfur，就跳过初始化
+        // 判空：玩家还没 transfur，就跳过初始化
         if (instance == null) {
             ChangedCreature.LOGGER.info(
                     "[ChangedCreatures] Player {} logged in without transfur variant, skipping ability init",
@@ -104,7 +99,7 @@ public class AbilityEvents {
             return;
         }
 
-        // 3. 只有已 transfur 时才继续
+        // 只有已 transfur 时才继续
         PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
 
         List<RegistryObject<AbstractAbility>> defaultAbilities =
