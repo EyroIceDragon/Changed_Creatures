@@ -4,6 +4,7 @@ import net.hhdsj.changed_creatures.ChangedCreature;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -17,6 +18,7 @@ public class ChangedCreaturesDataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
+        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
         generator.addProvider(
                 event.includeServer(),
@@ -40,6 +42,16 @@ public class ChangedCreaturesDataGenerators {
         generator.addProvider(
                 event.includeServer(),
                 new ChangedCreaturesBiomeSpawnProvider(generator.getPackOutput())
+        );
+
+        generator.addProvider(
+                event.includeServer(),
+                new ChangedCreaturesCompatibilityDataProvider(generator.getPackOutput())
+        );
+
+        generator.addProvider(
+                event.includeClient(),
+                new ChangedCreaturesItemModelProvider(generator.getPackOutput(), existingFileHelper)
         );
     }
 }

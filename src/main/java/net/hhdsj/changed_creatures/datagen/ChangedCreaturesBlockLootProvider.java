@@ -4,6 +4,7 @@ import net.hhdsj.changed_creatures.init.ChangedCreatureModBlocks;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModItems;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
@@ -12,6 +13,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
@@ -37,17 +39,19 @@ public class ChangedCreaturesBlockLootProvider extends BlockLootSubProvider {
         addLoot(ChangedCreatureModBlocks.BLUE_CRYSTALORE.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
-                        .add(net.minecraft.world.level.storage.loot.entries.AlternativesEntry.alternatives(
+                        .add(AlternativesEntry.alternatives(
                                 LootItem.lootTableItem(ChangedCreatureModBlocks.BLUE_CRYSTALORE.get())
                                         .when(MatchTool.toolMatches(
                                                 ItemPredicate.Builder.item().hasEnchantment(
-                                                        new EnchantmentPredicate(Enchantments.SILK_TOUCH, net.minecraft.advancements.critereon.MinMaxBounds.Ints.atLeast(1))))),
+                                                        new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.Ints.atLeast(1))))),
                                 LootItem.lootTableItem(ChangedCreatureModItems.BlueCrystaloreItem.get())
                                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2)))
-                                        .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 1)),
-                                LootItem.lootTableItem(ChangedCreatureModItems.Impure_Frost_Condensed_Crystal_Cluster.get())
-                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 1)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 1))
                         )))
+                .withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(ChangedCreatureModItems.Impure_Frost_Condensed_Crystal_Cluster.get())
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 1)))))
         );
 
         addLoot(ChangedCreatureModBlocks.URANIUM_ORE.get(), LootTable.lootTable()
