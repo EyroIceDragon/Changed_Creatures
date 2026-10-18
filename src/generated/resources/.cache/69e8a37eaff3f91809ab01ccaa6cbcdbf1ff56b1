@@ -1,0 +1,7 @@
+// 1.20.1	2026-10-18T18:51:22.0471272	ChangedCreatures Compatibility Data
+b6fc05130054e621100610235ceefcdb464455e0 data/data/changed/tags/entity_types/can_open_lab_doors.json
+fa50e77a423a82c2abcc57526d10ba7a882a6a87 data/data/changed/tags/entity_types/can_wear_exoskeleton.json
+b6fc05130054e621100610235ceefcdb464455e0 data/data/changed/tags/entity_types/latexes.json
+a9352f67aa61a9446e4969340f3784f17663d16a data/data/changed/tags/entity_types/partial_latexes.json
+d74e4014f5ffe280ff6e954dd0581cbbc3bffc43 data/data/changed_creatures/accessories/entities/humanoids.json
+0cf782d7b02700373450a1729397f3876a512833 data/data/changed_creatures/accessories/entities/taurs.json
