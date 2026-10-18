@@ -2,25 +2,20 @@ package net.hhdsj.changed_creatures.ability;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.ability.data.AbstractAbility;
-import net.hhdsj.changed_creatures.util.ProgressTransfurExt;
-import net.ltxprogrammer.changed.entity.ChangedEntity;
+import net.hhdsj.changed_creatures.network.packets.HypnotizeMarkPacket;
 import net.ltxprogrammer.changed.entity.TransfurCause;
 import net.ltxprogrammer.changed.entity.TransfurContext;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariant;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
 import net.ltxprogrammer.changed.util.CameraUtil;
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.AABB;
 
 import java.util.HashSet;
 import java.util.List;
@@ -83,7 +78,7 @@ public class HypnotizeAbility extends AbstractAbility {
 
             if (next >= max && old < max) {
                 ProcessTransfur.setPlayerTransfurProgress(target, 0.0F);
-                ProcessTransfur.progressTransfur(target, 20f, playerVariant, TransfurContext.hazard(TransfurCause.FACE_HAZARD));
+                ProcessTransfur.progressTransfur(target, 10f, playerVariant, TransfurContext.hazard(TransfurCause.FACE_HAZARD));
                 //attackedPlayers.remove(target.getUUID());
             } else {
                 ProcessTransfur.setPlayerTransfurProgress(target, next);
@@ -97,6 +92,10 @@ public class HypnotizeAbility extends AbstractAbility {
             if (exp_level == 2) {
                 target.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 60, 2));
             }
+
+            if (player.tickCount % 40 == 0 && target instanceof ServerPlayer sp) {
+                HypnotizeMarkPacket.sendTo(sp, player.getUUID(), exp_level);
+            }
         }
 
     }
@@ -109,21 +108,11 @@ public class HypnotizeAbility extends AbstractAbility {
 
         if (target instanceof Player targetPlayer && targetPlayer != player) {
             attackedPlayers.add(targetPlayer.getUUID());
+            if (targetPlayer instanceof ServerPlayer sp) {
+                HypnotizeMarkPacket.sendTo(sp, player.getUUID(), exp_level);
+            }
         }
 
-//        level.getNearbyEntities(
-//                Mob.class,
-//                TargetingConditions.DEFAULT,
-//                player,
-//                AABB.ofSize(player.position(), 3.0D, 3.0D, 3.0D)
-//        ).forEach(mob -> {
-//            if (mob instanceof ChangedEntity) return;
-//            if (mob.getTarget() != null && mob.getTarget().is(player)) {
-//                mob.setTarget(null);
-//            }
-//        });
-
-        
     }
 
     @Override

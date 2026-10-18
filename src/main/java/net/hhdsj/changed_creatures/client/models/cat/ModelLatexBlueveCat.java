@@ -149,7 +149,7 @@ public class ModelLatexBlueveCat extends AdvancedHumanoidModel<LatexBlueveCatEnt
     }
 
 
-    public @NotNull ModelPart m_102851_(@NotNull HumanoidArm p_102852) {
+    public @NotNull ModelPart getArm(@NotNull HumanoidArm p_102852) {
         return p_102852 == HumanoidArm.LEFT ? this.LeftArm : this.RightArm;
     }
 

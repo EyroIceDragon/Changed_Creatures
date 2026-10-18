@@ -231,7 +231,7 @@ public class ArmorLatexMaleWolfWingedDragonModel<T extends ChangedEntity> extend
     }
 
     @Override
-    public ModelPart m_102851_(HumanoidArm arm) {
+    public ModelPart getArm(HumanoidArm arm) {
         return arm == HumanoidArm.LEFT ? this.LeftArm : this.RightArm;
     }
 

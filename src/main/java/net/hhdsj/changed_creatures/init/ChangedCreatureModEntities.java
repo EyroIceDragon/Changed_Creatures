@@ -111,7 +111,7 @@ public class ChangedCreatureModEntities {
     public static final RegistryObject<EntityType<LatexDarkPurpleDragonTaurEntity>> LATEXDARKPURPLEDRAGONTAUR;
     public static final RegistryObject<EntityType<DarkPurpleLatexDragonEntity>> LATEXDARKPURPLEDRAGON;
     public static final RegistryObject<EntityType<LatexLuoHongEarlySpringFoxDragonEntity>> LATEXLUOHONGEARLYSPRINGFOXDRAGON;
-    public static final RegistryObject<EntityType<LatexYaoLingDragonEntity>> LATEXYAOLINGDRAGON;
+    public static final RegistryObject<EntityType<LatexRadiaryDragonEntity>> LATEX_RADIARY_DRAGON;
     public static final RegistryObject<EntityType<LatexCrystalJellyDragonEntity>> LATEX_CRYSTAL_JELLY;
     public static final RegistryObject<EntityType<LatexEmberscalesMagmaDragonMaleEntity>> LATEX_EMBERSCALES_MAGMA_DRAGON_MALE;
     public static final RegistryObject<EntityType<LatexXuanJinDragonEntity>> LATEX_XUAN_JIN_DRAGON;
@@ -148,7 +148,7 @@ public class ChangedCreatureModEntities {
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
                         .setUpdateInterval(3)
-                        .sized(0.6f, 0.6f),
+                        .sized(1.4f, 0.8f),
                 LatexAgmisnBotEntity::createLatexAttributes);
         LATEX_MOCHA_WOLF = registerSpawning("latex_mocha_wolf",0x3b3b3b,0x84443a,
                 EntityType.Builder.of(LatexMoChaWolfEntity::new, MobCategory.MONSTER)
@@ -404,7 +404,7 @@ public class ChangedCreatureModEntities {
                 2);
 
         // 狼变体
-        DARKFU_LATEX_WOLF_MALE = registerSpawning("darkfu_latex_wolf_male", 0x4A4A4A, 0x2D2D2D,
+        DARKFU_LATEX_WOLF_MALE = registerSpawning("latex_darkfu_wolf_male", 0x4A4A4A, 0x2D2D2D,
                 EntityType.Builder.<DarkfuLatexWolfMaleEntity>of(DarkfuLatexWolfMaleEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -413,7 +413,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.6f, 1.99f),
                 DarkfuLatexWolfMaleEntity::createLatexAttributes);
 
-        LATEXPURPLEWSWOLF = registerSpawning("latexpurplewswolf", 0x800080, 0x9932CC,
+        LATEXPURPLEWSWOLF = registerSpawning("latex_purple_ws_wolf", 0x800080, 0x9932CC,
                 EntityType.Builder.<LatexpurplewswolfEntity>of(LatexpurplewswolfEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -422,7 +422,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.6f, 1.9f),
                 LatexpurplewswolfEntity::createLatexAttributes);
 
-        LATEXTHREEMONTHWOLF = registerSpawning("latexthreemonthwolf", 0xFF62FF, 0xFF84FF,
+        LATEXTHREEMONTHWOLF = registerSpawning("latex_three_month_wolf", 0xFF62FF, 0xFF84FF,
                 EntityType.Builder.<LatexthreemonthwolfEntity>of(LatexthreemonthwolfEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -459,7 +459,7 @@ public class ChangedCreatureModEntities {
                 LatexDivineSwordKitsuneEntity::createLatexAttributes);
 
         // 幼崽变体
-        BLACKPUPMALE = registerSpawning("blackpupmale", 0x000000, 0x333333,
+        BLACKPUPMALE = registerSpawning("black_pup_male", 0x000000, 0x333333,
                 EntityType.Builder.<BlackpupmaleEntity>of(BlackpupmaleEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -468,7 +468,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.4f, 0.7f),
                 BlackpupmaleEntity::createLatexAttributes);
 
-        WHITEBLUEPUP = registerSpawning("whitebluepup", 0xFFFFFF, 0x87CEEB,
+        WHITEBLUEPUP = registerSpawning("white_blue_pup", 0xFFFFFF, 0x87CEEB,
                 EntityType.Builder.<WhitebluepupEntity>of(WhitebluepupEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -487,7 +487,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.6f, 1.8f),
                 LatexiceDragonEntity::createLatexAttributes);
 
-        LATEXYUNXQHOTDRAGON = registerSpawning("latexyunxqhotdragon", 0xFF4500, 0xFF6347,
+        LATEXYUNXQHOTDRAGON = registerSpawning("latex_yun_xq_hot_dragon", 0xFF4500, 0xFF6347,
                 EntityType.Builder.<LatexyunxqhotdragonEntity>of(LatexyunxqhotdragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -497,17 +497,17 @@ public class ChangedCreatureModEntities {
                         .sized(0.6f, 1.9f),
                 LatexyunxqhotdragonEntity::createLatexAttributes);
 
-        LATEXYAOLINGDRAGON = registerSpawning("latex_yao_ling_dragon", 0xFFDD4F,0xF9CACA,
-                EntityType.Builder.<LatexYaoLingDragonEntity>of(LatexYaoLingDragonEntity::new, MobCategory.MONSTER)
+        LATEX_RADIARY_DRAGON = registerSpawning("latex_radiary_dragon", 0xFFDD4F,0xF9CACA,
+                EntityType.Builder.<LatexRadiaryDragonEntity>of(LatexRadiaryDragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
                         .setUpdateInterval(3)
-                        .setCustomClientFactory(LatexYaoLingDragonEntity::new)
+                        .setCustomClientFactory(LatexRadiaryDragonEntity::new)
                         .fireImmune()
-                        .sized(0.6f, 1.9f),
+                        .sized(0.45f, 1.425f),
                 LatexyunxqhotdragonEntity::createLatexAttributes);
 
-        LATEXYUNXQICEDRAGON = registerSpawning("latexyunxqicedragon", 0x87CEFA, 0xB0E2FF,
+        LATEXYUNXQICEDRAGON = registerSpawning("latex_yun_xq_ice_dragon", 0x87CEFA, 0xB0E2FF,
                 EntityType.Builder.<LatexyunxqicedragonEntity>of(LatexyunxqicedragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -516,7 +516,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.6f, 2f),
                 LatexyunxqicedragonEntity::createLatexAttributes);
 
-        LATEXBLUEDRAGON = registerSpawning("latexbluedragon", 0x1E90FF, 0x4169E1,
+        LATEXBLUEDRAGON = registerSpawning("latex_blue_dragon", 0x1E90FF, 0x4169E1,
                 EntityType.Builder.<LatexbluedragonEntity>of(LatexbluedragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -610,7 +610,7 @@ public class ChangedCreatureModEntities {
 
 
         // 其他变体
-        INKSUGER = registerSpawning("inksuger", 0x000000, 0x333333,
+        INKSUGER = registerSpawning("ink_suger_pup", 0x000000, 0x333333,
                 EntityType.Builder.<InksugerEntity>of(InksugerEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -620,7 +620,7 @@ public class ChangedCreatureModEntities {
                 InksugerEntity::createLatexAttributes);
 
         // 抛射物不需要刷怪蛋和生成规则
-        LATEXTHREEMONTHWOLF_PROJECTILE = registerProjectile("projectile_latexthreemonthwolf",
+        LATEXTHREEMONTHWOLF_PROJECTILE = registerProjectile("projectile_latex_three_month_wolf",
                 EntityType.Builder.<LatexthreemonthwolfEntityProjectile>of(LatexthreemonthwolfEntityProjectile::new, MobCategory.MISC)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -648,7 +648,7 @@ public class ChangedCreatureModEntities {
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
                         .setUpdateInterval(1)
-                        .sized(0.5f, 0.5f));  // 原版三叉戟碰撞箱大小
+                        .sized(0.5f, 0.5f));
 
     }
 

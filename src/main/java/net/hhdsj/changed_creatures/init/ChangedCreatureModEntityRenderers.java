@@ -28,7 +28,6 @@ import net.hhdsj.changed_creatures.client.renderer.projectile.BlueCrystalProject
 import net.hhdsj.changed_creatures.client.renderer.projectile.CrystalArrowRenderer;
 import net.hhdsj.changed_creatures.client.renderer.projectile.LatexArrowRenderer;
 import net.hhdsj.changed_creatures.client.renderer.projectile.ThrownCrystalJavelinTridentRenderer;
-import net.hhdsj.changed_creatures.entity.animals.bot.LatexAgmisnBotEntity;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -65,7 +64,7 @@ public class ChangedCreatureModEntityRenderers {
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXFRUITDRAGONWOLF.get(), LatexFruitDragonRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXNEONDIMNESSWOLF.get(), LatexNeondimnessWolfRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_CHENG_XI.get(), LatexChengXiRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXYAOLINGDRAGON.get(),LatexYaoLingDragonRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_RADIARY_DRAGON.get(), LatexRadiaryDragonRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_DIVINE_SWORD_KITSUNE.get(), LatexDivineSwordKitsuneRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.BLUECRYSTALPROJECTILE.get(), BlueCrystalProjectileRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.CRYSTAL_ARROW.get(), CrystalArrowRenderer::new);

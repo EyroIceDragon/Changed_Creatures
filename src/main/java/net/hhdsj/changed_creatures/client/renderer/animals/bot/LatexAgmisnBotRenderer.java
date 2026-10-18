@@ -4,7 +4,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.animals.bot.ModelLatexAgmisnBot;
 import net.hhdsj.changed_creatures.entity.animals.bot.LatexAgmisnBotEntity;
-import net.hhdsj.changed_creatures.init.ChangedCreatureModEntities;
 import net.ltxprogrammer.changed.Changed;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
@@ -17,7 +16,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class LatexAgmisnBotRenderer extends AdvancedHumanoidRenderer<LatexAgmisnBotEntity, ModelLatexAgmisnBot> {
     public static final ResourceLocation DEFAULT_SKIN_LOCATION =
-            ChangedCreature.ChangedCreatureResourceLocation("extures/entities/animals/latex_agmisn_bot.png");
+            ChangedCreature.ChangedCreatureResourceLocation("textures/entities/animals/latex_agmisn_bot.png");
 
     public LatexAgmisnBotRenderer(EntityRendererProvider.Context context) {
         super(

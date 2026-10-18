@@ -6,7 +6,6 @@ package net.hhdsj.changed_creatures.init;
 import net.foxyas.changedaddon.init.ChangedAddonAbilities;
 import net.hhdsj.changed_creatures.entity.boss.LatexNightOwlEntity;
 import net.hhdsj.changed_creatures.entity.simple.*;
-import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.monster.*;
 //FORGE导入
@@ -260,8 +259,8 @@ public class ChangedCreatureModTransfurVariants {
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
 					.build());
 
-	public static final RegistryObject<TransfurVariant<LatexYaoLingDragonEntity>> LATEXYAOLINGDRAGON =
-			REGISTRY.register("form_latex_yao_ling_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXYAOLINGDRAGON)
+	public static final RegistryObject<TransfurVariant<LatexRadiaryDragonEntity>> LATEXYAOLINGDRAGON =
+			REGISTRY.register("form_latex_radiary_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_RADIARY_DRAGON)
 					//.stepSize(0.7f)
 					.glide()
 					.scares(List.of(Creeper.class))

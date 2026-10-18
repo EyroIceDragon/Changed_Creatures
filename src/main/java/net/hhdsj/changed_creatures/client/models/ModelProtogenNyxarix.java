@@ -354,7 +354,7 @@ public class ModelProtogenNyxarix extends AdvancedHumanoidModel<ProtogenNyxarixE
     }
 
     @Override
-    public @NotNull ModelPart m_102851_(@NotNull HumanoidArm humanoidArm) {
+    public @NotNull ModelPart getArm(@NotNull HumanoidArm humanoidArm) {
         return humanoidArm == HumanoidArm.LEFT ? this.LeftArm2 : this.RightArm2;
     }
 

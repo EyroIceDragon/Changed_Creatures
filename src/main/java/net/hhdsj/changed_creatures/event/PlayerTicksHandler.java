@@ -4,7 +4,7 @@ import net.hhdsj.changed_creatures.client.models.other.ModelLatexWing;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModGameRules;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModParticleTypes;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModTransfurVariants;
-import net.hhdsj.changed_creatures.network.SyncCrystalRingPacket;
+import net.hhdsj.changed_creatures.network.packets.SyncCrystalRingPacket;
 import net.hhdsj.changed_creatures.util.ProgressTransfurExt;
 import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.ltxprogrammer.changed.entity.TransfurCause;

@@ -63,7 +63,7 @@ public class ChangedCreatureModModels {
 		event.registerLayerDefinition(ModelLatexFruitDragonWolf.LAYER_LOCATION, ModelLatexFruitDragonWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelNeondimnessWolf.LAYER_LOCATION, ModelNeondimnessWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexChengXi.LAYER_LOCATION, ModelLatexChengXi::createBodyLayer);
-		event.registerLayerDefinition(ModelLatexYaoLingDragon.LAYER_LOCATION, ModelLatexYaoLingDragon::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexRadiaryDragon.LAYER_LOCATION, ModelLatexRadiaryDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexDivineSwordKitsune.LAYER_LOCATION, ModelLatexDivineSwordKitsune::createBodyLayer);
 
 		event.registerLayerDefinition(ModelLatexYueXiFoxFemale.LAYER_LOCATION, ModelLatexYueXiFoxFemale::createBodyLayer);

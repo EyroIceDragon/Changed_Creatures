@@ -1,24 +1,21 @@
 package net.hhdsj.changed_creatures.world.inventory;
 
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.client.event.ScreenEvent;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.world.level.Level;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.client.Minecraft;
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.hhdsj.changed_creatures.network.GoodblockModVariables;
 import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
-
-import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.Minecraft;
+import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RenderGuiOverlayEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(Dist.CLIENT)
 public class CrystalJellyInfectionOverlay {
 
-    @SubscribeEvent(priority = EventPriority.NORMAL)
-    public static void eventHandler(ScreenEvent.Render.Post event) {
+    @SubscribeEvent(priority = EventPriority.HIGH)
+    public static void eventHandler(RenderGuiOverlayEvent.Post event) {
         Minecraft mc = Minecraft.getInstance();
         Player player = mc.player;
 
@@ -32,8 +29,8 @@ public class CrystalJellyInfectionOverlay {
         //if (infectionProgress <= 0f) return;
 
         // 获取屏幕尺寸
-        int screenWidth = event.getScreen().width;
-        int screenHeight = event.getScreen().height;
+        int screenWidth = event.getWindow().getGuiScaledWidth();
+        int screenHeight = event.getWindow().getGuiScaledHeight();
 
         // 计算透明度 (0-255)
         int alpha = (int) (Math.min(1.0f, infectionProgress / 100.0f) * 255);

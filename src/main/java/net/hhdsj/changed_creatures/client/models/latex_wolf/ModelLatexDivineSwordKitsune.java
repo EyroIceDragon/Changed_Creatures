@@ -419,7 +419,7 @@ public class ModelLatexDivineSwordKitsune extends AdvancedHumanoidModel<LatexDiv
         this.applyTailRotations(this.TailMiddleUpper, -20, 0, 0);
     }
 
-    public @NotNull ModelPart m_102851_(HumanoidArm p_102852) {
+    public @NotNull ModelPart getArm(HumanoidArm p_102852) {
         return p_102852 == HumanoidArm.LEFT ? this.LeftArm : this.RightArm;
     }
 

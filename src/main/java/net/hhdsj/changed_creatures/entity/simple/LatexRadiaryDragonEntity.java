@@ -18,7 +18,7 @@ import net.minecraftforge.network.PlayMessages;
 
 import java.util.Objects;
 
-public class LatexYaoLingDragonEntity extends ChangedEntity {
+public class LatexRadiaryDragonEntity extends ChangedEntity {
     @Override
     protected void setAttributes(AttributeMap attributes) {
         super.setAttributes(attributes);
@@ -35,11 +35,11 @@ public class LatexYaoLingDragonEntity extends ChangedEntity {
         return Color3.getColor("#ffdd4f");
     }
 
-    public LatexYaoLingDragonEntity(PlayMessages.SpawnEntity packet, Level world) {
-        this(ChangedCreatureModEntities.LATEXYAOLINGDRAGON.get(), world);
+    public LatexRadiaryDragonEntity(PlayMessages.SpawnEntity packet, Level world) {
+        this(ChangedCreatureModEntities.LATEX_RADIARY_DRAGON.get(), world);
     }
 
-    public LatexYaoLingDragonEntity(EntityType<LatexYaoLingDragonEntity> type, Level world) {
+    public LatexRadiaryDragonEntity(EntityType<LatexRadiaryDragonEntity> type, Level world) {
         super(type, world);
         xpReward = 0;
         setNoAi(false);

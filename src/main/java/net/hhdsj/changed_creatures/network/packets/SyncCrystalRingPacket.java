@@ -1,4 +1,4 @@
-package net.hhdsj.changed_creatures.network;
+package net.hhdsj.changed_creatures.network.packets;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.event.CrystalRingHandler;

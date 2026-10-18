@@ -2,8 +2,6 @@ package net.hhdsj.changed_creatures.client.models.animals.bot;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import java.util.List;
-
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.entity.animals.bot.LatexAgmisnBotEntity;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
@@ -15,12 +13,11 @@ import net.ltxprogrammer.changed.client.renderer.model.LowerTorsoedModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
-import net.minecraft.client.model.geom.builders.CubeDeformation;
-import net.minecraft.client.model.geom.builders.CubeListBuilder;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.geom.builders.MeshDefinition;
-import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.HumanoidArm;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 public class ModelLatexAgmisnBot extends AdvancedHumanoidModel<LatexAgmisnBotEntity> implements LowerTorsoedModel {
     public static final ModelLayerLocation LAYER_LOCATION =
@@ -32,11 +29,13 @@ public class ModelLatexAgmisnBot extends AdvancedHumanoidModel<LatexAgmisnBotEnt
     private final ModelPart BackLeftLeg;
     private final ModelPart LowerTorso;
     private final ModelPart Tail;
-    private final HumanoidAnimator animator;
+    private final ModelPart Head;
+    private final HumanoidAnimator<LatexAgmisnBotEntity,ModelLatexAgmisnBot> animator;
 
     public ModelLatexAgmisnBot(ModelPart root) {
         super(root);
 
+        this.Head = root.getChild("Head");
         this.LowerTorso = root.getChild("LowerTorso");
         this.FrontRightLeg = this.LowerTorso.getChild("RightLeg");
         this.FrontLeftLeg = this.LowerTorso.getChild("LeftLeg");
@@ -70,11 +69,12 @@ public class ModelLatexAgmisnBot extends AdvancedHumanoidModel<LatexAgmisnBotEnt
                         this.Tail,
                         List.of(tailPrimary, tailSecondary, tailTertiary, tailQuaternary)
                 ))
-                .addAnimator(new WolfHeadInitAnimator<>(this.head))
-                .forwardOffset(-7.0F)
-                .hipOffset(-1.5F)
-                .legLength(13.5F)
-                .torsoLength(13.05F);
+                .addAnimator(new WolfHeadInitAnimator<>(this.Head));
+//                .forwardOffset(-7.0F)
+//                .hipOffset(-1.5F)
+//                .legLength(13.5F)
+//                .torsoLength(13.05F)
+                ;
     }
 
     public static LayerDefinition createBodyLayer() {
@@ -107,11 +107,11 @@ public class ModelLatexAgmisnBot extends AdvancedHumanoidModel<LatexAgmisnBotEnt
 
         PartDefinition Saddle = LowerTorso.addOrReplaceChild("Saddle", CubeListBuilder.create(), PartPose.offset(0.0F, 3.0F, 8.0F));
 
-        PartDefinition LeftLeg2 = LowerTorso.addOrReplaceChild("LeftLeg2", CubeListBuilder.create(), PartPose.offset(3.5F, 0.0F, 23.875F));
+        PartDefinition LeftLeg2 = LowerTorso.addOrReplaceChild("LeftLeg2", CubeListBuilder.create(), PartPose.offset(3.5F, 0.0F, 15.875F));
 
-        PartDefinition LeftThigh_r1 = LeftLeg2.addOrReplaceChild("LeftThigh_r1", CubeListBuilder.create().texOffs(36, 50).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 7.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offsetAndRotation(0.0F, 0.0F, -8.0F, -0.2182F, 0.0F, 0.0F));
+        PartDefinition LeftThigh_r1 = LeftLeg2.addOrReplaceChild("LeftThigh_r1", CubeListBuilder.create().texOffs(36, 50).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 7.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.2182F, 0.0F, 0.0F));
 
-        PartDefinition LeftLowerLeg2 = LeftLeg2.addOrReplaceChild("LeftLowerLeg2", CubeListBuilder.create(), PartPose.offset(0.0F, 6.375F, -3.45F));
+        PartDefinition LeftLowerLeg2 = LeftLeg2.addOrReplaceChild("LeftLowerLeg2", CubeListBuilder.create(), PartPose.offset(0.0F, 6.375F, 4.55F));
 
         PartDefinition LeftCalf_r1 = LeftLowerLeg2.addOrReplaceChild("LeftCalf_r1", CubeListBuilder.create().texOffs(68, 48).addBox(-2.01F, -0.125F, -2.9F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -2.125F, -6.05F, 0.8727F, 0.0F, 0.0F));
 
@@ -131,11 +131,11 @@ public class ModelLatexAgmisnBot extends AdvancedHumanoidModel<LatexAgmisnBotEnt
 
         PartDefinition cube_r9 = bone2.addOrReplaceChild("cube_r9", CubeListBuilder.create().texOffs(44, 95).addBox(0.0F, -1.0F, -2.0F, 0.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.0F, -1.0F, 1.0F, 0.0F, 0.2182F, 0.0F));
 
-        PartDefinition LeftLeg = LowerTorso.addOrReplaceChild("LeftLeg", CubeListBuilder.create(), PartPose.offset(4.0F, 0.0F, 6.3F));
+        PartDefinition LeftLeg = LowerTorso.addOrReplaceChild("LeftLeg", CubeListBuilder.create(), PartPose.offset(4.0F, 0.0F, -0.7F));
 
-        PartDefinition LeftUpperLeg_r1 = LeftLeg.addOrReplaceChild("LeftUpperLeg_r1", CubeListBuilder.create().texOffs(64, 0).addBox(5.5F, -6.89F, -4.2461F, 4.0F, 7.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offsetAndRotation(-7.75F, 5.5348F, -4.0472F, 0.0873F, 0.0F, 0.0F));
+        PartDefinition LeftUpperLeg_r1 = LeftLeg.addOrReplaceChild("LeftUpperLeg_r1", CubeListBuilder.create().texOffs(64, 0).addBox(5.5F, -6.89F, -4.2461F, 4.0F, 7.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offsetAndRotation(-7.75F, 5.5348F, 2.9528F, 0.0873F, 0.0F, 0.0F));
 
-        PartDefinition LeftLowerLeg = LeftLeg.addOrReplaceChild("LeftLowerLeg", CubeListBuilder.create(), PartPose.offset(0.0F, 5.7848F, 3.7028F));
+        PartDefinition LeftLowerLeg = LeftLeg.addOrReplaceChild("LeftLowerLeg", CubeListBuilder.create(), PartPose.offset(0.0F, 5.7848F, 10.7028F));
 
         PartDefinition LeftLowerLeg_r1 = LeftLowerLeg.addOrReplaceChild("LeftLowerLeg_r1", CubeListBuilder.create().texOffs(54, 17).addBox(-2.0F, 3.8638F, 2.7342F, 4.0F, 7.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-0.25F, -5.275F, -13.575F, -0.2182F, 0.0F, 0.0F));
 
@@ -151,11 +151,11 @@ public class ModelLatexAgmisnBot extends AdvancedHumanoidModel<LatexAgmisnBotEnt
 
         PartDefinition cube_r13 = bone4.addOrReplaceChild("cube_r13", CubeListBuilder.create().texOffs(84, 95).addBox(0.0F, -1.0F, -2.0F, 0.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.0F, -1.0F, 1.0F, 0.0F, 0.2182F, 0.0F));
 
-        PartDefinition RightLeg = LowerTorso.addOrReplaceChild("RightLeg", CubeListBuilder.create(), PartPose.offset(-4.0F, 0.0F, 6.3F));
+        PartDefinition RightLeg = LowerTorso.addOrReplaceChild("RightLeg", CubeListBuilder.create(), PartPose.offset(-4.0F, 0.0F, -0.7F));
 
-        PartDefinition RightUpperLeg_r1 = RightLeg.addOrReplaceChild("RightUpperLeg_r1", CubeListBuilder.create().texOffs(0, 63).addBox(-9.5F, -6.89F, -4.2461F, 4.0F, 7.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offsetAndRotation(7.75F, 5.5348F, -4.0472F, 0.0873F, 0.0F, 0.0F));
+        PartDefinition RightUpperLeg_r1 = RightLeg.addOrReplaceChild("RightUpperLeg_r1", CubeListBuilder.create().texOffs(0, 63).addBox(-9.5F, -5.8938F, -4.3333F, 4.0F, 7.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offsetAndRotation(7.75F, 4.5348F, 2.9528F, 0.0873F, 0.0F, 0.0F));
 
-        PartDefinition RightLowerLeg = RightLeg.addOrReplaceChild("RightLowerLeg", CubeListBuilder.create(), PartPose.offset(0.0F, 5.7848F, 3.7028F));
+        PartDefinition RightLowerLeg = RightLeg.addOrReplaceChild("RightLowerLeg", CubeListBuilder.create(), PartPose.offset(0.0F, 5.7848F, 10.7028F));
 
         PartDefinition RightLowerLeg_r1 = RightLowerLeg.addOrReplaceChild("RightLowerLeg_r1", CubeListBuilder.create().texOffs(52, 50).addBox(-2.0F, 3.8638F, 2.7342F, 4.0F, 7.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.25F, -5.275F, -13.575F, -0.2182F, 0.0F, 0.0F));
 
@@ -269,12 +269,11 @@ public class ModelLatexAgmisnBot extends AdvancedHumanoidModel<LatexAgmisnBotEnt
 
         PartDefinition cube_r46 = rightTertiaries.addOrReplaceChild("cube_r46", CubeListBuilder.create().texOffs(20, 41).addBox(-25.125F, -10.525F, 1.64F, 11.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(9.0F, 27.0F, -1.5F, 0.0F, 0.0F, 0.8727F));
 
-        // ====== 右后腿：名字由 RightLeg3 系改为 RightLeg2 系，与左后腿对称 ======
-        PartDefinition RightLeg2 = LowerTorso.addOrReplaceChild("RightLeg2", CubeListBuilder.create(), PartPose.offset(-3.5F, 0.0F, 23.875F));
+        PartDefinition RightLeg2 = LowerTorso.addOrReplaceChild("RightLeg2", CubeListBuilder.create(), PartPose.offset(-3.5F, 0.0F, 15.875F));
 
-        PartDefinition RightThigh_r1 = RightLeg2.addOrReplaceChild("RightThigh_r1", CubeListBuilder.create().texOffs(16, 58).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 7.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offsetAndRotation(0.0F, 0.0F, -8.0F, -0.2182F, 0.0F, 0.0F));
+        PartDefinition RightThigh_r1 = RightLeg2.addOrReplaceChild("RightThigh_r1", CubeListBuilder.create().texOffs(16, 58).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 7.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.2182F, 0.0F, 0.0F));
 
-        PartDefinition RightLowerLeg2 = RightLeg2.addOrReplaceChild("RightLowerLeg2", CubeListBuilder.create(), PartPose.offset(0.0F, 6.375F, -3.45F));
+        PartDefinition RightLowerLeg2 = RightLeg2.addOrReplaceChild("RightLowerLeg2", CubeListBuilder.create(), PartPose.offset(0.0F, 6.375F, 4.55F));
 
         PartDefinition RightCalf_r1 = RightLowerLeg2.addOrReplaceChild("RightCalf_r1", CubeListBuilder.create().texOffs(70, 11).addBox(-1.99F, -0.125F, -2.9F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -2.125F, -6.05F, 0.8727F, 0.0F, 0.0F));
 
@@ -304,7 +303,7 @@ public class ModelLatexAgmisnBot extends AdvancedHumanoidModel<LatexAgmisnBotEnt
     }
 
     @Override
-    public ModelPart m_102851_(HumanoidArm arm) {
+    public ModelPart getArm(HumanoidArm arm) {
         return arm == HumanoidArm.LEFT ? this.FrontLeftLeg : this.FrontRightLeg;
     }
 
@@ -313,8 +312,8 @@ public class ModelLatexAgmisnBot extends AdvancedHumanoidModel<LatexAgmisnBotEnt
     }
 
     @Override
-    public ModelPart getHead() {
-        return this.LowerTorso;
+    public @NotNull ModelPart getHead() {
+        return this.Head;
     }
 
     public ModelPart getTorso() {
@@ -325,6 +324,7 @@ public class ModelLatexAgmisnBot extends AdvancedHumanoidModel<LatexAgmisnBotEnt
     public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer,
                                int packedLight, int packedOverlay,
                                float red, float green, float blue, float alpha) {
+        this.Head.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
         this.LowerTorso.render(poseStack, buffer, packedLight, packedOverlay);
     }
 
