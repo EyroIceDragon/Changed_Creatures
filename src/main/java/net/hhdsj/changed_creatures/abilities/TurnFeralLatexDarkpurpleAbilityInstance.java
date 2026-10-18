@@ -48,13 +48,13 @@ public class TurnFeralLatexDarkpurpleAbilityInstance extends AbstractAbilityInst
             var Instance = ProcessTransfur.getPlayerTransfurVariant(player);
             if (this.OldVariant == null
                     && Instance != null) {
-                if (Instance.getParent() != ChangedCreatureModTransfurVariants.LATEXDARKPURPLEDRAGONTAUR.get()
-                        && Instance.getParent() != ChangedCreatureModTransfurVariants.LATEXDARKPURPLEDRAGON.get()) {
+                if (Instance.getParent() != ChangedCreatureModTransfurVariants.LATEX_DARK_PURPLE_DRAGON_TAUR.get()
+                        && Instance.getParent() != ChangedCreatureModTransfurVariants.LATEX_DARK_PURPLE_DRAGON.get()) {
                     setOldVariant(entity.getSelfVariant());
                 }
             } else if (Instance != null) {
                 Component text = ability.getSelectedDisplayText(this.entity);
-                if (Instance.getParent() == ChangedCreatureModTransfurVariants.LATEXDARKPURPLEDRAGONTAUR.get() && text != null) {
+                if (Instance.getParent() == ChangedCreatureModTransfurVariants.LATEX_DARK_PURPLE_DRAGON_TAUR.get() && text != null) {
                     player.displayClientMessage(text, true);
                 }
             }
@@ -114,10 +114,10 @@ public class TurnFeralLatexDarkpurpleAbilityInstance extends AbstractAbilityInst
     }
 
     private TransfurVariant<?> determineNextVariant(TransfurVariant<?> currentVariant) {
-        if (currentVariant == ChangedCreatureModTransfurVariants.LATEXDARKPURPLEDRAGON.get()) {
-            return ChangedCreatureModTransfurVariants.LATEXDARKPURPLEDRAGONTAUR.get();
+        if (currentVariant == ChangedCreatureModTransfurVariants.LATEX_DARK_PURPLE_DRAGON.get()) {
+            return ChangedCreatureModTransfurVariants.LATEX_DARK_PURPLE_DRAGON_TAUR.get();
         } else {
-            return ChangedCreatureModTransfurVariants.LATEXDARKPURPLEDRAGON.get();
+            return ChangedCreatureModTransfurVariants.LATEX_DARK_PURPLE_DRAGON.get();
         }
     }
 

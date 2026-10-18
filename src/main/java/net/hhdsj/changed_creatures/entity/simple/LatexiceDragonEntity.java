@@ -72,7 +72,7 @@ public class LatexiceDragonEntity extends ChangedEntity {
     }
 
 	public LatexiceDragonEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(ChangedCreatureModEntities.LATEXICE_DRAGON.get(), world);
+		this(ChangedCreatureModEntities.LATEX_ICE_DRAGON.get(), world);
 	}
 
 	@Override
@@ -101,7 +101,7 @@ public class LatexiceDragonEntity extends ChangedEntity {
 	}
 
 	public static void init() {
-		SpawnPlacements.register(ChangedCreatureModEntities.LATEXICE_DRAGON.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+		SpawnPlacements.register(ChangedCreatureModEntities.LATEX_ICE_DRAGON.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
 	}
 

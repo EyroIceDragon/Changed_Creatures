@@ -156,7 +156,7 @@ public class ChangedCreatureModTransfurVariants {
 				.build());
 
 	public static final RegistryObject<TransfurVariant<LatexbluedragonEntity>> LATEX_BLUE_DRAGON =
-			REGISTRY.register("form_blue_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXBLUEDRAGON)
+			REGISTRY.register("form_blue_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_BLUE_DRAGON)
 				.glide()
 				.transfurMode(TransfurMode.ABSORPTION)
 				.replicating()
@@ -165,7 +165,7 @@ public class ChangedCreatureModTransfurVariants {
 				.build());
 
 	public static final RegistryObject<TransfurVariant<DarkfuLatexWolfMaleEntity>> LATEX_DARKFU_LATEX_WOLF_MALE =
-			REGISTRY.register("form_darkfu_latex_wolf_male", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.DARKFU_LATEX_WOLF_MALE)
+			REGISTRY.register("form_darkfu_latex_wolf_male", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_DARKFU_WOLF_MALE)
 				//.stepSize(0.7f)
 				//.faction(ChangedLatexTypes.DARK_LATEX)
 				.breatheMode(TransfurVariant.BreatheMode.NORMAL)
@@ -174,15 +174,15 @@ public class ChangedCreatureModTransfurVariants {
 				.build());
 
 	public static final RegistryObject<TransfurVariant<LatexiceDragonEntity>> LATEX_ICE_DRAGON =
-			REGISTRY.register("form_latex_ice_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXICE_DRAGON)
+			REGISTRY.register("form_latex_ice_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_ICE_DRAGON)
 				//.stepSize(0.7f)
 				.nightVision()
 				.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
 				.replicating()
 				.build());
 
-	public static final RegistryObject<TransfurVariant<InksugerEntity>> INKSUGER = 
-			REGISTRY.register("form_ink_suger", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.INKSUGER)
+	public static final RegistryObject<TransfurVariant<InksugerEntity>> INK_SUGER_PUP = 
+			REGISTRY.register("form_ink_suger", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.INK_SUGER_PUP)
 				//.stepSize(0.7f)
 				.nightVision()
 				.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
@@ -201,8 +201,8 @@ public class ChangedCreatureModTransfurVariants {
 				.replicating()
 				.build());
 
-	public static final RegistryObject<TransfurVariant<BlackpupmaleEntity>> BLACKPUPMALE = 
-			REGISTRY.register("form_black_pup", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.BLACKPUPMALE)
+	public static final RegistryObject<TransfurVariant<BlackpupmaleEntity>> BLACK_PUP_MALE = 
+			REGISTRY.register("form_black_pup", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.BLACK_PUP_MALE)
 				//.stepSize(0.7f)
 				.nightVision()
 				.transfurMode(TransfurMode.NONE)
@@ -210,8 +210,8 @@ public class ChangedCreatureModTransfurVariants {
 				//.reducedFall()
 				.build());
 
-	public static final RegistryObject<TransfurVariant<WhitebluepupEntity>> WHITEBLUEPUP = 
-			REGISTRY.register("form_white_blue_pup", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.WHITEBLUEPUP)
+	public static final RegistryObject<TransfurVariant<WhitebluepupEntity>> WHITE_BLUE_PUP = 
+			REGISTRY.register("form_white_blue_pup", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.WHITE_BLUE_PUP)
 				//.stepSize(0.7f)
 				.nightVision()
 				.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
@@ -219,8 +219,8 @@ public class ChangedCreatureModTransfurVariants {
 				//.reducedFall()
 				.build());
 
-	public static final RegistryObject<TransfurVariant<LatexpurplewswolfEntity>> LATEXPURPLEWSWOLF = 
-			REGISTRY.register("form_latex_purplews_wolf", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXPURPLEWSWOLF)
+	public static final RegistryObject<TransfurVariant<LatexpurplewswolfEntity>> LATEX_PURPLE_WS_WOLF = 
+			REGISTRY.register("form_latex_purplews_wolf", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_PURPLE_WS_WOLF)
 				.addAbility(ChangedAddonAbilities.CLAWS)
 				.scares(Creeper.class)
 				.nightVision()
@@ -228,8 +228,8 @@ public class ChangedCreatureModTransfurVariants {
 				.extraJumps(2)
 				.build());
 	
-	public static final RegistryObject<TransfurVariant<LatexthreemonthwolfEntity>> LATEXTHREEMONTHWOLF = 
-			REGISTRY.register("form_latex_three_month_wolf", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXTHREEMONTHWOLF)
+	public static final RegistryObject<TransfurVariant<LatexthreemonthwolfEntity>> LATEX_THREE_MONTH_WOLF = 
+			REGISTRY.register("form_latex_three_month_wolf", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_THREE_MONTH_WOLF)
 				.addAbility(ChangedAddonAbilities.CLAWS)
 				.scares(Creeper.class)
 				.nightVision()
@@ -237,8 +237,8 @@ public class ChangedCreatureModTransfurVariants {
 				.extraJumps(2)
 				.build());
 
-	public static final RegistryObject<TransfurVariant<LatexyunxqhotdragonEntity>> LATEXYUNXQHOTDRAGON = 
-			REGISTRY.register("form_latex_yunxq_hot_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXYUNXQHOTDRAGON)
+	public static final RegistryObject<TransfurVariant<LatexyunxqhotdragonEntity>> LATEX_YUN_XQ_HOT_DRAGON = 
+			REGISTRY.register("form_latex_yunxq_hot_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_YUN_XQ_HOT_DRAGON)
 				//.stepSize(0.7f)
 				.glide()
 				.scares(List.of(Creeper.class))
@@ -249,9 +249,9 @@ public class ChangedCreatureModTransfurVariants {
 				.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
 				.build());
 
-	//LATEXFRUITDRAGONWOLF
+	//LATEX_FRUIT_DRAGON_WOLF
 	public static final RegistryObject<TransfurVariant<LatexFruitDragonEntity>> LATEX_FRUIT_DRAGON_WOLF =
-			REGISTRY.register("form_latex_fruit_dragon_wolf", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXFRUITDRAGONWOLF)
+			REGISTRY.register("form_latex_fruit_dragon_wolf", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_FRUIT_DRAGON_WOLF)
 					.scares(List.of(Creeper.class))
 					.transfurMode(TransfurMode.ABSORPTION)
 					.replicating()
@@ -270,8 +270,8 @@ public class ChangedCreatureModTransfurVariants {
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
 					.build());
 
-	public static final RegistryObject<TransfurVariant<LatexyunxqicedragonEntity>> LATEXYUNXQICEDRAGON = 
-			REGISTRY.register("form_latex_yun_xq_ice_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXYUNXQICEDRAGON)
+	public static final RegistryObject<TransfurVariant<LatexyunxqicedragonEntity>> LATEX_YUN_XQ_ICE_DRAGON = 
+			REGISTRY.register("form_latex_yun_xq_ice_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_YUN_XQ_ICE_DRAGON)
 			//.stepSize(0.7f)
 				.glide()
 				.addAbility(entityType -> ChangedAddonAbilities.WING_FLAP_ABILITY.get())
@@ -281,8 +281,8 @@ public class ChangedCreatureModTransfurVariants {
 				.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
 				.build());
 
-	public static final RegistryObject<TransfurVariant<LatexPurplecoocwolfEntity>> LATEXPRTPLECOOCWOLF = 
-			REGISTRY.register("form_latex_purple_cooc_wolf", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXPRTPLECOOCWOLF)
+	public static final RegistryObject<TransfurVariant<LatexPurplecoocwolfEntity>> LATEX_PRTPLE_COOC_WOLF = 
+			REGISTRY.register("form_latex_purple_cooc_wolf", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_PRTPLE_COOC_WOLF)
 				//.stepSize(0.7f)
 				.transfurMode(TransfurMode.ABSORPTION)
 				.replicating()
@@ -290,8 +290,8 @@ public class ChangedCreatureModTransfurVariants {
 				.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
 				.build());
 
-	public static final RegistryObject<TransfurVariant<LatexYunQiIceDragonEntity>> LATEXYUNQIICEDRAGON =
-			REGISTRY.register("form_latex_yun_qi_ice_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXYUNQIICEDRAGON)
+	public static final RegistryObject<TransfurVariant<LatexYunQiIceDragonEntity>> LATEX_YUN_QI_ICE_DRAGON =
+			REGISTRY.register("form_latex_yun_qi_ice_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_YUN_QI_ICE_DRAGON)
 					//.stepSize(0.7f)
 					.addAbility(entityType -> ChangedAddonAbilities.WING_FLAP_ABILITY.get())
 					.glide()
@@ -302,8 +302,8 @@ public class ChangedCreatureModTransfurVariants {
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
 					.build());
 
-	public static final RegistryObject<TransfurVariant<LatexRadiationFoxEntity>> LATEXRADIATIONFOX =
-			REGISTRY.register("form_latex_radiation_fox", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXRADIATIONFOX)
+	public static final RegistryObject<TransfurVariant<LatexRadiationFoxEntity>> LATEX_RADIATION_FOX =
+			REGISTRY.register("form_latex_radiation_fox", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_RADIATION_FOX)
 					//.stepSize(0.7f)
 					.transfurMode(TransfurMode.ABSORPTION)
 					.replicating()
@@ -312,7 +312,7 @@ public class ChangedCreatureModTransfurVariants {
 					.build());
 
 	public static final RegistryObject<TransfurVariant<LatexNightOwlEntity>> LATEXNIGHTOWL =
-			REGISTRY.register("form_latex_night_owl_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXNIGHTOWLDRAGON)
+			REGISTRY.register("form_latex_night_owl_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_NIGHT_OWL_DRAGON)
 					//.stepSize(0.7f)
 					.addAbility(ChangedAddonAbilities.DODGE)
 					.addAbility(entityType -> ChangedAddonAbilities.WING_FLAP_ABILITY.get())
@@ -327,8 +327,8 @@ public class ChangedCreatureModTransfurVariants {
 					.extraJumps(2)
 					.build());
 
-	public static final RegistryObject<TransfurVariant<LatexLuoHongEarlySpringFoxDragonEntity>> LATEXLUOHONGEARLYSPRINGFOXDRAGON =
-			REGISTRY.register("form_latex_luo_hong_early_spring_fox_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXLUOHONGEARLYSPRINGFOXDRAGON)
+	public static final RegistryObject<TransfurVariant<LatexLuoHongEarlySpringFoxDragonEntity>> LATEX_LUO_HONG_EARLY_SPRING_FOX_DRAGON =
+			REGISTRY.register("form_latex_luo_hong_early_spring_fox_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_LUO_HONG_EARLY_SPRING_FOX_DRAGON)
 					//.stepSize(0.7f)
 					.addAbility(ChangedAddonAbilities.DODGE)
 					.addAbility(entityType -> ChangedAddonAbilities.WING_FLAP_ABILITY.get())
@@ -342,8 +342,8 @@ public class ChangedCreatureModTransfurVariants {
 					.extraJumps(2)
 					.build());
 
-    public static final RegistryObject<TransfurVariant<LatexIqGoldDragonEntity>> LATEXIQGOLDDRAGON =
-            REGISTRY.register("form_latex_iq_gold_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXIQGOLDDRAGON)
+    public static final RegistryObject<TransfurVariant<LatexIqGoldDragonEntity>> LATEX_IQ_GOLD_DRAGON =
+            REGISTRY.register("form_latex_iq_gold_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_IQ_GOLD_DRAGON)
                     //.stepSize(0.7f)
                     .addAbility(entityType -> ChangedAddonAbilities.WING_FLAP_ABILITY.get())
                     .addAbility(ChangedAddonAbilities.CLAWS)
@@ -356,8 +356,8 @@ public class ChangedCreatureModTransfurVariants {
                     .extraJumps(1)
                     .build());
 
-	public static final RegistryObject<TransfurVariant<LatexDarkPurpleDragonTaurEntity>> LATEXDARKPURPLEDRAGONTAUR =
-			REGISTRY.register("form_latex_dark_purple_dragon_taur", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXDARKPURPLEDRAGONTAUR)
+	public static final RegistryObject<TransfurVariant<LatexDarkPurpleDragonTaurEntity>> LATEX_DARK_PURPLE_DRAGON_TAUR =
+			REGISTRY.register("form_latex_dark_purple_dragon_taur", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_DARK_PURPLE_DRAGON_TAUR)
 					.addAbility(entityType -> ChangedCreatureModAbilities.TURN_FERA_LATEX_DARK_PURPLE.get())
 					.addAbility(ChangedCreatureModAbilities.BERRER_HYPNOSIE)
 					.scares(List.of(Creeper.class))
@@ -372,8 +372,8 @@ public class ChangedCreatureModTransfurVariants {
 					.addAbility(ChangedAbilities.TOGGLE_NIGHT_VISION)
 					.build());
 
-	public static final RegistryObject<TransfurVariant<DarkPurpleLatexDragonEntity>> LATEXDARKPURPLEDRAGON =
-			REGISTRY.register("form_latex_dark_purple_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXDARKPURPLEDRAGON)
+	public static final RegistryObject<TransfurVariant<DarkPurpleLatexDragonEntity>> LATEX_DARK_PURPLE_DRAGON =
+			REGISTRY.register("form_latex_dark_purple_dragon", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_DARK_PURPLE_DRAGON)
 					//.stepSize(0.7f)
 					.addAbility(entityType -> ChangedAddonAbilities.WING_FLAP_ABILITY.get())
 					.addAbility(ChangedCreatureModAbilities.BERRER_HYPNOSIE)
@@ -387,8 +387,8 @@ public class ChangedCreatureModTransfurVariants {
 					.extraJumps(2)
 					.build());
 
-	public static final RegistryObject<TransfurVariant<LatexNeondimnessWolfEntity>> LATEXNEONDIMNESSWOLF =
-			REGISTRY.register("form_latex_neondimness_wolf", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEXNEONDIMNESSWOLF)
+	public static final RegistryObject<TransfurVariant<LatexNeondimnessWolfEntity>> LATEX_NEONDIMNESS_WOLF =
+			REGISTRY.register("form_latex_neondimness_wolf", () -> TransfurVariant.Builder.of(ChangedCreatureModEntities.LATEX_NEONDIMNESS_WOLF)
 					.scares(List.of(Creeper.class))
 					.transfurMode(TransfurMode.ABSORPTION)
 					.replicating()

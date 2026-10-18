@@ -26,7 +26,7 @@ public class PlayerDieMixin {
         TransfurVariantInstance<?> variant = ProcessTransfur.getPlayerTransfurVariant(player);
 
         if (variant == null) {
-            TransfurVariant<?> targetVariant = ChangedCreatureModTransfurVariants.LATEXDARKPURPLEDRAGON.get();
+            TransfurVariant<?> targetVariant = ChangedCreatureModTransfurVariants.LATEX_DARK_PURPLE_DRAGON.get();
             TransfurVariantInstance<?> variantInstance = ProcessTransfur.setPlayerTransfurVariant(
                     player,
                     targetVariant,

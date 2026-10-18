@@ -47,7 +47,7 @@ public class LatexDarkPurpleDragonTaurEntity extends ChangedEntity implements La
     }
 
     public TransfurVariant<?> getTransfurVariant() {
-        return ChangedCreatureModTransfurVariants.LATEXDARKPURPLEDRAGONTAUR.get();
+        return ChangedCreatureModTransfurVariants.LATEX_DARK_PURPLE_DRAGON_TAUR.get();
     }
 
     public Color3 getTransfurColor(TransfurCause cause) {
@@ -92,7 +92,7 @@ public class LatexDarkPurpleDragonTaurEntity extends ChangedEntity implements La
     }
 
     public static void init() {
-        SpawnPlacements.register(ChangedCreatureModEntities.LATEXDARKPURPLEDRAGONTAUR.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+        SpawnPlacements.register(ChangedCreatureModEntities.LATEX_DARK_PURPLE_DRAGON_TAUR.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 (entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
     }
 

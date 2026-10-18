@@ -20,6 +20,7 @@ public class ChangedCreaturesDataGenerators {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
+        // 战利品表（实体 + 方块）
         generator.addProvider(
                 event.includeServer(),
                 new LootTableProvider(
@@ -34,11 +35,11 @@ public class ChangedCreaturesDataGenerators {
                                         ChangedCreaturesBlockLootProvider::new,
                                         LootContextParamSets.BLOCK
                                 )
-
                         )
                 )
         );
 
+        // 群系生成
         generator.addProvider(
                 event.includeServer(),
                 new ChangedCreaturesBiomeSpawnProvider(generator.getPackOutput())
@@ -49,6 +50,13 @@ public class ChangedCreaturesDataGenerators {
                 new ChangedCreaturesCompatibilityDataProvider(generator.getPackOutput())
         );
 
+        // 配方
+        generator.addProvider(
+                event.includeServer(),
+                new ChangedCreaturesRecipeProvider(generator.getPackOutput())
+        );
+
+        // 物品模型
         generator.addProvider(
                 event.includeClient(),
                 new ChangedCreaturesItemModelProvider(generator.getPackOutput(), existingFileHelper)

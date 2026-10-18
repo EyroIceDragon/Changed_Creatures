@@ -68,7 +68,7 @@ public class ChangedCreatureModEntities {
 
     // 狐狸变体
     public static final RegistryObject<EntityType<LatexOrangeFoxEntity>> LATEX_ORANGE_FOX;
-    public static final RegistryObject<EntityType<LatexRadiationFoxEntity>> LATEXRADIATIONFOX;
+    public static final RegistryObject<EntityType<LatexRadiationFoxEntity>> LATEX_RADIATION_FOX;
     public static final RegistryObject<EntityType<LatexDivineSwordKitsuneEntity>> LATEX_DIVINE_SWORD_KITSUNE;
     public static final RegistryObject<EntityType<LatexGaoHuiFoxEntity>> LATEX_GAO_HUI_FOX;
     public static final RegistryObject<EntityType<LatexHyazintheFoxEntity>> LATEX_HYAZINTHE_FOX;
@@ -82,13 +82,13 @@ public class ChangedCreatureModEntities {
     public static final RegistryObject<EntityType<LatexQianGuiSharkEntity>> LATEX_QIAN_GUI_SHARK;
 
     // 狼变体
-    public static final RegistryObject<EntityType<DarkfuLatexWolfMaleEntity>> DARKFU_LATEX_WOLF_MALE;
-    public static final RegistryObject<EntityType<LatexpurplewswolfEntity>> LATEXPURPLEWSWOLF;
-    public static final RegistryObject<EntityType<LatexthreemonthwolfEntity>> LATEXTHREEMONTHWOLF;
-    public static final RegistryObject<EntityType<LatexPurplecoocwolfEntity>> LATEXPRTPLECOOCWOLF;
+    public static final RegistryObject<EntityType<DarkfuLatexWolfMaleEntity>> LATEX_DARKFU_WOLF_MALE;
+    public static final RegistryObject<EntityType<LatexpurplewswolfEntity>> LATEX_PURPLE_WS_WOLF;
+    public static final RegistryObject<EntityType<LatexthreemonthwolfEntity>> LATEX_THREE_MONTH_WOLF;
+    public static final RegistryObject<EntityType<LatexPurplecoocwolfEntity>> LATEX_PRTPLE_COOC_WOLF;
     public static final RegistryObject<EntityType<LatexIceFieldWolfDragonEntity>> LATEX_ICE_FIELD_WOLF_DRAGON;
-    public static final RegistryObject<EntityType<LatexFruitDragonEntity>> LATEXFRUITDRAGONWOLF;
-    public static final RegistryObject<EntityType<LatexNeondimnessWolfEntity>> LATEXNEONDIMNESSWOLF;
+    public static final RegistryObject<EntityType<LatexFruitDragonEntity>> LATEX_FRUIT_DRAGON_WOLF;
+    public static final RegistryObject<EntityType<LatexNeondimnessWolfEntity>> LATEX_NEONDIMNESS_WOLF;
     public static final RegistryObject<EntityType<LatexChengXiEntity>> LATEX_CHENG_XI;
     public static final RegistryObject<EntityType<LatexDawnWolfEntity>> LATEX_DAWN_WOLF;
     public static final RegistryObject<EntityType<LatexDuskDawnDragonEntity>> LATEX_DUSK_DAWN_DRAGON;
@@ -98,19 +98,19 @@ public class ChangedCreatureModEntities {
     public static final RegistryObject<EntityType<LatexMoChaWolfEntity>> LATEX_MOCHA_WOLF;
 
     // 幼崽变体
-    public static final RegistryObject<EntityType<BlackpupmaleEntity>> BLACKPUPMALE;
-    public static final RegistryObject<EntityType<WhitebluepupEntity>> WHITEBLUEPUP;
+    public static final RegistryObject<EntityType<BlackpupmaleEntity>> BLACK_PUP_MALE;
+    public static final RegistryObject<EntityType<WhitebluepupEntity>> WHITE_BLUE_PUP;
 
     // 龙变体
-    public static final RegistryObject<EntityType<LatexiceDragonEntity>> LATEXICE_DRAGON;
-    public static final RegistryObject<EntityType<LatexyunxqhotdragonEntity>> LATEXYUNXQHOTDRAGON;
-    public static final RegistryObject<EntityType<LatexyunxqicedragonEntity>> LATEXYUNXQICEDRAGON;
-    public static final RegistryObject<EntityType<LatexbluedragonEntity>> LATEXBLUEDRAGON;
-    public static final RegistryObject<EntityType<LatexYunQiIceDragonEntity>> LATEXYUNQIICEDRAGON;
+    public static final RegistryObject<EntityType<LatexiceDragonEntity>> LATEX_ICE_DRAGON;
+    public static final RegistryObject<EntityType<LatexyunxqhotdragonEntity>> LATEX_YUN_XQ_HOT_DRAGON;
+    public static final RegistryObject<EntityType<LatexyunxqicedragonEntity>> LATEX_YUN_XQ_ICE_DRAGON;
+    public static final RegistryObject<EntityType<LatexbluedragonEntity>> LATEX_BLUE_DRAGON;
+    public static final RegistryObject<EntityType<LatexYunQiIceDragonEntity>> LATEX_YUN_QI_ICE_DRAGON;
     public static final RegistryObject<EntityType<LatexFrostScaleDragonTaurEntity>> LATEX_FROST_SCALE_DRAGON_TAUR;
-    public static final RegistryObject<EntityType<LatexDarkPurpleDragonTaurEntity>> LATEXDARKPURPLEDRAGONTAUR;
-    public static final RegistryObject<EntityType<DarkPurpleLatexDragonEntity>> LATEXDARKPURPLEDRAGON;
-    public static final RegistryObject<EntityType<LatexLuoHongEarlySpringFoxDragonEntity>> LATEXLUOHONGEARLYSPRINGFOXDRAGON;
+    public static final RegistryObject<EntityType<LatexDarkPurpleDragonTaurEntity>> LATEX_DARK_PURPLE_DRAGON_TAUR;
+    public static final RegistryObject<EntityType<DarkPurpleLatexDragonEntity>> LATEX_DARK_PURPLE_DRAGON;
+    public static final RegistryObject<EntityType<LatexLuoHongEarlySpringFoxDragonEntity>> LATEX_LUO_HONG_EARLY_SPRING_FOX_DRAGON;
     public static final RegistryObject<EntityType<LatexRadiaryDragonEntity>> LATEX_RADIARY_DRAGON;
     public static final RegistryObject<EntityType<LatexCrystalJellyDragonEntity>> LATEX_CRYSTAL_JELLY;
     public static final RegistryObject<EntityType<LatexEmberscalesMagmaDragonMaleEntity>> LATEX_EMBERSCALES_MAGMA_DRAGON_MALE;
@@ -120,12 +120,12 @@ public class ChangedCreatureModEntities {
 
     // BOSS变体
     public static final RegistryObject<EntityType<LatexIceFieldWolfDragonBossEntity>> LATEX_ICE_FIELD_WOLF_DRAGON_BOSS;
-    public static final RegistryObject<EntityType<LatexNightOwlBossEntity>> LATEXNIGHTOWLDRAGONBOSS;
-    public static final RegistryObject<EntityType<LatexNightOwlEntity>> LATEXNIGHTOWLDRAGON;
-    public static final RegistryObject<EntityType<LatexIqGoldDragonEntity>> LATEXIQGOLDDRAGON;
+    public static final RegistryObject<EntityType<LatexNightOwlBossEntity>> LATEX_NIGHT_OWL_DRAGON_BOSS;
+    public static final RegistryObject<EntityType<LatexNightOwlEntity>> LATEX_NIGHT_OWL_DRAGON;
+    public static final RegistryObject<EntityType<LatexIqGoldDragonEntity>> LATEX_IQ_GOLD_DRAGON;
 
     // 其他变体
-    public static final RegistryObject<EntityType<InksugerEntity>> INKSUGER;
+    public static final RegistryObject<EntityType<InksugerEntity>> INK_SUGER_PUP;
     public static final RegistryObject<EntityType<LatexthreemonthwolfEntityProjectile>> LATEXTHREEMONTHWOLF_PROJECTILE;
     public static final RegistryObject<EntityType<BlueCrystalProjectile>> BLUECRYSTALPROJECTILE;
     public static final RegistryObject<EntityType<ThrownCrystalJavelinTrident>> THROWN_CRYSTAL_JAVELIN;
@@ -365,7 +365,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.6f, 1.95f),
                 LatexOrangeFoxEntity::createLatexAttributes);  // 使用父类默认属性
 
-        LATEXFRUITDRAGONWOLF = registerSpawning("latex_fruit_dragon_wolf", 0x5AD700, 0x4EBA00,
+        LATEX_FRUIT_DRAGON_WOLF = registerSpawning("latex_fruit_dragon_wolf", 0x5AD700, 0x4EBA00,
                 EntityType.Builder.<LatexFruitDragonEntity>of(LatexFruitDragonEntity::new, MobCategory.MONSTER)
                     .setShouldReceiveVelocityUpdates(true)
                     .setTrackingRange(64)
@@ -374,7 +374,7 @@ public class ChangedCreatureModEntities {
                     .sized(0.7f, 1.93f),
                 LatexRadiationFoxEntity::createLatexAttributes);
 
-        LATEXRADIATIONFOX = registerSpawning("latex_radiation_fox", 0x7CFC00, 0x32CD32,
+        LATEX_RADIATION_FOX = registerSpawning("latex_radiation_fox", 0x7CFC00, 0x32CD32,
                 EntityType.Builder.<LatexRadiationFoxEntity>of(LatexRadiationFoxEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -383,7 +383,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.7f, 1.93f),
                 LatexRadiationFoxEntity::createLatexAttributes);
 
-        LATEXNEONDIMNESSWOLF = registerSpawning("latex_neondimness_wolf", 0x333333, 0x444444,
+        LATEX_NEONDIMNESS_WOLF = registerSpawning("latex_neondimness_wolf", 0x333333, 0x444444,
                 EntityType.Builder.<LatexNeondimnessWolfEntity>of(LatexNeondimnessWolfEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -404,7 +404,7 @@ public class ChangedCreatureModEntities {
                 2);
 
         // 狼变体
-        DARKFU_LATEX_WOLF_MALE = registerSpawning("latex_darkfu_wolf_male", 0x4A4A4A, 0x2D2D2D,
+        LATEX_DARKFU_WOLF_MALE = registerSpawning("latex_darkfu_wolf_male", 0x4A4A4A, 0x2D2D2D,
                 EntityType.Builder.<DarkfuLatexWolfMaleEntity>of(DarkfuLatexWolfMaleEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -413,7 +413,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.6f, 1.99f),
                 DarkfuLatexWolfMaleEntity::createLatexAttributes);
 
-        LATEXPURPLEWSWOLF = registerSpawning("latex_purple_ws_wolf", 0x800080, 0x9932CC,
+        LATEX_PURPLE_WS_WOLF = registerSpawning("latex_purple_ws_wolf", 0x800080, 0x9932CC,
                 EntityType.Builder.<LatexpurplewswolfEntity>of(LatexpurplewswolfEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -422,7 +422,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.6f, 1.9f),
                 LatexpurplewswolfEntity::createLatexAttributes);
 
-        LATEXTHREEMONTHWOLF = registerSpawning("latex_three_month_wolf", 0xFF62FF, 0xFF84FF,
+        LATEX_THREE_MONTH_WOLF = registerSpawning("latex_three_month_wolf", 0xFF62FF, 0xFF84FF,
                 EntityType.Builder.<LatexthreemonthwolfEntity>of(LatexthreemonthwolfEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -431,7 +431,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.9f, 2.15f),
                 LatexthreemonthwolfEntity::createLatexAttributes);
 
-        LATEXPRTPLECOOCWOLF = registerSpawning("latex_purple_cooc_wolf", 0x9370DB, 0xBA55D3,
+        LATEX_PRTPLE_COOC_WOLF = registerSpawning("latex_purple_cooc_wolf", 0x9370DB, 0xBA55D3,
                 EntityType.Builder.<LatexPurplecoocwolfEntity>of(LatexPurplecoocwolfEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -459,7 +459,7 @@ public class ChangedCreatureModEntities {
                 LatexDivineSwordKitsuneEntity::createLatexAttributes);
 
         // 幼崽变体
-        BLACKPUPMALE = registerSpawning("black_pup_male", 0x000000, 0x333333,
+        BLACK_PUP_MALE = registerSpawning("black_pup_male", 0x000000, 0x333333,
                 EntityType.Builder.<BlackpupmaleEntity>of(BlackpupmaleEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -468,7 +468,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.4f, 0.7f),
                 BlackpupmaleEntity::createLatexAttributes);
 
-        WHITEBLUEPUP = registerSpawning("white_blue_pup", 0xFFFFFF, 0x87CEEB,
+        WHITE_BLUE_PUP = registerSpawning("white_blue_pup", 0xFFFFFF, 0x87CEEB,
                 EntityType.Builder.<WhitebluepupEntity>of(WhitebluepupEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -478,7 +478,7 @@ public class ChangedCreatureModEntities {
                 WhitebluepupEntity::createLatexAttributes);
 
         // 龙变体
-        LATEXICE_DRAGON = registerSpawning("latex_ko_qi_ice_dragon", 0x00CED1, 0x48D1CC,
+        LATEX_ICE_DRAGON = registerSpawning("latex_ko_qi_ice_dragon", 0x00CED1, 0x48D1CC,
                 EntityType.Builder.<LatexiceDragonEntity>of(LatexiceDragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -487,7 +487,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.6f, 1.8f),
                 LatexiceDragonEntity::createLatexAttributes);
 
-        LATEXYUNXQHOTDRAGON = registerSpawning("latex_yun_xq_hot_dragon", 0xFF4500, 0xFF6347,
+        LATEX_YUN_XQ_HOT_DRAGON = registerSpawning("latex_yun_xq_hot_dragon", 0xFF4500, 0xFF6347,
                 EntityType.Builder.<LatexyunxqhotdragonEntity>of(LatexyunxqhotdragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -507,7 +507,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.45f, 1.425f),
                 LatexyunxqhotdragonEntity::createLatexAttributes);
 
-        LATEXYUNXQICEDRAGON = registerSpawning("latex_yun_xq_ice_dragon", 0x87CEFA, 0xB0E2FF,
+        LATEX_YUN_XQ_ICE_DRAGON = registerSpawning("latex_yun_xq_ice_dragon", 0x87CEFA, 0xB0E2FF,
                 EntityType.Builder.<LatexyunxqicedragonEntity>of(LatexyunxqicedragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -516,7 +516,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.6f, 2f),
                 LatexyunxqicedragonEntity::createLatexAttributes);
 
-        LATEXBLUEDRAGON = registerSpawning("latex_blue_dragon", 0x1E90FF, 0x4169E1,
+        LATEX_BLUE_DRAGON = registerSpawning("latex_blue_dragon", 0x1E90FF, 0x4169E1,
                 EntityType.Builder.<LatexbluedragonEntity>of(LatexbluedragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -525,7 +525,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.6f, 1.8f),
                 LatexbluedragonEntity::createLatexAttributes);
 
-        LATEXYUNQIICEDRAGON = registerSpawning("latex_yun_qi_ice_dragon", 0x00BFFF, 0x87CEEB,
+        LATEX_YUN_QI_ICE_DRAGON = registerSpawning("latex_yun_qi_ice_dragon", 0x00BFFF, 0x87CEEB,
                 EntityType.Builder.<LatexYunQiIceDragonEntity>of(LatexYunQiIceDragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -534,13 +534,13 @@ public class ChangedCreatureModEntities {
                         .sized(0.7f, 1.93f),
                 LatexYunQiIceDragonEntity::createLatexAttributes);
 
-        LATEXDARKPURPLEDRAGONTAUR = registerSpawning("latex_dark_purple_dragon_taur", 0x4B0082, 0x800080,
+        LATEX_DARK_PURPLE_DRAGON_TAUR = registerSpawning("latex_dark_purple_dragon_taur", 0x4B0082, 0x800080,
                 EntityType.Builder.<LatexDarkPurpleDragonTaurEntity>of(LatexDarkPurpleDragonTaurEntity::new, MobCategory.MONSTER)
                         .clientTrackingRange(10)
                         .sized(1.6f, 2.5f),
                 LatexDarkPurpleDragonTaurEntity::createLatexAttributes);
 
-        LATEXDARKPURPLEDRAGON = registerSpawning("latex_dark_purple_dragon", 0x483D8B, 0x6A5ACD,
+        LATEX_DARK_PURPLE_DRAGON = registerSpawning("latex_dark_purple_dragon", 0x483D8B, 0x6A5ACD,
                 EntityType.Builder.<DarkPurpleLatexDragonEntity>of(DarkPurpleLatexDragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -549,7 +549,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.7f, 1.92f),
                 DarkPurpleLatexDragonEntity::createLatexAttributes);
 
-        LATEXLUOHONGEARLYSPRINGFOXDRAGON = registerSpawning("latex_luo_hong_early_spring_fox_dragon", 0xADD8E6, 0x87CEEB,
+        LATEX_LUO_HONG_EARLY_SPRING_FOX_DRAGON = registerSpawning("latex_luo_hong_early_spring_fox_dragon", 0xADD8E6, 0x87CEEB,
                 EntityType.Builder.<LatexLuoHongEarlySpringFoxDragonEntity>of(LatexLuoHongEarlySpringFoxDragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -578,7 +578,7 @@ public class ChangedCreatureModEntities {
                 });
 
 
-        LATEXNIGHTOWLDRAGONBOSS = registerSpawning("latex_night_owl_dragon_boss", 0x2C3E50, 0x34495E,
+        LATEX_NIGHT_OWL_DRAGON_BOSS = registerSpawning("latex_night_owl_dragon_boss", 0x2C3E50, 0x34495E,
                 EntityType.Builder.<LatexNightOwlBossEntity>of(LatexNightOwlBossEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -588,7 +588,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.9f, 2.2f),
                 LatexNightOwlBossEntity::createLatexAttributes);
 
-        LATEXNIGHTOWLDRAGON = registerSpawning("latex_night_owl_dragon", 0x4A6E8B, 0x5D7A9C,
+        LATEX_NIGHT_OWL_DRAGON = registerSpawning("latex_night_owl_dragon", 0x4A6E8B, 0x5D7A9C,
                 EntityType.Builder.<LatexNightOwlEntity>of(LatexNightOwlEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -598,7 +598,7 @@ public class ChangedCreatureModEntities {
                         .sized(0.7f, 1.92f),
                 LatexNightOwlEntity::createLatexAttributes);
 
-        LATEXIQGOLDDRAGON = registerSpawning("latex_iq_gold_dragon", 0xFFD700, 0xDAA520,
+        LATEX_IQ_GOLD_DRAGON = registerSpawning("latex_iq_gold_dragon", 0xFFD700, 0xDAA520,
                 EntityType.Builder.<LatexIqGoldDragonEntity>of(LatexIqGoldDragonEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)
@@ -610,7 +610,7 @@ public class ChangedCreatureModEntities {
 
 
         // 其他变体
-        INKSUGER = registerSpawning("ink_suger_pup", 0x000000, 0x333333,
+        INK_SUGER_PUP = registerSpawning("ink_suger_pup", 0x000000, 0x333333,
                 EntityType.Builder.<InksugerEntity>of(InksugerEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
                         .setTrackingRange(64)

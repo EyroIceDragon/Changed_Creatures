@@ -55,7 +55,7 @@ public class LatexNightOwlEntity extends ChangedEntity {
     }
 
     public LatexNightOwlEntity(PlayMessages.SpawnEntity packet, Level world) {
-        this(ChangedCreatureModEntities.LATEXNIGHTOWLDRAGON.get(), world);
+        this(ChangedCreatureModEntities.LATEX_NIGHT_OWL_DRAGON.get(), world);
     }
 
     @Override

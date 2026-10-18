@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "changed_creatures:block/latex_dawn_fuzz_wall",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "changed_creatures:block/latex_dawn_fuzz_wall"
+    },
+    "axis=z": {
+      "model": "changed_creatures:block/latex_dawn_fuzz_wall",
+      "x": 90
+    }
+  }
+}

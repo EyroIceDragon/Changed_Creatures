@@ -1,4 +1,4 @@
-// Made with Blockbench 5.2.1
+// Made with Blockbench 5.2.2
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
@@ -7,7 +7,6 @@ public class AnimalLatexCentaur<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "animallatexcentaur"), "main");
 	private final ModelPart Head;
-	private final ModelPart Torso;
 	private final ModelPart LowerTorso;
 	private final ModelPart Saddle;
 	private final ModelPart LeftLeg2;
@@ -37,17 +36,13 @@ public class AnimalLatexCentaur<T extends Entity> extends EntityModel<T> {
 	private final ModelPart rightSecondaries;
 	private final ModelPart rightTertiaries;
 	private final ModelPart RightLeg2;
-	private final ModelPart RightLowerLeg3;
-	private final ModelPart RightFoot3;
-	private final ModelPart RightPad3;
+	private final ModelPart RightLowerLeg2;
+	private final ModelPart RightFoot2;
+	private final ModelPart RightPad2;
 	private final ModelPart bone3;
-	private final ModelPart RightArm;
-	private final ModelPart LeftArm;
-	private final ModelPart bone5;
 
 	public AnimalLatexCentaur(ModelPart root) {
 		this.Head = root.getChild("Head");
-		this.Torso = root.getChild("Torso");
 		this.LowerTorso = root.getChild("LowerTorso");
 		this.Saddle = this.LowerTorso.getChild("Saddle");
 		this.LeftLeg2 = this.LowerTorso.getChild("LeftLeg2");
@@ -77,13 +72,10 @@ public class AnimalLatexCentaur<T extends Entity> extends EntityModel<T> {
 		this.rightSecondaries = this.rightWingRoot.getChild("rightSecondaries");
 		this.rightTertiaries = this.rightSecondaries.getChild("rightTertiaries");
 		this.RightLeg2 = this.LowerTorso.getChild("RightLeg2");
-		this.RightLowerLeg3 = this.RightLeg2.getChild("RightLowerLeg3");
-		this.RightFoot3 = this.RightLowerLeg3.getChild("RightFoot3");
-		this.RightPad3 = this.RightFoot3.getChild("RightPad3");
-		this.bone3 = this.RightPad3.getChild("bone3");
-		this.RightArm = root.getChild("RightArm");
-		this.LeftArm = root.getChild("LeftArm");
-		this.bone5 = root.getChild("bone5");
+		this.RightLowerLeg2 = this.RightLeg2.getChild("RightLowerLeg2");
+		this.RightFoot2 = this.RightLowerLeg2.getChild("RightFoot2");
+		this.RightPad2 = this.RightFoot2.getChild("RightPad2");
+		this.bone3 = this.RightPad2.getChild("bone3");
 	}
 
 	public static LayerDefinition createBodyLayer() {
@@ -91,13 +83,11 @@ public class AnimalLatexCentaur<T extends Entity> extends EntityModel<T> {
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
 		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(32, 61).addBox(-3.0F, -3.0F, -2.0F, 6.0F, 6.0F, 3.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 32).addBox(-2.0F, -2.6F, -7.8F, 4.0F, 5.0F, 6.0F, new CubeDeformation(0.02F)), PartPose.offset(0.0F, 10.5F, -10.0F));
+		.texOffs(0, 32).addBox(-2.0F, -2.6F, -7.8F, 4.0F, 5.0F, 6.0F, new CubeDeformation(0.02F)), PartPose.offset(0.0F, 10.5F, -3.6F));
 
 		PartDefinition cube_r1 = Head.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(62, 28).addBox(0.0F, -2.5F, 0.0F, 2.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-2.025F, -0.1F, -7.8F, 0.0F, -0.1309F, 0.0F));
 
 		PartDefinition cube_r2 = Head.addOrReplaceChild("cube_r2", CubeListBuilder.create().texOffs(50, 61).addBox(-2.0F, -2.5F, 0.0F, 2.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.025F, -0.1F, -7.8F, 0.0F, 0.1309F, 0.0F));
-
-		PartDefinition Torso = partdefinition.addOrReplaceChild("Torso", CubeListBuilder.create(), PartPose.offset(0.0F, -1.5F, -7.0F));
 
 		PartDefinition LowerTorso = partdefinition.addOrReplaceChild("LowerTorso", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -2.0F, 4.0F, 8.0F, 6.0F, 13.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 19).addBox(-4.0F, -2.0F, -3.0F, 8.0F, 6.0F, 7.0F, new CubeDeformation(0.2F))
@@ -162,7 +152,7 @@ public class AnimalLatexCentaur<T extends Entity> extends EntityModel<T> {
 
 		PartDefinition RightLeg = LowerTorso.addOrReplaceChild("RightLeg", CubeListBuilder.create(), PartPose.offset(-4.0F, 0.0F, -0.7F));
 
-		PartDefinition RightUpperLeg_r1 = RightLeg.addOrReplaceChild("RightUpperLeg_r1", CubeListBuilder.create().texOffs(0, 63).addBox(-9.5F, -5.8938F, -4.3333F, 4.0F, 7.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offsetAndRotation(7.75F, 4.5348F, 2.9528F, 0.0873F, 0.0F, 0.0F));
+		PartDefinition RightUpperLeg_r1 = RightLeg.addOrReplaceChild("RightUpperLeg_r1", CubeListBuilder.create().texOffs(0, 63).addBox(-9.5F, -6.89F, -4.2461F, 4.0F, 7.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offsetAndRotation(7.75F, 5.5348F, 2.9528F, 0.0873F, 0.0F, 0.0F));
 
 		PartDefinition RightLowerLeg = RightLeg.addOrReplaceChild("RightLowerLeg", CubeListBuilder.create(), PartPose.offset(0.0F, 5.7848F, 10.7028F));
 
@@ -282,17 +272,17 @@ public class AnimalLatexCentaur<T extends Entity> extends EntityModel<T> {
 
 		PartDefinition RightThigh_r1 = RightLeg2.addOrReplaceChild("RightThigh_r1", CubeListBuilder.create().texOffs(16, 58).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 7.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.2182F, 0.0F, 0.0F));
 
-		PartDefinition RightLowerLeg3 = RightLeg2.addOrReplaceChild("RightLowerLeg3", CubeListBuilder.create(), PartPose.offset(0.0F, 6.375F, 4.55F));
+		PartDefinition RightLowerLeg2 = RightLeg2.addOrReplaceChild("RightLowerLeg2", CubeListBuilder.create(), PartPose.offset(0.0F, 6.375F, 4.55F));
 
-		PartDefinition RightCalf_r1 = RightLowerLeg3.addOrReplaceChild("RightCalf_r1", CubeListBuilder.create().texOffs(70, 11).addBox(-1.99F, -0.125F, -2.9F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -2.125F, -6.05F, 0.8727F, 0.0F, 0.0F));
+		PartDefinition RightCalf_r1 = RightLowerLeg2.addOrReplaceChild("RightCalf_r1", CubeListBuilder.create().texOffs(70, 11).addBox(-1.99F, -0.125F, -2.9F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -2.125F, -6.05F, 0.8727F, 0.0F, 0.0F));
 
-		PartDefinition RightFoot3 = RightLowerLeg3.addOrReplaceChild("RightFoot3", CubeListBuilder.create(), PartPose.offset(0.0F, 0.8F, 7.175F));
+		PartDefinition RightFoot2 = RightLowerLeg2.addOrReplaceChild("RightFoot2", CubeListBuilder.create(), PartPose.offset(0.0F, 0.8F, 7.175F));
 
-		PartDefinition RightArch_r1 = RightFoot3.addOrReplaceChild("RightArch_r1", CubeListBuilder.create().texOffs(84, 47).addBox(-2.0F, -8.45F, -0.725F, 4.0F, 6.0F, 3.0F, new CubeDeformation(0.005F)), PartPose.offsetAndRotation(0.0F, 7.075F, -12.975F, -0.3491F, 0.0F, 0.0F));
+		PartDefinition RightArch_r1 = RightFoot2.addOrReplaceChild("RightArch_r1", CubeListBuilder.create().texOffs(84, 47).addBox(-2.0F, -8.45F, -0.725F, 4.0F, 6.0F, 3.0F, new CubeDeformation(0.005F)), PartPose.offsetAndRotation(0.0F, 7.075F, -12.975F, -0.3491F, 0.0F, 0.0F));
 
-		PartDefinition RightPad3 = RightFoot3.addOrReplaceChild("RightPad3", CubeListBuilder.create().texOffs(78, 27).addBox(-2.0F, 0.0F, -10.5F, 4.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 4.325F, -4.425F));
+		PartDefinition RightPad2 = RightFoot2.addOrReplaceChild("RightPad2", CubeListBuilder.create().texOffs(78, 27).addBox(-2.0F, 0.0F, -10.5F, 4.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 4.325F, -4.425F));
 
-		PartDefinition bone3 = RightPad3.addOrReplaceChild("bone3", CubeListBuilder.create(), PartPose.offset(-2.5F, 2.0F, -10.5F));
+		PartDefinition bone3 = RightPad2.addOrReplaceChild("bone3", CubeListBuilder.create(), PartPose.offset(-2.5F, 2.0F, -10.5F));
 
 		PartDefinition cube_r47 = bone3.addOrReplaceChild("cube_r47", CubeListBuilder.create().texOffs(56, 95).addBox(0.0F, -1.0F, -2.0F, 0.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.0F, -1.0F, 1.0F, 0.0F, -0.2182F, 0.0F));
 
@@ -301,12 +291,6 @@ public class AnimalLatexCentaur<T extends Entity> extends EntityModel<T> {
 		PartDefinition cube_r49 = bone3.addOrReplaceChild("cube_r49", CubeListBuilder.create().texOffs(48, 95).addBox(0.0F, -1.0F, -2.0F, 0.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.0F, -1.0F, 1.0F, 0.0F, 0.0873F, 0.0F));
 
 		PartDefinition cube_r50 = bone3.addOrReplaceChild("cube_r50", CubeListBuilder.create().texOffs(44, 95).addBox(0.0F, -1.0F, -2.0F, 0.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.0F, -1.0F, 1.0F, 0.0F, 0.2182F, 0.0F));
-
-		PartDefinition RightArm = partdefinition.addOrReplaceChild("RightArm", CubeListBuilder.create(), PartPose.offset(-5.0F, 0.5F, -7.0F));
-
-		PartDefinition LeftArm = partdefinition.addOrReplaceChild("LeftArm", CubeListBuilder.create(), PartPose.offset(5.0F, 0.5F, -7.0F));
-
-		PartDefinition bone5 = partdefinition.addOrReplaceChild("bone5", CubeListBuilder.create(), PartPose.offset(-1.0F, 24.0F, 5.675F));
 
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
@@ -319,10 +303,6 @@ public class AnimalLatexCentaur<T extends Entity> extends EntityModel<T> {
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Torso.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		LowerTorso.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		bone5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }

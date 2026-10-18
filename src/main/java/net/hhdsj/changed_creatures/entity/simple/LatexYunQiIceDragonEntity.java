@@ -42,7 +42,7 @@ public class LatexYunQiIceDragonEntity extends ChangedEntity {
         return TransfurMode.REPLICATION;
     }
 	public LatexYunQiIceDragonEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(ChangedCreatureModEntities.LATEXYUNQIICEDRAGON.get(), world);
+		this(ChangedCreatureModEntities.LATEX_YUN_QI_ICE_DRAGON.get(), world);
 	}
 
 	public LatexYunQiIceDragonEntity(EntityType<LatexYunQiIceDragonEntity> type, Level world) {

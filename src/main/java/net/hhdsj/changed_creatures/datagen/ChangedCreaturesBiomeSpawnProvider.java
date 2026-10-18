@@ -30,34 +30,34 @@ public class ChangedCreaturesBiomeSpawnProvider implements DataProvider {
 
         groups.put("plains", List.of(
                 entry(ChangedCreatureModEntities.LATEX_ORANGE_FOX, 4, 1, 2),
-                entry(ChangedCreatureModEntities.LATEXRADIATIONFOX, 4, 1, 2),
-                entry(ChangedCreatureModEntities.DARKFU_LATEX_WOLF_MALE, 6, 1, 2),
-                entry(ChangedCreatureModEntities.LATEXPURPLEWSWOLF, 2, 1, 2),
-                entry(ChangedCreatureModEntities.LATEXTHREEMONTHWOLF, 3, 1, 2),
-                entry(ChangedCreatureModEntities.LATEXPRTPLECOOCWOLF, 1, 1, 2),
-                entry(ChangedCreatureModEntities.LATEXFRUITDRAGONWOLF, 2, 1, 2),
-                entry(ChangedCreatureModEntities.BLACKPUPMALE, 2, 1, 2),
-                entry(ChangedCreatureModEntities.WHITEBLUEPUP, 1, 1, 2),
-                entry(ChangedCreatureModEntities.INKSUGER, 1, 1, 2),
-                entry(ChangedCreatureModEntities.LATEXICE_DRAGON, 3, 1, 2),
-                entry(ChangedCreatureModEntities.LATEXYUNXQICEDRAGON, 3, 1, 2),
-                entry(ChangedCreatureModEntities.LATEXBLUEDRAGON, 3, 1, 2),
-                entry(ChangedCreatureModEntities.LATEXYUNQIICEDRAGON, 3, 1, 2),
-                entry(ChangedCreatureModEntities.LATEXDARKPURPLEDRAGONTAUR, 3, 1, 2),
-                entry(ChangedCreatureModEntities.LATEXDARKPURPLEDRAGON, 3, 1, 2),
-                entry(ChangedCreatureModEntities.LATEXIQGOLDDRAGON, 3, 1, 2),
+                entry(ChangedCreatureModEntities.LATEX_RADIATION_FOX, 4, 1, 2),
+                entry(ChangedCreatureModEntities.LATEX_DARKFU_WOLF_MALE, 6, 1, 2),
+                entry(ChangedCreatureModEntities.LATEX_PURPLE_WS_WOLF, 2, 1, 2),
+                entry(ChangedCreatureModEntities.LATEX_THREE_MONTH_WOLF, 3, 1, 2),
+                entry(ChangedCreatureModEntities.LATEX_PRTPLE_COOC_WOLF, 1, 1, 2),
+                entry(ChangedCreatureModEntities.LATEX_FRUIT_DRAGON_WOLF, 2, 1, 2),
+                entry(ChangedCreatureModEntities.BLACK_PUP_MALE, 2, 1, 2),
+                entry(ChangedCreatureModEntities.WHITE_BLUE_PUP, 1, 1, 2),
+                entry(ChangedCreatureModEntities.INK_SUGER_PUP, 1, 1, 2),
+                entry(ChangedCreatureModEntities.LATEX_ICE_DRAGON, 3, 1, 2),
+                entry(ChangedCreatureModEntities.LATEX_YUN_XQ_ICE_DRAGON, 3, 1, 2),
+                entry(ChangedCreatureModEntities.LATEX_BLUE_DRAGON, 3, 1, 2),
+                entry(ChangedCreatureModEntities.LATEX_YUN_QI_ICE_DRAGON, 3, 1, 2),
+                entry(ChangedCreatureModEntities.LATEX_DARK_PURPLE_DRAGON_TAUR, 3, 1, 2),
+                entry(ChangedCreatureModEntities.LATEX_DARK_PURPLE_DRAGON, 3, 1, 2),
+                entry(ChangedCreatureModEntities.LATEX_IQ_GOLD_DRAGON, 3, 1, 2),
                 entry(ChangedCreatureModEntities.LATEX_EMBERSCALES_MAGMA_DRAGON_MALE, 3, 1, 1)
         ));
 
         groups.put("beach", List.of(
                 entry(ChangedCreatureModEntities.LATEX_CHENG_XI, 10, 1, 2),
-                entry(ChangedCreatureModEntities.LATEXLUOHONGEARLYSPRINGFOXDRAGON, 10, 1, 2),
-                entry(ChangedCreatureModEntities.LATEXIQGOLDDRAGON, 6, 1, 2)
+                entry(ChangedCreatureModEntities.LATEX_LUO_HONG_EARLY_SPRING_FOX_DRAGON, 10, 1, 2),
+                entry(ChangedCreatureModEntities.LATEX_IQ_GOLD_DRAGON, 6, 1, 2)
         ));
 
         groups.put("crimson_forest", List.of(
-                entry(ChangedCreatureModEntities.LATEXNIGHTOWLDRAGON, 1, 1, 2),
-                entry(ChangedCreatureModEntities.LATEXYUNXQHOTDRAGON, 2, 1, 2)
+                entry(ChangedCreatureModEntities.LATEX_NIGHT_OWL_DRAGON, 1, 1, 2),
+                entry(ChangedCreatureModEntities.LATEX_YUN_XQ_HOT_DRAGON, 2, 1, 2)
         ));
 
         groups.put("desert", List.of(

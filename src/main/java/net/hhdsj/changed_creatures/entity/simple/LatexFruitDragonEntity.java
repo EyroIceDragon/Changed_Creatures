@@ -46,7 +46,7 @@ public class LatexFruitDragonEntity extends ChangedEntity {
     }
 
     public LatexFruitDragonEntity(PlayMessages.SpawnEntity packet, Level world) {
-        this(ChangedCreatureModEntities.LATEXFRUITDRAGONWOLF.get(), world);
+        this(ChangedCreatureModEntities.LATEX_FRUIT_DRAGON_WOLF.get(), world);
     }
 
     public LatexFruitDragonEntity(EntityType<LatexFruitDragonEntity> type, Level world) {

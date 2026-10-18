@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures.datagen;
 
+import net.foxyas.changedaddon.init.ChangedAddonItems;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModEntities;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModItems;
 import net.ltxprogrammer.changed.init.ChangedItems;
@@ -44,7 +45,7 @@ public class ChangedCreaturesEntityLootProvider extends EntityLootSubProvider {
     @Override
     public void generate() {
         // ==== 幼崽 ====
-        addLoot(ChangedCreatureModEntities.BLACKPUPMALE.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.BLACK_PUP_MALE.get(), LootTable.lootTable()
                 .withPool(pool(0, 2, ChangedItems.DARK_LATEX_GOO.get(), 1))
                 .withPool(pool(0, 1, ChangedItems.ORANGE.get(), 1))
                 .withPool(LootPool.lootPool()
@@ -54,12 +55,12 @@ public class ChangedCreaturesEntityLootProvider extends EntityLootSubProvider {
                         .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.05f, 0.02f)))
         );
 
-        addLoot(ChangedCreatureModEntities.WHITEBLUEPUP.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.WHITE_BLUE_PUP.get(), LootTable.lootTable()
                 .withPool(pool(0, 2, ChangedItems.WHITE_LATEX_GOO.get(), 1))
                 .withPool(pool(0, 1, ChangedItems.ORANGE.get(), 1))
         );
 
-        addLoot(ChangedCreatureModEntities.INKSUGER.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.INK_SUGER_PUP.get(), LootTable.lootTable()
                 .withPool(pool(0, 1, Items.HONEYCOMB, 1))
                 .withPool(pool(0, 2, Items.SPORE_BLOSSOM, 1))
                 .withPool(LootPool.lootPool()
@@ -71,7 +72,7 @@ public class ChangedCreaturesEntityLootProvider extends EntityLootSubProvider {
         );
 
         // ==== 狼 ====
-        addLoot(ChangedCreatureModEntities.DARKFU_LATEX_WOLF_MALE.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.LATEX_DARKFU_WOLF_MALE.get(), LootTable.lootTable()
                 .withPool(pool(1, 3, ChangedItems.DARK_LATEX_GOO.get(), 1))
                 .withPool(pool(0, 2, ChangedItems.DARK_LATEX_CRYSTAL_FRAGMENT.get(), 1))
                 .withPool(LootPool.lootPool()
@@ -87,19 +88,19 @@ public class ChangedCreaturesEntityLootProvider extends EntityLootSubProvider {
                         .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.075f, 0.03f)))
         );
 
-        addLoot(ChangedCreatureModEntities.LATEXPURPLEWSWOLF.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.LATEX_PURPLE_WS_WOLF.get(), LootTable.lootTable()
                 .withPool(pool(0, 1, Items.MAGENTA_DYE, 2))
                 .withPool(pool(0, 2, ChangedItems.SYRINGE.get(), 1))
                 .withPool(pool(0, 2, Items.BONE, 1))
         );
 
-        addLoot(ChangedCreatureModEntities.LATEXTHREEMONTHWOLF.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.LATEX_THREE_MONTH_WOLF.get(), LootTable.lootTable()
                 .withPool(pool(0, 1, Items.MAGENTA_DYE, 2))
                 .withPool(pool(0, 2, ChangedItems.SYRINGE.get(), 1))
                 .withPool(pool(0, 2, Items.BONE, 1))
         );
 
-        addLoot(ChangedCreatureModEntities.LATEXPRTPLECOOCWOLF.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.LATEX_PRTPLE_COOC_WOLF.get(), LootTable.lootTable()
                 .withPool(salmonPool())
         );
 
@@ -110,13 +111,13 @@ public class ChangedCreaturesEntityLootProvider extends EntityLootSubProvider {
         );
 
         // ==== 龙 ====
-        addLoot(ChangedCreatureModEntities.LATEXICE_DRAGON.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.LATEX_ICE_DRAGON.get(), LootTable.lootTable()
                 .withPool(salmonPool())
                 .withPool(pool(0, 2, Items.SNOWBALL, 1))
                 .withPool(pool(0, 1, Items.ICE, 1))
         );
 
-        addLoot(ChangedCreatureModEntities.LATEXYUNXQHOTDRAGON.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.LATEX_YUN_XQ_HOT_DRAGON.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
                         .setBonusRolls(ConstantValue.exactly(1))
@@ -131,19 +132,19 @@ public class ChangedCreaturesEntityLootProvider extends EntityLootSubProvider {
                                 .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0, 2)))))
         );
 
-        addLoot(ChangedCreatureModEntities.LATEXYUNXQICEDRAGON.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.LATEX_YUN_XQ_ICE_DRAGON.get(), LootTable.lootTable()
                 .withPool(salmonPool())
                 .withPool(pool(0, 2, Items.SNOWBALL, 1))
                 .withPool(pool(0, 1, Items.ICE, 1))
         );
 
-        addLoot(ChangedCreatureModEntities.LATEXBLUEDRAGON.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.LATEX_BLUE_DRAGON.get(), LootTable.lootTable()
                 .withPool(salmonPool())
                 .withPool(pool(0, 2, Items.SNOWBALL, 1))
                 .withPool(pool(0, 1, Items.ICE, 1))
         );
 
-        addLoot(ChangedCreatureModEntities.LATEXYUNQIICEDRAGON.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.LATEX_YUN_QI_ICE_DRAGON.get(), LootTable.lootTable()
                 .withPool(salmonPool())
                 .withPool(pool(0, 8, Items.SNOWBALL, 1))
                 .withPool(pool(0, 8, Items.ICE, 4))
@@ -156,7 +157,7 @@ public class ChangedCreaturesEntityLootProvider extends EntityLootSubProvider {
                 .withPool(pool(1, 2, Items.BLUE_DYE, 1))
         );
 
-        addLoot(ChangedCreatureModEntities.LATEXDARKPURPLEDRAGON.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.LATEX_DARK_PURPLE_DRAGON.get(), LootTable.lootTable()
                 .withPool(pool(1, 3, ChangedItems.LATEX_BASE.get(), 1))
                 .withPool(pool(0, 2, Items.PURPLE_DYE, 1))
                 .withPool(pool(0, 1, Items.DRAGON_BREATH, 1))
@@ -166,7 +167,7 @@ public class ChangedCreaturesEntityLootProvider extends EntityLootSubProvider {
                         .when(LootItemRandomChanceCondition.randomChance(0.0001f)))
         );
 
-        addLoot(ChangedCreatureModEntities.LATEXDARKPURPLEDRAGONTAUR.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.LATEX_DARK_PURPLE_DRAGON_TAUR.get(), LootTable.lootTable()
                 .withPool(pool(1, 3, ChangedItems.LATEX_BASE.get(), 1))
                 .withPool(pool(0, 2, Items.PURPLE_DYE, 1))
                 .withPool(pool(0, 1, Items.DRAGON_BREATH, 1))
@@ -176,7 +177,7 @@ public class ChangedCreaturesEntityLootProvider extends EntityLootSubProvider {
                         .when(LootItemRandomChanceCondition.randomChance(0.0001f)))
         );
 
-        addLoot(ChangedCreatureModEntities.LATEXLUOHONGEARLYSPRINGFOXDRAGON.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.LATEX_LUO_HONG_EARLY_SPRING_FOX_DRAGON.get(), LootTable.lootTable()
                 .withPool(pool(1, 3, Items.RABBIT_HIDE, 1))
                 .withPool(pool(0, 2, Items.FEATHER, 1))
                 .withPool(pool(0, 1, Items.CHERRY_LEAVES, 1))
@@ -186,7 +187,7 @@ public class ChangedCreaturesEntityLootProvider extends EntityLootSubProvider {
                         .when(LootItemRandomChanceCondition.randomChance(0.1f)))
         );
 
-        addLoot(ChangedCreatureModEntities.LATEXFRUITDRAGONWOLF.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.LATEX_FRUIT_DRAGON_WOLF.get(), LootTable.lootTable()
                 .withPool(pool(1, 2, ChangedCreatureModItems.DRAGONFRUIT.get(), 1))
                 .withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
@@ -194,7 +195,7 @@ public class ChangedCreaturesEntityLootProvider extends EntityLootSubProvider {
                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(2, 5), false)))
         );
 
-        addLoot(ChangedCreatureModEntities.LATEXNIGHTOWLDRAGON.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.LATEX_NIGHT_OWL_DRAGON.get(), LootTable.lootTable()
                 .withPool(poolWithBonus(0, 1, 1, Items.BLAZE_POWDER, 2))
                 .withPool(poolWithBonus(1, 1, 4, Items.MAGMA_BLOCK, 2))
         );
@@ -203,16 +204,16 @@ public class ChangedCreaturesEntityLootProvider extends EntityLootSubProvider {
                 .withPool(poolWithBonus(0, 1, 1, Items.BLAZE_POWDER, 2))
         );
 
-        addLoot(ChangedCreatureModEntities.LATEXNEONDIMNESSWOLF.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.LATEX_NEONDIMNESS_WOLF.get(), LootTable.lootTable()
                 .withPool(poolWithBonus(1, 1, 3, Items.COAL, 4))
         );
 
-        addLoot(ChangedCreatureModEntities.LATEXRADIATIONFOX.get(), LootTable.lootTable()
+        addLoot(ChangedCreatureModEntities.LATEX_RADIATION_FOX.get(), LootTable.lootTable()
                 .withPool(pool(0, 1, ChangedCreatureModItems.IMPUREURANIUM.get(), 2))
         );
 
-        addLoot(ChangedCreatureModEntities.LATEXIQGOLDDRAGON.get(), LootTable.lootTable()
-                .withPool(pool(1, 7, Items.GOLD_NUGGET, 2))
+        addLoot(ChangedCreatureModEntities.LATEX_IQ_GOLD_DRAGON.get(), LootTable.lootTable()
+                .withPool(pool(1, 4, Items.GOLD_NUGGET, 2))
                 .withPool(pool(0, 2, Items.SAND, 1))
                 .withPool(pool(0, 1, Items.YELLOW_DYE, 1))
                 .withPool(LootPool.lootPool()
@@ -223,13 +224,13 @@ public class ChangedCreaturesEntityLootProvider extends EntityLootSubProvider {
         );
 
         addLoot(ChangedCreatureModEntities.LATEX_CHENG_XI.get(), LootTable.lootTable()
-                .withPool(pool(1, 6, Items.GOLD_INGOT, 1))
-                .withPool(pool(1, 9, Items.GOLD_NUGGET, 1))
+                .withPool(pool(1, 3, Items.GOLD_INGOT, 1))
+                .withPool(pool(1, 5, Items.GOLD_NUGGET, 1))
         );
 
         addLoot(ChangedCreatureModEntities.LATEX_ETAN_KIND.get(), LootTable.lootTable()
                 .withPool(pool(0, 2, Items.LAPIS_LAZULI, 1))
-                .withPool(pool(0, 2, Items.BONE, 1))
+                .withPool(pool(0, 2, Items.BONE, 3))
         );
 
         addLoot(ChangedCreatureModEntities.LATEX_INGERTE_FOX.get(), LootTable.lootTable()
@@ -247,10 +248,136 @@ public class ChangedCreaturesEntityLootProvider extends EntityLootSubProvider {
         addLoot(ChangedCreatureModEntities.LATEX_KCAHRA_SHARK.get(), LootTable.lootTable()
                 .withPool(salmonPool())
         );
+        addLoot(ChangedCreatureModEntities.LATEX_YUE_XI_FOX_FEMALE.get(), LootTable.lootTable()
+                .withPool(pool(0, 2, ChangedItems.WHITE_LATEX_GOO.get(), 2))
+                .withPool(pool(0, 1, ChangedCreatureModItems.LATEX_DAWN_FUZZ.get(), 1))
+        );
 
         // ==== BOSS ====
-        addLoot(ChangedCreatureModEntities.LATEX_ICE_FIELD_WOLF_DRAGON_BOSS.get(), LootTable.lootTable());
-        addLoot(ChangedCreatureModEntities.LATEXNIGHTOWLDRAGONBOSS.get(), LootTable.lootTable());
+
+        // ==== 夜枭龙 BOSS ====
+        addLoot(ChangedCreatureModEntities.LATEX_NIGHT_OWL_DRAGON_BOSS.get(), LootTable.lootTable()
+                // 池 1: 恶魂之泪
+                .withPool(pool(0, 2, Items.GHAST_TEAR, 1))
+                // 池 2: 烈焰棒
+                .withPool(pool(0, 3, Items.BLAZE_ROD, 1))
+                // 池 3: 岩浆膏
+                .withPool(pool(0, 2, Items.MAGMA_CREAM, 1))
+                // 池 4: 转化图腾
+                .withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(ChangedAddonItems.TRANSFUR_TOTEM.get())
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))))
+                // 池 5: 大杂烩
+                .withPool(LootPool.lootPool()
+                        .setRolls(UniformGenerator.between(6, 12))
+                        .setBonusRolls(UniformGenerator.between(0, 1))
+                        .add(LootItem.lootTableItem(ChangedItems.LATEX_SYRINGE.get())
+                                .setWeight(3)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 6))))
+                        .add(LootItem.lootTableItem(ChangedItems.LATEX_BASE.get())
+                                .setWeight(4)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(2, 10))))
+                        .add(LootItem.lootTableItem(Items.GOLD_INGOT)
+                                .setWeight(3)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(3, 12))))
+                        .add(LootItem.lootTableItem(ChangedAddonItems.AMMONIA_PARTICLE.get())
+                                .setWeight(2)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(6, 20))))
+                        .add(LootItem.lootTableItem(ChangedAddonItems.ANTI_LATEX_BASE.get())
+                                .setWeight(2)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(2, 10))))
+                        .add(LootItem.lootTableItem(Items.DIAMOND)
+                                .setWeight(2)
+                                .when(LootItemKilledByPlayerCondition.killedByPlayer())
+                                .when(LootItemRandomChanceCondition.randomChance(0.35f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))))
+                        .add(LootItem.lootTableItem(Items.NETHERITE_SCRAP)
+                                .setWeight(1)
+                                .when(LootItemKilledByPlayerCondition.killedByPlayer())
+                                .when(LootItemRandomChanceCondition.randomChance(0.25f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2))))
+                        .add(LootItem.lootTableItem(ChangedAddonItems.PAINITE.get())
+                                .setWeight(1)
+                                .when(LootItemKilledByPlayerCondition.killedByPlayer())
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.25f, 0.05f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 6))))
+                        .add(LootItem.lootTableItem(Items.ANCIENT_DEBRIS)
+                                .setWeight(1)
+                                .when(LootItemKilledByPlayerCondition.killedByPlayer())
+                                .when(LootItemRandomChanceCondition.randomChance(0.12f))
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
+                        .add(LootItem.lootTableItem(Items.WITHER_SKELETON_SKULL)
+                                .setWeight(1)
+                                .when(LootItemKilledByPlayerCondition.killedByPlayer())
+                                .when(LootItemRandomChanceCondition.randomChance(0.06f))
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
+                        .add(LootItem.lootTableItem(Items.NETHER_STAR)
+                                .setWeight(1)
+                                .when(LootItemKilledByPlayerCondition.killedByPlayer())
+                                .when(LootItemRandomChanceCondition.randomChance(0.03f))
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1)))))
+        );
+
+        // ==== 冰原狼龙 BOSS ====
+        addLoot(ChangedCreatureModEntities.LATEX_ICE_FIELD_WOLF_DRAGON_BOSS.get(), LootTable.lootTable()
+                // 池 1: 生鲑鱼
+                .withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.SALMON)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2), false))
+                                .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0, 1)))
+                                .apply(SmeltItemFunction.smelted()
+                                        .when(LootItemEntityPropertyCondition.hasProperties(
+                                                LootContext.EntityTarget.THIS,
+                                                EntityPredicate.Builder.entity().flags(
+                                                        EntityFlagsPredicate.Builder.flags().setOnFire(true).build()))))))
+                // 池 2: 墨囊
+                .withPool(pool(0, 2, Items.INK_SAC, 1))
+                // 池 3: 青金石
+                .withPool(pool(0, 2, Items.LAPIS_LAZULI, 1))
+                // 池 4: 转化图腾
+                .withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(ChangedAddonItems.TRANSFUR_TOTEM.get())))
+                // 池 5: 大杂烩
+                .withPool(LootPool.lootPool()
+                        .setRolls(UniformGenerator.between(10, 20))
+                        .add(LootItem.lootTableItem(ChangedItems.LATEX_SYRINGE.get())
+                                .setWeight(1)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 16))))
+                        .add(LootItem.lootTableItem(ChangedItems.WHITE_LATEX_GOO.get())
+                                .setWeight(1)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(5, 32))))
+                        .add(LootItem.lootTableItem(ChangedItems.LATEX_BASE.get())
+                                .setWeight(1)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(5, 15))))
+                        .add(LootItem.lootTableItem(ChangedAddonItems.POT_WITH_CAMONIA.get())
+                                .setWeight(1)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 5))))
+                        .add(LootItem.lootTableItem(ChangedAddonItems.AMMONIA_PARTICLE.get())
+                                .setWeight(1)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(16, 32))))
+                        .add(LootItem.lootTableItem(ChangedAddonItems.ANTI_LATEX_BASE.get())
+                                .setWeight(1)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(5, 20))))
+                        .add(LootItem.lootTableItem(ChangedAddonItems.SYRINGE_WITH_LITIX_CAMMONIA.get())
+                                .setWeight(1)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 5))))
+                        .add(LootItem.lootTableItem(ChangedAddonItems.LITIX_CAMONIA.get())
+                                .setWeight(1)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(5, 20))))
+                        .add(LootItem.lootTableItem(Items.DIAMOND)
+                                .setWeight(1)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(5, 10)))
+                                .when(LootItemKilledByPlayerCondition.killedByPlayer())
+                                .when(LootItemRandomChanceCondition.randomChance(0.75f)))
+                        .add(LootItem.lootTableItem(ChangedAddonItems.PAINITE.get())
+                                .setWeight(1)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(5, 10)))
+                                .when(LootItemKilledByPlayerCondition.killedByPlayer())
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.5f, 0.05f))))
+        );
 
         checkMissingMobLootTables();
     }

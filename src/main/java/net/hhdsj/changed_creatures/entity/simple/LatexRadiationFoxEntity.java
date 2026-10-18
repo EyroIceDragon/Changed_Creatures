@@ -46,7 +46,7 @@ public class LatexRadiationFoxEntity extends ChangedEntity {
 	}
 
 	public LatexRadiationFoxEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(ChangedCreatureModEntities.LATEXRADIATIONFOX.get(), world);
+		this(ChangedCreatureModEntities.LATEX_RADIATION_FOX.get(), world);
 	}
 
 	public LatexRadiationFoxEntity(EntityType<LatexRadiationFoxEntity> type, Level world) {
@@ -71,7 +71,7 @@ public class LatexRadiationFoxEntity extends ChangedEntity {
 	}
 
 	public static void init() {
-		SpawnPlacements.register(ChangedCreatureModEntities.LATEXRADIATIONFOX.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+		SpawnPlacements.register(ChangedCreatureModEntities.LATEX_RADIATION_FOX.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
 	}
 }

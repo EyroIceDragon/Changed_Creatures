@@ -21,6 +21,7 @@ public class ChangedCreatureModBlocks {
 	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, ChangedCreature.MODID);
 
 	public static final RegistryObject<Block> LATEX_DEEP_CRYSTAL_DRAGON_DOLL = REGISTRY.register("latex_crystal_jelly_dragon_doll", LatexDeepCrystalDragonDollBlock::new);
+	public static final RegistryObject<Block> LATEX_DAWN_FUZZ_WALL = REGISTRY.register("latex_dawn_fuzz_wall", LatexDawnFuzzWallBlock::new);
 	public static final RegistryObject<Block> SULPHURBLOCK = REGISTRY.register("sulphur_block", SulphurblockBlock::new);
 	public static final RegistryObject<Block> NITREBLOCK = REGISTRY.register("nitre_block", NitreblockBlock::new);
 	public static final RegistryObject<Block> URANIUM_ORE = REGISTRY.register("uranium_ore", UraniummineralBlock::new);

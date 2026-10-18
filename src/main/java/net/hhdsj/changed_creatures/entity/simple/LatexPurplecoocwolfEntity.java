@@ -49,7 +49,7 @@ public class LatexPurplecoocwolfEntity extends ChangedEntity {
     }
 
 	public LatexPurplecoocwolfEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(ChangedCreatureModEntities.LATEXPRTPLECOOCWOLF.get(), world);
+		this(ChangedCreatureModEntities.LATEX_PRTPLE_COOC_WOLF.get(), world);
 	}
 
 	public LatexPurplecoocwolfEntity(EntityType<LatexPurplecoocwolfEntity> type, Level world) {
@@ -74,7 +74,7 @@ public class LatexPurplecoocwolfEntity extends ChangedEntity {
 	}
 
 	public static void init() {
-		SpawnPlacements.register(ChangedCreatureModEntities.LATEXPRTPLECOOCWOLF.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+		SpawnPlacements.register(ChangedCreatureModEntities.LATEX_PRTPLE_COOC_WOLF.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
 	}
 }

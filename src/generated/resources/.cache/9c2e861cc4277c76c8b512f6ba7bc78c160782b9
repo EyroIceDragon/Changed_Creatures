@@ -1,8 +1,0 @@
-// 1.20.1	2026-10-18T18:51:22.0531231	ChangedCreatures Biome Spawns
-6305c02921109d66a94382f9106ab7de131dc6e4 data/data/changed_creatures/forge/biome_modifier/beach_spawners.json
-8c38981fe91da34af10237696e1341e51476b9dd data/data/changed_creatures/forge/biome_modifier/crimson_forest_spawners.json
-44baf213837cc6a48ad65729a6d394a48af58656 data/data/changed_creatures/forge/biome_modifier/desert_spawners.json
-323bd9b507cf4c009418be5be98da1b4e426e2d3 data/data/changed_creatures/forge/biome_modifier/nether_spawners.json
-7ec1a8180cdcb35c8918353ab073abbed397d9a9 data/data/changed_creatures/forge/biome_modifier/plains_spawners.json
-8c64c0ed949beba7dbc9cd086294f7b1127072eb data/data/changed_creatures/forge/biome_modifier/river_spawners.json
-51cba090fd00e0b510d73dc24ce37bbd6fe2a7db data/data/changed_creatures/forge/biome_modifier/snowy_spawners.json

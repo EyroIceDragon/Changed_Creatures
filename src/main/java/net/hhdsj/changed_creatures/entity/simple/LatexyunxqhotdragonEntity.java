@@ -56,7 +56,7 @@ public class LatexyunxqhotdragonEntity extends ChangedEntity {
 	}
 
 	public LatexyunxqhotdragonEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(ChangedCreatureModEntities.LATEXYUNXQHOTDRAGON.get(), world);
+		this(ChangedCreatureModEntities.LATEX_YUN_XQ_HOT_DRAGON.get(), world);
 	}
 
 	public LatexyunxqhotdragonEntity(EntityType<LatexyunxqhotdragonEntity> type, Level world) {
@@ -106,7 +106,7 @@ public class LatexyunxqhotdragonEntity extends ChangedEntity {
 	}
 
 	public static void init() {
-		SpawnPlacements.register(ChangedCreatureModEntities.LATEXYUNXQHOTDRAGON.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+		SpawnPlacements.register(ChangedCreatureModEntities.LATEX_YUN_XQ_HOT_DRAGON.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
 	}
 }

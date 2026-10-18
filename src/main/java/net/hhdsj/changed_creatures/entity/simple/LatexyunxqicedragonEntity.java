@@ -44,7 +44,7 @@ public class LatexyunxqicedragonEntity extends ChangedEntity {
     }
 
 	public LatexyunxqicedragonEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(ChangedCreatureModEntities.LATEXYUNXQICEDRAGON.get(), world);
+		this(ChangedCreatureModEntities.LATEX_YUN_XQ_ICE_DRAGON.get(), world);
 	}
 
 	public LatexyunxqicedragonEntity(EntityType<LatexyunxqicedragonEntity> type, Level world) {

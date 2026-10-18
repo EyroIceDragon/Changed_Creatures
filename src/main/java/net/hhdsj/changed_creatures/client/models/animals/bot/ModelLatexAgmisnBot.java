@@ -69,12 +69,11 @@ public class ModelLatexAgmisnBot extends AdvancedHumanoidModel<LatexAgmisnBotEnt
                         this.Tail,
                         List.of(tailPrimary, tailSecondary, tailTertiary, tailQuaternary)
                 ))
-                .addAnimator(new WolfHeadInitAnimator<>(this.Head));
-//                .forwardOffset(-7.0F)
-//                .hipOffset(-1.5F)
-//                .legLength(13.5F)
-//                .torsoLength(13.05F)
-                ;
+                .addAnimator(new WolfHeadInitAnimator<>(this.Head))
+                .forwardOffset(-7.0F)
+                .hipOffset(-1.5F)
+                .legLength(13.5F)
+                .torsoLength(13.05F);
     }
 
     public static LayerDefinition createBodyLayer() {
@@ -82,13 +81,11 @@ public class ModelLatexAgmisnBot extends AdvancedHumanoidModel<LatexAgmisnBotEnt
         PartDefinition partdefinition = meshdefinition.getRoot();
 
         PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(32, 61).addBox(-3.0F, -3.0F, -2.0F, 6.0F, 6.0F, 3.0F, new CubeDeformation(0.0F))
-                .texOffs(0, 32).addBox(-2.0F, -2.6F, -7.8F, 4.0F, 5.0F, 6.0F, new CubeDeformation(0.02F)), PartPose.offset(0.0F, 10.5F, -10.0F));
+                .texOffs(0, 32).addBox(-2.0F, -2.6F, -7.8F, 4.0F, 5.0F, 6.0F, new CubeDeformation(0.02F)), PartPose.offset(0.0F, 10.5F, -3.6F));
 
         PartDefinition cube_r1 = Head.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(62, 28).addBox(0.0F, -2.5F, 0.0F, 2.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-2.025F, -0.1F, -7.8F, 0.0F, -0.1309F, 0.0F));
 
         PartDefinition cube_r2 = Head.addOrReplaceChild("cube_r2", CubeListBuilder.create().texOffs(50, 61).addBox(-2.0F, -2.5F, 0.0F, 2.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.025F, -0.1F, -7.8F, 0.0F, 0.1309F, 0.0F));
-
-        PartDefinition Torso = partdefinition.addOrReplaceChild("Torso", CubeListBuilder.create(), PartPose.offset(0.0F, -1.5F, -7.0F));
 
         PartDefinition LowerTorso = partdefinition.addOrReplaceChild("LowerTorso", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -2.0F, 4.0F, 8.0F, 6.0F, 13.0F, new CubeDeformation(0.0F))
                 .texOffs(0, 19).addBox(-4.0F, -2.0F, -3.0F, 8.0F, 6.0F, 7.0F, new CubeDeformation(0.2F))
@@ -153,7 +150,7 @@ public class ModelLatexAgmisnBot extends AdvancedHumanoidModel<LatexAgmisnBotEnt
 
         PartDefinition RightLeg = LowerTorso.addOrReplaceChild("RightLeg", CubeListBuilder.create(), PartPose.offset(-4.0F, 0.0F, -0.7F));
 
-        PartDefinition RightUpperLeg_r1 = RightLeg.addOrReplaceChild("RightUpperLeg_r1", CubeListBuilder.create().texOffs(0, 63).addBox(-9.5F, -5.8938F, -4.3333F, 4.0F, 7.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offsetAndRotation(7.75F, 4.5348F, 2.9528F, 0.0873F, 0.0F, 0.0F));
+        PartDefinition RightUpperLeg_r1 = RightLeg.addOrReplaceChild("RightUpperLeg_r1", CubeListBuilder.create().texOffs(0, 63).addBox(-9.5F, -6.89F, -4.2461F, 4.0F, 7.0F, 4.0F, new CubeDeformation(0.1F)), PartPose.offsetAndRotation(7.75F, 5.5348F, 2.9528F, 0.0873F, 0.0F, 0.0F));
 
         PartDefinition RightLowerLeg = RightLeg.addOrReplaceChild("RightLowerLeg", CubeListBuilder.create(), PartPose.offset(0.0F, 5.7848F, 10.7028F));
 
@@ -292,12 +289,6 @@ public class ModelLatexAgmisnBot extends AdvancedHumanoidModel<LatexAgmisnBotEnt
         PartDefinition cube_r49 = bone3.addOrReplaceChild("cube_r49", CubeListBuilder.create().texOffs(48, 95).addBox(0.0F, -1.0F, -2.0F, 0.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.0F, -1.0F, 1.0F, 0.0F, 0.0873F, 0.0F));
 
         PartDefinition cube_r50 = bone3.addOrReplaceChild("cube_r50", CubeListBuilder.create().texOffs(44, 95).addBox(0.0F, -1.0F, -2.0F, 0.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.0F, -1.0F, 1.0F, 0.0F, 0.2182F, 0.0F));
-
-        PartDefinition RightArm = partdefinition.addOrReplaceChild("RightArm", CubeListBuilder.create(), PartPose.offset(-5.0F, 0.5F, -7.0F));
-
-        PartDefinition LeftArm = partdefinition.addOrReplaceChild("LeftArm", CubeListBuilder.create(), PartPose.offset(5.0F, 0.5F, -7.0F));
-
-        PartDefinition bone5 = partdefinition.addOrReplaceChild("bone5", CubeListBuilder.create(), PartPose.offset(-1.0F, 24.0F, 5.675F));
 
         return LayerDefinition.create(meshdefinition, 128, 128);
     }

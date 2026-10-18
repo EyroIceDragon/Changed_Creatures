@@ -56,7 +56,7 @@ public class BlackpupmaleEntity extends ChangedEntity {
     }
 
 	public BlackpupmaleEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(ChangedCreatureModEntities.BLACKPUPMALE.get(), world);
+		this(ChangedCreatureModEntities.BLACK_PUP_MALE.get(), world);
 	}
 
 	@Override

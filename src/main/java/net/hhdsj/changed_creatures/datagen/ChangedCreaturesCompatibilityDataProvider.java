@@ -21,21 +21,21 @@ public class ChangedCreaturesCompatibilityDataProvider implements DataProvider {
     private static final List<RegistryObject<? extends EntityType<?>>> HUMANOID_ENTITIES = List.of(
             ChangedCreatureModEntities.LATEX_ORANGE_FOX,
             ChangedCreatureModEntities.LATEX_KCAHRA_SHARK,
-            ChangedCreatureModEntities.LATEXBLUEDRAGON,
-            ChangedCreatureModEntities.DARKFU_LATEX_WOLF_MALE,
-            ChangedCreatureModEntities.LATEXICE_DRAGON,
-            ChangedCreatureModEntities.LATEXPURPLEWSWOLF,
-            ChangedCreatureModEntities.LATEXYUNXQHOTDRAGON,
-            ChangedCreatureModEntities.LATEXYUNXQICEDRAGON,
-            ChangedCreatureModEntities.LATEXPRTPLECOOCWOLF,
-            ChangedCreatureModEntities.LATEXTHREEMONTHWOLF,
-            ChangedCreatureModEntities.LATEXYUNQIICEDRAGON,
-            ChangedCreatureModEntities.LATEXRADIATIONFOX,
-            ChangedCreatureModEntities.LATEXNIGHTOWLDRAGON,
-            ChangedCreatureModEntities.LATEXIQGOLDDRAGON,
-            ChangedCreatureModEntities.LATEXDARKPURPLEDRAGON,
-            ChangedCreatureModEntities.LATEXLUOHONGEARLYSPRINGFOXDRAGON,
-            ChangedCreatureModEntities.LATEXNEONDIMNESSWOLF,
+            ChangedCreatureModEntities.LATEX_BLUE_DRAGON,
+            ChangedCreatureModEntities.LATEX_DARKFU_WOLF_MALE,
+            ChangedCreatureModEntities.LATEX_ICE_DRAGON,
+            ChangedCreatureModEntities.LATEX_PURPLE_WS_WOLF,
+            ChangedCreatureModEntities.LATEX_YUN_XQ_HOT_DRAGON,
+            ChangedCreatureModEntities.LATEX_YUN_XQ_ICE_DRAGON,
+            ChangedCreatureModEntities.LATEX_PRTPLE_COOC_WOLF,
+            ChangedCreatureModEntities.LATEX_THREE_MONTH_WOLF,
+            ChangedCreatureModEntities.LATEX_YUN_QI_ICE_DRAGON,
+            ChangedCreatureModEntities.LATEX_RADIATION_FOX,
+            ChangedCreatureModEntities.LATEX_NIGHT_OWL_DRAGON,
+            ChangedCreatureModEntities.LATEX_IQ_GOLD_DRAGON,
+            ChangedCreatureModEntities.LATEX_DARK_PURPLE_DRAGON,
+            ChangedCreatureModEntities.LATEX_LUO_HONG_EARLY_SPRING_FOX_DRAGON,
+            ChangedCreatureModEntities.LATEX_NEONDIMNESS_WOLF,
             ChangedCreatureModEntities.LATEX_CHENG_XI,
             ChangedCreatureModEntities.LATEX_RADIARY_DRAGON,
             ChangedCreatureModEntities.LATEX_DIVINE_SWORD_KITSUNE,
@@ -43,7 +43,7 @@ public class ChangedCreaturesCompatibilityDataProvider implements DataProvider {
             ChangedCreatureModEntities.LATEX_HYAZINTHE_FOX,
             ChangedCreatureModEntities.LATEX_YUE_XI_FOX_FEMALE,
             ChangedCreatureModEntities.LATEX_QIAN_GUI_SHARK,
-            ChangedCreatureModEntities.LATEXFRUITDRAGONWOLF,
+            ChangedCreatureModEntities.LATEX_FRUIT_DRAGON_WOLF,
             ChangedCreatureModEntities.LATEX_DAWN_WOLF,
             ChangedCreatureModEntities.LATEX_BLUEVE_CAT,
             ChangedCreatureModEntities.LATEX_ETAN_KIND,
@@ -62,25 +62,25 @@ public class ChangedCreaturesCompatibilityDataProvider implements DataProvider {
     private static final List<RegistryObject<? extends EntityType<?>>> LATEX_ENTITIES = List.of(
             ChangedCreatureModEntities.LATEX_ORANGE_FOX,
             ChangedCreatureModEntities.LATEX_KCAHRA_SHARK,
-            ChangedCreatureModEntities.LATEXBLUEDRAGON,
-            ChangedCreatureModEntities.DARKFU_LATEX_WOLF_MALE,
-            ChangedCreatureModEntities.LATEXICE_DRAGON,
-            ChangedCreatureModEntities.INKSUGER,
-            ChangedCreatureModEntities.BLACKPUPMALE,
-            ChangedCreatureModEntities.WHITEBLUEPUP,
-            ChangedCreatureModEntities.LATEXPURPLEWSWOLF,
-            ChangedCreatureModEntities.LATEXYUNXQHOTDRAGON,
-            ChangedCreatureModEntities.LATEXYUNXQICEDRAGON,
-            ChangedCreatureModEntities.LATEXPRTPLECOOCWOLF,
-            ChangedCreatureModEntities.LATEXTHREEMONTHWOLF,
-            ChangedCreatureModEntities.LATEXYUNQIICEDRAGON,
-            ChangedCreatureModEntities.LATEXRADIATIONFOX,
-            ChangedCreatureModEntities.LATEXNIGHTOWLDRAGON,
-            ChangedCreatureModEntities.LATEXIQGOLDDRAGON,
-            ChangedCreatureModEntities.LATEXDARKPURPLEDRAGONTAUR,
-            ChangedCreatureModEntities.LATEXDARKPURPLEDRAGON,
-            ChangedCreatureModEntities.LATEXLUOHONGEARLYSPRINGFOXDRAGON,
-            ChangedCreatureModEntities.LATEXNEONDIMNESSWOLF,
+            ChangedCreatureModEntities.LATEX_BLUE_DRAGON,
+            ChangedCreatureModEntities.LATEX_DARKFU_WOLF_MALE,
+            ChangedCreatureModEntities.LATEX_ICE_DRAGON,
+            ChangedCreatureModEntities.INK_SUGER_PUP,
+            ChangedCreatureModEntities.BLACK_PUP_MALE,
+            ChangedCreatureModEntities.WHITE_BLUE_PUP,
+            ChangedCreatureModEntities.LATEX_PURPLE_WS_WOLF,
+            ChangedCreatureModEntities.LATEX_YUN_XQ_HOT_DRAGON,
+            ChangedCreatureModEntities.LATEX_YUN_XQ_ICE_DRAGON,
+            ChangedCreatureModEntities.LATEX_PRTPLE_COOC_WOLF,
+            ChangedCreatureModEntities.LATEX_THREE_MONTH_WOLF,
+            ChangedCreatureModEntities.LATEX_YUN_QI_ICE_DRAGON,
+            ChangedCreatureModEntities.LATEX_RADIATION_FOX,
+            ChangedCreatureModEntities.LATEX_NIGHT_OWL_DRAGON,
+            ChangedCreatureModEntities.LATEX_IQ_GOLD_DRAGON,
+            ChangedCreatureModEntities.LATEX_DARK_PURPLE_DRAGON_TAUR,
+            ChangedCreatureModEntities.LATEX_DARK_PURPLE_DRAGON,
+            ChangedCreatureModEntities.LATEX_LUO_HONG_EARLY_SPRING_FOX_DRAGON,
+            ChangedCreatureModEntities.LATEX_NEONDIMNESS_WOLF,
             ChangedCreatureModEntities.LATEX_CHENG_XI,
             ChangedCreatureModEntities.LATEX_RADIARY_DRAGON,
             ChangedCreatureModEntities.LATEX_DIVINE_SWORD_KITSUNE,
@@ -88,7 +88,7 @@ public class ChangedCreaturesCompatibilityDataProvider implements DataProvider {
             ChangedCreatureModEntities.LATEX_HYAZINTHE_FOX,
             ChangedCreatureModEntities.LATEX_YUE_XI_FOX_FEMALE,
             ChangedCreatureModEntities.LATEX_QIAN_GUI_SHARK,
-            ChangedCreatureModEntities.LATEXFRUITDRAGONWOLF,
+            ChangedCreatureModEntities.LATEX_FRUIT_DRAGON_WOLF,
             ChangedCreatureModEntities.LATEX_DAWN_WOLF,
             ChangedCreatureModEntities.LATEX_BLUEVE_CAT,
             ChangedCreatureModEntities.LATEX_ETAN_KIND,
@@ -106,9 +106,9 @@ public class ChangedCreaturesCompatibilityDataProvider implements DataProvider {
     );
 
     private static final List<RegistryObject<? extends EntityType<?>>> PARTIAL_LATEX_ENTITIES = List.of(
-            ChangedCreatureModEntities.INKSUGER,
-            ChangedCreatureModEntities.BLACKPUPMALE,
-            ChangedCreatureModEntities.WHITEBLUEPUP
+            ChangedCreatureModEntities.INK_SUGER_PUP,
+            ChangedCreatureModEntities.BLACK_PUP_MALE,
+            ChangedCreatureModEntities.WHITE_BLUE_PUP
     );
 
     private final PackOutput output;
@@ -137,7 +137,7 @@ public class ChangedCreaturesCompatibilityDataProvider implements DataProvider {
                 "changed:neck"
         ));
         addAccessoryEntities(futures, cache, dataPack, "taurs", List.of(
-                ChangedCreatureModEntities.LATEXDARKPURPLEDRAGONTAUR,
+                ChangedCreatureModEntities.LATEX_DARK_PURPLE_DRAGON_TAUR,
                 ChangedCreatureModEntities.LATEX_FROST_SCALE_DRAGON_TAUR
         ), List.of(
                 "changed:body",
@@ -164,7 +164,7 @@ public class ChangedCreaturesCompatibilityDataProvider implements DataProvider {
         tag.add("values", toEntityIdArray(entities));
 
         Path path = dataPack.resolve(
-                "data/changed/tags/entity_types/" + tagName + ".json"
+                "changed/tags/entity_types/" + tagName + ".json"
         );
         futures.add(DataProvider.saveStable(cache, tag, path));
     }
@@ -183,7 +183,7 @@ public class ChangedCreaturesCompatibilityDataProvider implements DataProvider {
         accessories.add("slots", toJsonArray(slots));
 
         Path path = dataPack.resolve(
-                "data/changed_creatures/accessories/entities/" + fileName + ".json"
+                "changed_creatures/accessories/entities/" + fileName + ".json"
         );
         futures.add(DataProvider.saveStable(cache, accessories, path));
     }
