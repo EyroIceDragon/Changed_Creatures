@@ -150,8 +150,6 @@ public class ChangedCreatureModItems {
 		CATALYZER = block(ChangedCreatureModBlocks.CATALYZER);
 
 		PALETREESPA_1 = block(ChangedCreatureModBlocks.PALETREESPA_1);
-		BLOCKBW_1 = block(ChangedCreatureModBlocks.BLOCKBW_1);
-		BLOCKBW_2 = block(ChangedCreatureModBlocks.BLOCKBW_2);
 
 		// -------------------- 普通物品初始化 --------------------
 		Latex_Night_Owl_Goo_Item = ITEMS.register("latex_night_owl_goo", LatexNghtOwlGooItem::new);

@@ -39,8 +39,6 @@ public class ChangedCreatureModBlocks {
 	public static final RegistryObject<Block> PALE_WOOD_FENCE = REGISTRY.register("pale_wood_fence", Pale_woodFenceBlock::new);
 	public static final RegistryObject<Block> PALE_WOOD_FENCE_GATE = REGISTRY.register("pale_wood_fence_gate", Pale_woodFenceGateBlock::new);
 	public static final RegistryObject<Block> PALE_WOOD_PRESSURE_PLATE = REGISTRY.register("pale_wood_pressure_plate", Pale_woodPressurePlateBlock::new);
-	public static final RegistryObject<Block> BLOCKBW_1 = REGISTRY.register("blockbw_1", Blockbw1Block::new);
-	public static final RegistryObject<Block> BLOCKBW_2 = REGISTRY.register("blockbw_2", Blockbw2Block::new);
 	public static final RegistryObject<Block> BLUE_CRYSTALORE = REGISTRY.register("blue_crystal_ore", BlueCrystaloreBlock::new);
 	public static final RegistryObject<Block> CATALYZER = REGISTRY.register("catalyzer", CatalyzerBlock::new);
 	public static final RegistryObject<Block> CRYO_SUBJECT_CHAMBER = REGISTRY.register("cryo_subject_chamber", CryoSubjectChamberBlock::new);

@@ -74,8 +74,6 @@ public class ChangedCreatureModTabs {
 			tabData.accept(ChangedCreatureModBlocks.URANIUMBLOCK.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.BLUEBLOCK.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.IRONHOT.get().asItem());
-			tabData.accept(ChangedCreatureModBlocks.BLOCKBW_1.get().asItem());
-			tabData.accept(ChangedCreatureModBlocks.BLOCKBW_2.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.BLUE_CRYSTALORE.get().asItem()); // 修复：添加到标签页
 			tabData.accept(ChangedCreatureModBlocks.CATALYZER.get().asItem()); // 修复：添加到标签页
 			tabData.accept(ChangedCreatureModBlocks.LATEX_CRYSTAL_JELLY_GAS_CANISTER.get().asItem());
