@@ -59,7 +59,7 @@ public class InksugerEntity extends ChangedEntity {
     }
     
 	public InksugerEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(ChangedCreatureModEntities.INKSUGER.get(), world);
+		this(ChangedCreatureModEntities.INK_SUGER_PUP.get(), world);
 	}
 
 	@Override

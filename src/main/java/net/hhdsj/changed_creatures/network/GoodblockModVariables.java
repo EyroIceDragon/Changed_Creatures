@@ -1,31 +1,24 @@
 package net.hhdsj.changed_creatures.network;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
-import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
-import net.minecraftforge.network.PacketDistributor;
-import net.minecraftforge.network.NetworkEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.AttachCapabilitiesEvent;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.common.util.FakePlayer;
-import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
-import net.minecraftforge.common.capabilities.ICapabilitySerializable;
-import net.minecraftforge.common.capabilities.CapabilityToken;
-import net.minecraftforge.common.capabilities.CapabilityManager;
-import net.minecraftforge.common.capabilities.Capability;
-
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.nbt.Tag;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.core.Direction;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.common.capabilities.*;
+import net.minecraftforge.common.util.FakePlayer;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.network.PacketDistributor;
 
 import java.util.UUID;
 import java.util.function.Supplier;
@@ -64,8 +57,8 @@ public class GoodblockModVariables {
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer) {
-				ChangedCreature.LOGGER.info("Syncing variables for: {}", serverPlayer.getName().getString());
-				ChangedCreature.LOGGER.info("Player_Can_Fly = {}", this.Player_Can_Fly);
+				//ChangedCreature.LOGGER.info("Syncing variables for: {}", serverPlayer.getName().getString());
+				//ChangedCreature.LOGGER.info("Player_Can_Fly = {}", this.Player_Can_Fly);
 
 				ChangedCreature.PACKET_HANDLER.send(
 						PacketDistributor.TRACKING_ENTITY.with(() -> serverPlayer),
@@ -75,7 +68,7 @@ public class GoodblockModVariables {
 						PacketDistributor.PLAYER.with(() -> serverPlayer),
 						new PlayerVariablesSyncMessage(this, serverPlayer.getUUID()));
 
-				ChangedCreature.LOGGER.info("Sync complete for: {}", serverPlayer.getName().getString());
+				//ChangedCreature.LOGGER.info("Sync complete for: {}", serverPlayer.getName().getString());
 			}
 		}
 		public Tag writeNBT() {
@@ -113,7 +106,7 @@ public class GoodblockModVariables {
 		@SubscribeEvent
 		public static void onAttachCapabilities(AttachCapabilitiesEvent<Entity> event) {
 			if (event.getObject() instanceof Player && !(event.getObject() instanceof FakePlayer))
-				event.addCapability(new ResourceLocation("changed_creatures", "player_variables"), new PlayerVariablesProvider());
+				event.addCapability(ChangedCreature.ChangedCreatureResourceLocation( "player_variables"), new PlayerVariablesProvider());
 		}
 
 		private final PlayerVariables playerVariables = new PlayerVariables();

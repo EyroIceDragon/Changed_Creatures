@@ -45,7 +45,7 @@ public class LatexpurplewswolfEntity extends AbstractSnowLeopard {
 	}
 
 	public LatexpurplewswolfEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(ChangedCreatureModEntities.LATEXPURPLEWSWOLF.get(), world);
+		this(ChangedCreatureModEntities.LATEX_PURPLE_WS_WOLF.get(), world);
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class LatexpurplewswolfEntity extends AbstractSnowLeopard {
 	}
 
 	public static void init() {
-		SpawnPlacements.register(ChangedCreatureModEntities.LATEXPURPLEWSWOLF.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+		SpawnPlacements.register(ChangedCreatureModEntities.LATEX_PURPLE_WS_WOLF.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
 	}
 }

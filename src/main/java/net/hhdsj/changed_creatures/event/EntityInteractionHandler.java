@@ -45,7 +45,7 @@ public class EntityInteractionHandler {
             AddFreshEntity(player,target,item, ChangedCreatureModEntities.LATEX_YUE_XI_FOX_FEMALE.get());
         }
         if (item.is(ChangedCreatureModItems.Latex_Night_Owl_Goo_Item.get()) && (target_type == EntityType.VILLAGER || target_type == EntityType.PLAYER || target_type == EntityType.ZOMBIE || target_type == EntityType.ZOMBIE_VILLAGER || target_type == EntityType.ZOMBIFIED_PIGLIN)) {
-            AddFreshEntity(player,target,item, ChangedCreatureModEntities.LATEXNIGHTOWLDRAGONBOSS.get());
+            AddFreshEntity(player,target,item, ChangedCreatureModEntities.LATEX_NIGHT_OWL_DRAGON_BOSS.get());
         }
     }
 

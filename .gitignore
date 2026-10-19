@@ -20,6 +20,8 @@ run/
 # Other Files (In Eclipse)
 .classpath
 .project
+.bak
 /else/
 /ghhgffhjfs_scythe-1.0.0-forge-1.20.1/
 /ghhgffhjfs_scythe-1.0.0-forge-1.20.1.jar
+/src/generated/

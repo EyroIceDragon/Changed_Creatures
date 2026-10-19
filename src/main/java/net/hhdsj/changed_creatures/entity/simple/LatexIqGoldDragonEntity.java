@@ -42,7 +42,7 @@ public class LatexIqGoldDragonEntity extends ChangedEntity {
     }
 
 	public LatexIqGoldDragonEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(ChangedCreatureModEntities.LATEXIQGOLDDRAGON.get(), world);
+		this(ChangedCreatureModEntities.LATEX_IQ_GOLD_DRAGON.get(), world);
 	}
 
 	public LatexIqGoldDragonEntity(EntityType<LatexIqGoldDragonEntity> type, Level world) {
@@ -91,7 +91,7 @@ public class LatexIqGoldDragonEntity extends ChangedEntity {
 	}
 
 	public static void init() {
-		SpawnPlacements.register(ChangedCreatureModEntities.LATEXIQGOLDDRAGON.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+		SpawnPlacements.register(ChangedCreatureModEntities.LATEX_IQ_GOLD_DRAGON.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
 	}
 }

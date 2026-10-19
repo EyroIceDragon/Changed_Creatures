@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.network.FriendlyByteBuf;
 
-import net.hhdsj.changed_creatures.procedures.LOOKGUIProcedure;
+import net.hhdsj.changed_creatures.procedures.OpenGuiProcedure;
 import net.hhdsj.changed_creatures.ChangedCreature;
 
 import java.util.function.Supplier;
@@ -55,7 +55,7 @@ public class KeyMessage {
 
 		switch (type) {
 			case 0:
-				LOOKGUIProcedure.execute(x, y, z, entity);
+				OpenGuiProcedure.execute(x, y, z, entity);
 				break;
 			case 1:
 				if (!world.isClientSide && entity != null) {

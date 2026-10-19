@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "changed_creatures:block/latex_dawn_fuzz_wall_top",
+    "up": "changed_creatures:block/latex_dawn_fuzz_wall_top",
+    "north": "changed_creatures:block/latex_dawn_fuzz_wall_side",
+    "east": "changed_creatures:block/latex_dawn_fuzz_wall_side",
+    "south": "changed_creatures:block/latex_dawn_fuzz_wall_side",
+    "west": "changed_creatures:block/latex_dawn_fuzz_wall_side",
+    "particle": "changed_creatures:block/latex_dawn_fuzz_wall_side"
+  }
+}

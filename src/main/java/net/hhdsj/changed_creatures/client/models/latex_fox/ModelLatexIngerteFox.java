@@ -174,7 +174,7 @@ public class ModelLatexIngerteFox extends AdvancedHumanoidModel<LatexIngerteFoxE
     }
 
 
-    public ModelPart m_102851_(HumanoidArm p_102852_) {
+    public ModelPart getArm(HumanoidArm p_102852_) {
         return p_102852_ == HumanoidArm.LEFT ? this.LeftArm : this.RightArm;
     }
 

@@ -5,6 +5,7 @@
 package net.hhdsj.changed_creatures.init;
 
 import net.hhdsj.changed_creatures.client.models.ModelProtogenNyxarix;
+import net.hhdsj.changed_creatures.client.models.animals.bot.ModelLatexAgmisnBot;
 import net.hhdsj.changed_creatures.client.models.armors.ArmorLatexMaleWolfWingedDragonModel;
 import net.hhdsj.changed_creatures.client.models.armors.ArmorProtogenNyxarixWaterSquidDogModel;
 import net.hhdsj.changed_creatures.client.models.boss.ModelLatexIceFieldWolfDragonBoss;
@@ -62,7 +63,7 @@ public class ChangedCreatureModModels {
 		event.registerLayerDefinition(ModelLatexFruitDragonWolf.LAYER_LOCATION, ModelLatexFruitDragonWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelNeondimnessWolf.LAYER_LOCATION, ModelNeondimnessWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexChengXi.LAYER_LOCATION, ModelLatexChengXi::createBodyLayer);
-		event.registerLayerDefinition(ModelLatexYaoLingDragon.LAYER_LOCATION, ModelLatexYaoLingDragon::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexRadiaryDragon.LAYER_LOCATION, ModelLatexRadiaryDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexDivineSwordKitsune.LAYER_LOCATION, ModelLatexDivineSwordKitsune::createBodyLayer);
 
 		event.registerLayerDefinition(ModelLatexYueXiFoxFemale.LAYER_LOCATION, ModelLatexYueXiFoxFemale::createBodyLayer);
@@ -85,6 +86,7 @@ public class ChangedCreatureModModels {
 		event.registerLayerDefinition(ModelLatexXuanJinWolfDragon.LAYER_LOCATION, ModelLatexXuanJinWolfDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexXuanJinDragon.LAYER_LOCATION, ModelLatexXuanJinDragon::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexEyroEndDragon.LAYER_LOCATION, ModelLatexEyroEndDragon::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexMoChaWolf.LAYER_LOCATION, ModelLatexMoChaWolf::createBodyLayer);
 
 		event.registerLayerDefinition(ModelLatexWing.LAYER_LOCATION, ModelLatexWing::createBodyLayer);
 		event.registerLayerDefinition(CrystalJavelinModel.LAYER_LOCATION, CrystalJavelinModel::createBodyLayer);
@@ -97,6 +99,8 @@ public class ChangedCreatureModModels {
 
 		event.registerLayerDefinition(ModelLatexPeanutButterWolf.LAYER_LOCATION, ModelLatexPeanutButterWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexIngerteFox.LAYER_LOCATION, ModelLatexIngerteFox::createBodyLayer);
+		event.registerLayerDefinition(ModelLatexAgmisnBot.LAYER_LOCATION, ModelLatexAgmisnBot::createBodyLayer);
+
 	}
 
 }

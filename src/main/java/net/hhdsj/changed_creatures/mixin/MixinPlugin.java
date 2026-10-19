@@ -28,7 +28,7 @@ public class MixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public List<String> getMixins() {
-        return List.of();  // 改成返回空列表，而不是 null
+        return List.of();
     }
 
     @Override

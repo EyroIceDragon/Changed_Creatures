@@ -81,7 +81,7 @@ public class DarkfuLatexWolfMaleEntity extends AbstractDarkLatexEntity {
 	}
 
 	public DarkfuLatexWolfMaleEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(ChangedCreatureModEntities.DARKFU_LATEX_WOLF_MALE.get(), world);
+		this(ChangedCreatureModEntities.LATEX_DARKFU_WOLF_MALE.get(), world);
 	}
 
 	@Override

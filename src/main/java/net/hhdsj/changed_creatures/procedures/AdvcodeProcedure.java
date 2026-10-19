@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures.procedures;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
@@ -40,7 +41,7 @@ public class AdvcodeProcedure {
 		}
 		if ((entity.getCapability(GoodblockModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new GoodblockModVariables.PlayerVariables())).Player_die >= 100) {
 			if (entity instanceof ServerPlayer _player) {
-				Advancement _adv = _player.server.getAdvancements().getAdvancement(new ResourceLocation("changed_creatures:gha_13"));
+				Advancement _adv = _player.server.getAdvancements().getAdvancement(ChangedCreature.ChangedCreatureResourceLocation("gha_13"));
                 AdvancementProgress _ap = null;
                 if (_adv != null) {
                     _ap = _player.getAdvancements().getOrStartProgress(_adv);

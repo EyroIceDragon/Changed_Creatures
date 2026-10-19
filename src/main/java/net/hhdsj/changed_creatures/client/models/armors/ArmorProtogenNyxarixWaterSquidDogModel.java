@@ -185,7 +185,7 @@ public class ArmorProtogenNyxarixWaterSquidDogModel<T extends ChangedEntity> ext
         return animator;
     }
 
-    public ModelPart m_102851_(HumanoidArm arm) {
+    public ModelPart getArm(HumanoidArm arm) {
         return arm == HumanoidArm.LEFT ? this.LeftArm2 : this.RightArm2;
     }
 

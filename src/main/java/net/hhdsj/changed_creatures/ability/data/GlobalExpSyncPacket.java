@@ -5,7 +5,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.network.NetworkEvent;
@@ -35,11 +37,8 @@ public class GlobalExpSyncPacket {
         ctx.enqueueWork(() -> {
             if (ctx.getDirection().getReceptionSide().isServer()) return;
 
-            Player player = Minecraft.getInstance().player;
-            if (player == null) return;
-
-            PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
-            abilities.setPlayerExp(playerExp);
+            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () ->
+                    GlobalExpSyncPacket.ClientHandler.handle(playerExp));
         });
         ctx.setPacketHandled(true);
     }
@@ -55,9 +54,18 @@ public class GlobalExpSyncPacket {
 
     public static void send(ServerPlayer player) {
         PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
-        System.out.println("[ChangedCreatures] Sending GlobalExpSyncPacket: " + abilities.getPlayerExp());
         ChangedCreature.PACKET_HANDLER.send(
                 PacketDistributor.PLAYER.with(() -> player),
                 new GlobalExpSyncPacket(abilities.getPlayerExp()));
+    }
+
+    private static class ClientHandler {
+        static void handle(int playerExp) {
+            Player player = Minecraft.getInstance().player;
+            if (player == null) return;
+
+            PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
+            abilities.setPlayerExp(playerExp);
+        }
     }
 }

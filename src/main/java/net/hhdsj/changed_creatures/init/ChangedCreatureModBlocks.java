@@ -2,29 +2,16 @@ package net.hhdsj.changed_creatures.init;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.block.*;
+import net.hhdsj.changed_creatures.block.pale_blocks.*;
 import net.ltxprogrammer.changed.block.FluidCanisterBlock;
 import net.ltxprogrammer.changed.block.GasFluidBlock;
 import net.ltxprogrammer.changed.item.GasCanister;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.registries.RegistryObject;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.DeferredRegister;
-
 import net.minecraft.world.level.block.Block;
-
-import net.hhdsj.changed_creatures.block.pale_blocks.Paletreespa1Block;
-import net.hhdsj.changed_creatures.block.pale_blocks.Pale_woodWoodBlock;
-import net.hhdsj.changed_creatures.block.pale_blocks.Pale_woodStairsBlock;
-import net.hhdsj.changed_creatures.block.pale_blocks.Pale_woodSlabBlock;
-import net.hhdsj.changed_creatures.block.pale_blocks.Pale_woodPressurePlateBlock;
-import net.hhdsj.changed_creatures.block.pale_blocks.Pale_woodPlanksBlock;
-import net.hhdsj.changed_creatures.block.pale_blocks.Pale_woodLogBlock;
-import net.hhdsj.changed_creatures.block.pale_blocks.Pale_woodLeavesBlock;
-import net.hhdsj.changed_creatures.block.pale_blocks.Pale_woodFenceGateBlock;
-import net.hhdsj.changed_creatures.block.pale_blocks.Pale_woodFenceBlock;
-import net.hhdsj.changed_creatures.block.pale_blocks.Pale_woodButtonBlock;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import javax.annotation.Nullable;
 import java.util.function.Function;
@@ -34,6 +21,7 @@ public class ChangedCreatureModBlocks {
 	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, ChangedCreature.MODID);
 
 	public static final RegistryObject<Block> LATEX_DEEP_CRYSTAL_DRAGON_DOLL = REGISTRY.register("latex_crystal_jelly_dragon_doll", LatexDeepCrystalDragonDollBlock::new);
+	public static final RegistryObject<Block> LATEX_DAWN_FUZZ_WALL = REGISTRY.register("latex_dawn_fuzz_wall", LatexDawnFuzzWallBlock::new);
 	public static final RegistryObject<Block> SULPHURBLOCK = REGISTRY.register("sulphur_block", SulphurblockBlock::new);
 	public static final RegistryObject<Block> NITREBLOCK = REGISTRY.register("nitre_block", NitreblockBlock::new);
 	public static final RegistryObject<Block> URANIUM_ORE = REGISTRY.register("uranium_ore", UraniummineralBlock::new);
@@ -52,11 +40,10 @@ public class ChangedCreatureModBlocks {
 	public static final RegistryObject<Block> PALE_WOOD_FENCE = REGISTRY.register("pale_wood_fence", Pale_woodFenceBlock::new);
 	public static final RegistryObject<Block> PALE_WOOD_FENCE_GATE = REGISTRY.register("pale_wood_fence_gate", Pale_woodFenceGateBlock::new);
 	public static final RegistryObject<Block> PALE_WOOD_PRESSURE_PLATE = REGISTRY.register("pale_wood_pressure_plate", Pale_woodPressurePlateBlock::new);
-	public static final RegistryObject<Block> BLOCKBW_1 = REGISTRY.register("blockbw_1", Blockbw1Block::new);
-	public static final RegistryObject<Block> BLOCKBW_2 = REGISTRY.register("blockbw_2", Blockbw2Block::new);
 	public static final RegistryObject<Block> BLUE_CRYSTALORE = REGISTRY.register("blue_crystal_ore", BlueCrystaloreBlock::new);
 	public static final RegistryObject<Block> CATALYZER = REGISTRY.register("catalyzer", CatalyzerBlock::new);
 	public static final RegistryObject<Block> CRYO_SUBJECT_CHAMBER = REGISTRY.register("cryo_subject_chamber", CryoSubjectChamberBlock::new);
+	public static final RegistryObject<Block> MOLTEN_CRYSTAL = REGISTRY.register("molten_crtstal_block", MoltenCrystalBlock::new);
 
 	public static final RegistryObject<GasFluidBlock> LATEX_CRYSTAL_JELLY_GAS = REGISTRY.register("latex_crystal_jelly_gas", () -> new GasFluidBlock(ChangedCreatureModFluids.LATEX_CRYSTAL_JELLY_GAS));
 	public static final RegistryObject<FluidCanisterBlock> LATEX_CRYSTAL_JELLY_GAS_CANISTER = register("latex_crystal_jelly_gas_canister", () -> new FluidCanisterBlock(ChangedCreatureModFluids.LATEX_CRYSTAL_JELLY_GAS),(canister) -> new GasCanister(canister, ChangedCreatureModFluids.LATEX_CRYSTAL_JELLY_GAS));;

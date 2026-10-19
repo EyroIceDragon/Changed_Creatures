@@ -31,13 +31,10 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
-
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-
             mods {
                 changed_creatures {
                     source sourceSets.main
@@ -47,13 +44,10 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-
             mods {
                 changed_creatures {
                     source sourceSets.main
@@ -63,18 +57,14 @@ minecraft {
 
         data {
             workingDirectory project.file('run')
-
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.remapRefMap', 'false'
-            property 'mixin.env.disableRefMap', 'true'
-            property 'mixin.debug.export', 'false'
-            // 数据生成参数
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             args '--mod', 'changed_creatures'
             args '--all'
             args '--output', file('src/generated/resources/')
             args '--existing', file('src/main/resources/')
-
             mods {
                 changed_creatures {
                     source sourceSets.main
@@ -86,27 +76,26 @@ minecraft {
 
 repositories {
     mavenCentral()
-    maven {
-        url = 'https://repo.spongepowered.org/repository/maven-public/'
-    }
-    maven {
-        url = 'https://www.cursemaven.com'
-    }
+    maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+    maven { url = 'https://www.cursemaven.com' }
+    maven { url = 'https://maven.blamejared.com' }
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.20.1-47.4.0'
-
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    implementation files('/lib/Changed-Addon-Rework-2.9.9.jar')
-    implementation files('/lib/Changed-m1.20.1-v0.15.7-all.jar')
+    implementation fg.deobf("curse.maven:changed-661527:8217446")
+    implementation fg.deobf("curse.maven:changed-addon-plus-711303:8515645")
+
+    implementation fg.deobf("xyz.brassgoggledcoders:PatchouliProvider:1.20.1-1.0.9-Snapshot.4")
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.20.1-85-FORGE:api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.20.1-85-FORGE")
 }
 
 mixin {
     add sourceSets.main, 'changed_creatures.refmap.json'
     config 'changed_creatures.mixins.json'
-
     debug.verbose = true
     debug.export = true
 }
@@ -120,10 +109,13 @@ jar {
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "hhdsj",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
                 "MixinConfigs"            : "changed_creatures.mixins.json"
         ])
     }
 }
+
+jar.finalizedBy('reobfJar')
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
@@ -132,12 +124,7 @@ tasks.withType(JavaCompile).configureEach {
 sourceSets {
     main {
         resources {
-            srcDirs = ['src/main/resources']
+            srcDirs = ['src/main/resources', 'src/generated/resources']
         }
     }
-}
-
-// 确保 generated 目录被包含在资源中
-sourceSets.main.resources {
-    srcDir 'src/generated/resources'
 }

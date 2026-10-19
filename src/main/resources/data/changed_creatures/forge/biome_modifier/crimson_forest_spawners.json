@@ -1,8 +1,0 @@
-{
-  "type": "forge:add_spawns",
-  "biomes": "minecraft:crimson_forest",
-  "spawners": [
-    { "type": "changed_creatures:latex_night_owl_dragon", "weight": 1, "minCount": 1, "maxCount": 2 },
-    { "type": "changed_creatures:latexyunxqhotdragon", "weight": 2, "minCount": 1, "maxCount": 2 }
-  ]
-}

@@ -1,12 +1,10 @@
 package net.hhdsj.changed_creatures.entity;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
-import net.hhdsj.changed_creatures.network.KeyMessage;
 import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.sounds.SoundEvents;
@@ -16,8 +14,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -29,10 +25,15 @@ import java.util.UUID;
 
 @Mod.EventBusSubscriber(modid = ChangedCreature.MODID)
 public class PartiallyTransfurVariant {
-    private static final Map<UUID, Boolean> clientJumpPressMap = new HashMap<>();
+
+    // 仅服务端使用
     private static final Map<UUID, Boolean> serverJumpPressMap = new HashMap<>();
-    private static final Map<UUID, Boolean> lastJumpStateMap = new HashMap<>();
+    // 客户端跳跃状态
+    private static final Map<UUID, Boolean> clientJumpPressMap = new HashMap<>();
+
     private static final Map<UUID, Boolean> PlayerCanGlideMap = new HashMap<>();
+    private static final Map<UUID, Boolean> lastFlightState = new HashMap<>();
+
     private static final float HORIZONTAL_PENALTY_SPRINT = 0.725F;
     private static final float HORIZONTAL_PENALTY_WALK = 0.625F;
     private static final float VERTICAL_PENALTY_UP = 0.3F;
@@ -40,11 +41,9 @@ public class PartiallyTransfurVariant {
     private static final int MIN_FOOD_LEVEL = 6;
     private static final float EXHAUSTION_SPRINT = 0.05F;
     private static final float EXHAUSTION_WALK = 0.025F;
-    private static final Map<UUID, Boolean> lastFlightState = new HashMap<>();
 
     private static boolean isPartiallyTransfurred(Player player) {
         if (player == null) return false;
-
         TransfurVariantInstance<?> variant = ProcessTransfur.getPlayerTransfurVariant(player);
         return variant != null;
     }
@@ -127,7 +126,7 @@ public class PartiallyTransfurVariant {
                 player.onUpdateAbilities();
             }
         } else {
-            if ((currentMayfly || currentFlying)) {
+            if (currentMayfly || currentFlying) {
                 player.getAbilities().mayfly = false;
                 if (currentFlying) {
                     player.getAbilities().flying = false;
@@ -139,9 +138,15 @@ public class PartiallyTransfurVariant {
         lastFlightState.put(playerId, shouldHaveFlight);
     }
 
+
+    //在玩家退出服务器后,清理数据(防止内存不释放)
     @SubscribeEvent
     public static void onPlayerLogout(PlayerEvent.PlayerLoggedOutEvent event) {
-        lastFlightState.remove(event.getEntity().getUUID());
+        UUID id = event.getEntity().getUUID();
+        lastFlightState.remove(id);
+        serverJumpPressMap.remove(id);
+        clientJumpPressMap.remove(id);
+        PlayerCanGlideMap.remove(id);
     }
 
     public static void manageGliding(Player player) {
@@ -151,15 +156,12 @@ public class PartiallyTransfurVariant {
             return;
         }
         boolean currentGlide = PlayerDataGetHelper.GetPlayerCanGliding(player);
-        System.out.print("Can Glide : " + currentGlide + "\n");
 
-        player.displayClientMessage(Component.literal("Can Glide : " + currentGlide).withStyle((style -> {
+        player.displayClientMessage(Component.literal("Can Glide : " + currentGlide).withStyle(style -> {
             Style returnStyle = style.withColor(ChatFormatting.WHITE);
             returnStyle = returnStyle.withItalic(true);
             return returnStyle;
-        })), true);
-
-
+        }), true);
     }
 
     public static void Gliding(Player player) {
@@ -180,10 +182,8 @@ public class PartiallyTransfurVariant {
             Vec3 delta = player.getDeltaMovement();
             double horizontalSpeed = Math.sqrt(delta.x * delta.x + delta.z * delta.z);
             double verticalSpeed = Math.abs(delta.y);
-            double totalSpeed = Math.sqrt(delta.x * delta.x + delta.y * delta.y + delta.z * delta.z);
 
             if (player.horizontalCollision) {
-
                 float retainRatio = (float) Math.max(0.05, 0.20 - (horizontalSpeed / 2.0) * 0.15);
                 if (horizontalSpeed > 2.0) {
                     retainRatio = 0.05F;
@@ -258,39 +258,22 @@ public class PartiallyTransfurVariant {
             if (PlayerCanGlideMap.getOrDefault(playerId, false)) {
                 player.startFallFlying();
             }
-        } else if (shouldStopGliding && player.isFallFlying() && PlayerCanGlideMap.getOrDefault(playerId, false) == true) {
+        } else if (shouldStopGliding && player.isFallFlying() && Boolean.TRUE.equals(PlayerCanGlideMap.get(playerId))) {
             PlayerCanGlideMap.put(playerId, false);
             player.stopFallFlying();
         }
-        if (!canFly(player)){
+        if (!canFly(player)) {
             PlayerCanGlideMap.put(playerId, false);
         }
     }
 
-    @OnlyIn(Dist.CLIENT)
-    @SubscribeEvent
-    public static void onClientTick(TickEvent.ClientTickEvent event) {
-        if (event.phase != TickEvent.Phase.END) return;
-
-        Minecraft mc = Minecraft.getInstance();
-        Player player = mc.player;
-        if (player == null || mc.screen != null) return;
-
-        UUID playerId = player.getUUID();
-        boolean currentJump = mc.options.keyJump.isDown();
-        boolean lastState = lastJumpStateMap.getOrDefault(playerId, false);
-        boolean pressed = currentJump && !lastState;
-
-        clientJumpPressMap.put(playerId, pressed);
-
-        if (pressed) {
-            ChangedCreature.PACKET_HANDLER.sendToServer(new KeyMessage(1, 0));
-        }
-
-        lastJumpStateMap.put(playerId, currentJump);
-    }
-
+    //收到网络包后调用[Server]
     public static void setServerJumpPressed(UUID playerId) {
         serverJumpPressMap.put(playerId, true);
+    }
+
+    //写入本地跳跃状态[Client]
+    public static void setClientJumpPressed(UUID playerId, boolean pressed) {
+        clientJumpPressMap.put(playerId, pressed);
     }
 }

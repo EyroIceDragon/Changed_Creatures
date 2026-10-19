@@ -19,7 +19,7 @@ public class GreenFlameParticle extends TextureSheetParticle {
     protected GreenFlameParticle(ClientLevel level, double x, double y, double z) {
         super(level, x, y, z);
         this.setSize(0.2f, 0.2f);
-        this.lifetime = 20;      // 寿命30刻（1.5秒）
+        this.lifetime = 20;      // 寿命20刻
         this.gravity = 0f;
 
         // 速度为0，不移动

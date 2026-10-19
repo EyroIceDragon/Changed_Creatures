@@ -21,8 +21,8 @@ import java.util.function.Supplier;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class AbilitiesMessage {
 
-	private final ResourceLocation abilityId;  // ★ 用 ResourceLocation 而不是 int
-	private final int action;                   // 0=减，1=加
+	private final ResourceLocation abilityId;
+	private final int action;// 0=减，1=加
 
 	public AbilitiesMessage(ResourceLocation abilityId, int action) {
 		this.abilityId = abilityId;

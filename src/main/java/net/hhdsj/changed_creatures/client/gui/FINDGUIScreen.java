@@ -11,7 +11,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.hhdsj.changed_creatures.world.inventory.FINDGUIMenu;
-import net.hhdsj.changed_creatures.network.FINDGUIButtonMessage;
+import net.hhdsj.changed_creatures.network.CCGuiButtonMessage;
 
 import java.util.HashMap;
 
@@ -78,8 +78,8 @@ public class FINDGUIScreen extends AbstractContainerScreen<FINDGUIMenu> {
 		super.init();
 		button_dian_wo = Button.builder(Component.translatable("gui.changed_creatures.findgui.button_dian_wo"), e -> {
 			if (true) {
-				ChangedCreature.PACKET_HANDLER.sendToServer(new FINDGUIButtonMessage(0, x, y, z));
-				FINDGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
+				ChangedCreature.PACKET_HANDLER.sendToServer(new CCGuiButtonMessage(0, x, y, z));
+				CCGuiButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 5, this.topPos + 138, 35, 20).build();
 		guistate.put("button:button_dian_wo", button_dian_wo);

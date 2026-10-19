@@ -1,10 +1,9 @@
 package net.hhdsj.changed_creatures.ability.data;
 
-import net.minecraft.client.Minecraft;
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.Player;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -99,7 +98,7 @@ public class PlayerAbilities {
         CompoundTag listTag = nbt.getCompound("abilities");
         for (String key : listTag.getAllKeys()) {
             try {
-                ResourceLocation id = new ResourceLocation(key);
+                ResourceLocation id = ChangedCreature.ChangedCreatureResourceLocationParse(key);
                 CompoundTag a = listTag.getCompound(key);
                 AbilityData data = new AbilityData();
                 data.level = a.getInt("level");

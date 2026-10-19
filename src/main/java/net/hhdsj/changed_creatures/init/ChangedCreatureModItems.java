@@ -7,7 +7,6 @@ package net.hhdsj.changed_creatures.init;
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.item.*;
 import net.hhdsj.changed_creatures.item.tool.*;
-import net.ltxprogrammer.changed.item.FilledMug;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.registries.RegistryObject;
@@ -27,6 +26,7 @@ public class ChangedCreatureModItems {
 	// ==================== 方块物品声明 (Block Items Declaration) ====================
 	public static RegistryObject<Item> LATEX_DEEP_CRYSTAL_DRAGON_DOLL;
 	public static RegistryObject<Item> CRYO_SUBJECT_CHAMBER;
+	public static RegistryObject<Item> LATEX_DAWN_FUZZ_WALL;
 	// 矿物块
 	public static RegistryObject<Item> SULPHURBLOCK;
 	public static RegistryObject<Item> NITREBLOCK;
@@ -56,8 +56,6 @@ public class ChangedCreatureModItems {
 
 	// 装饰/其他方块
 	public static RegistryObject<Item> PALETREESPA_1;
-	public static RegistryObject<Item> BLOCKBW_1;
-	public static RegistryObject<Item> BLOCKBW_2;
 
 	// ==================== 普通物品声明 (Normal Items Declaration) ====================
 
@@ -69,6 +67,7 @@ public class ChangedCreatureModItems {
 	public static RegistryObject<Item> BlueCrystaloreItem;
 	public static RegistryObject<Item> LatexCrystalJellyItem;
     public static RegistryObject<Item> LATEX_LAVA_CRYSTAL;
+	public static RegistryObject<Item> LATEX_DAWN_FUZZ;
 
 	// 食物类
 	public static RegistryObject<Item> DRAGONFRUIT;
@@ -132,6 +131,7 @@ public class ChangedCreatureModItems {
 		URANIUMBLOCK = block(ChangedCreatureModBlocks.URANIUMBLOCK);
 		BLUEBLOCK = block(ChangedCreatureModBlocks.BLUEBLOCK);
 		BLACKBLOCK = block(ChangedCreatureModBlocks.BLACKBLOCK);
+		LATEX_DAWN_FUZZ_WALL = block(ChangedCreatureModBlocks.LATEX_DAWN_FUZZ_WALL);
 
 		URANIUM_ORE = block(ChangedCreatureModBlocks.URANIUM_ORE);
 		BLUE_CRYSTALORE = block(ChangedCreatureModBlocks.BLUE_CRYSTALORE);
@@ -151,8 +151,6 @@ public class ChangedCreatureModItems {
 		CATALYZER = block(ChangedCreatureModBlocks.CATALYZER);
 
 		PALETREESPA_1 = block(ChangedCreatureModBlocks.PALETREESPA_1);
-		BLOCKBW_1 = block(ChangedCreatureModBlocks.BLOCKBW_1);
-		BLOCKBW_2 = block(ChangedCreatureModBlocks.BLOCKBW_2);
 
 		// -------------------- 普通物品初始化 --------------------
 		Latex_Night_Owl_Goo_Item = ITEMS.register("latex_night_owl_goo", LatexNghtOwlGooItem::new);
@@ -161,13 +159,14 @@ public class ChangedCreatureModItems {
 		IMPUREURANIUM = ITEMS.register("impureuranium", ImpureuraniumItem::new);
 		IMPUREURANIUMINGOT = ITEMS.register("impureuraniumingot", ImpureuraniumingotItem::new);
 		BlueCrystaloreItem = ITEMS.register("blue_crystal", BlueCrystaloreItem::new);
+		LATEX_DAWN_FUZZ = ITEMS.register("latex_dawn_fuzz", LatexDawnFuzz::new);
 
 		DRAGONFRUIT = ITEMS.register("latex_dragon_fruit", LatexDragonFruitItem::new);
 		Frost_Condensed_Crystal_Cluster = ITEMS.register("frost_condensed_crystal_clustert", FrostCondensedCrystalClusterItem::new);
 		Impure_Frost_Condensed_Crystal_Cluster = ITEMS.register("impure_frost_condensed_crystal_clustert", ImpureFrostCondensedCrystalClusterItem::new);
 		FLUTE = ITEMS.register("flute", FluteItem::new);
 
-		PALETREE = ITEMS.register("pale_tree", PaletreeItem::new);
+		PALETREE = ITEMS.register("pale_tree", PaleTreeItem::new);
 		LatexCrystalJellyItem = ITEMS.register("latex_crystal_jelly", LatexCrystalJellyItem::new);
         LATEX_LAVA_CRYSTAL = ITEMS.register("latex_lava_crystal", LatexLavaCrystalItem::new);
 

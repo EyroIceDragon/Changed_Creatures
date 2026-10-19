@@ -36,7 +36,7 @@ public class PlayerDeathHandler {
 
         if (selectedVariant == null) {
             ChangedCreature.LOGGER.warn("No variants found in tag, using default");
-            selectedVariant = ChangedCreatureModTransfurVariants.LATEXDARKPURPLEDRAGON.get();
+            selectedVariant = ChangedCreatureModTransfurVariants.LATEX_DARK_PURPLE_DRAGON.get();
         }
 
         ProcessTransfur.setPlayerTransfurVariant(

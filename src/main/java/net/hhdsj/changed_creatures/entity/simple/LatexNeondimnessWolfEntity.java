@@ -45,7 +45,7 @@ public class LatexNeondimnessWolfEntity extends ChangedEntity {
     }
 
     public LatexNeondimnessWolfEntity(PlayMessages.SpawnEntity packet, Level world) {
-        this(ChangedCreatureModEntities.LATEXNEONDIMNESSWOLF.get(), world);
+        this(ChangedCreatureModEntities.LATEX_NEONDIMNESS_WOLF.get(), world);
     }
 
     public LatexNeondimnessWolfEntity(EntityType<LatexNeondimnessWolfEntity> type, Level world) {
@@ -86,7 +86,7 @@ public class LatexNeondimnessWolfEntity extends ChangedEntity {
     }
 
     public static void init() {
-        SpawnPlacements.register(ChangedCreatureModEntities.LATEXNEONDIMNESSWOLF.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+        SpawnPlacements.register(ChangedCreatureModEntities.LATEX_NEONDIMNESS_WOLF.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 (entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
     }
 }

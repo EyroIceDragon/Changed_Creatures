@@ -67,4 +67,9 @@ public class IronhotBlock extends Block implements SimpleWaterloggedBlock {
 		}
 		return super.updateShape(state, facing, facingState, world, currentPos, facingPos);
 	}
+
+	@Override
+	public boolean skipRendering(BlockState state, BlockState adjacentState, Direction side) {
+		return adjacentState.is(this) || super.skipRendering(state, adjacentState, side);
+	}
 }

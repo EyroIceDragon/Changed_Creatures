@@ -70,7 +70,7 @@ public class LatexNightOwlBossEntity extends ChangedEntity{
     private int ticksInUse = 300;
 
     public LatexNightOwlBossEntity(PlayMessages.SpawnEntity packet, Level world) {
-        this(ChangedCreatureModEntities.LATEXNIGHTOWLDRAGONBOSS.get(), world);
+        this(ChangedCreatureModEntities.LATEX_NIGHT_OWL_DRAGON_BOSS.get(), world);
     }
 
     @Override

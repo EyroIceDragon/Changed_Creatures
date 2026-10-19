@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures.procedures;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
@@ -15,7 +16,7 @@ public class DIEProcedure {
 
 			ResourceKey<DamageType> customDamageType = ResourceKey.create(
 					Registries.DAMAGE_TYPE,
-					new ResourceLocation("changed_creatures", "furry_cat_kill")
+					ChangedCreature.ChangedCreatureResourceLocation( "furry_cat_kill")
 			);
 
 			var damageType = world.registryAccess()

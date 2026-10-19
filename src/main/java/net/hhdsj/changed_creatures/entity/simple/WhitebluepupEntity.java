@@ -57,7 +57,7 @@ public class WhitebluepupEntity extends ChangedEntity {
     }
 
 	public WhitebluepupEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(ChangedCreatureModEntities.WHITEBLUEPUP.get(), world);
+		this(ChangedCreatureModEntities.WHITE_BLUE_PUP.get(), world);
 	}
 
 	@Override

@@ -7,7 +7,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.CapabilityToken;
-import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
@@ -35,10 +34,8 @@ public class PlayerAbilitiesCapability {
     public static PlayerAbilities get(Player player) {
         LazyOptional<PlayerAbilities> opt = player.getCapability(PLAYER_ABILITIES, null);
         if (!opt.isPresent()) {
-            ChangedCreature.LOGGER.error(
-                    "[ChangedCreatures] Player {} is missing PlayerAbilities capability! Check PlayerAbilitiesCapability.onAttach.",
-                    player.getName().getString());
-            return new PlayerAbilities(); // 兜底
+            ChangedCreature.LOGGER.error("[ChangedCreatures] Player {} is missing PlayerAbilities capability! Check PlayerAbilitiesCapability.onAttach.", player.getName().getString());
+            return new PlayerAbilities();
         }
         return opt.orElseThrow(() -> new IllegalStateException("unreachable"));
     }

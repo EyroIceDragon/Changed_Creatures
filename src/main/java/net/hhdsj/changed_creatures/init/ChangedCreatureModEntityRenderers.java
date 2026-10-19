@@ -6,6 +6,7 @@ package net.hhdsj.changed_creatures.init;
 
 import net.hhdsj.changed_creatures.block.CryoSubjectChamberRenderer;
 import net.hhdsj.changed_creatures.client.renderer.ProtogenNyxarixRenderer;
+import net.hhdsj.changed_creatures.client.renderer.animals.bot.LatexAgmisnBotRenderer;
 import net.hhdsj.changed_creatures.client.renderer.block.LatexDeepCrystalDragonDollRenderer;
 import net.hhdsj.changed_creatures.client.renderer.boss.LatexIceFieldWolfDragonBossRenderer;
 import net.hhdsj.changed_creatures.client.renderer.boss.LatexNightOwlBossRenderer;
@@ -38,32 +39,32 @@ public class ChangedCreatureModEntityRenderers {
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_ORANGE_FOX.get(), LatexOrangeFoxRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_KCAHRA_SHARK.get(), LatexKcahraSharkRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.DARKFU_LATEX_WOLF_MALE.get(), DarkfuLatexWolfMaleRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXICE_DRAGON.get(), LatexIceDragonRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.INKSUGER.get(), InkSugerRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.BLACKPUPMALE.get(), BlackPupMaleRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.WHITEBLUEPUP.get(), WhiteBluePupRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXPURPLEWSWOLF.get(), LatexpurplewswolfRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXTHREEMONTHWOLF.get(), LatexthreemonthwolfRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXYUNXQHOTDRAGON.get(), LatexYunXqHotDragonRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXYUNXQICEDRAGON.get(), LatexYunXqIceDragonRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXBLUEDRAGON.get(), LatexBlueDragonRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_DARKFU_WOLF_MALE.get(), DarkfuLatexWolfMaleRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_ICE_DRAGON.get(), LatexIceDragonRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.INK_SUGER_PUP.get(), InkSugerRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.BLACK_PUP_MALE.get(), BlackPupMaleRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.WHITE_BLUE_PUP.get(), WhiteBluePupRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_PURPLE_WS_WOLF.get(), LatexpurplewswolfRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_THREE_MONTH_WOLF.get(), LatexthreemonthwolfRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_YUN_XQ_HOT_DRAGON.get(), LatexYunXqHotDragonRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_YUN_XQ_ICE_DRAGON.get(), LatexYunXqIceDragonRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_BLUE_DRAGON.get(), LatexBlueDragonRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_ICE_FIELD_WOLF_DRAGON.get(), LatexIceFieldWolfDragonRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXPRTPLECOOCWOLF.get(), LatexPurpleCoocWolfRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_PRTPLE_COOC_WOLF.get(), LatexPurpleCoocWolfRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXTHREEMONTHWOLF_PROJECTILE.get(), LatexArrowRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXYUNQIICEDRAGON.get(), LatexYunQiIceDragonRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXRADIATIONFOX.get(), LatexRadiationFoxRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXNIGHTOWLDRAGONBOSS.get(), LatexNightOwlBossRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXNIGHTOWLDRAGON.get(), LatexNightOwlRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXIQGOLDDRAGON.get(), LatexIqGoldDragonRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXDARKPURPLEDRAGONTAUR.get(), LatexDarkPurpleDragonTaurRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXDARKPURPLEDRAGON.get(), LatexDarkPurpleDragonRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_YUN_QI_ICE_DRAGON.get(), LatexYunQiIceDragonRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_RADIATION_FOX.get(), LatexRadiationFoxRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_NIGHT_OWL_DRAGON_BOSS.get(), LatexNightOwlBossRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_NIGHT_OWL_DRAGON.get(), LatexNightOwlRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_IQ_GOLD_DRAGON.get(), LatexIqGoldDragonRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_DARK_PURPLE_DRAGON_TAUR.get(), LatexDarkPurpleDragonTaurRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_DARK_PURPLE_DRAGON.get(), LatexDarkPurpleDragonRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_ICE_FIELD_WOLF_DRAGON_BOSS.get(), LatexIceFieldWolfDragonBossRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXLUOHONGEARLYSPRINGFOXDRAGON.get(), LatexLuoHongEarlySpringFoxDragonRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXFRUITDRAGONWOLF.get(), LatexFruitDragonRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXNEONDIMNESSWOLF.get(), LatexNeondimnessWolfRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_LUO_HONG_EARLY_SPRING_FOX_DRAGON.get(), LatexLuoHongEarlySpringFoxDragonRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_FRUIT_DRAGON_WOLF.get(), LatexFruitDragonRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_NEONDIMNESS_WOLF.get(), LatexNeondimnessWolfRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_CHENG_XI.get(), LatexChengXiRenderer::new);
-		event.registerEntityRenderer(ChangedCreatureModEntities.LATEXYAOLINGDRAGON.get(),LatexYaoLingDragonRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_RADIARY_DRAGON.get(), LatexRadiaryDragonRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_DIVINE_SWORD_KITSUNE.get(), LatexDivineSwordKitsuneRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.BLUECRYSTALPROJECTILE.get(), BlueCrystalProjectileRenderer::new);
 		event.registerEntityRenderer(ChangedCreatureModEntities.CRYSTAL_ARROW.get(), CrystalArrowRenderer::new);
@@ -95,7 +96,8 @@ public class ChangedCreatureModEntityRenderers {
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_EYRO_END_DRAGON.get(), LatexEyroEndDragonRenderer::new);
 		//LatexIngerteFoxRenderer
 		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_INGERTE_FOX.get(), LatexIngerteFoxRenderer::new);
-
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_MOCHA_WOLF.get(), LatexMoChaRenderer::new);
+		event.registerEntityRenderer(ChangedCreatureModEntities.LATEX_AGMISN_BOT.get(), LatexAgmisnBotRenderer::new);
 	}
 	@SubscribeEvent
 	public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
