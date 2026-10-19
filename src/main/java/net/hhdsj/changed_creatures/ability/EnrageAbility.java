@@ -34,6 +34,8 @@ public class EnrageAbility extends AbstractAbility {
                     "textures/gui/ability/latex_ability_enrage.png"
             );
 
+    private int time = 0;
+
     public EnrageAbility() {
         super(Component.translatable("ability.changed_creatures.enrage.name"), 0xFFFFFF, 2);
     }
@@ -60,12 +62,6 @@ public class EnrageAbility extends AbstractAbility {
         int have = abilities.getPlayerExp();
         if (have < exp_level) return;
 
-        abilities.reduceExp(exp_level);
-
-        if (player instanceof ServerPlayer sp) {
-            GlobalExpSyncPacket.send(sp);
-        }
-
         float health = player.getHealth();
         float maxHealth = player.getMaxHealth();
         float ratio = maxHealth <= 0.0F ? 1.0F : health / maxHealth;
@@ -73,6 +69,18 @@ public class EnrageAbility extends AbstractAbility {
         // 血量低于 50% 才触发狂化
         boolean enraged = ratio <= 0.5F;
 
+        if (this.time == 10) {
+            abilities.reduceExp(exp_level);
+            if (player instanceof ServerPlayer sp) {
+                GlobalExpSyncPacket.send(sp);
+            }
+            this.time = 0;
+        }else{
+            this.time ++;
+        }
+
+
+        System.out.println("Player now heath : " + ratio);
         AttributeInstance attack = player.getAttribute(Attributes.ATTACK_DAMAGE);
         AttributeInstance speed = player.getAttribute(Attributes.MOVEMENT_SPEED);
 
@@ -136,7 +144,7 @@ public class EnrageAbility extends AbstractAbility {
         if (ratio <= 0.5F && attacker != null && attacker.isAlive()) {
             attacker.addEffect(new MobEffectInstance(
                     MobEffects.WEAKNESS,
-                    60 + exp_level * 20,
+                    60 + exp_level * 120,
                     exp_level >= 2 ? 1 : 0
             ));
         }
