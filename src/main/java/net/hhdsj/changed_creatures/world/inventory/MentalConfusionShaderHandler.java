@@ -12,6 +12,8 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RenderLevelStageEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT)
@@ -22,20 +24,20 @@ public class MentalConfusionShaderHandler {
 
     private static float timeAccumulator = 0.0f;
     private static int lastColorTextureId = -1;
-    /*
+
     @SubscribeEvent
     public static void onRenderLevelStage(RenderLevelStageEvent event) {
         if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_ENTITIES) return;
 
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null || mc.level == null) return;
-        if (mc.options.graphicsMode().get() == GraphicsStatus.FAST) return;
+        //if (mc.options.graphicsMode().get() == GraphicsStatus.FAST) return;
 
         float finalIntensity = getEffectIntensity(mc);
         if (finalIntensity <= 0.001f) return;
-        ChangedCreature.LOGGER.info("[Debug] Test Shader ok to use!!!");
-        //renderShader(mc, event.getPartialTick(), finalIntensity);
-    }*/
+        //ChangedCreature.LOGGER.info("[Debug] Test Shader ok to use!!!");
+        renderShader(mc, event.getPartialTick(), finalIntensity);
+    }
 
     private static float getEffectIntensity(Minecraft mc) {
         ClientHypnotizeData.TopAttackerInfo top = ClientHypnotizeData.getTopAttacker();

@@ -5,6 +5,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -60,6 +61,16 @@ public class ChangedCreaturesDataGenerators {
         generator.addProvider(
                 event.includeClient(),
                 new ChangedCreaturesItemModelProvider(generator.getPackOutput(), existingFileHelper)
+        );
+
+        generator.addProvider(
+                event.includeServer(),
+                new ForgeAdvancementProvider(
+                        generator.getPackOutput(),
+                        event.getLookupProvider(),
+                        existingFileHelper,
+                        List.of(new ChangedCreaturesAdvancementProvider())
+                )
         );
     }
 }

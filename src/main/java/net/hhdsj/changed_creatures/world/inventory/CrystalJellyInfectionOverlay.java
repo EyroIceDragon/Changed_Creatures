@@ -1,5 +1,5 @@
 package net.hhdsj.changed_creatures.world.inventory;
-
+/*
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.hhdsj.changed_creatures.network.GoodblockModVariables;
 import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
@@ -60,4 +60,4 @@ public class CrystalJellyInfectionOverlay {
         RenderSystem.disableBlend();
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
     }
-}
+}*/
