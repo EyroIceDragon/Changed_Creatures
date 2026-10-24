@@ -7,6 +7,7 @@ public class AnimalLatexCentaur<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "animallatexcentaur"), "main");
 	private final ModelPart Head;
+	private final ModelPart bone5;
 	private final ModelPart LowerTorso;
 	private final ModelPart Saddle;
 	private final ModelPart LeftLeg2;
@@ -43,6 +44,7 @@ public class AnimalLatexCentaur<T extends Entity> extends EntityModel<T> {
 
 	public AnimalLatexCentaur(ModelPart root) {
 		this.Head = root.getChild("Head");
+		this.bone5 = this.Head.getChild("bone5");
 		this.LowerTorso = root.getChild("LowerTorso");
 		this.Saddle = this.LowerTorso.getChild("Saddle");
 		this.LeftLeg2 = this.LowerTorso.getChild("LeftLeg2");
@@ -82,12 +84,15 @@ public class AnimalLatexCentaur<T extends Entity> extends EntityModel<T> {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(32, 61).addBox(-3.0F, -3.0F, -2.0F, 6.0F, 6.0F, 3.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 32).addBox(-2.0F, -2.6F, -7.8F, 4.0F, 5.0F, 6.0F, new CubeDeformation(0.02F)), PartPose.offset(0.0F, 10.5F, -3.6F));
+		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create(), PartPose.offset(0.0F, 10.5F, -3.6F));
 
-		PartDefinition cube_r1 = Head.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(62, 28).addBox(0.0F, -2.5F, 0.0F, 2.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-2.025F, -0.1F, -7.8F, 0.0F, -0.1309F, 0.0F));
+		PartDefinition bone5 = Head.addOrReplaceChild("bone5", CubeListBuilder.create().texOffs(32, 61).addBox(-0.975F, -2.9F, 5.8F, 6.0F, 6.0F, 3.0F, new CubeDeformation(0.0F))
+		.texOffs(0, 32).addBox(0.025F, -2.5F, 0.0F, 4.0F, 5.0F, 6.0F, new CubeDeformation(0.02F))
+		.texOffs(110, 119).addBox(-1.0F, -3.0F, 5.6F, 6.0F, 6.0F, 3.0F, new CubeDeformation(0.1F)), PartPose.offset(-2.025F, -0.1F, -7.8F));
 
-		PartDefinition cube_r2 = Head.addOrReplaceChild("cube_r2", CubeListBuilder.create().texOffs(50, 61).addBox(-2.0F, -2.5F, 0.0F, 2.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.025F, -0.1F, -7.8F, 0.0F, 0.1309F, 0.0F));
+		PartDefinition cube_r1 = bone5.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(62, 28).addBox(0.0F, -2.5F, 0.0F, 2.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, -0.1309F, 0.0F));
+
+		PartDefinition cube_r2 = bone5.addOrReplaceChild("cube_r2", CubeListBuilder.create().texOffs(50, 61).addBox(-2.0F, -2.5F, 0.0F, 2.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.05F, 0.0F, 0.0F, 0.0F, 0.1309F, 0.0F));
 
 		PartDefinition LowerTorso = partdefinition.addOrReplaceChild("LowerTorso", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -2.0F, 4.0F, 8.0F, 6.0F, 13.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 19).addBox(-4.0F, -2.0F, -3.0F, 8.0F, 6.0F, 7.0F, new CubeDeformation(0.2F))

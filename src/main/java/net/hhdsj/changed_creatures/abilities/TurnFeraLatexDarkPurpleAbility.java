@@ -6,9 +6,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.Nullable;
 
-public class TurnFeraLatexDarkPurpleAbility extends AbstractAbility<TurnFeralLatexDarkpurpleAbilityInstance> {
+public class TurnFeraLatexDarkPurpleAbility extends AbstractAbility<AToBTurnAbilityInstance> {
     public TurnFeraLatexDarkPurpleAbility() {
-        super(TurnFeralLatexDarkpurpleAbilityInstance::new);
+        super(AToBTurnAbilityInstance::new);
     }
 
     @Override

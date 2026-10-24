@@ -38,6 +38,7 @@ public class HypnotizeMarkPacket {
         NetworkEvent.Context ctx = ctxSup.get();
         ctx.enqueueWork(() -> {
             if (ctx.getDirection().getReceptionSide().isServer()) return;
+            System.out.println("Wow Packen Ok!!!");
             ClientHypnotizeData.setMarked(attackerUUID, level);
         });
         ctx.setPacketHandled(true);

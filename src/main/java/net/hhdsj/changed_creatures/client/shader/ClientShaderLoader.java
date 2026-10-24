@@ -1,5 +1,6 @@
-package net.hhdsj.changed_creatures.world.inventory;
+package net.hhdsj.changed_creatures.client.shader;
 
+import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModShaders;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraftforge.api.distmarker.Dist;
@@ -18,7 +19,7 @@ public class ClientShaderLoader {
                 new ShaderInstance(
                         event.getResourceProvider(),
                         ChangedCreatureModShaders.MENTAL_CONFUSION_ID,
-                        com.mojang.blaze3d.vertex.DefaultVertexFormat.POSITION_TEX
+                        DefaultVertexFormat.POSITION_TEX
                 ),
                 ChangedCreatureModShaders::setMentalConfusionShader
         );

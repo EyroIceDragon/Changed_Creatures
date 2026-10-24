@@ -17,7 +17,7 @@ public class ClientHypnotizeData {
     }
 
     private static final Map<UUID, MarkData> MARKS = new HashMap<>();
-    private static final long DURATION_MS = 5000; // 5 秒有效期
+    private static final long DURATION_MS = 10000; // 10 秒有效期
 
     public static void setMarked(UUID attackerUUID, int level) {
         MARKS.put(attackerUUID, new MarkData(level, System.currentTimeMillis() + DURATION_MS));
@@ -46,6 +46,7 @@ public class ClientHypnotizeData {
             if (entry.getValue().level > bestLevel) {
                 bestLevel = entry.getValue().level;
                 bestUuid = entry.getKey();
+                System.out.println(bestUuid + " / " + bestLevel);
             }
         }
         return bestUuid != null ? new TopAttackerInfo(bestUuid, bestLevel) : null;

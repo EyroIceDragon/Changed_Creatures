@@ -1,4 +1,4 @@
-package net.hhdsj.changed_creatures.world.inventory;
+package net.hhdsj.changed_creatures.client.shader;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.BufferBuilder;
