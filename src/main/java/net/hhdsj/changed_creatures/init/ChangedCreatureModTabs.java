@@ -79,6 +79,7 @@ public class ChangedCreatureModTabs {
 			tabData.accept(ChangedCreatureModBlocks.LATEX_CRYSTAL_JELLY_GAS_CANISTER.get().asItem());
 			//tabData.accept(ChangedCreatureModBlocks.CRYO_SUBJECT_CHAMBER.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.LATEX_DAWN_FUZZ_WALL.get().asItem());
+			tabData.accept(ChangedCreatureModBlocks.LATEX_MOLTEN_CRYSTAL.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.LATEX_DEEP_CRYSTAL_DRAGON_DOLL.get().asItem());
 		} else if (tabData.getTabKey() == ITEM.getKey()) {
 			tabData.accept(ChangedCreatureModItems.PAINITESWORD.get());

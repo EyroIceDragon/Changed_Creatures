@@ -27,6 +27,7 @@ public class ChangedCreatureModItems {
 	public static RegistryObject<Item> LATEX_DEEP_CRYSTAL_DRAGON_DOLL;
 	public static RegistryObject<Item> CRYO_SUBJECT_CHAMBER;
 	public static RegistryObject<Item> LATEX_DAWN_FUZZ_WALL;
+	public static RegistryObject<Item> LATEX_MOLTEN_CRYSTAL;
 	// 矿物块
 	public static RegistryObject<Item> SULPHURBLOCK;
 	public static RegistryObject<Item> NITREBLOCK;
@@ -132,6 +133,7 @@ public class ChangedCreatureModItems {
 		BLUEBLOCK = block(ChangedCreatureModBlocks.BLUEBLOCK);
 		BLACKBLOCK = block(ChangedCreatureModBlocks.BLACKBLOCK);
 		LATEX_DAWN_FUZZ_WALL = block(ChangedCreatureModBlocks.LATEX_DAWN_FUZZ_WALL);
+		LATEX_MOLTEN_CRYSTAL = block(ChangedCreatureModBlocks.LATEX_MOLTEN_CRYSTAL);
 
 		URANIUM_ORE = block(ChangedCreatureModBlocks.URANIUM_ORE);
 		BLUE_CRYSTALORE = block(ChangedCreatureModBlocks.BLUE_CRYSTALORE);

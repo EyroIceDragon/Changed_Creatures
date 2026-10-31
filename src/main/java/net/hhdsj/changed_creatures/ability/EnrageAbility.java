@@ -69,7 +69,7 @@ public class EnrageAbility extends AbstractAbility {
         // 血量低于 50% 才触发狂化
         boolean enraged = ratio <= 0.5F;
 
-        if (this.time == 10) {
+        if (this.time == 20 && enraged) {
             abilities.reduceExp(exp_level);
             if (player instanceof ServerPlayer sp) {
                 GlobalExpSyncPacket.send(sp);
@@ -79,15 +79,13 @@ public class EnrageAbility extends AbstractAbility {
             this.time ++;
         }
 
-
-        System.out.println("Player now heath : " + ratio);
         AttributeInstance attack = player.getAttribute(Attributes.ATTACK_DAMAGE);
         AttributeInstance speed = player.getAttribute(Attributes.MOVEMENT_SPEED);
 
         if (attack != null) {
             attack.removeModifier(ENRAGE_ATTACK_UUID);
             if (enraged) {
-                double amount = 0.10D + exp_level * 0.10D; // 10% / 20% / 30%
+                double amount = 0.10D + exp_level * 0.15D; // 10% / 20% / 30%
                 attack.addTransientModifier(new AttributeModifier(
                         ENRAGE_ATTACK_UUID,
                         "changed_creatures.enrage_attack",
@@ -100,7 +98,7 @@ public class EnrageAbility extends AbstractAbility {
         if (speed != null) {
             speed.removeModifier(ENRAGE_SPEED_UUID);
             if (enraged) {
-                double amount = 0.05D + exp_level * 0.05D; // 5% / 10% / 15%
+                double amount = 0.05D + exp_level * 0.1D; // 5% / 10% / 15%
                 speed.addTransientModifier(new AttributeModifier(
                         ENRAGE_SPEED_UUID,
                         "changed_creatures.enrage_speed",
