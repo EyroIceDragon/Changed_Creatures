@@ -1,4 +1,4 @@
-package net.hhdsj.changed_creatures.client.models.armors;
+package net.hhdsj.changed_creatures.client.models.armors.changed;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

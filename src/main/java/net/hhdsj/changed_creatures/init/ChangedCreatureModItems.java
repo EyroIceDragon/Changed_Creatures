@@ -120,6 +120,16 @@ public class ChangedCreatureModItems {
 	public static RegistryObject<Item> PAINITE_ARMOR_LEGGINGS;
 	public static RegistryObject<Item> PAINITE_ARMOR_BOOTS;
 
+    public static RegistryObject<Item> FURSUIT_PROTOGEN_HELMET;
+    public static RegistryObject<Item> FURSUIT_PROTOGEN_CHESTPLATE;
+    public static RegistryObject<Item> FURSUIT_PROTOGEN_LEGGINGS;
+    public static RegistryObject<Item> FURSUIT_PROTOGEN_BOOTS;
+
+    public static RegistryObject<Item> FURSUIT_FOX_HELMET;
+    public static RegistryObject<Item> FURSUIT_FOX_CHESTPLATE;
+    public static RegistryObject<Item> FURSUIT_FOX_LEGGINGS;
+    public static RegistryObject<Item> FURSUIT_FOX_BOOTS;
+
 	// ==================== 静态代码块初始化 (Static Initialization) ====================
 
 	static {
@@ -203,6 +213,16 @@ public class ChangedCreatureModItems {
 		PAINITE_ARMOR_CHESTPLATE = ITEMS.register("painite_armor_chestplate", PainiteArmorItem.Chestplate::new);
 		PAINITE_ARMOR_LEGGINGS = ITEMS.register("painite_armor_leggings", PainiteArmorItem.Leggings::new);
 		PAINITE_ARMOR_BOOTS = ITEMS.register("painite_armor_boots", PainiteArmorItem.Boots::new);
+
+        FURSUIT_PROTOGEN_HELMET = ITEMS.register("fursuit_protogen_helmet", FursuitProtogenItem.Helmet::new);
+        FURSUIT_PROTOGEN_CHESTPLATE = ITEMS.register("fursuit_protogen_chestplate", FursuitProtogenItem.Chestplate::new);
+        FURSUIT_PROTOGEN_LEGGINGS = ITEMS.register("fursuit_protogen_leggings", FursuitProtogenItem.Leggings::new);
+        FURSUIT_PROTOGEN_BOOTS = ITEMS.register("fursuit_protogen_boots", FursuitProtogenItem.Boots::new);
+
+        FURSUIT_FOX_HELMET = ITEMS.register("fursuit_fox_helmet", FursuitFoxItem.Helmet::new);
+        FURSUIT_FOX_CHESTPLATE = ITEMS.register("fursuit_fox_chestplate", FursuitFoxItem.Chestplate::new);
+        FURSUIT_FOX_LEGGINGS = ITEMS.register("fursuit_fox_leggings", FursuitFoxItem.Leggings::new);
+        FURSUIT_FOX_BOOTS = ITEMS.register("fursuit_fox_boots", FursuitFoxItem.Boots::new);
 
 		// -------------------- 唱片初始化 -------------------- //
         /*

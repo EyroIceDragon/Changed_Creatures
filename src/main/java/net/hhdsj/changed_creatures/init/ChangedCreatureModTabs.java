@@ -109,6 +109,10 @@ public class ChangedCreatureModTabs {
 			tabData.accept(ChangedCreatureModItems.PAINITE_ARMOR_CHESTPLATE.get());
 			tabData.accept(ChangedCreatureModItems.PAINITE_ARMOR_LEGGINGS.get());
 			tabData.accept(ChangedCreatureModItems.PAINITE_ARMOR_BOOTS.get());
+			tabData.accept(ChangedCreatureModItems.FURSUIT_PROTOGEN_HELMET);
+			tabData.accept(ChangedCreatureModItems.FURSUIT_PROTOGEN_CHESTPLATE);
+			tabData.accept(ChangedCreatureModItems.FURSUIT_PROTOGEN_LEGGINGS);
+			tabData.accept(ChangedCreatureModItems.FURSUIT_PROTOGEN_BOOTS);
 		} else if (tabData.getTabKey() == LATEX_ITEM.getKey()) {
 			tabData.accept(ChangedCreatureModItems.LATEX_FILLED_ALL_MUG_ITEM.get());
 			try {

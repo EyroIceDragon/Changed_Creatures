@@ -20,6 +20,7 @@
     "Player.HumanoidModelMixin",
     "Player.MixinParticlePlayerRenderer",
     "Player.MixinPlayerRenderer",
+    "Player.MixinPlayerRendererArm",
     "Player.PlayerRendererWindMixin"
   ],
   "server": [

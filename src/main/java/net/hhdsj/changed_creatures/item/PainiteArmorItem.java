@@ -1,6 +1,6 @@
 package net.hhdsj.changed_creatures.item;
 
-import net.hhdsj.changed_creatures.client.models.armors.GoodBlockModelMaleWingedDragonArmor;
+import net.hhdsj.changed_creatures.client.models.armors.changed.GoodBlockModelMaleWingedDragonArmor;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorModel;
 import net.ltxprogrammer.changed.entity.ChangedEntity;
 import net.minecraft.client.Minecraft;

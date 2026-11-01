@@ -1,7 +1,7 @@
 
 package net.hhdsj.changed_creatures.client.renderer.latex_wolf_dragon;
 
-import net.hhdsj.changed_creatures.client.models.armors.ArmorLatexMaleWolfWingedDragonModel;
+import net.hhdsj.changed_creatures.client.models.armors.changed.ArmorLatexMaleWolfWingedDragonModel;
 import net.hhdsj.changed_creatures.client.models.latex_wolf_dragon.ModelLatexXuanJinWolfDragon;
 import net.hhdsj.changed_creatures.entity.simple.LatexXuanJinWolfDragonEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;

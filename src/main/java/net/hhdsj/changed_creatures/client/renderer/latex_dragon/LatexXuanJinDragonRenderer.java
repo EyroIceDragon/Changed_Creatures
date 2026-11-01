@@ -1,7 +1,6 @@
 package net.hhdsj.changed_creatures.client.renderer.latex_dragon;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import net.hhdsj.changed_creatures.client.models.armors.ArmorLatexMaleWolfWingedDragonModel;
+import net.hhdsj.changed_creatures.client.models.armors.changed.ArmorLatexMaleWolfWingedDragonModel;
 import net.hhdsj.changed_creatures.client.models.latex_dragon.ModelLatexXuanJinDragon;
 import net.hhdsj.changed_creatures.entity.simple.LatexXuanJinDragonEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;

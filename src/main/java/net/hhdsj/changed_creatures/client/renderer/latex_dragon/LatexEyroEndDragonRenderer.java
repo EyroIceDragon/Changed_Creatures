@@ -1,12 +1,11 @@
 
 package net.hhdsj.changed_creatures.client.renderer.latex_dragon;
 
-import net.hhdsj.changed_creatures.client.models.armors.ArmorLatexMaleWolfWingedDragonModel;
+import net.hhdsj.changed_creatures.client.models.armors.changed.ArmorLatexMaleWolfWingedDragonModel;
 import net.hhdsj.changed_creatures.client.models.latex_dragon.ModelLatexEyroEndDragon;
 import net.hhdsj.changed_creatures.entity.simple.LatexEyroEndDragonEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;
-import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexBigTailDragonModel;
 import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
