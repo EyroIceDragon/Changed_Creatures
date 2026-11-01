@@ -2,6 +2,7 @@ package net.hhdsj.changed_creatures.mixin.Player;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.item.HidePlayerPartArmor;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -25,9 +26,8 @@ public class ArmorGlowMixin {
                                    ResourceLocation armorResource, CallbackInfo ci) {
         // 只处理你的 HidePlayerPartArmor
         if (!(armorItem instanceof HidePlayerPartArmor fursuitItem)) return;
-
-        ResourceLocation glow = new ResourceLocation("changed_creatures",
-                "textures/armor/fursuit_protogen_glowmask.png");
+        if (fursuitItem.getArmorTextureGlowPath() == null) return;
+        ResourceLocation glow = ChangedCreature.ChangedCreatureResourceLocationParse(fursuitItem.getArmorTextureGlowPath());
 
         VertexConsumer glowConsumer = bufferSource.getBuffer(RenderType.eyes(glow));
         model.renderToBuffer(poseStack, glowConsumer, packedLight,

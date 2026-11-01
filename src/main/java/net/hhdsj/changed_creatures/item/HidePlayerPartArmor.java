@@ -15,6 +15,10 @@ public abstract class HidePlayerPartArmor extends ArmorItem {
         return "";
     }
 
+    public String getArmorTextureGlowPath() {
+        return null;
+    }
+
     public abstract HumanoidFursuitModel createModelInstance();
 
     public HidePlayerPartArmor(Type type, Item.Properties properties) {
