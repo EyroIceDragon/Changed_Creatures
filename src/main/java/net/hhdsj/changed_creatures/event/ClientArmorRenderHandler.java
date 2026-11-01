@@ -48,8 +48,8 @@ public class ClientArmorRenderHandler {
                 model.leftSleeve.visible = false;
             }
             case LEGS -> {
-                //model.rightLeg.visible = false;
-                //model.leftLeg.visible = false;
+                model.rightLeg.visible = false;
+                model.leftLeg.visible = false;
                 model.rightPants.visible = false;
                 model.leftPants.visible = false;
             }
