@@ -2,6 +2,7 @@ package net.hhdsj.changed_creatures.mixin.Player;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.hhdsj.changed_creatures.ChangedCreature;
+import net.hhdsj.changed_creatures.client.item.FursuitArmorClientExtensions;
 import net.hhdsj.changed_creatures.client.models.armors.fursuit.HumanoidFursuitModel;
 import net.hhdsj.changed_creatures.item.HidePlayerPartArmor;
 import net.minecraft.client.model.geom.ModelPart;
@@ -25,6 +26,9 @@ public abstract class MixinPlayerRendererArm {
     @Unique
     private static HumanoidFursuitModel changed_creatures$cachedModel = null;
 
+    @Unique
+    private static Class<? extends HidePlayerPartArmor> changed_creatures$cachedArmorClass = null;
+
     @Inject(method = "renderRightHand", at = @At("HEAD"), cancellable = true)
     private void onRenderRightHand(PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, AbstractClientPlayer player, CallbackInfo ci) {
         if (changed_creatures$renderCustomArm(poseStack, bufferSource, packedLight, player, HumanoidArm.RIGHT)) {
@@ -47,8 +51,9 @@ public abstract class MixinPlayerRendererArm {
             return false;
         }
 
-        if (changed_creatures$cachedModel == null) {
-            changed_creatures$cachedModel = item.createModelInstance();
+        if (changed_creatures$cachedModel == null || changed_creatures$cachedArmorClass != item.getClass()) {
+            changed_creatures$cachedArmorClass = item.getClass();
+            changed_creatures$cachedModel = FursuitArmorClientExtensions.createModelInstance(item);
         }
 
         changed_creatures$cachedModel.attackTime = 0.0F;

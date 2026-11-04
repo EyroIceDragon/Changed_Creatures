@@ -15,7 +15,7 @@
   "client": [
     "client.gui.GuiMixin",
     "client.gui.InventoryScreenMixin",
-    "Player.ArmorGlowMixin",
+    "Player.HumanoidArmorLayerMixin",
     "Player.CrystalPlayerRendererMixin",
     "Player.HumanoidModelAccessor",
     "Player.HumanoidModelMixin",

@@ -1,6 +1,6 @@
 package net.hhdsj.changed_creatures.item;
 
-import net.hhdsj.changed_creatures.client.models.armors.fursuit.HumanoidFursuitModel;
+import net.hhdsj.changed_creatures.client.item.FursuitArmorClientExtensions;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -8,6 +8,12 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import net.minecraftforge.fml.DistExecutor;
+
+import java.util.function.Consumer;
 
 public abstract class HidePlayerPartArmor extends ArmorItem {
 
@@ -18,8 +24,6 @@ public abstract class HidePlayerPartArmor extends ArmorItem {
     public String getArmorTextureGlowPath() {
         return null;
     }
-
-    public abstract HumanoidFursuitModel createModelInstance();
 
     public HidePlayerPartArmor(Type type, Item.Properties properties) {
         super(new ArmorMaterial() {
@@ -51,6 +55,13 @@ public abstract class HidePlayerPartArmor extends ArmorItem {
             @Override
             public float getKnockbackResistance() { return 0f; }
         }, type, properties);
+    }
+
+    @Override
+    @OnlyIn(Dist.CLIENT)
+    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT,
+                () -> () -> consumer.accept(FursuitArmorClientExtensions.create(this)));
     }
 
     public boolean shouldHidePlayerModel(EquipmentSlot slot) {
