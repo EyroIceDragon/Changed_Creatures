@@ -3,12 +3,10 @@ package net.hhdsj.changed_creatures.client.models.armors.fursuit;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.hhdsj.changed_creatures.ChangedCreature;
-import net.hhdsj.changed_creatures.client.models.armors.fursuit.anim.TailPhysics;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 
 public class ModelFursuitProtogen extends HumanoidFursuitModel {
@@ -189,48 +187,16 @@ public class ModelFursuitProtogen extends HumanoidFursuitModel {
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
 
-	private final TailPhysics tailPhysics = new TailPhysics();
-
 	@Override
 	public void setupAnim(LivingEntity entity, float limbSwing, float limbSwingAmount,
 	                      float ageInTicks, float netHeadYaw, float headPitch) {
 		super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-
-		if (!(entity instanceof net.minecraft.world.entity.player.Player)) {
-			return;
-		}
-
-		float f = 1.0F;
-		if (entity.getFallFlyingTicks() > 4) {
-			f = (float) entity.getDeltaMovement().lengthSqr();
-			f /= 0.2F;
-			f *= f * f;
-		}
-		if (f < 1.0F) f = 1.0F;
-
-		float partialTicks = net.minecraft.client.Minecraft.getInstance().getFrameTime();
-		float[] phys = tailPhysics.update(entity, partialTicks);
-		float tailDrag = phys[0];
-		float verticalDrag = phys[1] * 0.4F;
-
-		this.Tail.xRot = 0.0F;
-		this.Tail.zRot = 0.0F;
-
-		float tailSway    = 0.1F * Mth.cos(ageInTicks * 0.083333336F + (float)(Math.PI / 4F));
-		float tailBalance = Mth.cos(limbSwing * 0.6662F) * 0.125F * limbSwingAmount / f;
-		this.Tail.yRot = Mth.lerp(limbSwingAmount, tailSway, tailBalance) + tailDrag * 0.75F;
-
-		applyJoint(this.TailPrimary,   ageInTicks, limbSwingAmount, 0.0F,  tailDrag, verticalDrag);
-		applyJoint(this.TailSecondary, ageInTicks, limbSwingAmount, 0.75F, tailDrag, verticalDrag);
-		applyJoint(this.TailTertiary,  ageInTicks, limbSwingAmount, 1.5F,  tailDrag, verticalDrag);
-	}
-
-	private void applyJoint(ModelPart joint, float ageInTicks, float limbSwingAmount,
-	                        float offset, float tailDrag, float verticalDrag) {
-		joint.yRot = Mth.lerp(limbSwingAmount,
-				0.1F * Mth.cos(ageInTicks * 0.083333336F - (float)(Math.PI / 3F) * offset),
-				0.0F) + tailDrag * 0.75F;
-		joint.xRot = -verticalDrag;
+//
+//		float swing = Mth.sin(ageInTicks * 0.15F) * 0.05F;
+//		this.Tail.yRot = swing * 0.2F;
+//		this.TailPrimary.yRot = swing * 0.4F;
+//		this.TailSecondary.yRot = swing * 0.6F;
+//		this.TailTertiary.yRot = swing * 0.7F;
 	}
 
 	@Override

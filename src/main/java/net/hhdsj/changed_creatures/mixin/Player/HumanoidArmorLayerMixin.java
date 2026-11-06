@@ -35,6 +35,7 @@ public abstract class HumanoidArmorLayerMixin<T extends LivingEntity, M extends 
     private void customRenderArmorPiece(
             PoseStack poseStack, MultiBufferSource buffer, LivingEntity entity,
             EquipmentSlot slot, int packedLight, A defaultModel, CallbackInfo ci) {
+        if (true) return;
 
         if (!(entity instanceof Player)) {
             return;

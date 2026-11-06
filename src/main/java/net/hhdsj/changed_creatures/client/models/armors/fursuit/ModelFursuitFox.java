@@ -7,7 +7,6 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 
 public class ModelFursuitFox extends HumanoidFursuitModel {
@@ -169,13 +168,11 @@ public class ModelFursuitFox extends HumanoidFursuitModel {
 	                      float ageInTicks, float netHeadYaw, float headPitch) {
 		super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
 
-		float swing = Mth.sin(ageInTicks * 0.15F) * 0.35F;
-		this.Tail.yRot = swing * 0.5F;
-		this.TailPrimary.yRot = swing * 0.8F;
-		this.TailSecondary.yRot = swing * 1.0F;
-		this.TailTertiary.yRot = swing * 1.2F;
-
-
+//		float swing = Mth.sin(ageInTicks * 0.15F) * 0.35F;
+//		this.Tail.yRot = swing * 0.5F;
+//		this.TailPrimary.yRot = swing * 0.8F;
+//		this.TailSecondary.yRot = swing * 1.0F;
+//		this.TailTertiary.yRot = swing * 1.2F;
 	}
 
 
