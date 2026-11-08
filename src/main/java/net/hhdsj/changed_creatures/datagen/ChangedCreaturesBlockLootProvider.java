@@ -103,7 +103,7 @@ public class ChangedCreaturesBlockLootProvider extends BlockLootSubProvider {
         simpleDrop(ChangedCreatureModBlocks.IRONHOT.get());
         simpleDrop(ChangedCreatureModBlocks.CATALYZER.get());
         simpleDrop(ChangedCreatureModBlocks.CRYO_SUBJECT_CHAMBER.get());
-        simpleDrop(ChangedCreatureModBlocks.MOLTEN_CRYSTAL.get());
+        simpleDrop(ChangedCreatureModBlocks.LATEX_MOLTEN_CRYSTAL.get());
 
         checkMissingBlockLootTables();
     }

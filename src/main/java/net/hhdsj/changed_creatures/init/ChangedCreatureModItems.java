@@ -27,6 +27,7 @@ public class ChangedCreatureModItems {
 	public static RegistryObject<Item> LATEX_DEEP_CRYSTAL_DRAGON_DOLL;
 	public static RegistryObject<Item> CRYO_SUBJECT_CHAMBER;
 	public static RegistryObject<Item> LATEX_DAWN_FUZZ_WALL;
+	public static RegistryObject<Item> LATEX_MOLTEN_CRYSTAL;
 	// 矿物块
 	public static RegistryObject<Item> SULPHURBLOCK;
 	public static RegistryObject<Item> NITREBLOCK;
@@ -119,6 +120,18 @@ public class ChangedCreatureModItems {
 	public static RegistryObject<Item> PAINITE_ARMOR_LEGGINGS;
 	public static RegistryObject<Item> PAINITE_ARMOR_BOOTS;
 
+    public static RegistryObject<Item> FURSUIT_PROTOGEN_HELMET;
+    public static RegistryObject<Item> FURSUIT_PROTOGEN_CHESTPLATE;
+    public static RegistryObject<Item> FURSUIT_PROTOGEN_LEGGINGS;
+
+    public static RegistryObject<Item> FURSUIT_FOX_HELMET;
+    public static RegistryObject<Item> FURSUIT_FOX_CHESTPLATE;
+    public static RegistryObject<Item> FURSUIT_FOX_LEGGINGS;
+
+	public static RegistryObject<Item> FURSUIT_EYRO_ICE_DRAGON_HELMET;
+	public static RegistryObject<Item> FURSUIT_EYRO_ICE_DRAGON_CHESTPLATE;
+	public static RegistryObject<Item> FURSUIT_EYRO_ICE_DRAGON_LEGGINGS;
+
 	// ==================== 静态代码块初始化 (Static Initialization) ====================
 
 	static {
@@ -132,6 +145,7 @@ public class ChangedCreatureModItems {
 		BLUEBLOCK = block(ChangedCreatureModBlocks.BLUEBLOCK);
 		BLACKBLOCK = block(ChangedCreatureModBlocks.BLACKBLOCK);
 		LATEX_DAWN_FUZZ_WALL = block(ChangedCreatureModBlocks.LATEX_DAWN_FUZZ_WALL);
+		LATEX_MOLTEN_CRYSTAL = block(ChangedCreatureModBlocks.LATEX_MOLTEN_CRYSTAL);
 
 		URANIUM_ORE = block(ChangedCreatureModBlocks.URANIUM_ORE);
 		BLUE_CRYSTALORE = block(ChangedCreatureModBlocks.BLUE_CRYSTALORE);
@@ -201,6 +215,18 @@ public class ChangedCreatureModItems {
 		PAINITE_ARMOR_CHESTPLATE = ITEMS.register("painite_armor_chestplate", PainiteArmorItem.Chestplate::new);
 		PAINITE_ARMOR_LEGGINGS = ITEMS.register("painite_armor_leggings", PainiteArmorItem.Leggings::new);
 		PAINITE_ARMOR_BOOTS = ITEMS.register("painite_armor_boots", PainiteArmorItem.Boots::new);
+
+        FURSUIT_PROTOGEN_HELMET = ITEMS.register("fursuit_protogen_helmet", FursuitProtogenItem.Helmet::new);
+        FURSUIT_PROTOGEN_CHESTPLATE = ITEMS.register("fursuit_protogen_chestplate", FursuitProtogenItem.Chestplate::new);
+        FURSUIT_PROTOGEN_LEGGINGS = ITEMS.register("fursuit_protogen_leggings", FursuitProtogenItem.Leggings::new);
+
+        FURSUIT_FOX_HELMET = ITEMS.register("fursuit_fox_helmet", FursuitFoxItem.Helmet::new);
+        FURSUIT_FOX_CHESTPLATE = ITEMS.register("fursuit_fox_chestplate", FursuitFoxItem.Chestplate::new);
+        FURSUIT_FOX_LEGGINGS = ITEMS.register("fursuit_fox_leggings", FursuitFoxItem.Leggings::new);
+
+		FURSUIT_EYRO_ICE_DRAGON_HELMET = ITEMS.register("fursuit_eyro_end_dragon_helmet", FursuitEyroIceDragonItem.Helmet::new);
+		FURSUIT_EYRO_ICE_DRAGON_CHESTPLATE = ITEMS.register("fursuit_eyro_end_dragon_chestplate", FursuitEyroIceDragonItem.Chestplate::new);
+		FURSUIT_EYRO_ICE_DRAGON_LEGGINGS = ITEMS.register("fursuit_eyro_end_dragon_leggings", FursuitEyroIceDragonItem.Leggings::new);
 
 		// -------------------- 唱片初始化 -------------------- //
         /*

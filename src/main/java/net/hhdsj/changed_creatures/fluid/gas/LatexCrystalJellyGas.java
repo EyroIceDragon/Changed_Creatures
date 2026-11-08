@@ -28,8 +28,8 @@ public class LatexCrystalJellyGas extends TransfurGas {
         return new Gas.GasFluidType(Gas.createProperties().descriptionId("latex_crystal_jelly_gas").rarity(Rarity.RARE)) {
             public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
                 consumer.accept(new IClientFluidTypeExtensions() {
-                    private static final ResourceLocation GAS_STILL = ChangedCreature.ModResource("block/latex_crystal_jelly_gas");
-                    private static final ResourceLocation GAS_FLOW = ChangedCreature.ModResource("block/latex_crystal_jelly_gas");
+                    private static final ResourceLocation GAS_STILL = ChangedCreature.CCRL("block/latex_crystal_jelly_gas");
+                    private static final ResourceLocation GAS_FLOW = ChangedCreature.CCRL("block/latex_crystal_jelly_gas");
 
                     public ResourceLocation getStillTexture() {
                         return GAS_STILL;

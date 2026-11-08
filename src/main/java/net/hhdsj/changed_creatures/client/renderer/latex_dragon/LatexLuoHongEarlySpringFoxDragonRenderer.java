@@ -8,7 +8,7 @@ import net.ltxprogrammer.changed.client.renderer.layers.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
-import net.hhdsj.changed_creatures.client.models.armors.ArmorLatexMaleWolfWingedDragonModel;
+import net.hhdsj.changed_creatures.client.models.armors.changed.ArmorLatexMaleWolfWingedDragonModel;
 
 public class LatexLuoHongEarlySpringFoxDragonRenderer extends AdvancedHumanoidRenderer<LatexLuoHongEarlySpringFoxDragonEntity, ModelLuoHongEarlySpringFoxDragon> {
     public LatexLuoHongEarlySpringFoxDragonRenderer(EntityRendererProvider.Context context) {

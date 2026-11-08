@@ -4,12 +4,9 @@ import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.ability.data.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 
 import java.util.List;
-import java.util.Map;
 
 public class DamageResistanceAbility extends AbstractAbility {
     @Override
@@ -28,24 +25,6 @@ public class DamageResistanceAbility extends AbstractAbility {
     public float getReduction(int level) {
         if (level <= 0) return 0.0F;
         return Math.min(REDUCTION_PER_LEVEL * level, MAX_REDUCTION);
-    }
-
-    @Override
-    public void onHurt(Player player, LivingEntity attacker, int level) {
-        if (level <= 0) return;
-        if (player.level().isClientSide) return;
-
-        PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
-        int cost = costExp(level);
-        int have = abilities.getPlayerExp();
-        if (have < cost) return;
-
-        abilities.reduceExp(cost);
-
-        if (player instanceof ServerPlayer sp) {
-            GlobalExpSyncPacket.send(sp);
-        }
-
     }
 
     @Override

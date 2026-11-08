@@ -16,7 +16,7 @@ public final class ChangedCreatureModTags {
         private static TagKey<TransfurVariant<?>> createTag(String name) {
             return TagKey.create(
                     ChangedRegistry.TRANSFUR_VARIANT.get().getRegistryKey(),
-                    ChangedCreature.ModResource(name)
+                    ChangedCreature.CCRL(name)
             );
         }
     }

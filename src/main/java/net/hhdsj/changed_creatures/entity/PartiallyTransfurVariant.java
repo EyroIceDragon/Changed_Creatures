@@ -89,6 +89,9 @@ public class PartiallyTransfurVariant {
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END) return;
+        if (1 == 1) {
+            return;
+        }
 
         Player player = event.player;
         UUID playerId = player.getUUID();

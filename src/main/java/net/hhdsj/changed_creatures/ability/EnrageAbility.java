@@ -19,7 +19,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+import java.util.WeakHashMap;
 
 public class EnrageAbility extends AbstractAbility {
 
@@ -34,7 +36,7 @@ public class EnrageAbility extends AbstractAbility {
                     "textures/gui/ability/latex_ability_enrage.png"
             );
 
-    private int time = 0;
+    private final Map<Player, Integer> timers = new WeakHashMap<>();
 
     public EnrageAbility() {
         super(Component.translatable("ability.changed_creatures.enrage.name"), 0xFFFFFF, 2);
@@ -57,10 +59,16 @@ public class EnrageAbility extends AbstractAbility {
         Level level = player.level();
         if (level.isClientSide) return;
 
-        if (ProcessTransfur.getPlayerTransfurVariant(player) == null) return;
+        if (ProcessTransfur.getPlayerTransfurVariant(player) == null) {
+            onRemove(player);
+            return;
+        }
         PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
         int have = abilities.getPlayerExp();
-        if (have < exp_level) return;
+        if (have < exp_level) {
+            onRemove(player);
+            return;
+        }
 
         float health = player.getHealth();
         float maxHealth = player.getMaxHealth();
@@ -69,25 +77,25 @@ public class EnrageAbility extends AbstractAbility {
         // 血量低于 50% 才触发狂化
         boolean enraged = ratio <= 0.5F;
 
-        if (this.time == 10) {
+        int time = timers.getOrDefault(player, 0);
+        if (time == 20 && enraged) {
             abilities.reduceExp(exp_level);
             if (player instanceof ServerPlayer sp) {
                 GlobalExpSyncPacket.send(sp);
             }
-            this.time = 0;
+            time = 0;
         }else{
-            this.time ++;
+            time++;
         }
+        timers.put(player, time);
 
-
-        System.out.println("Player now heath : " + ratio);
         AttributeInstance attack = player.getAttribute(Attributes.ATTACK_DAMAGE);
         AttributeInstance speed = player.getAttribute(Attributes.MOVEMENT_SPEED);
 
         if (attack != null) {
             attack.removeModifier(ENRAGE_ATTACK_UUID);
             if (enraged) {
-                double amount = 0.10D + exp_level * 0.10D; // 10% / 20% / 30%
+                double amount = 0.10D + exp_level * 0.15D; // 10% / 20% / 30%
                 attack.addTransientModifier(new AttributeModifier(
                         ENRAGE_ATTACK_UUID,
                         "changed_creatures.enrage_attack",
@@ -100,7 +108,7 @@ public class EnrageAbility extends AbstractAbility {
         if (speed != null) {
             speed.removeModifier(ENRAGE_SPEED_UUID);
             if (enraged) {
-                double amount = 0.05D + exp_level * 0.05D; // 5% / 10% / 15%
+                double amount = 0.05D + exp_level * 0.1D; // 5% / 10% / 15%
                 speed.addTransientModifier(new AttributeModifier(
                         ENRAGE_SPEED_UUID,
                         "changed_creatures.enrage_speed",
@@ -121,6 +129,20 @@ public class EnrageAbility extends AbstractAbility {
                     true
             ));
         }
+    }
+
+    @Override
+    public void onRemove(Player player) {
+        timers.remove(player);
+        removeModifiers(player);
+    }
+
+    private static void removeModifiers(Player player) {
+        AttributeInstance attack = player.getAttribute(Attributes.ATTACK_DAMAGE);
+        if (attack != null) attack.removeModifier(ENRAGE_ATTACK_UUID);
+
+        AttributeInstance speed = player.getAttribute(Attributes.MOVEMENT_SPEED);
+        if (speed != null) speed.removeModifier(ENRAGE_SPEED_UUID);
     }
 
     @Override

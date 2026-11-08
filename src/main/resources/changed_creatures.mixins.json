@@ -15,11 +15,12 @@
   "client": [
     "client.gui.GuiMixin",
     "client.gui.InventoryScreenMixin",
+    "Player.HumanoidArmorLayerMixin",
     "Player.CrystalPlayerRendererMixin",
     "Player.HumanoidModelAccessor",
     "Player.HumanoidModelMixin",
-    "Player.MixinParticlePlayerRenderer",
     "Player.MixinPlayerRenderer",
+    "Player.MixinPlayerRendererArm",
     "Player.PlayerRendererWindMixin"
   ],
   "server": [

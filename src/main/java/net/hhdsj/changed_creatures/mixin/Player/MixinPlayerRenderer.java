@@ -81,7 +81,6 @@ public abstract class MixinPlayerRenderer extends LivingEntityRenderer<AbstractC
                 }
         );
 
-        // ===== 2. 计算动画参数 =====
         float ageInTicks = player.tickCount + partialTicks;
         float limbSwing = player.walkAnimation.position(partialTicks);
         float limbSwingAmount = player.walkAnimation.speed(partialTicks);

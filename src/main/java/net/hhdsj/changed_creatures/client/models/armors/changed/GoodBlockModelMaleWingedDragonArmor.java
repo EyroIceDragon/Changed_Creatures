@@ -1,4 +1,4 @@
-package net.hhdsj.changed_creatures.client.models.armors;
+package net.hhdsj.changed_creatures.client.models.armors.changed;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;

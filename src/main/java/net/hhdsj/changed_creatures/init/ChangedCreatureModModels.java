@@ -6,8 +6,11 @@ package net.hhdsj.changed_creatures.init;
 
 import net.hhdsj.changed_creatures.client.models.ModelProtogenNyxarix;
 import net.hhdsj.changed_creatures.client.models.animals.bot.ModelLatexAgmisnBot;
-import net.hhdsj.changed_creatures.client.models.armors.ArmorLatexMaleWolfWingedDragonModel;
-import net.hhdsj.changed_creatures.client.models.armors.ArmorProtogenNyxarixWaterSquidDogModel;
+import net.hhdsj.changed_creatures.client.models.armors.changed.ArmorLatexMaleWolfWingedDragonModel;
+import net.hhdsj.changed_creatures.client.models.armors.changed.ArmorProtogenNyxarixWaterSquidDogModel;
+import net.hhdsj.changed_creatures.client.models.armors.fursuit.ModelFursuitProtogen;
+import net.hhdsj.changed_creatures.client.models.armors.fursuit.ModelFursuitFox;
+import net.hhdsj.changed_creatures.client.models.armors.fursuit.ModelFursuitEyroIceDragon;
 import net.hhdsj.changed_creatures.client.models.boss.ModelLatexIceFieldWolfDragonBoss;
 import net.hhdsj.changed_creatures.client.models.latex_taur.ModelLatexFrostScaleDragonTaur;
 import net.hhdsj.changed_creatures.client.models.latex_wolf_dragon.ModelLatexXuanJinWolfDragon;
@@ -27,7 +30,7 @@ import net.hhdsj.changed_creatures.client.models.latex_shark.ModelLatexQianGuiSh
 import net.hhdsj.changed_creatures.client.models.latex_taur.ModelLatexDarkPurpleDragonTaur;
 import net.hhdsj.changed_creatures.client.models.latex_wolf.*;
 import net.hhdsj.changed_creatures.client.models.other.CrystalJavelinModel;
-import net.hhdsj.changed_creatures.client.models.armors.GoodBlockModelMaleWingedDragonArmor;
+import net.hhdsj.changed_creatures.client.models.armors.changed.GoodBlockModelMaleWingedDragonArmor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -100,6 +103,10 @@ public class ChangedCreatureModModels {
 		event.registerLayerDefinition(ModelLatexPeanutButterWolf.LAYER_LOCATION, ModelLatexPeanutButterWolf::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexIngerteFox.LAYER_LOCATION, ModelLatexIngerteFox::createBodyLayer);
 		event.registerLayerDefinition(ModelLatexAgmisnBot.LAYER_LOCATION, ModelLatexAgmisnBot::createBodyLayer);
+		event.registerLayerDefinition(ModelFursuitProtogen.LAYER_LOCATION,ModelFursuitProtogen::createBodyLayer);
+		event.registerLayerDefinition(ModelFursuitFox.LAYER_LOCATION, ModelFursuitFox::createBodyLayer);
+		event.registerLayerDefinition(ModelFursuitEyroIceDragon.LAYER_LOCATION,
+				ModelFursuitEyroIceDragon::createBodyLayer);
 
 	}
 

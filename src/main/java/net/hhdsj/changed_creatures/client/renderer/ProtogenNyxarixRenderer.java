@@ -2,7 +2,7 @@ package net.hhdsj.changed_creatures.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.hhdsj.changed_creatures.client.models.ModelProtogenNyxarix;
-import net.hhdsj.changed_creatures.client.models.armors.ArmorProtogenNyxarixWaterSquidDogModel;
+import net.hhdsj.changed_creatures.client.models.armors.changed.ArmorProtogenNyxarixWaterSquidDogModel;
 import net.hhdsj.changed_creatures.entity.simple.ProtogenNyxarixEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.*;

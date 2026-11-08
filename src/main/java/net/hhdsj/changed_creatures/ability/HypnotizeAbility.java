@@ -19,8 +19,10 @@ import net.minecraft.world.level.Level;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import java.util.WeakHashMap;
 
 public class HypnotizeAbility extends AbstractAbility {
 
@@ -29,7 +31,7 @@ public class HypnotizeAbility extends AbstractAbility {
 
     //技能图标
     private final ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(ChangedCreature.MODID,"textures/gui/ability/latex_ability_hypnotize.png");
-    private final Set<UUID> attackedPlayers = new HashSet<>();
+    private final Map<Player, Set<UUID>> attackedPlayers = new WeakHashMap<>();
 
     public HypnotizeAbility() {
         super(Component.translatable("ability.changed_creatures.hypnotize.name"), 0xFFFFFF, 2);
@@ -47,11 +49,19 @@ public class HypnotizeAbility extends AbstractAbility {
         if (level.isClientSide) return;
 
         var playerVariantInstance = ProcessTransfur.getPlayerTransfurVariant(player);
-        if (playerVariantInstance == null) return;
+        if (playerVariantInstance == null) {
+            attackedPlayers.remove(player);
+            return;
+        }
 
         TransfurVariant<?> playerVariant = playerVariantInstance.getParent();
-        if (playerVariant == null) return;
+        if (playerVariant == null) {
+            attackedPlayers.remove(player);
+            return;
+        }
 
+        Set<UUID> playerAttackedPlayers =
+                attackedPlayers.computeIfAbsent(player, ignored -> new HashSet<>());
         List<Player> targets = level.getEntitiesOfClass(
                 Player.class,
                 player.getBoundingBox().inflate(3.0D + exp_level),
@@ -59,12 +69,12 @@ public class HypnotizeAbility extends AbstractAbility {
                         && e.isAlive()
                         && player.hasLineOfSight(e)
                         && TransfurVariant.getEntityVariant(e) == null
-                        && attackedPlayers.contains(e.getUUID())
+                        && playerAttackedPlayers.contains(e.getUUID())
         );
 
         Set<UUID> validIds = new HashSet<>();
         for (Player p : targets) validIds.add(p.getUUID());
-        attackedPlayers.retainAll(validIds);
+        playerAttackedPlayers.retainAll(validIds);
 
         for (Player target : targets) {
 
@@ -107,12 +117,18 @@ public class HypnotizeAbility extends AbstractAbility {
         if (exp_level == 0) return;
 
         if (target instanceof Player targetPlayer && targetPlayer != player) {
-            attackedPlayers.add(targetPlayer.getUUID());
+            attackedPlayers.computeIfAbsent(player, ignored -> new HashSet<>())
+                    .add(targetPlayer.getUUID());
             if (targetPlayer instanceof ServerPlayer sp) {
                 HypnotizeMarkPacket.sendTo(sp, player.getUUID(), exp_level);
             }
         }
 
+    }
+
+    @Override
+    public void onRemove(Player player) {
+        attackedPlayers.remove(player);
     }
 
     @Override

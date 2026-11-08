@@ -79,6 +79,7 @@ public class ChangedCreatureModTabs {
 			tabData.accept(ChangedCreatureModBlocks.LATEX_CRYSTAL_JELLY_GAS_CANISTER.get().asItem());
 			//tabData.accept(ChangedCreatureModBlocks.CRYO_SUBJECT_CHAMBER.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.LATEX_DAWN_FUZZ_WALL.get().asItem());
+			tabData.accept(ChangedCreatureModBlocks.LATEX_MOLTEN_CRYSTAL.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.LATEX_DEEP_CRYSTAL_DRAGON_DOLL.get().asItem());
 		} else if (tabData.getTabKey() == ITEM.getKey()) {
 			tabData.accept(ChangedCreatureModItems.PAINITESWORD.get());
@@ -108,6 +109,17 @@ public class ChangedCreatureModTabs {
 			tabData.accept(ChangedCreatureModItems.PAINITE_ARMOR_CHESTPLATE.get());
 			tabData.accept(ChangedCreatureModItems.PAINITE_ARMOR_LEGGINGS.get());
 			tabData.accept(ChangedCreatureModItems.PAINITE_ARMOR_BOOTS.get());
+			tabData.accept(ChangedCreatureModItems.FURSUIT_PROTOGEN_HELMET);
+			tabData.accept(ChangedCreatureModItems.FURSUIT_PROTOGEN_CHESTPLATE);
+			tabData.accept(ChangedCreatureModItems.FURSUIT_PROTOGEN_LEGGINGS);
+
+			tabData.accept(ChangedCreatureModItems.FURSUIT_FOX_HELMET);
+			tabData.accept(ChangedCreatureModItems.FURSUIT_FOX_CHESTPLATE);
+			tabData.accept(ChangedCreatureModItems.FURSUIT_FOX_LEGGINGS);
+
+			tabData.accept(ChangedCreatureModItems.FURSUIT_EYRO_ICE_DRAGON_HELMET);
+			tabData.accept(ChangedCreatureModItems.FURSUIT_EYRO_ICE_DRAGON_CHESTPLATE);
+			tabData.accept(ChangedCreatureModItems.FURSUIT_EYRO_ICE_DRAGON_LEGGINGS);
 		} else if (tabData.getTabKey() == LATEX_ITEM.getKey()) {
 			tabData.accept(ChangedCreatureModItems.LATEX_FILLED_ALL_MUG_ITEM.get());
 			try {
