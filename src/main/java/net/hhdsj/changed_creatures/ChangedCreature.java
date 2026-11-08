@@ -88,24 +88,65 @@ public class ChangedCreature {
 		event.register(IAbilityData.class);
 	}
 
-	public static ResourceLocation ChangedCreatureResourceLocation(String path){
-		return ResourceLocation.fromNamespaceAndPath(MODID, path);
-	}
+
+
+	/**
+	 * 用本模组命名空间(MODID)创建 ResourceLocation。
+	 * @param path 资源路径，例如 "textures/entity/creature.png"
+	 * @return 命名空间为 MODID、路径为 path 的 ResourceLocation
+	 */
 	public static ResourceLocation CCRL(String path){
 		return ResourceLocation.fromNamespaceAndPath(MODID, path);
 	}
+
+	/**
+	 * 用指定命名空间和路径创建 ResourceLocation。
+	 * @param namespace 命名空间，例如 "minecraft"
+	 * @param path      资源路径
+	 * @return 对应的 ResourceLocation
+	 */
 	public static ResourceLocation CCRL(String namespace,String path){
 		return ResourceLocation.fromNamespaceAndPath(namespace, path);
 	}
+
+	/**
+	 * 解析 "namespace:path" 格式的字符串为 ResourceLocation。
+	 * @param txt 完整资源字符串，例如 "minecraft:block/dirt"
+	 * @return 解析后的 ResourceLocation
+	 */
+	public static ResourceLocation CCRLP(String txt){
+		return ResourceLocation.parse(txt);
+	}
+
+	/**
+	 * 语义化别名：用本模组命名空间(MODID)创建 ResourceLocation。
+	 * @param path 资源路径
+	 * @return 命名空间为 MODID 的 ResourceLocation
+	 */
+	public static ResourceLocation ChangedCreatureResourceLocation(String path){
+		return ResourceLocation.fromNamespaceAndPath(MODID, path);
+	}
+
+	/**
+	 * 语义化别名：解析 "namespace:path" 字符串为 ResourceLocation。
+	 * @param txt 完整资源字符串
+	 * @return 解析后的 ResourceLocation
+	 */
 	public static ResourceLocation ChangedCreatureResourceLocationParse(String txt){
 		return ResourceLocation.parse(txt);
 	}
-	public static ModelLayerLocation ChangedCreatureModelResourceLocation(String path){
-        return new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(MODID, path),"main");
-	}
 
-	public static ResourceLocation ModResource(String Path){
-		return ResourceLocation.fromNamespaceAndPath(MODID, Path);
+	/**
+	 * 创建 Changed Creature 实体的模型层定位（ModelLayerLocation）。
+	 * 命名空间固定为 MODID，模型层标识固定为 "main"。
+	 * 注意：该方法仅创建定位对象，还需在
+	 * {@code EntityRenderersEvent.RegisterLayerDefinitions} 事件中注册对应的 LayerDefinition。
+	 *
+	 * @param path 模型层路径，通常与实体注册名一致，例如 "creature"
+	 * @return 一个 ModelLayerLocation，其 ResourceLocation 为 MODID:path，层标识为 "main"
+	 */
+	public static ModelLayerLocation ChangedCreatureModelResourceLocation(String path){
+		return new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(MODID, path),"main");
 	}
 
 	private void registerPackets() {

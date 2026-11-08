@@ -123,12 +123,14 @@ public class ChangedCreatureModItems {
     public static RegistryObject<Item> FURSUIT_PROTOGEN_HELMET;
     public static RegistryObject<Item> FURSUIT_PROTOGEN_CHESTPLATE;
     public static RegistryObject<Item> FURSUIT_PROTOGEN_LEGGINGS;
-    public static RegistryObject<Item> FURSUIT_PROTOGEN_BOOTS;
 
     public static RegistryObject<Item> FURSUIT_FOX_HELMET;
     public static RegistryObject<Item> FURSUIT_FOX_CHESTPLATE;
     public static RegistryObject<Item> FURSUIT_FOX_LEGGINGS;
-    public static RegistryObject<Item> FURSUIT_FOX_BOOTS;
+
+	public static RegistryObject<Item> FURSUIT_EYRO_ICE_DRAGON_HELMET;
+	public static RegistryObject<Item> FURSUIT_EYRO_ICE_DRAGON_CHESTPLATE;
+	public static RegistryObject<Item> FURSUIT_EYRO_ICE_DRAGON_LEGGINGS;
 
 	// ==================== 静态代码块初始化 (Static Initialization) ====================
 
@@ -217,12 +219,14 @@ public class ChangedCreatureModItems {
         FURSUIT_PROTOGEN_HELMET = ITEMS.register("fursuit_protogen_helmet", FursuitProtogenItem.Helmet::new);
         FURSUIT_PROTOGEN_CHESTPLATE = ITEMS.register("fursuit_protogen_chestplate", FursuitProtogenItem.Chestplate::new);
         FURSUIT_PROTOGEN_LEGGINGS = ITEMS.register("fursuit_protogen_leggings", FursuitProtogenItem.Leggings::new);
-        FURSUIT_PROTOGEN_BOOTS = ITEMS.register("fursuit_protogen_boots", FursuitProtogenItem.Boots::new);
 
         FURSUIT_FOX_HELMET = ITEMS.register("fursuit_fox_helmet", FursuitFoxItem.Helmet::new);
         FURSUIT_FOX_CHESTPLATE = ITEMS.register("fursuit_fox_chestplate", FursuitFoxItem.Chestplate::new);
         FURSUIT_FOX_LEGGINGS = ITEMS.register("fursuit_fox_leggings", FursuitFoxItem.Leggings::new);
-        FURSUIT_FOX_BOOTS = ITEMS.register("fursuit_fox_boots", FursuitFoxItem.Boots::new);
+
+		FURSUIT_EYRO_ICE_DRAGON_HELMET = ITEMS.register("fursuit_eyro_end_dragon_helmet", FursuitEyroIceDragonItem.Helmet::new);
+		FURSUIT_EYRO_ICE_DRAGON_CHESTPLATE = ITEMS.register("fursuit_eyro_end_dragon_chestplate", FursuitEyroIceDragonItem.Chestplate::new);
+		FURSUIT_EYRO_ICE_DRAGON_LEGGINGS = ITEMS.register("fursuit_eyro_end_dragon_leggings", FursuitEyroIceDragonItem.Leggings::new);
 
 		// -------------------- 唱片初始化 -------------------- //
         /*

@@ -1,6 +1,7 @@
 package net.hhdsj.changed_creatures.client.item;
 
 import net.hhdsj.changed_creatures.client.models.armors.fursuit.HumanoidFursuitModel;
+import net.hhdsj.changed_creatures.client.models.armors.fursuit.ModelFursuitEyroIceDragon;
 import net.hhdsj.changed_creatures.client.models.armors.fursuit.ModelFursuitFox;
 import net.hhdsj.changed_creatures.client.models.armors.fursuit.ModelFursuitProtogen;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModItems;
@@ -31,8 +32,6 @@ public final class FursuitArmorModelRegistry {
                 FursuitArmorModelRegistry::createProtogenModel);
         register(ChangedCreatureModItems.FURSUIT_PROTOGEN_LEGGINGS.get(),
                 FursuitArmorModelRegistry::createProtogenModel);
-        register(ChangedCreatureModItems.FURSUIT_PROTOGEN_BOOTS.get(),
-                FursuitArmorModelRegistry::createProtogenModel);
 
         register(ChangedCreatureModItems.FURSUIT_FOX_HELMET.get(),
                 FursuitArmorModelRegistry::createFoxModel);
@@ -40,8 +39,13 @@ public final class FursuitArmorModelRegistry {
                 FursuitArmorModelRegistry::createFoxModel);
         register(ChangedCreatureModItems.FURSUIT_FOX_LEGGINGS.get(),
                 FursuitArmorModelRegistry::createFoxModel);
-        register(ChangedCreatureModItems.FURSUIT_FOX_BOOTS.get(),
-                FursuitArmorModelRegistry::createFoxModel);
+
+        register(ChangedCreatureModItems.FURSUIT_EYRO_ICE_DRAGON_HELMET.get(),
+                FursuitArmorModelRegistry::createEyroIceDragonModel);
+        register(ChangedCreatureModItems.FURSUIT_EYRO_ICE_DRAGON_CHESTPLATE.get(),
+                FursuitArmorModelRegistry::createEyroIceDragonModel);
+        register(ChangedCreatureModItems.FURSUIT_EYRO_ICE_DRAGON_LEGGINGS.get(),
+                FursuitArmorModelRegistry::createEyroIceDragonModel);
     }
 
     public static void register(Item item, Supplier<? extends HumanoidFursuitModel> modelFactory) {
@@ -64,7 +68,12 @@ public final class FursuitArmorModelRegistry {
     }
 
     private static HumanoidFursuitModel createFoxModel() {
-        return new ModelFursuitProtogen(
+        return new ModelFursuitFox(
                 Minecraft.getInstance().getEntityModels().bakeLayer(ModelFursuitFox.LAYER_LOCATION));
+    }
+
+    private static HumanoidFursuitModel createEyroIceDragonModel() {
+        return new ModelFursuitEyroIceDragon(
+                Minecraft.getInstance().getEntityModels().bakeLayer(ModelFursuitEyroIceDragon.LAYER_LOCATION));
     }
 }

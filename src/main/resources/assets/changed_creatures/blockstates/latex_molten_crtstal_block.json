@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "changed_creatures:block/latex_molten_crtstal_block"
+    }
+  }
+}

@@ -20,7 +20,7 @@ public class ArmorSlotRestrictionHandler {
         if (event.phase != TickEvent.Phase.END) return;
 
         Player player = event.player;
-        if (player.isCreative() || player.isSpectator()) return;
+        //if (player.isCreative() || player.isSpectator()) return;
 
         boolean transfurred = ProcessTransfur.getPlayerTransfurVariant(player) != null;
 
@@ -35,6 +35,7 @@ public class ArmorSlotRestrictionHandler {
             // transfur 状态下，任何 HidePlayerPartArmor 都不许穿
             if (transfurred && stack.getItem() instanceof HidePlayerPartArmor) {
                 shouldRemove = true;
+                System.out.println("脱下 ： " + stack.getItem());
             }
 
             // 任何情况下，只要 LEGS 槽是兽装护腿，就把 FEET 槽的鞋子脱掉

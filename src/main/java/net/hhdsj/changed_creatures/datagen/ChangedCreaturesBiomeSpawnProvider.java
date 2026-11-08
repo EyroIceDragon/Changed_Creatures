@@ -101,7 +101,7 @@ public class ChangedCreaturesBiomeSpawnProvider implements DataProvider {
             root.add("spawners", spawners);
 
             Path path = output.getOutputFolder(PackOutput.Target.DATA_PACK)
-                    .resolve("data/changed_creatures/forge/biome_modifier/" + keys[i] + "_spawners.json");
+                    .resolve("changed_creatures/forge/biome_modifier/" + keys[i] + "_spawners.json");
             futures.add(DataProvider.saveStable(cache, root, path));
         }
 

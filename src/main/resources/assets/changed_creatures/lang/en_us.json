@@ -365,5 +365,6 @@
   "ability.changed_creatures.poison_resistance.whisper.1": "§8……You begin to adapt to this sensation.",
   "ability.changed_creatures.poison_resistance.whisper.2": "§8……You gradually become immune to poison.",
   "advancements.changed_creatures.latex_fuzz.title": "What a Fuzz?",
-  "advancements.changed_creatures.latex_fuzz.descr": "Obtain a piece of Latex Dawn Fuzz"
+  "advancements.changed_creatures.latex_fuzz.descr": "Obtain a piece of Latex Dawn Fuzz",
+  "": "qwq"
 }

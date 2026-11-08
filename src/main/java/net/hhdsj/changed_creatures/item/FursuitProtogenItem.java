@@ -41,8 +41,4 @@ public abstract class FursuitProtogenItem extends HidePlayerPartArmor {
     public static class Leggings extends FursuitProtogenItem {
         public Leggings() { super(ArmorItem.Type.LEGGINGS, new Item.Properties().fireResistant()); }
     }
-
-    public static class Boots extends FursuitProtogenItem {
-        public Boots() { super(ArmorItem.Type.BOOTS, new Item.Properties().fireResistant()); }
-    }
 }

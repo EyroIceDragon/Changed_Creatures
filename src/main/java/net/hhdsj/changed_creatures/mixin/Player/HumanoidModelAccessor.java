@@ -10,19 +10,4 @@ public interface HumanoidModelAccessor {
 
     @Accessor("body")
     ModelPart getBody();
-
-    @Accessor("head")
-    ModelPart getHead();
-
-    @Accessor("leftArm")
-    ModelPart getLeftArm();
-
-    @Accessor("rightArm")
-    ModelPart getRightArm();
-
-    @Accessor("leftLeg")
-    ModelPart getLeftLeg();
-
-    @Accessor("rightLeg")
-    ModelPart getRightLeg();
 }
