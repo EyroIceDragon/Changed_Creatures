@@ -19,7 +19,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -71,12 +70,29 @@ public class AbilityScreen extends Screen {
     private int panelY;
     private int check_exp;
     private final Map<ResourceLocation, Button[]> abilityButtons = new HashMap<>();
+    private static List<ResourceLocation> syncedVariantAbilities;
 
     public AbilityScreen() {
         super(Component.translatable(KEY_TITLE));
     }
 
-    private List<RegistryObject<AbstractAbility>> getVariantAbilities() {
+    public static void setSyncedVariantAbilities(List<ResourceLocation> abilityIds) {
+        List<ResourceLocation> updatedAbilities = List.copyOf(abilityIds);
+        if (updatedAbilities.equals(syncedVariantAbilities)) return;
+
+        syncedVariantAbilities = updatedAbilities;
+        if (Minecraft.getInstance().screen instanceof AbilityScreen screen) {
+            screen.resize(Minecraft.getInstance(), screen.width, screen.height);
+        }
+    }
+
+    private List<ResourceLocation> getVariantAbilities() {
+        if (syncedVariantAbilities != null) {
+            return syncedVariantAbilities.size() > SLOT_COUNT
+                    ? syncedVariantAbilities.subList(0, SLOT_COUNT)
+                    : syncedVariantAbilities;
+        }
+
         Player player = Minecraft.getInstance().player;
         if (player == null) return List.of();
 
@@ -89,7 +105,7 @@ public class AbilityScreen extends Screen {
         ResourceLocation variantId = ChangedRegistry.TRANSFUR_VARIANT.get().getKey(variant);
         if (variantId == null) return List.of();
 
-        List<RegistryObject<AbstractAbility>> abilities = VariantAbilityMap.getFor(variantId);
+        List<ResourceLocation> abilities = VariantAbilityMap.getFor(variantId);
 
         return abilities.size() > SLOT_COUNT
                 ? abilities.subList(0, SLOT_COUNT)
@@ -113,18 +129,19 @@ public class AbilityScreen extends Screen {
 
         abilityButtons.clear();
 
-        List<RegistryObject<AbstractAbility>> abilities = getVariantAbilities();
+        List<ResourceLocation> abilities = getVariantAbilities();
 
         for (int i = 0; i < abilities.size(); i++) {
-            RegistryObject<AbstractAbility> obj = abilities.get(i);
-            AbstractAbility ability = obj.get();
+            ResourceLocation id = abilities.get(i);
+            AbstractAbility ability = AbilityRegistry.get(id);
+            if (ability == null) continue;
 
             int rowY = this.panelY + ROW_START_Y + i * ROW_HEIGHT;
             int btnX = this.panelX + ROW_START_X + IMG_WIDTH + BTN_GAP - 4;
             int btnY = rowY + IMG_HEIGHT / 2;
 
-            Button[] pair = addAbilityButtons(btnX, btnY, obj, ability);
-            abilityButtons.put(obj.getId(), pair);
+            Button[] pair = addAbilityButtons(btnX, btnY, id, ability);
+            abilityButtons.put(id, pair);
         }
     }
 
@@ -141,9 +158,8 @@ public class AbilityScreen extends Screen {
     }
 
     private Button[] addAbilityButtons(int btnX, int btnY,
-                                       RegistryObject<AbstractAbility> obj,
+                                       ResourceLocation id,
                                        AbstractAbility ability) {
-        ResourceLocation id = obj.getId();
         boolean owned = playerHasAbility(id);
 
 
@@ -180,9 +196,9 @@ public class AbilityScreen extends Screen {
 
         PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
 
-        for (RegistryObject<AbstractAbility> obj : getVariantAbilities()) {
-            ResourceLocation id = obj.getId();
-            AbstractAbility ability = obj.get();
+        for (ResourceLocation id : getVariantAbilities()) {
+            AbstractAbility ability = AbilityRegistry.get(id);
+            if (ability == null) continue;
             Button[] pair = abilityButtons.get(id);
             if (pair == null) continue;
 
@@ -272,7 +288,7 @@ public class AbilityScreen extends Screen {
                 Component.translatable(KEY_PLAYER_EXP, AbilityUseExp.getPlayerExp(player)),
                 this.panelX + 15, this.panelY + 40, 0xAAAAAA, false);
 
-        List<RegistryObject<AbstractAbility>> abilities = getVariantAbilities();
+        List<ResourceLocation> abilities = getVariantAbilities();
 
         for (int i = 0; i < SLOT_COUNT; i++) {
             int rowY = this.panelY + ROW_START_Y + i * ROW_HEIGHT;
@@ -283,9 +299,12 @@ public class AbilityScreen extends Screen {
                 continue;
             }
 
-            RegistryObject<AbstractAbility> obj = abilities.get(i);
-            AbstractAbility ability = obj.get();
-            ResourceLocation id = obj.getId();
+            ResourceLocation id = abilities.get(i);
+            AbstractAbility ability = AbilityRegistry.get(id);
+            if (ability == null) {
+                renderEmptySlot(graphics, rowX, rowY);
+                continue;
+            }
             boolean owned = playerHasAbility(id);
 
             int level = getLevel(id);

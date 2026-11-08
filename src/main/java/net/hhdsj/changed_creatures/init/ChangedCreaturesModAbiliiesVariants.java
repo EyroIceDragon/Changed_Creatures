@@ -1,27 +1,29 @@
 package net.hhdsj.changed_creatures.init;
 
-import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.ability.data.AbstractAbility;
 import net.hhdsj.changed_creatures.ability.data.VariantAbilityMap;
+import net.ltxprogrammer.changed.entity.variant.TransfurVariant;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 
 public class ChangedCreaturesModAbiliiesVariants {
-    final static List<RegistryObject<AbstractAbility>> ABILITY_TEST = List.of(
+    public static final List<RegistryObject<AbstractAbility>> ABILITY_TEST = List.of(
             ChangedCreaturesModNewAbiliies.HYPNOSIE,
             ChangedCreaturesModNewAbiliies.ELECTRIC_RESISTANCE,
             ChangedCreaturesModNewAbiliies.DAMAGE_RESISTANCE,
             ChangedCreaturesModNewAbiliies.POISON_RESISTANCE
     );
+    public static final List<RegistryObject<? extends TransfurVariant<?>>> ABILITY_TEST_VARIANTS = List.of(
+            ChangedCreatureModTransfurVariants.LATEX_EYRO_END_DRAGON,
+            ChangedCreatureModTransfurVariants.LATEX_FROST_SCALE_DRAGON_TAUR
+    );
+
     public static void bindAll() {
-        VariantAbilityMap.register(
-                ChangedCreatureModTransfurVariants.LATEX_EYRO_END_DRAGON.getId(),
-                ABILITY_TEST
-        );
-        VariantAbilityMap.register(
-                ChangedCreatureModTransfurVariants.LATEX_FROST_SCALE_DRAGON_TAUR.getId(),
-                ABILITY_TEST
-        );
+        List<ResourceLocation> abilityIds = ABILITY_TEST.stream().map(RegistryObject::getId).toList();
+        for (RegistryObject<? extends TransfurVariant<?>> variant : ABILITY_TEST_VARIANTS) {
+            VariantAbilityMap.registerIds(variant.getId(), abilityIds);
+        }
     }
 }

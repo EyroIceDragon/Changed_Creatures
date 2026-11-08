@@ -13,7 +13,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.network.PacketDistributor;
-import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -107,7 +106,7 @@ public class AbilitiesMessage {
 		ResourceLocation variantId = ChangedRegistry.TRANSFUR_VARIANT.get().getKey(variant);
 		if (variantId == null) return false;
 
-		List<RegistryObject<AbstractAbility>> list = VariantAbilityMap.getFor(variantId);
-		return list.stream().anyMatch(obj -> obj.getId().equals(abilityId));
+		List<ResourceLocation> list = VariantAbilityMap.getFor(variantId);
+		return list.contains(abilityId);
 	}
 }
