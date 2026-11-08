@@ -27,7 +27,7 @@ import java.util.List;
 
 public class ArmorProtogenNyxarixWaterSquidDogModel<T extends ChangedEntity> extends LatexHumanoidArmorModel<T, ArmorProtogenNyxarixWaterSquidDogModel<T>> implements DoubleArmedModel<T> {
     public static final ArmorModelSet<ChangedEntity, ArmorProtogenNyxarixWaterSquidDogModel<ChangedEntity>> MODEL_SET =
-            ArmorModelSet.of(ChangedCreature.ModResource("armor_protogen_nyxarix_water_squid_dog_unified"), ArmorProtogenNyxarixWaterSquidDogModel::createArmorLayer, ArmorProtogenNyxarixWaterSquidDogModel::new);
+            ArmorModelSet.of(ChangedCreature.CCRL("armor_protogen_nyxarix_water_squid_dog_unified"), ArmorProtogenNyxarixWaterSquidDogModel::createArmorLayer, ArmorProtogenNyxarixWaterSquidDogModel::new);
 
     private final ModelPart Head;
     private final ModelPart Torso;

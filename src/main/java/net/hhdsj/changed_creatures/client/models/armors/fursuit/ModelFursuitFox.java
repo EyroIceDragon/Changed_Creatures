@@ -12,9 +12,8 @@ import net.minecraft.world.entity.LivingEntity;
 public class ModelFursuitFox extends HumanoidFursuitModel {
 
 	public static final ModelLayerLocation LAYER_LOCATION =
-			ChangedCreature.ChangedCreatureModelResourceLocation("model_fursuit_protogen");
+			ChangedCreature.ChangedCreatureModelResourceLocation("model_fursuit_fox");
 
-	// 原版标准字段（HumanoidModel 已有，这里保留引用方便阅读；实际可直接用 super 的）
 	private final ModelPart head;
 	private final ModelPart hat;
 	private final ModelPart body;
@@ -167,18 +166,16 @@ public class ModelFursuitFox extends HumanoidFursuitModel {
 	public void setupAnim(LivingEntity entity, float limbSwing, float limbSwingAmount,
 	                      float ageInTicks, float netHeadYaw, float headPitch) {
 		super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-
-//		float swing = Mth.sin(ageInTicks * 0.15F) * 0.35F;
-//		this.Tail.yRot = swing * 0.5F;
-//		this.TailPrimary.yRot = swing * 0.8F;
-//		this.TailSecondary.yRot = swing * 1.0F;
-//		this.TailTertiary.yRot = swing * 1.2F;
 	}
 
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight,
-	                           int packedOverlay, float red, float green, float blue, float alpha) {
-		super.renderToBuffer(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		rightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		leftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }

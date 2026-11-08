@@ -11,14 +11,12 @@ import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 import java.util.Map;
 
 @Mod.EventBusSubscriber(modid = ChangedCreature.MODID)
 public class AbilityEvents {
-
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END) return;
@@ -34,10 +32,13 @@ public class AbilityEvents {
             var id = entry.getKey();
             AbilityData data = entry.getValue();
 
-            if (data.level <= 0) continue;
-
             AbstractAbility ability = AbilityRegistry.get(id);
             if (ability == null) continue;
+
+            if (data.level <= 0) {
+                ability.onRemove(player);
+                continue;
+            }
 
             ability.onTick(player, data.level);
         }
@@ -65,10 +66,6 @@ public class AbilityEvents {
         sendPlayerAbilityData(player);
     }
 
-    private static List<RegistryObject<AbstractAbility>> getDefaultAbilitiesForPlayer(Player player) {
-        return VariantAbilityMap.DEFAULT_ABILITIES;
-    }
-
     public static void sendPlayerAbilityData(Player player) {
         if (player.level().isClientSide()) return;
         if (!(player instanceof ServerPlayer sp)) return;
@@ -76,27 +73,24 @@ public class AbilityEvents {
         var instance = ProcessTransfur.getPlayerTransfurVariant(player);
 
         if (instance == null) {
-            ChangedCreature.LOGGER.info("[ChangedCreatures] Player {} logged in without transfur variant, skipping ability init", player.getName().getString());
+            ChangedCreature.LOGGER.debug(
+                    "[ChangedCreatures] Deferring ability sync for {} until a transfur variant is available",
+                    player.getName().getString());
             return;
         }
 
         PlayerAbilities abilities = PlayerAbilitiesCapability.get(player);
-
-        List<RegistryObject<AbstractAbility>> defaultAbilities =
+        List<ResourceLocation> variantAbilities =
                 VariantAbilityMap.getFor(instance.getFormId());
 
-        boolean needsSync = false;
-        for (RegistryObject<AbstractAbility> obj : defaultAbilities) {
-            ResourceLocation id = obj.getId();
+        for (ResourceLocation id : variantAbilities) {
             if (!abilities.getAll().containsKey(id)) {
                 abilities.get(id);
-                needsSync = true;
             }
         }
 
-        if (needsSync) {
-            AbilitySyncPacket.SendAllAbilitiesPack(player);
-            GlobalExpSyncPacket.send(sp);
-        }
+        VariantAbilitySyncPacket.send(sp, variantAbilities);
+        AbilitySyncPacket.SendAllAbilitiesPack(sp);
+        GlobalExpSyncPacket.send(sp);
     }
 }

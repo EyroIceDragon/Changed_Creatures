@@ -28,11 +28,24 @@ public abstract class HumanoidFursuitModel extends HumanoidModel<LivingEntity> {
                 this.rightArm.visible = true;
                 this.leftArm.visible = true;
             }
-            case LEGS -> {
+            case LEGS, FEET -> {
                 this.rightLeg.visible = true;
                 this.leftLeg.visible = true;
             }
-            case FEET -> {
+            default -> { }
+        }
+    }
+
+    public void setVisibilityForItem(EquipmentSlot slot) {
+        this.setAllVisible(false);
+        switch (slot) {
+            case HEAD -> this.head.visible = true;
+            case CHEST -> {
+                this.body.visible = true;
+                this.rightArm.visible = true;
+                this.leftArm.visible = true;
+            }
+            case LEGS -> {
                 this.rightLeg.visible = true;
                 this.leftLeg.visible = true;
             }

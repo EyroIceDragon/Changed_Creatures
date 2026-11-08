@@ -4,6 +4,7 @@ import net.hhdsj.changed_creatures.ability.DamageResistanceAbility;
 import net.hhdsj.changed_creatures.ability.data.*;
 import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -109,7 +110,11 @@ public class PlayerMixin {
 
             if (ability instanceof DamageResistanceAbility dr) {
                 if (!dr.enoughCostExp(abilities,data.level)) {
-                    return amount;
+                    continue;
+                }
+                abilities.reduceExp(dr.costExp(data.level));
+                if (player instanceof ServerPlayer sp) {
+                    GlobalExpSyncPacket.send(sp);
                 }
                 totalReduction += dr.getReduction(data.level);
             }

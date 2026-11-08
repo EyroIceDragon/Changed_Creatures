@@ -31,8 +31,8 @@ public class PlayerAbilities {
         return playerExp >= cost;
     }
 
-    public void reduceExp(int exp){
-        if (playerExp > 0 && exp <= playerExp){
+    public void reduceExp(int exp) {
+        if (exp > 0 && exp <= playerExp) {
             playerExp -= exp;
         }
     }

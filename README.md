@@ -18,8 +18,40 @@ requests, **<u>I would be very happy and grateful!</u>**
 - At last, you can see `build/libs/` 
 to find you build mod file. (Yeah, My English was very bad) 
 
-<!-- 明明是libs好吗 ~~(Yes, **very bad**)~~ 信达雅你是一个都没做到啊
-;;EyroIceDragon 我喜欢你 -->
+## Assigning abilities to transfur variants
+
+Ability assignments can be added with datapack JSON files in
+`data/<pack_namespace>/ability/` (for example,
+`data/changed_creatures/ability/`). Each file assigns one or more registered abilities (up to four) to the
+variants listed in `values`:
+
+```json
+{
+  "ability": [
+    "changed_creatures:damage_resistance",
+    "changed_creatures:enrage"
+  ],
+  "values": [
+    "changed_creatures:form_latex_eyro_end_dragon"
+  ]
+}
+```
+
+`ability` may also be a single resource ID string for backwards compatibility.
+Only the first four array entries are read; extras are ignored with a warning.
+The ability and variant values must be resource IDs. Multiple files can add
+abilities to the same variant, up to four total. Once a variant has JSON
+assignments, those assignments define its full ability list and take
+precedence over built-in variant mappings and the default list. Assignments
+are reloaded with datapacks and are also sent to clients when the player logs
+in, changes variant, or opens the ability screen.
+
+The ability assignment data provider generates the built-in assignments at
+`data/changed_creatures/ability/default.json`. In the provider, use
+`simpleadd(abilityRegistryObject, variantRegistryObjects, "file_name")` for
+one ability or `simpleadd(abilityRegistryObjects, variantRegistryObjects,
+"file_name")` for an ability list; pass the registered objects directly, not
+string IDs.
 
 ## License
 - Source code: [**MIT**](LICENSE-src)

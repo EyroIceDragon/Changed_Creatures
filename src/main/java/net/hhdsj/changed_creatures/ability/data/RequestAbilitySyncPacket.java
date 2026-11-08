@@ -1,8 +1,6 @@
 package net.hhdsj.changed_creatures.ability.data;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
-import net.hhdsj.changed_creatures.ability.data.AbilitySyncPacket;
-import net.hhdsj.changed_creatures.ability.data.GlobalExpSyncPacket;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -25,9 +23,7 @@ public class RequestAbilitySyncPacket {
             ServerPlayer player = ctx.getSender();
             if (player == null) return;
 
-            GlobalExpSyncPacket.send(player);
-
-            AbilitySyncPacket.SendAllAbilitiesPack(player);
+            AbilityEvents.sendPlayerAbilityData(player);
         });
         ctx.setPacketHandled(true);
     }

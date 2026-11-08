@@ -112,7 +112,14 @@ public class ChangedCreatureModTabs {
 			tabData.accept(ChangedCreatureModItems.FURSUIT_PROTOGEN_HELMET);
 			tabData.accept(ChangedCreatureModItems.FURSUIT_PROTOGEN_CHESTPLATE);
 			tabData.accept(ChangedCreatureModItems.FURSUIT_PROTOGEN_LEGGINGS);
-			tabData.accept(ChangedCreatureModItems.FURSUIT_PROTOGEN_BOOTS);
+
+			tabData.accept(ChangedCreatureModItems.FURSUIT_FOX_HELMET);
+			tabData.accept(ChangedCreatureModItems.FURSUIT_FOX_CHESTPLATE);
+			tabData.accept(ChangedCreatureModItems.FURSUIT_FOX_LEGGINGS);
+
+			tabData.accept(ChangedCreatureModItems.FURSUIT_EYRO_ICE_DRAGON_HELMET);
+			tabData.accept(ChangedCreatureModItems.FURSUIT_EYRO_ICE_DRAGON_CHESTPLATE);
+			tabData.accept(ChangedCreatureModItems.FURSUIT_EYRO_ICE_DRAGON_LEGGINGS);
 		} else if (tabData.getTabKey() == LATEX_ITEM.getKey()) {
 			tabData.accept(ChangedCreatureModItems.LATEX_FILLED_ALL_MUG_ITEM.get());
 			try {

@@ -48,6 +48,11 @@ public class ChangedCreaturesDataGenerators {
 
         generator.addProvider(
                 event.includeServer(),
+                new ChangedCreaturesAbilityProvider(generator.getPackOutput())
+        );
+
+        generator.addProvider(
+                event.includeServer(),
                 new ChangedCreaturesCompatibilityDataProvider(generator.getPackOutput())
         );
 

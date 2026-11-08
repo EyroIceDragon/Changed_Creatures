@@ -38,8 +38,4 @@ public abstract class FursuitFoxItem extends HidePlayerPartArmor {
     public static class Leggings extends FursuitFoxItem {
         public Leggings() { super(Type.LEGGINGS, new Properties().fireResistant()); }
     }
-
-    public static class Boots extends FursuitFoxItem {
-        public Boots() { super(Type.BOOTS, new Properties().fireResistant()); }
-    }
 }

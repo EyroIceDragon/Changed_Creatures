@@ -4,9 +4,11 @@ import net.hhdsj.changed_creatures.client.item.FursuitArmorClientExtensions;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -54,7 +56,7 @@ public abstract class HidePlayerPartArmor extends ArmorItem {
 
             @Override
             public float getKnockbackResistance() { return 0f; }
-        }, type, properties);
+        }, type, properties.durability(Integer.MAX_VALUE).setNoRepair());;
     }
 
     @Override
@@ -66,5 +68,10 @@ public abstract class HidePlayerPartArmor extends ArmorItem {
 
     public boolean shouldHidePlayerModel(EquipmentSlot slot) {
         return this.getType().getSlot() == slot;
+    }
+
+    @Override
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
+        return 0;
     }
 }

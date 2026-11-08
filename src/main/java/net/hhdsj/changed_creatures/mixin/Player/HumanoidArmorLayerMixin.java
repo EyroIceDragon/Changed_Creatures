@@ -8,6 +8,7 @@ import net.hhdsj.changed_creatures.item.HidePlayerPartArmor;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
@@ -35,7 +36,7 @@ public abstract class HumanoidArmorLayerMixin<T extends LivingEntity, M extends 
     private void customRenderArmorPiece(
             PoseStack poseStack, MultiBufferSource buffer, LivingEntity entity,
             EquipmentSlot slot, int packedLight, A defaultModel, CallbackInfo ci) {
-        if (true) return;
+        //if (true) return;
 
         if (!(entity instanceof Player)) {
             return;
@@ -84,8 +85,8 @@ public abstract class HumanoidArmorLayerMixin<T extends LivingEntity, M extends 
         String glowPath = fursuitItem.getArmorTextureGlowPath();
         if (glowPath != null && !glowPath.isBlank()) {
             ResourceLocation glow = ChangedCreature.ChangedCreatureResourceLocationParse(glowPath);
-            VertexConsumer glowConsumer = buffer.getBuffer(RenderType.eyes(glow));
-            model.renderToBuffer(poseStack, glowConsumer, packedLight,
+            VertexConsumer glowConsumer = buffer.getBuffer(RenderType.entityTranslucentEmissive(glow));
+            model.renderToBuffer(poseStack, glowConsumer, LightTexture.FULL_BRIGHT,
                     OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         }
     }
