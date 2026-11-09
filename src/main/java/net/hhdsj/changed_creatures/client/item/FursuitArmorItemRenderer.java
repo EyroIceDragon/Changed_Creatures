@@ -7,17 +7,15 @@ import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.MathUtil;
 import net.hhdsj.changed_creatures.client.models.armors.fursuit.HumanoidFursuitModel;
 import net.hhdsj.changed_creatures.item.HidePlayerPartArmor;
-import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
-import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.HashMap;
@@ -71,9 +69,7 @@ public final class FursuitArmorItemRenderer extends BlockEntityWithoutLevelRende
         String glowPath = item.getArmorTextureGlowPath();
         if (glowPath != null && !glowPath.isBlank()) {
             ResourceLocation glow = ChangedCreature.ChangedCreatureResourceLocationParse(glowPath);
-            VertexConsumer glowConsumer = buffer.getBuffer(RenderType.entityTranslucentEmissive(glow));
-            model.renderToBuffer(poseStack, glowConsumer, LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY,
-                    1.0F, 1.0F, 1.0F, 1.0F);
+            FursuitGlowRenderer.renderGlow(glow,poseStack,buffer,model);
         }
         poseStack.popPose();
     }

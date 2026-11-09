@@ -3,13 +3,13 @@ package net.hhdsj.changed_creatures.mixin.Player;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.item.FursuitArmorClientExtensions;
+import net.hhdsj.changed_creatures.client.item.FursuitGlowRenderer;
 import net.hhdsj.changed_creatures.client.models.armors.fursuit.HumanoidFursuitModel;
 import net.hhdsj.changed_creatures.item.HidePlayerPartArmor;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
@@ -72,9 +72,8 @@ public abstract class MixinPlayerRendererArm {
         armPart.render(poseStack, bufferSource.getBuffer(RenderType.entityCutout(texture)), packedLight, OverlayTexture.NO_OVERLAY);
         String glowPath = item.getArmorTextureGlowPath();
         if (glowPath != null && !glowPath.isBlank()) {
-            ResourceLocation texture_light = ChangedCreature.ChangedCreatureResourceLocationParse(glowPath);
-            armPart.render(poseStack, bufferSource.getBuffer(RenderType.eyes(texture_light)),
-                    LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY);
+            ResourceLocation glow = ChangedCreature.ChangedCreatureResourceLocationParse(glowPath);
+            FursuitGlowRenderer.renderGlow(glow,poseStack,bufferSource,armPart);
         }
         return true;
     }
