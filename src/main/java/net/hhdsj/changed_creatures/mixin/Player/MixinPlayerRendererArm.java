@@ -69,12 +69,12 @@ public abstract class MixinPlayerRendererArm {
         armPart.xRot = 0.0F;
 
         ResourceLocation texture = ChangedCreature.ChangedCreatureResourceLocationParse(item.getArmorTexturePath(EquipmentSlot.CHEST));
-        armPart.render(poseStack, bufferSource.getBuffer(RenderType.entityCutout(texture)), packedLight, OverlayTexture.NO_OVERLAY);
         String glowPath = item.getArmorTextureGlowPath();
         if (glowPath != null && !glowPath.isBlank()) {
             ResourceLocation glow = ChangedCreature.ChangedCreatureResourceLocationParse(glowPath);
             FursuitGlowRenderer.renderGlow(glow,poseStack,bufferSource,armPart);
         }
+        armPart.render(poseStack, bufferSource.getBuffer(RenderType.entityCutout(texture)), packedLight, OverlayTexture.NO_OVERLAY);
         return true;
     }
 }

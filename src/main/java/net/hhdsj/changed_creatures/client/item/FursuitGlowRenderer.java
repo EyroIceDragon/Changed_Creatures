@@ -27,7 +27,7 @@ public class FursuitGlowRenderer {
         if (glow == null) return;
         VertexConsumer glowConsumer = buffer.getBuffer(RenderType.eyes(glow));
         poseStack.pushPose();
-        float inflate = 1.0F + 0.005F;
+        float inflate = 1.0F;
         poseStack.scale(inflate, inflate, inflate);
         model.renderToBuffer(poseStack, glowConsumer, LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY,
                 1.0F, 1.0F, 1.0F, 1.0F);
@@ -48,7 +48,7 @@ public class FursuitGlowRenderer {
         if (glow == null) return;
         VertexConsumer glowConsumer = buffer.getBuffer(RenderType.eyes(glow));
         poseStack.pushPose();
-        float inflate = 1.0F + 0.005F;
+        float inflate = 1.0F + 0.002F;
         poseStack.scale(inflate, inflate, inflate);
         part.render(poseStack, glowConsumer, LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY);
         poseStack.popPose();
