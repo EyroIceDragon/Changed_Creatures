@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures.entity.simple;
 
+import net.hhdsj.changed_creatures.init.ChangedCreatureModEntities;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -38,7 +39,7 @@ public class ThrownCrystalJavelinTrident extends AbstractArrow {
     }
 
     public ThrownCrystalJavelinTrident(Level level, LivingEntity liv_entity, ItemStack item) {
-        super(EntityType.TRIDENT, liv_entity, level);
+        super(ChangedCreatureModEntities.THROWN_CRYSTAL_JAVELIN.get(), liv_entity, level);
         this.tridentItem = item.copy();
         this.entityData.set(ID_LOYALTY, (byte) EnchantmentHelper.getLoyalty(item));
         this.entityData.set(ID_FOIL, item.hasFoil());
