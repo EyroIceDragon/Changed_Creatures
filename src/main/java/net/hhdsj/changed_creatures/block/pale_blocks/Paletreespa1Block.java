@@ -16,6 +16,7 @@ public class Paletreespa1Block extends SaplingBlock {
 				.strength(0.5F)
 				.noOcclusion()
 				.randomTicks()
+				.noCollission()
 				.sound(SoundType.GRASS)
 		);
 	}

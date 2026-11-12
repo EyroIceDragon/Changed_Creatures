@@ -17,6 +17,7 @@ import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
@@ -79,13 +80,27 @@ public class ChangedCreaturesBlockLootProvider extends BlockLootSubProvider {
                 .withPool(pool(1, 1, Items.COAL))
         );
 
+
+
         // ==== 装饰/功能方块 ====
-        addLoot(ChangedCreatureModBlocks.PALE_WOOD_LEAVES.get(), LootTable.lootTable()
-                .withPool(LootPool.lootPool()
+        addLoot(ChangedCreatureModBlocks.PALE_WOOD_LEAVES.get(),
+                createSilkTouchOrShearsDispatchTable(
+                        ChangedCreatureModBlocks.PALE_WOOD_LEAVES.get(),
+                        applyExplosionCondition(ChangedCreatureModBlocks.PALE_WOOD_LEAVES.get(),
+                                LootItem.lootTableItem(ChangedCreatureModItems.PALETREE.get())
+                                        .when(BonusLevelTableCondition.bonusLevelFlatChance(
+                                                Enchantments.BLOCK_FORTUNE, 0.05F, 0.0625F, 0.083333336F, 0.1F
+                                        ))
+                        )
+                ).withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
-                        .setBonusRolls(ConstantValue.exactly(1))
-                        .add(LootItem.lootTableItem(ChangedCreatureModItems.PALETREE.get())
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 1)))))
+                        .add(applyExplosionDecay(ChangedCreatureModBlocks.PALE_WOOD_LEAVES.get(),
+                                LootItem.lootTableItem(Items.STICK)
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2)))
+                        ).when(BonusLevelTableCondition.bonusLevelFlatChance(
+                                Enchantments.BLOCK_FORTUNE, 0.02F, 0.022222223F, 0.025F, 0.033333335F, 0.1F
+                        )))
+                )
         );
         simpleDrop(ChangedCreatureModBlocks.LATEX_DEEP_CRYSTAL_DRAGON_DOLL.get());
 
@@ -99,7 +114,9 @@ public class ChangedCreaturesBlockLootProvider extends BlockLootSubProvider {
         simpleDrop(ChangedCreatureModBlocks.PALE_WOOD_FENCE.get());
         simpleDrop(ChangedCreatureModBlocks.PALE_WOOD_FENCE_GATE.get());
         simpleDrop(ChangedCreatureModBlocks.PALE_WOOD_PRESSURE_PLATE.get());
-        simpleDrop(ChangedCreatureModBlocks.PALETREESPA_1.get());
+        addLoot(ChangedCreatureModBlocks.PALETREESPA_1.get(), LootTable.lootTable()
+                .withPool(pool(1, 1, ChangedCreatureModItems.PALETREE.get()))
+        );
         simpleDrop(ChangedCreatureModBlocks.IRONHOT.get());
         simpleDrop(ChangedCreatureModBlocks.CATALYZER.get());
         simpleDrop(ChangedCreatureModBlocks.CRYO_SUBJECT_CHAMBER.get());

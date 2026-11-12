@@ -56,7 +56,6 @@ public class ChangedCreatureModItems {
 	public static RegistryObject<Item> CATALYZER;
 
 	// 装饰/其他方块
-	public static RegistryObject<Item> PALETREESPA_1;
 
 	// ==================== 普通物品声明 (Normal Items Declaration) ====================
 
@@ -163,8 +162,6 @@ public class ChangedCreatureModItems {
 
 		IRONHOT = block(ChangedCreatureModBlocks.IRONHOT);
 		CATALYZER = block(ChangedCreatureModBlocks.CATALYZER);
-
-		PALETREESPA_1 = block(ChangedCreatureModBlocks.PALETREESPA_1);
 
 		// -------------------- 普通物品初始化 --------------------
 		Latex_Night_Owl_Goo_Item = ITEMS.register("latex_night_owl_goo", LatexNghtOwlGooItem::new);
