@@ -60,9 +60,8 @@ public final class FursuitArmorItemRenderer extends BlockEntityWithoutLevelRende
             default -> { }
         }
 
-        ResourceLocation texture = ChangedCreature.ChangedCreatureResourceLocationParse(
-                item.getArmorTexturePath(slot));
-        VertexConsumer baseConsumer = buffer.getBuffer(RenderType.armorCutoutNoCull(texture));
+        ResourceLocation texture = ChangedCreature.ChangedCreatureResourceLocationParse(item.getArmorTexturePath(slot));
+        VertexConsumer baseConsumer = buffer.getBuffer(RenderType.entityCutoutNoCull(texture));
         model.renderToBuffer(poseStack, baseConsumer, packedLight, packedOverlay,
                 1.0F, 1.0F, 1.0F, 1.0F);
 
@@ -71,6 +70,7 @@ public final class FursuitArmorItemRenderer extends BlockEntityWithoutLevelRende
             ResourceLocation glow = ChangedCreature.ChangedCreatureResourceLocationParse(glowPath);
             FursuitGlowRenderer.renderGlow(glow,poseStack,buffer,model);
         }
+
         poseStack.popPose();
     }
 }

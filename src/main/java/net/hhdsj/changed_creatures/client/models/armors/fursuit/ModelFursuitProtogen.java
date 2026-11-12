@@ -3,6 +3,7 @@ package net.hhdsj.changed_creatures.client.models.armors.fursuit;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.hhdsj.changed_creatures.ChangedCreature;
+import net.hhdsj.changed_creatures.client.models.armors.fursuit.anim.WolfTailAnim;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -32,6 +33,8 @@ public class ModelFursuitProtogen extends HumanoidFursuitModel {
 	private final ModelPart TailSecondary;
 	private final ModelPart TailTertiary;
 
+	private final WolfTailAnim tailAnimator;
+
 	public ModelFursuitProtogen(ModelPart root) {
 		super(root);
 
@@ -51,6 +54,7 @@ public class ModelFursuitProtogen extends HumanoidFursuitModel {
 		this.TailPrimary = this.Tail.getChild("TailPrimary");
 		this.TailSecondary = this.TailPrimary.getChild("TailSecondary");
 		this.TailTertiary = this.TailSecondary.getChild("TailTertiary");
+		this.tailAnimator = new WolfTailAnim(Tail, TailPrimary, TailSecondary, TailTertiary);
 	}
 
 	public static LayerDefinition createBodyLayer() {
@@ -188,15 +192,9 @@ public class ModelFursuitProtogen extends HumanoidFursuitModel {
 	}
 
 	@Override
-	public void setupAnim(LivingEntity entity, float limbSwing, float limbSwingAmount,
-	                      float ageInTicks, float netHeadYaw, float headPitch) {
-		super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-//
-//		float swing = Mth.sin(ageInTicks * 0.15F) * 0.05F;
-//		this.Tail.yRot = swing * 0.2F;
-//		this.TailPrimary.yRot = swing * 0.4F;
-//		this.TailSecondary.yRot = swing * 0.6F;
-//		this.TailTertiary.yRot = swing * 0.7F;
+	public void setupAnim(LivingEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+
+		this.tailAnimator.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
 	}
 
 	@Override

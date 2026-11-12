@@ -1,10 +1,14 @@
 package net.hhdsj.changed_creatures.item;
 
 import net.hhdsj.changed_creatures.client.item.FursuitArmorClientExtensions;
+import net.ltxprogrammer.changed.process.ProcessTransfur;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
@@ -13,11 +17,12 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import net.minecraftforge.common.extensions.IForgeItem;
 import net.minecraftforge.fml.DistExecutor;
 
 import java.util.function.Consumer;
 
-public abstract class HidePlayerPartArmor extends ArmorItem {
+public abstract class HidePlayerPartArmor extends ArmorItem implements IForgeItem {
 
     public String getArmorTexturePath(EquipmentSlot slot) {
         return "";
@@ -57,6 +62,20 @@ public abstract class HidePlayerPartArmor extends ArmorItem {
             @Override
             public float getKnockbackResistance() { return 0f; }
         }, type, properties.durability(Integer.MAX_VALUE).setNoRepair());;
+    }
+
+    @Override
+    public boolean canEquip(ItemStack stack, EquipmentSlot armorType, Entity entity) {
+        if (!super.canEquip(stack, armorType, entity)) {
+            return false;
+        }
+        if (entity instanceof Player player) {
+            if (ProcessTransfur.getPlayerTransfurVariant(player) != null) {
+                player.displayClientMessage(Component.literal("你无法装备这个"), true);
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override

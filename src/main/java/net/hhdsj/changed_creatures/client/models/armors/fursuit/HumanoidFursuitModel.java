@@ -54,8 +54,5 @@ public abstract class HumanoidFursuitModel extends HumanoidModel<LivingEntity> {
     }
 
     @Override
-    public void setupAnim(LivingEntity entity, float limbSwing, float limbSwingAmount,
-                          float ageInTicks, float netHeadYaw, float headPitch) {
-        super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-    }
+    public void setupAnim(LivingEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {}
 }

@@ -6,6 +6,7 @@ import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.item.FursuitGlowRenderer;
 import net.hhdsj.changed_creatures.client.models.armors.fursuit.HumanoidFursuitModel;
 import net.hhdsj.changed_creatures.item.HidePlayerPartArmor;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -51,17 +52,14 @@ public abstract class HumanoidArmorLayerMixin<T extends LivingEntity, M extends 
         this.getParentModel().copyPropertiesTo((HumanoidModel<T>) fursuitModel);
         fursuitModel.setVisibilityForSlot(slot);
 
-        if (entity instanceof LivingEntity) {
-//            float partialTicks = Minecraft.getInstance().getFrameTime();
-//            float ageInTicks = entity.tickCount + partialTicks;
-//            float limbSwing = entity.walkAnimation.position(1.0F);
-//            float limbSwingAmount = entity.walkAnimation.speed(1.0F);
-//            float netHeadYaw = entity.getViewYRot(1.0F) - entity.yBodyRot;
-//            float headPitch = entity.getViewXRot(1.0F);
-//            System.out.println("Tick Age: " + ageInTicks + " Entity : " + entity);
-//            fursuitModel.setupAnim(entity, limbSwing, limbSwingAmount,
-//                    ageInTicks, netHeadYaw, headPitch);
-        }
+        Minecraft mc = Minecraft.getInstance();
+        float partialTicks = mc.getPartialTick();
+        float ageInTicks = entity.tickCount + partialTicks;
+        float limbSwing = entity.walkAnimation.position(partialTicks);
+        float limbSwingAmount = entity.walkAnimation.speed(partialTicks);
+        float netHeadYaw = entity.getViewYRot(partialTicks);
+        float headPitch = entity.getViewXRot(partialTicks);
+        fursuitModel.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
 
         changed_creatures$renderCustomModel(poseStack, buffer, packedLight, fursuitItem, slot, fursuitModel);
         ci.cancel();
@@ -70,16 +68,16 @@ public abstract class HumanoidArmorLayerMixin<T extends LivingEntity, M extends 
     private void changed_creatures$renderCustomModel(PoseStack poseStack, MultiBufferSource buffer, int packedLight,
                                                      HidePlayerPartArmor fursuitItem,
                                                      EquipmentSlot slot, HumanoidFursuitModel model) {
+        // 基础纹理
+        String path = fursuitItem.getArmorTexturePath(slot);
+        ResourceLocation texture = ChangedCreature.ChangedCreatureResourceLocationParse(path);
+        VertexConsumer baseConsumer = buffer.getBuffer(RenderType.entityCutoutNoCull(texture));
+        model.renderToBuffer(poseStack, baseConsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         // 发光层
         String glowPath = fursuitItem.getArmorTextureGlowPath();
         if (glowPath != null && !glowPath.isBlank()) {
             ResourceLocation glow = ChangedCreature.ChangedCreatureResourceLocationParse(glowPath);
             FursuitGlowRenderer.renderGlow(glow,poseStack,buffer,model);
         }
-        // 基础纹理
-        String path = fursuitItem.getArmorTexturePath(slot);
-        ResourceLocation texture = ChangedCreature.ChangedCreatureResourceLocationParse(path);
-        VertexConsumer baseConsumer = buffer.getBuffer(RenderType.entityCutoutNoCull(texture));
-        model.renderToBuffer(poseStack, baseConsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
     }
 }

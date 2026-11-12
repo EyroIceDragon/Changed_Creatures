@@ -7,6 +7,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 
 public class ModelFursuitFox extends HumanoidFursuitModel {
@@ -163,11 +164,17 @@ public class ModelFursuitFox extends HumanoidFursuitModel {
 	}
 
 	@Override
-	public void setupAnim(LivingEntity entity, float limbSwing, float limbSwingAmount,
-	                      float ageInTicks, float netHeadYaw, float headPitch) {
-		super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-	}
+	public void setupAnim(LivingEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
+		float idleSwing = Mth.sin(ageInTicks * 0.1F) * 0.05F;
+		float walkSwing = Mth.cos(limbSwing * 0.6662F) * 0.3F * limbSwingAmount;
+		float totalSwing = idleSwing + walkSwing;
+
+		this.Tail.yRot = totalSwing * 0.2F;
+		this.TailPrimary.yRot = totalSwing * 0.3F;
+		this.TailSecondary.yRot = totalSwing * 0.4F;
+		this.TailTertiary.yRot = totalSwing * 0.5F;
+	}
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {

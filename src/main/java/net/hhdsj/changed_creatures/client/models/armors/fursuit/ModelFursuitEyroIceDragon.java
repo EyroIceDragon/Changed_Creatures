@@ -240,13 +240,6 @@ public class ModelFursuitEyroIceDragon extends HumanoidFursuitModel {
 	}
 
 	@Override
-	public void setupAnim(LivingEntity entity, float limbSwing, float limbSwingAmount,
-	                      float ageInTicks, float netHeadYaw, float headPitch) {
-		super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-	}
-
-
-	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
