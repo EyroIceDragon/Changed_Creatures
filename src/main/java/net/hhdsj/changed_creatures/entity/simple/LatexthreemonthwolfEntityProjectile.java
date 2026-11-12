@@ -1,34 +1,33 @@
 package net.hhdsj.changed_creatures.entity.simple;
 
 import net.hhdsj.changed_creatures.init.ChangedCreatureModEntities;
-import net.hhdsj.changed_creatures.event.GoodblockProcessTransfur;
-
 import net.ltxprogrammer.changed.entity.TransfurCause;
 import net.ltxprogrammer.changed.entity.TransfurContext;
-import net.ltxprogrammer.changed.init.ChangedRegistry;
 import net.ltxprogrammer.changed.init.ChangedItems;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.EntityHitResult;
-import net.minecraftforge.network.NetworkHooks;
-import net.minecraftforge.network.PlayMessages;
-import net.minecraft.world.item.ItemStack;
+import net.ltxprogrammer.changed.init.ChangedRegistry;
+import net.ltxprogrammer.changed.process.ProcessTransfur;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.network.NetworkHooks;
+import net.minecraftforge.network.PlayMessages;
 
 
 public class LatexthreemonthwolfEntityProjectile extends AbstractArrow {
@@ -200,7 +199,7 @@ public class LatexthreemonthwolfEntityProjectile extends AbstractArrow {
         final var variant = ChangedRegistry.TRANSFUR_VARIANT.get().getValue(variantLoc);
         
         if (variant != null && target.canBeSeenAsEnemy()) {
-            GoodblockProcessTransfur.progressTransfur(target, 2f, variant,
+            ProcessTransfur.progressTransfur(target, 2f, variant,
                     TransfurContext.hazard(TransfurCause.GRAB_REPLICATE));
         }
     }

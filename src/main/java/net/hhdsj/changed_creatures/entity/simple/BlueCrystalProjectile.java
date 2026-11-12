@@ -1,11 +1,11 @@
 package net.hhdsj.changed_creatures.entity.simple;
 
-import net.hhdsj.changed_creatures.event.GoodblockProcessTransfur;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModEntities;
 import net.ltxprogrammer.changed.entity.TransfurCause;
 import net.ltxprogrammer.changed.entity.TransfurContext;
 import net.ltxprogrammer.changed.init.ChangedItems;
 import net.ltxprogrammer.changed.init.ChangedRegistry;
+import net.ltxprogrammer.changed.process.ProcessTransfur;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
@@ -236,7 +236,7 @@ public class BlueCrystalProjectile extends AbstractArrow {
         final var variant = ChangedRegistry.TRANSFUR_VARIANT.get().getValue(variantLoc);
         
         if (variant != null && target.canBeSeenAsEnemy()) {
-            GoodblockProcessTransfur.progressTransfur(target, 2f, variant,
+            ProcessTransfur.progressTransfur(target, 2f, variant,
                     TransfurContext.hazard(TransfurCause.GRAB_REPLICATE));
         }
     }

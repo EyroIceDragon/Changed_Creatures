@@ -151,7 +151,7 @@ public class PlayerTicksHandler {
                 FORM_VARIANT = new ResourceLocation(LIST_VARIANT.get(RANDOM.nextInt(LIST_VARIANT.size())));
                 TransfurVariant<?> variant = ChangedRegistry.TRANSFUR_VARIANT.get().getValue(FORM_VARIANT);
                 if (variant != null) {
-                    GoodblockProcessTransfur.progressTransfur(player, 1f, variant, TransfurContext.hazard(TransfurCause.FACE_HAZARD));
+                    ProcessTransfur.progressTransfur(player, 1f, variant, TransfurContext.hazard(TransfurCause.FACE_HAZARD));
                 }
             }
 

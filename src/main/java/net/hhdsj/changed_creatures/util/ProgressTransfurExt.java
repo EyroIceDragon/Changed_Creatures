@@ -1,6 +1,5 @@
 package net.hhdsj.changed_creatures.util;
 
-import net.hhdsj.changed_creatures.event.GoodblockProcessTransfur;
 import net.ltxprogrammer.changed.entity.TransfurCause;
 import net.ltxprogrammer.changed.entity.TransfurContext;
 import net.ltxprogrammer.changed.init.ChangedRegistry;
@@ -19,7 +18,7 @@ public class ProgressTransfurExt {
             final var variant = ChangedRegistry.TRANSFUR_VARIANT.get().getValue(FORM_VARIANT);
 
             if (variant != null) {
-                GoodblockProcessTransfur.progressTransfur(livingEntity, 5f, variant, TransfurContext.hazard(TransfurCause.GRAB_REPLICATE));
+                ProcessTransfur.progressTransfur(livingEntity, 5f, variant, TransfurContext.hazard(TransfurCause.GRAB_REPLICATE));
             }
         } catch (Exception e) {
             e.printStackTrace();
