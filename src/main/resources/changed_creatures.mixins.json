@@ -7,6 +7,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "CrashReportMixin",
+    "changed.AbstractArmorStandMixin",
     "changed.EntityUtilMixin",
     "Player.FoodDataMixin",
     "Player.PlayerHurtMixin",
@@ -15,8 +16,8 @@
   "client": [
     "client.gui.GuiMixin",
     "client.gui.InventoryScreenMixin",
-    "Player.HumanoidArmorLayerMixin",
     "Player.CrystalPlayerRendererMixin",
+    "Player.HumanoidArmorLayerMixin",
     "Player.HumanoidModelAccessor",
     "Player.HumanoidModelMixin",
     "Player.MixinPlayerRenderer",
