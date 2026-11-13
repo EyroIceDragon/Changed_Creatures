@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "changed_creatures:block/latex_molten_block_top_top",
-    "up": "changed_creatures:block/latex_molten_block_top_top",
-    "north": "changed_creatures:block/latex_molten_block_top_side",
-    "east": "changed_creatures:block/latex_molten_block_top_side",
-    "south": "changed_creatures:block/latex_molten_block_top_side",
-    "west": "changed_creatures:block/latex_molten_block_top_side",
-    "particle": "changed_creatures:block/latex_molten_block_top_side"
+    "down": "changed_creatures:block/latex_molten_block_top",
+    "up": "changed_creatures:block/latex_molten_block_top",
+    "north": "changed_creatures:block/latex_molten_block_side",
+    "east": "changed_creatures:block/latex_molten_block_side",
+    "south": "changed_creatures:block/latex_molten_block_side",
+    "west": "changed_creatures:block/latex_molten_block_side",
+    "particle": "changed_creatures:block/latex_molten_block_side"
   }
 }
