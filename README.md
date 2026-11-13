@@ -14,7 +14,7 @@ requests, **<u>I would be very happy and grateful!</u>**
 ## How to build this mod?
 - First clone this repo
 - Then you can see a bat file in the repo, run 
-[Bulid.bat](Build.bat) will built this mod.
+`build.{bat,ps1}` will built this mod.
 - At last, you can see `build/libs/` 
 to find you build mod file. (Yeah, My English was very bad) 
 
@@ -53,11 +53,6 @@ one ability or `simpleadd(abilityRegistryObjects, variantRegistryObjects,
 "file_name")` for an ability list; pass the registered objects directly, not
 string IDs.
 
-<!-- 注释注释注释 -->
-<!-- 明明是libs好吗 -->
-<!-- ~~(Yes, **very bad**)~~ -->
-<!-- 信达雅你是一个都没做到啊 -->
-
 ## License
 - Source code: [**MIT**](LICENSE-src)
 - Model/texture: [**CC BY-NC-ND 4.0**](LICENSE-models)
@@ -75,5 +70,5 @@ For questions or permission requests, please contact the
 [**author - EyroIceDragon**](https://github.com/EyroIceDragon) and 
 [**art - chengxiii114**](https://github.com/chengxiii114).
 
-<!-- who is the author and who is the art? -->
-<!-- 回答我, look in my eyes, tell me, who! -->
+<!-- who is the author and who is the art?
+回答我, look in my eyes, tell me, who! -->

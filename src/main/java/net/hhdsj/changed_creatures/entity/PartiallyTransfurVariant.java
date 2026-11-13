@@ -111,7 +111,7 @@ public class PartiallyTransfurVariant {
     private static void autoManageFlight(Player player) {
         UUID playerId = player.getUUID();
         boolean canFly = canFly(player);
-        boolean meetsCriteria = meetsFlightCriteria(player);
+        boolean meetsCriteria = (meetsFlightCriteria(player) || (player.isCreative() || player.isSpectator()));
         boolean shouldHaveFlight = canFly && meetsCriteria;
 
         boolean currentMayfly = player.getAbilities().mayfly;
