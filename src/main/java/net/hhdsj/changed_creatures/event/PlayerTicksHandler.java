@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures.event;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.other.ModelLatexWing;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModGameRules;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModParticleTypes;
@@ -148,7 +149,7 @@ public class PlayerTicksHandler {
             if (data.Player_Infection_tick >= 1000) {
                 player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 50, 1));
                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 50, 2));
-                FORM_VARIANT = new ResourceLocation(LIST_VARIANT.get(RANDOM.nextInt(LIST_VARIANT.size())));
+                FORM_VARIANT = ChangedCreature.CCRLP(LIST_VARIANT.get(RANDOM.nextInt(LIST_VARIANT.size())));
                 TransfurVariant<?> variant = ChangedRegistry.TRANSFUR_VARIANT.get().getValue(FORM_VARIANT);
                 if (variant != null) {
                     ProcessTransfur.progressTransfur(player, 1f, variant, TransfurContext.hazard(TransfurCause.FACE_HAZARD));

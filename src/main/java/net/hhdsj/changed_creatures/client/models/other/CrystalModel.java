@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 
 public class CrystalModel extends Model {
-    public static final ResourceLocation TEXTURE = new ResourceLocation(ChangedCreature.MODID, "textures/entity/crystal/crystal.png");
+    public static final ResourceLocation TEXTURE = ChangedCreature.CCRL("textures/entity/crystal/crystal.png");
     private final ModelPart crystal;
 
     public CrystalModel(ModelPart root) {

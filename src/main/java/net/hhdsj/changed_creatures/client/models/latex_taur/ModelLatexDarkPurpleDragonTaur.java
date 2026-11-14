@@ -82,8 +82,6 @@ public class ModelLatexDarkPurpleDragonTaur extends AdvancedHumanoidModel<LatexD
                         leftWingRoot, leftWingRoot.getChild("leftSecondaries"), leftWingRoot.getChild("leftSecondaries").getChild("leftTertiaries"),
                         rightWingRoot, rightWingRoot.getChild("rightSecondaries"), rightWingRoot.getChild("rightSecondaries").getChild("rightTertiaries"),
                         Tail, List.of(tailPrimary, tailSecondary, tailTertiary, tailQuaternary)))
-                //.addAnimator(new WolfTailInitAnimator<>(Tail, List.of(tailPrimary, tailSecondary, tailTertiary)))
-				//.addAnimator(new WolfHeadAnimator<>(head, Head.getChild("LeftEar"), Head.getChild("RightEar")))
                 .forwardOffset(-7.0f).hipOffset(-1.5f).legLength(13.5f).torsoLength(11.05f);
     }
 

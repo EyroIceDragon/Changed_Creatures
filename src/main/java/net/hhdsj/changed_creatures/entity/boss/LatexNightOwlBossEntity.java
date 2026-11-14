@@ -104,16 +104,6 @@ public class LatexNightOwlBossEntity extends ChangedEntity{
     }
 
     @Override
-    public SoundEvent getHurtSound(DamageSource ds) {
-        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.hurt"));
-    }
-
-    @Override
-    public SoundEvent getDeathSound() {
-        return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.death"));
-    }
-
-    @Override
     public boolean hurt(@NotNull DamageSource source, float amount) {
         if (source.is(DamageTypes.FALL))
             return false;

@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures.client.renderer.cat;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.cat.ModelLatexBlueveCat;
 import net.hhdsj.changed_creatures.entity.simple.LatexBlueveCatEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;

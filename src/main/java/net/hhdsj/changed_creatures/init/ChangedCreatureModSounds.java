@@ -1,7 +1,6 @@
 package net.hhdsj.changed_creatures.init;
 
 import net.hhdsj.changed_creatures.ChangedCreature;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -22,7 +21,7 @@ public class ChangedCreatureModSounds {
 
 	private static RegistryObject<SoundEvent> register(String id) {
 		return REGISTRY.register(id, () -> SoundEvent.createVariableRangeEvent(
-				new ResourceLocation(ChangedCreature.MODID, id)
+				ChangedCreature.CCRL(id)
 		));
 	}
 }

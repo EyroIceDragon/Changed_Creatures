@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures.entity.simple;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModEntities;
 import net.ltxprogrammer.changed.entity.TransfurCause;
 import net.ltxprogrammer.changed.entity.TransfurContext;
@@ -231,7 +232,7 @@ public class BlueCrystalProjectile extends AbstractArrow {
     protected void applyTransfurEffect(LivingEntity target) {
         // 从数据中获取"变体"
         String variantStr = this.entityData.get(FORM_VARIANT);
-        ResourceLocation variantLoc = new ResourceLocation(variantStr);
+        ResourceLocation variantLoc = ChangedCreature.CCRLP(variantStr);
         
         final var variant = ChangedRegistry.TRANSFUR_VARIANT.get().getValue(variantLoc);
         
@@ -295,7 +296,7 @@ public class BlueCrystalProjectile extends AbstractArrow {
         super.readAdditionalSaveData(tag); 
         
         if (tag.contains("FormVariant")) {
-            this.setFormVariant(new ResourceLocation(tag.getString("FormVariant")));
+            this.setFormVariant(ChangedCreature.CCRLP(tag.getString("FormVariant")));
         }
         if (tag.contains("ProjectileDamage")) {
             this.setProjectileDamage(tag.getFloat("ProjectileDamage"));

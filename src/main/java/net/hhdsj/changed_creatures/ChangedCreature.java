@@ -37,9 +37,9 @@ public class ChangedCreature {
 	private static int messageID = 0;
 
 
-	public ChangedCreature() {
+	public ChangedCreature(FMLJavaModLoadingContext context) {
 		registerPackets();
-		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+		IEventBus bus = context.getModEventBus();
 		bus.register(ChangedCreatureRegistry.class);
 		ChangedCreatureModSounds.REGISTRY.register(bus);
 		ChangedCreatureModFluidTypes.REGISTRY.register(bus);

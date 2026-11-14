@@ -90,15 +90,9 @@ public class LatexiceDragonEntity extends ChangedEntity {
 		return MobType.UNDEFINED;
 	}
 
-	@Override
-	public SoundEvent getHurtSound(DamageSource ds) {
-		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.hurt"));
-	}
+	
 
-	@Override
-	public SoundEvent getDeathSound() {
-		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.death"));
-	}
+	
 
 	public static void init() {
 		SpawnPlacements.register(ChangedCreatureModEntities.LATEX_ICE_DRAGON.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,

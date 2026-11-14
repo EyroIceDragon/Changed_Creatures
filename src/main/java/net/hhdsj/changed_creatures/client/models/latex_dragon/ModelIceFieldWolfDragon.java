@@ -1,38 +1,28 @@
 package net.hhdsj.changed_creatures.client.models.latex_dragon;
 
 
-import net.hhdsj.changed_creatures.entity.simple.LatexIceFieldWolfDragonEntity;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.client.model.geom.builders.MeshDefinition;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.geom.builders.CubeListBuilder;
-import net.minecraft.client.model.geom.builders.CubeDeformation;
-import net.minecraft.client.model.geom.PartPose;
-import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.model.geom.ModelLayerLocation;
-
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-
+import net.hhdsj.changed_creatures.ChangedCreature;
+import net.hhdsj.changed_creatures.entity.simple.LatexIceFieldWolfDragonEntity;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
-
-import net.minecraft.world.entity.HumanoidArm;
-//Changed-mc mod import 我的世界转变MOD导入
 import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModel;
-
-
-//Goodblock mod import
-import net.hhdsj.changed_creatures.entity.*;
-
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.world.entity.HumanoidArm;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+//Changed-mc mod import 我的世界转变MOD导入
+//Goodblock mod import
+
 public class ModelIceFieldWolfDragon extends AdvancedHumanoidModel<LatexIceFieldWolfDragonEntity>{
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this models's constructor
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ChangedCreature.CCRL("latexnewfoxunified"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = ChangedCreature.ChangedCreatureModelResourceLocation("latex_ice_field_wolf0");
     private final ModelPart LeftLeg;
     public final ModelPart RightLeg;
     private final ModelPart RightArm;
