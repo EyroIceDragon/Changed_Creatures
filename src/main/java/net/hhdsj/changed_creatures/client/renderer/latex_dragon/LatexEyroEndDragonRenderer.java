@@ -1,6 +1,7 @@
 
 package net.hhdsj.changed_creatures.client.renderer.latex_dragon;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.armors.changed.ArmorLatexMaleWolfWingedDragonModel;
 import net.hhdsj.changed_creatures.client.models.latex_dragon.ModelLatexEyroEndDragon;
 import net.hhdsj.changed_creatures.entity.simple.LatexEyroEndDragonEntity;
@@ -16,7 +17,7 @@ public class LatexEyroEndDragonRenderer extends AdvancedHumanoidRenderer<LatexEy
 			ArmorLatexMaleWolfWingedDragonModel.MODEL_SET,
 			0.5f);
 		this.addLayer(new EmissiveBodyLayer<>(this,
-				new ResourceLocation("changed_creatures:textures/entities/latex/latex_eyro_end_dragon_light.png")));
+				ChangedCreature.CCRL("textures/entities/latex/latex_eyro_end_dragon_light.png")));
 		this.addLayer(new LatexParticlesLayer<>(this, this.model));
 		this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
 		this.addLayer(new CustomEyesLayer<>(this, context.getModelSet(), CustomEyesLayer::scleraColor, CustomEyesLayer.fixedColorGlowing(Color3.parseHex("#00ffff")), CustomEyesLayer.fixedColorGlowing(Color3.parseHex("#00ffff")), CustomEyesLayer::noRender, CustomEyesLayer::noRender));
@@ -25,6 +26,6 @@ public class LatexEyroEndDragonRenderer extends AdvancedHumanoidRenderer<LatexEy
 
 	@Override
 	public ResourceLocation getTextureLocation(LatexEyroEndDragonEntity entity) {
-		return new ResourceLocation("changed_creatures:textures/entities/latex/latex_eyro_end_dragon.png");
+		return ChangedCreature.CCRL("textures/entities/latex/latex_eyro_end_dragon.png");
 	}
 }

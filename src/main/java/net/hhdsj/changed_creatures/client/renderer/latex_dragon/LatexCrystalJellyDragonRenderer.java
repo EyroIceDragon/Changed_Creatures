@@ -1,6 +1,7 @@
 
 package net.hhdsj.changed_creatures.client.renderer.latex_dragon;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.latex_dragon.ModelLatexCrystalJellyDragon;
 import net.hhdsj.changed_creatures.entity.simple.LatexCrystalJellyDragonEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
@@ -12,8 +13,8 @@ import net.minecraft.resources.ResourceLocation;
 
 public class LatexCrystalJellyDragonRenderer extends AdvancedHumanoidRenderer<LatexCrystalJellyDragonEntity, ModelLatexCrystalJellyDragon> {
 
-	ResourceLocation TextureEntity = new ResourceLocation("changed_creatures:textures/entities/latex/latex_crystal_jelly_dragon.png");
-	ResourceLocation TextureLightEntity = new ResourceLocation("changed_creatures:textures/entities/latex/latex_crystal_jelly_dragon_light.png");
+	ResourceLocation TextureEntity = ChangedCreature.CCRL("textures/entities/latex/latex_crystal_jelly_dragon.png");
+	ResourceLocation TextureLightEntity = ChangedCreature.CCRL("textures/entities/latex/latex_crystal_jelly_dragon_light.png");
 
 	public LatexCrystalJellyDragonRenderer(EntityRendererProvider.Context context) {
 		super(context, new ModelLatexCrystalJellyDragon(context.bakeLayer(ModelLatexCrystalJellyDragon.LAYER_LOCATION)), 

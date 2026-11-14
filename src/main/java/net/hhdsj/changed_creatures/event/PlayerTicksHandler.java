@@ -78,7 +78,7 @@ public class PlayerTicksHandler {
             "changed_creatures:form_latex_dawn_wolf",
             "changed_creatures:form_latex_blueve_cat"
     ));
-    private static ResourceLocation FORM_VARIANT = new ResourceLocation("changed_creatures", "form_latex_yunxq_hot_dragon");
+    private static ResourceLocation FORM_VARIANT = ChangedCreature.CCRL("form_latex_yunxq_hot_dragon");
 
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {

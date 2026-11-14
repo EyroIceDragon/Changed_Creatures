@@ -1,9 +1,13 @@
 package net.hhdsj.changed_creatures.client.renderer.latex_fox;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.latex_fox.ModelLatexFloraFox;
 import net.hhdsj.changed_creatures.entity.simple.LatexFloraFoxEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
-import net.ltxprogrammer.changed.client.renderer.layers.*;
+import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
+import net.ltxprogrammer.changed.client.renderer.layers.GasMaskLayer;
+import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
+import net.ltxprogrammer.changed.client.renderer.layers.TransfurCapeLayer;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleWolfModel;
 import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -29,6 +33,6 @@ public class LatexFloraFoxRenderer extends
 
     @Override
     public ResourceLocation getTextureLocation(LatexFloraFoxEntity entity) {
-        return new ResourceLocation("changed_creatures:textures/entities/latex/latex_flora_fox.png");
+        return ChangedCreature.CCRL("textures/entities/latex/latex_flora_fox.png");
     }
 }

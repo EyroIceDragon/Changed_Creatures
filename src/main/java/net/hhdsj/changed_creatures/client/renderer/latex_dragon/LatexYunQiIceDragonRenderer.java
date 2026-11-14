@@ -1,6 +1,7 @@
 
 package net.hhdsj.changed_creatures.client.renderer.latex_dragon;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.latex_dragon.ModelLatexYunQiIceDragon;
 import net.hhdsj.changed_creatures.entity.simple.LatexYunQiIceDragonEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
@@ -23,7 +24,7 @@ public class LatexYunQiIceDragonRenderer extends AdvancedHumanoidRenderer<LatexY
 		this.addLayer(new EyesLayer<LatexYunQiIceDragonEntity, ModelLatexYunQiIceDragon>(this) {
 			@Override
 			public RenderType renderType() {
-				return RenderType.eyes(new ResourceLocation("changed_creatures:textures/entities/latex/latex_yunqi_ice_dragon_light.png"));
+				return RenderType.eyes(ChangedCreature.CCRL("textures/entities/latex/latex_yunqi_ice_dragon_light.png"));
 			}
 		});
         this.addLayer(new LatexParticlesLayer<>(this, getModel()));
@@ -35,6 +36,6 @@ public class LatexYunQiIceDragonRenderer extends AdvancedHumanoidRenderer<LatexY
 
 	@Override
 	public ResourceLocation getTextureLocation(LatexYunQiIceDragonEntity entity) {
-		return new ResourceLocation("changed_creatures:textures/entities/latex/latex_yunqi_ice_dragon.png");
+		return ChangedCreature.CCRL("textures/entities/latex/latex_yunqi_ice_dragon.png");
 	}
 }

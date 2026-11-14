@@ -1,6 +1,7 @@
 package net.hhdsj.changed_creatures.client.renderer.latex_taur;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.latex_taur.ModelLatexFrostScaleDragonTaur;
 import net.hhdsj.changed_creatures.entity.simple.LatexFrostScaleDragonTaurEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
@@ -19,11 +20,11 @@ public class LatexFrostScaleDragonTaurRenderer extends AdvancedHumanoidRenderer<
         super(context, new ModelLatexFrostScaleDragonTaur(context.bakeLayer(ModelLatexFrostScaleDragonTaur.LAYER_LOCATION)),
                 ArmorModelPicker.centaur(context.getModelSet(), ArmorLatexMaleTaurUpperModel.MODEL_SET, ArmorLatexCentaurLowerModel.MODEL_SET_WITH_TORSO), 0.7f);
         this.addLayer(new LatexParticlesLayer<>(this, getModel()));
-        this.addLayer(new EmissiveBodyLayer<>(this, new ResourceLocation("changed_creatures", "textures/entities/latex/latex_taur/latex_frost_scale_dragon_taur_light.png")));
+        this.addLayer(new EmissiveBodyLayer<>(this, ChangedCreature.CCRL("textures/entities/latex/latex_taur/latex_frost_scale_dragon_taur_light.png")));
         this.addLayer(new CustomEyesLayer<>(this, context.getModelSet(), CustomEyesLayer::scleraColor,
                 CustomEyesLayer.fixedColorGlowing(Color3.parseHex("#00ffff")), CustomEyesLayer.fixedColorGlowing(Color3.parseHex("#00ffff")),
                 CustomEyesLayer::noRender, CustomEyesLayer::noRender));
-        this.addLayer(new SaddleLayer<>(this, getModel(), new ResourceLocation("changed_creatures:textures/entities/latex/latex_taur/latex_frost_scale_dragon_taur_saddle.png")));
+        this.addLayer(new SaddleLayer<>(this, getModel(), ChangedCreature.CCRL("textures/entities/latex/latex_taur/latex_frost_scale_dragon_taur_saddle.png")));
         this.addLayer(new TaurChestPackLayer<>(this, context.getModelSet()));
         this.addLayer(TransfurCapeLayer.shortCape(this, context.getModelSet()));
         this.addLayer(GasMaskLayer.forSnouted(this, context.getModelSet()));
@@ -31,7 +32,7 @@ public class LatexFrostScaleDragonTaurRenderer extends AdvancedHumanoidRenderer<
 
     @Override
     public @NotNull ResourceLocation getTextureLocation(@NotNull LatexFrostScaleDragonTaurEntity p_114482_) {
-        return new ResourceLocation("changed_creatures:textures/entities/latex/latex_taur/latex_frost_scale_dragon_taur.png");
+        return ChangedCreature.CCRL("textures/entities/latex/latex_taur/latex_frost_scale_dragon_taur.png");
     }
 
     @Override

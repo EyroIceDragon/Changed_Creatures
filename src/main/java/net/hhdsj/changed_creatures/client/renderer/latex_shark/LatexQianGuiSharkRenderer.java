@@ -1,6 +1,7 @@
 
 package net.hhdsj.changed_creatures.client.renderer.latex_shark;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.latex_shark.ModelLatexQianGuiShark;
 import net.hhdsj.changed_creatures.entity.simple.LatexQianGuiSharkEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
@@ -17,7 +18,7 @@ public class LatexQianGuiSharkRenderer extends AdvancedHumanoidRenderer<LatexQia
             0.5f);
 		this.addLayer(new LatexParticlesLayer<>(this, this.getModel()));
         this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
-		this.addLayer(new EmissiveBodyLayer<>(this, new ResourceLocation("changed_creatures:textures/entities/latex/latex_qian_gui_shark_light.png")));
+		this.addLayer(new EmissiveBodyLayer<>(this, ChangedCreature.CCRL("textures/entities/latex/latex_qian_gui_shark_light.png")));
 		this.addLayer(new CustomEyesLayer<>(this,
 				context.getModelSet(), CustomEyesLayer::scleraColor,
 				CustomEyesLayer::glowingIrisColorLeft,
@@ -29,6 +30,6 @@ public class LatexQianGuiSharkRenderer extends AdvancedHumanoidRenderer<LatexQia
 
 	@Override
 	public ResourceLocation getTextureLocation(LatexQianGuiSharkEntity entity) {
-		return new ResourceLocation("changed_creatures:textures/entities/latex/latex_qian_gui_shark.png");
+		return ChangedCreature.CCRL("textures/entities/latex/latex_qian_gui_shark.png");
 	}
 }

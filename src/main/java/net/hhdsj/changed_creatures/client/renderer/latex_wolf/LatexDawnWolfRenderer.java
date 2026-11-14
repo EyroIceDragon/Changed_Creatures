@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures.client.renderer.latex_wolf;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.latex_wolf.ModelLatexDawnWolf;
 import net.hhdsj.changed_creatures.entity.simple.LatexDawnWolfEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
@@ -32,6 +33,6 @@ public class LatexDawnWolfRenderer extends
 
     @Override
     public ResourceLocation getTextureLocation(LatexDawnWolfEntity entity) {
-        return new ResourceLocation("changed_creatures:textures/entities/latex/latex_dawn_wolf.png");
+        return ChangedCreature.CCRL("textures/entities/latex/latex_dawn_wolf.png");
     }
 }

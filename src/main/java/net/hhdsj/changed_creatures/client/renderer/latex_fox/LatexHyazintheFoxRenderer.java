@@ -1,6 +1,7 @@
 
 package net.hhdsj.changed_creatures.client.renderer.latex_fox;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.latex_fox.ModelLatexHyazintheFox;
 import net.hhdsj.changed_creatures.entity.simple.LatexHyazintheFoxEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
@@ -20,13 +21,13 @@ public class LatexHyazintheFoxRenderer extends
 		this.addLayer(new LatexParticlesLayer<>(this, this.getModel()));
         this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
 		this.addLayer(new EmissiveBodyLayer<>(this,
-				new ResourceLocation("changed_creatures", "textures/entities/latex/latex_hyazinthe_fox_light.png")));
+				ChangedCreature.CCRL("textures/entities/latex/latex_hyazinthe_fox_light.png")));
 		this.addLayer(new CustomEyesLayer<>(this, context.getModelSet(), CustomEyesLayer::scleraColor, CustomEyesLayer.fixedColorGlowing(Color3.parseHex("#5dcde7")), CustomEyesLayer.fixedColorGlowing(Color3.parseHex("#df0124")), CustomEyesLayer::noRender, CustomEyesLayer::noRender));
 		this.addLayer(GasMaskLayer.forSnouted(this, context.getModelSet()));
 	}
 
 	@Override
 	public ResourceLocation getTextureLocation(LatexHyazintheFoxEntity entity) {
-		return new ResourceLocation("changed_creatures:textures/entities/latex/latex_hyazinthe_fox.png");
+		return ChangedCreature.CCRL("textures/entities/latex/latex_hyazinthe_fox.png");
 	}
 }

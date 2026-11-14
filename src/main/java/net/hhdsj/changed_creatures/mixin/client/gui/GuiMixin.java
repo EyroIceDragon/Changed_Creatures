@@ -3,6 +3,7 @@ package net.hhdsj.changed_creatures.mixin.client.gui;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Ordering;
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModTransfurVariants;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
@@ -52,16 +53,13 @@ public abstract class GuiMixin {
     protected static ResourceLocation WIDGETS_LOCATION;
 
     @Unique
-    private static final ResourceLocation CUSTOM_HEART_TEXTURE =
-            new ResourceLocation("changed_creatures", "textures/gui/protogen_hearts.png");
+    private static final ResourceLocation CUSTOM_HEART_TEXTURE = ChangedCreature.CCRL( "textures/gui/protogen_hearts.png");
 
     @Unique
-    private static final ResourceLocation CUSTOM_INVENTORY_TEXTURE =
-            new ResourceLocation("changed_creatures", "textures/gui/protogen_inventory.png");
+    private static final ResourceLocation CUSTOM_INVENTORY_TEXTURE = ChangedCreature.CCRL("changed_creatures", "textures/gui/protogen_inventory.png");
 
     @Unique
-    private static final ResourceLocation CUSTOM_WIDGETS_TEXTURE =
-            new ResourceLocation("changed_creatures", "textures/gui/protogen_widgets.png");
+    private static final ResourceLocation CUSTOM_WIDGETS_TEXTURE = ChangedCreature.CCRL("changed_creatures", "textures/gui/protogen_widgets.png");
 
     @Unique
     private static final float DARK_RED = 5.0F / 255.0F;

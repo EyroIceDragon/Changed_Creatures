@@ -1,21 +1,19 @@
 package net.hhdsj.changed_creatures.client.gui;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.hhdsj.changed_creatures.ChangedCreature;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.Component;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.GuiGraphics;
-
-import net.hhdsj.changed_creatures.world.inventory.FINDGUIMenu;
 import net.hhdsj.changed_creatures.network.CCGuiButtonMessage;
+import net.hhdsj.changed_creatures.world.inventory.FINDGUIMenu;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 
 import java.util.HashMap;
-
-import com.mojang.blaze3d.systems.RenderSystem;
 
 public class FINDGUIScreen extends AbstractContainerScreen<FINDGUIMenu> {
 	private final static HashMap<String, Object> guistate = FINDGUIMenu.guistate;
@@ -35,7 +33,7 @@ public class FINDGUIScreen extends AbstractContainerScreen<FINDGUIMenu> {
 		this.imageHeight = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("changed_creatures:textures/screens/findgui.png");
+	private static final ResourceLocation texture = ChangedCreature.CCRL("textures/screens/findgui.png");
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {

@@ -1,20 +1,17 @@
 
 package net.hhdsj.changed_creatures.client.renderer.latex_wolf;
 
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
-
-import net.hhdsj.changed_creatures.entity.simple.LatexthreemonthwolfEntity;
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.latex_wolf.ModelLatexThreeMonthWolf;
-
+import net.hhdsj.changed_creatures.entity.simple.LatexthreemonthwolfEntity;
+import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.GasMaskLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.TransfurCapeLayer;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleCatModel;
-
-
-import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.resources.ResourceLocation;
 
 
 public class LatexthreemonthwolfRenderer extends AdvancedHumanoidRenderer<LatexthreemonthwolfEntity, ModelLatexThreeMonthWolf> {
@@ -30,7 +27,7 @@ public class LatexthreemonthwolfRenderer extends AdvancedHumanoidRenderer<Latext
 
 	@Override
 	public ResourceLocation getTextureLocation(LatexthreemonthwolfEntity entity) {
-		return new ResourceLocation("changed_creatures:textures/entities/latex/latex_purple_ws_wolf1.png");
+		return ChangedCreature.CCRL("textures/entities/latex/latex_purple_ws_wolf1.png");
 	}
 
 	@Override

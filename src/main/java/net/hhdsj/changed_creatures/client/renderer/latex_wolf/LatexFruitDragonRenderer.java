@@ -1,10 +1,13 @@
 package net.hhdsj.changed_creatures.client.renderer.latex_wolf;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.latex_wolf.ModelLatexFruitDragonWolf;
-
 import net.hhdsj.changed_creatures.entity.simple.LatexFruitDragonEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
-import net.ltxprogrammer.changed.client.renderer.layers.*;
+import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
+import net.ltxprogrammer.changed.client.renderer.layers.GasMaskLayer;
+import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
+import net.ltxprogrammer.changed.client.renderer.layers.TransfurCapeLayer;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorLatexMaleWolfModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -25,6 +28,6 @@ public class LatexFruitDragonRenderer extends AdvancedHumanoidRenderer<LatexFrui
 
     @Override
     public @NotNull ResourceLocation getTextureLocation(@NotNull LatexFruitDragonEntity entity) {
-        return new ResourceLocation("changed_creatures:textures/entities/latex/latex_dragon_fruit.png");
+        return ChangedCreature.CCRL("textures/entities/latex/latex_dragon_fruit.png");
     }
 }

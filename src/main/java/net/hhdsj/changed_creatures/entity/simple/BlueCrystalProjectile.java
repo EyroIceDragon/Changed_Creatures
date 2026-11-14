@@ -43,7 +43,7 @@ public class BlueCrystalProjectile extends AbstractArrow {
             SynchedEntityData.defineId(BlueCrystalProjectile.class, EntityDataSerializers.FLOAT);
 
     private int life = 1200;
-    private ResourceLocation formVariant = new ResourceLocation("changed_creatures", "form_latex_gao_hui_fox");
+    private ResourceLocation formVariant = ChangedCreature.CCRL("form_latex_gao_hui_fox");
     private float projectileDamage = 1.0f;
     private int shakeTime = 0;
     private boolean inGround = false;

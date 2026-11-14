@@ -5,9 +5,8 @@
  */
 package net.hhdsj.changed_creatures.potion;
 
-import net.hhdsj.changed_creatures.potion.procedures.LatexSlowInfectionMobProcedure;
-import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import org.jetbrains.annotations.NotNull;
 
@@ -21,10 +20,10 @@ public class SlowinfectionMobEffect extends MobEffect {
 		return "effect.changed_creatures.slowinfection";
 	}
 
-	//调用LatexSlowInfectionMobProcedure
 	@Override
 	public void applyEffectTick(@NotNull LivingEntity entity, int amplifier) {
-		//LatexSlowInfectionMobProcedure.execute(entity);
+		/*final var variant = ChangedCreatureModTransfurVariants.LATEX_FRUIT_DRAGON_WOLF.get();
+		ProcessTransfur.progressTransfur(livingEntity, 5f, variant, TransfurContext.hazard(TransfurCause.GRAB_REPLICATE));*/
 	}
 
 	@Override

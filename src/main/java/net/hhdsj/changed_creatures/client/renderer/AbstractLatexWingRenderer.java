@@ -2,6 +2,7 @@ package net.hhdsj.changed_creatures.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.other.ModelLatexWing;
 import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.ltxprogrammer.changed.entity.BasicPlayerInfo;
@@ -28,7 +29,7 @@ import java.util.UUID;
 public class AbstractLatexWingRenderer extends ElytraLayer<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> {
 
     private static final ResourceLocation WINGS_TEXTURE =
-            new ResourceLocation("changed_creatures:textures/entities/latex_wind.png");
+            ChangedCreature.CCRL("textures/entities/latex_wind.png");
     private final EntityModelSet modelSet;
 
     private final Map<UUID, ModelLatexWing> playerModels = new HashMap<>();

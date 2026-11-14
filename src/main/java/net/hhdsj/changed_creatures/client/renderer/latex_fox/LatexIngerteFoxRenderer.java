@@ -1,6 +1,7 @@
 
 package net.hhdsj.changed_creatures.client.renderer.latex_fox;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.latex_fox.ModelLatexIngerteFox;
 import net.hhdsj.changed_creatures.entity.simple.LatexIngerteFoxEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
@@ -28,6 +29,6 @@ public class LatexIngerteFoxRenderer extends AdvancedHumanoidRenderer<LatexInger
 
 	@Override
 	public ResourceLocation getTextureLocation(LatexIngerteFoxEntity entity) {
-		return new ResourceLocation("changed_creatures:textures/entities/latex/latex_ingerte_fox.png");
+		return ChangedCreature.CCRL("textures/entities/latex/latex_ingerte_fox.png");
 	}
 }

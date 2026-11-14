@@ -1,20 +1,16 @@
 
 package net.hhdsj.changed_creatures.client.renderer.latex_pup;
 
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
-
-
+import net.hhdsj.changed_creatures.ChangedCreature;
+import net.hhdsj.changed_creatures.client.models.latex_pup.ModelInksuger;
+import net.hhdsj.changed_creatures.entity.simple.InksugerEntity;
+import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
 import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
 import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
 import net.ltxprogrammer.changed.client.renderer.model.armor.ArmorNoneModel;
 import net.ltxprogrammer.changed.util.Color3;
-
-
-import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
-
-import net.hhdsj.changed_creatures.client.models.latex_pup.ModelInksuger;
-import net.hhdsj.changed_creatures.entity.simple.InksugerEntity;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.resources.ResourceLocation;
 
 public class InkSugerRenderer extends AdvancedHumanoidRenderer<InksugerEntity, ModelInksuger> {
 	public InkSugerRenderer(EntityRendererProvider.Context context) {
@@ -32,6 +28,6 @@ public class InkSugerRenderer extends AdvancedHumanoidRenderer<InksugerEntity, M
 
 	@Override
 	public ResourceLocation getTextureLocation(InksugerEntity entity) {
-		return new ResourceLocation("changed_creatures:textures/entities/latex/ink_suger_pup.png");
+		return ChangedCreature.CCRL("textures/entities/latex/ink_suger_pup.png");
 	}
 }

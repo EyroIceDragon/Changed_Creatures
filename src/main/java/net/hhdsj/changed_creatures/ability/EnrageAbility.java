@@ -30,11 +30,7 @@ public class EnrageAbility extends AbstractAbility {
     private static final UUID ENRAGE_SPEED_UUID =
             UUID.fromString("7a3b9d2f-4c5e-4f8b-8d1a-2b3c4d5e6f70");
 
-    private final ResourceLocation texture =
-            ResourceLocation.fromNamespaceAndPath(
-                    ChangedCreature.MODID,
-                    "textures/gui/ability/latex_ability_enrage.png"
-            );
+    private final ResourceLocation texture = ChangedCreature.CCRL("textures/gui/ability/latex_ability_enrage.png");
 
     private final Map<Player, Integer> timers = new WeakHashMap<>();
 

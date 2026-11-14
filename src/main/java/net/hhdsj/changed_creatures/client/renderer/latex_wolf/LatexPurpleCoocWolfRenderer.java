@@ -1,6 +1,7 @@
 
 package net.hhdsj.changed_creatures.client.renderer.latex_wolf;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.latex_wolf.ModelLatexPurpleCoocWolf;
 import net.hhdsj.changed_creatures.entity.simple.LatexPurplecoocwolfEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
@@ -17,7 +18,7 @@ public class LatexPurpleCoocWolfRenderer extends AdvancedHumanoidRenderer<LatexP
             ArmorLatexMaleWolfModel.MODEL_SET,
             0.5f);
 
-		this.addLayer(new EmissiveBodyLayer<>(this, new ResourceLocation("changed_creatures", "textures/entities/latex/latex_purple_cooc_wolf_light.png")));
+		this.addLayer(new EmissiveBodyLayer<>(this, ChangedCreature.CCRL("textures/entities/latex/latex_purple_cooc_wolf_light.png")));
 		this.addLayer(new LatexParticlesLayer<>(this, this.getModel()));
         this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
 		this.addLayer(new CustomEyesLayer<>(this, context.getModelSet(), CustomEyesLayer::scleraColor, CustomEyesLayer::glowingIrisColorLeft, CustomEyesLayer::glowingIrisColorRight, CustomEyesLayer::noRender, CustomEyesLayer::noRender));
@@ -27,6 +28,6 @@ public class LatexPurpleCoocWolfRenderer extends AdvancedHumanoidRenderer<LatexP
 
 	@Override
 	public @NotNull ResourceLocation getTextureLocation(@NotNull LatexPurplecoocwolfEntity entity) {
-		return new ResourceLocation("changed_creatures:textures/entities/latex/latex_purple_cooc_wolf.png");
+		return ChangedCreature.CCRL("textures/entities/latex/latex_purple_cooc_wolf.png");
 	}
 }

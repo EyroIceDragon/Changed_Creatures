@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures.client.renderer.latex_wolf;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.latex_wolf.ModelLatexChengXi;
 import net.hhdsj.changed_creatures.entity.simple.LatexChengXiEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
@@ -32,6 +33,6 @@ public class LatexChengXiRenderer extends
 
     @Override
     public ResourceLocation getTextureLocation(LatexChengXiEntity entity) {
-        return new ResourceLocation("changed_creatures:textures/entities/latex/chengxi.png");
+        return ChangedCreature.CCRL("textures/entities/latex/chengxi.png");
     }
 }

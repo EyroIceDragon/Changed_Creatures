@@ -44,7 +44,7 @@ public class OpenGuiProcedure {
 
 		Advancement useModAdvancement = null;
 		if (entity instanceof ServerPlayer serverPlayer && serverPlayer.level() instanceof ServerLevel) {
-			useModAdvancement = serverPlayer.server.getAdvancements().getAdvancement(new ResourceLocation("changed_creatures:usemod"));
+			useModAdvancement = serverPlayer.server.getAdvancements().getAdvancement(ChangedCreature.CCRL("usemod"));
 			if (useModAdvancement != null) {
 				AdvancementProgress progress = serverPlayer.getAdvancements().getOrStartProgress(useModAdvancement);
 				if (!progress.isDone()) {
@@ -58,7 +58,7 @@ public class OpenGuiProcedure {
 
 		if (entity instanceof ServerPlayer serverPlayer) {
 			if (useModAdvancement == null) {
-				useModAdvancement = serverPlayer.server.getAdvancements().getAdvancement(new ResourceLocation("changed_creatures:usemod"));
+				useModAdvancement = serverPlayer.server.getAdvancements().getAdvancement(ChangedCreature.CCRL("usemod"));
 			}
 			if (useModAdvancement != null) {
 				AdvancementProgress progress = serverPlayer.getAdvancements().getOrStartProgress(useModAdvancement);

@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures.client.renderer.boss;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.boss.ModelLatexNightOwl;
 import net.hhdsj.changed_creatures.entity.boss.LatexNightOwlEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
@@ -32,7 +33,7 @@ public class LatexNightOwlRenderer extends AdvancedHumanoidRenderer<LatexNightOw
 
     @Override
     public ResourceLocation getTextureLocation(LatexNightOwlEntity entity) {
-        return new ResourceLocation("changed_creatures:textures/entities/boss/latex_night_owl_boss_entity.png");
+        return ChangedCreature.CCRL("textures/entities/boss/latex_night_owl_boss_entity.png");
     }
 
 }

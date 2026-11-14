@@ -30,7 +30,7 @@ public class HypnotizeAbility extends AbstractAbility {
     public float useExp(int level) {return 20 + 60 * level * 0.5F;}
 
     //技能图标
-    private final ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(ChangedCreature.MODID,"textures/gui/ability/latex_ability_hypnotize.png");
+    private final ResourceLocation texture = ChangedCreature.CCRL("textures/gui/ability/latex_ability_hypnotize.png");
     private final Map<Player, Set<UUID>> attackedPlayers = new WeakHashMap<>();
 
     public HypnotizeAbility() {

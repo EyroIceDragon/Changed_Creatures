@@ -2,6 +2,7 @@ package net.hhdsj.changed_creatures.client.renderer.projectile;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.other.CrystalJavelinModel;
 import net.hhdsj.changed_creatures.entity.simple.BlueCrystalProjectile;
 import net.minecraft.client.model.geom.ModelPart;
@@ -16,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class BlueCrystalProjectileRenderer extends EntityRenderer<BlueCrystalProjectile> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation("changed_creatures", "textures/entities/crystal_javelin.png");
+            ChangedCreature.CCRL("textures/entities/crystal_javelin.png");
 
     private final CrystalJavelinModel<BlueCrystalProjectile> model;
 

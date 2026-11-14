@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures.client.renderer.latex_fox;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.latex_fox.ModelLatexEtanKind;
 import net.hhdsj.changed_creatures.entity.simple.LatexEtanKindEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
@@ -32,6 +33,6 @@ public class LatexEtanKingRenderer extends
 
     @Override
     public ResourceLocation getTextureLocation(LatexEtanKindEntity entity) {
-        return new ResourceLocation("changed_creatures:textures/entities/latex/latex_etan_kind.png");
+        return ChangedCreature.CCRL("textures/entities/latex/latex_etan_kind.png");
     }
 }

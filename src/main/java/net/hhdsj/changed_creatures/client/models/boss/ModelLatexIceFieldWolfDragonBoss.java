@@ -3,6 +3,7 @@ package net.hhdsj.changed_creatures.client.models.boss;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.entity.boss.LatexIceFieldWolfDragonBossEntity;
 import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
@@ -19,7 +20,7 @@ import java.util.List;
 
 public class ModelLatexIceFieldWolfDragonBoss extends AdvancedHumanoidModel<LatexIceFieldWolfDragonBossEntity> {//implements AdvancedHumanoidModelInterface<LatexIceFieldWolfDragonBossEntity, ModelLatexIceFieldWolfDragonBoss> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("changed_creatures", "latexicefieldwolfboss"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = ChangedCreature.ChangedCreatureModelResourceLocation("latex_ice_field_wolf_boss");
     private final ModelPart LeftLeg;
     public final ModelPart RightLeg;
     private final ModelPart RightArm;

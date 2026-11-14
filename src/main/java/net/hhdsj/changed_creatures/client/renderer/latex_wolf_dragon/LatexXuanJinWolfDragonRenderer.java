@@ -1,11 +1,15 @@
 
 package net.hhdsj.changed_creatures.client.renderer.latex_wolf_dragon;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.armors.changed.ArmorLatexMaleWolfWingedDragonModel;
 import net.hhdsj.changed_creatures.client.models.latex_wolf_dragon.ModelLatexXuanJinWolfDragon;
 import net.hhdsj.changed_creatures.entity.simple.LatexXuanJinWolfDragonEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
-import net.ltxprogrammer.changed.client.renderer.layers.*;
+import net.ltxprogrammer.changed.client.renderer.layers.CustomEyesLayer;
+import net.ltxprogrammer.changed.client.renderer.layers.GasMaskLayer;
+import net.ltxprogrammer.changed.client.renderer.layers.LatexParticlesLayer;
+import net.ltxprogrammer.changed.client.renderer.layers.TransfurCapeLayer;
 import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -13,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class LatexXuanJinWolfDragonRenderer extends AdvancedHumanoidRenderer<LatexXuanJinWolfDragonEntity, ModelLatexXuanJinWolfDragon> {
 
-	ResourceLocation TextureEntity = new ResourceLocation("changed_creatures:textures/entities/latex/latex_xuan_jin_wolfdragon.png");
+	ResourceLocation TextureEntity = ChangedCreature.CCRL("textures/entities/latex/latex_xuan_jin_wolfdragon.png");
 
 	public LatexXuanJinWolfDragonRenderer(EntityRendererProvider.Context context) {
 		super(context, new ModelLatexXuanJinWolfDragon(context.bakeLayer(ModelLatexXuanJinWolfDragon.LAYER_LOCATION)),

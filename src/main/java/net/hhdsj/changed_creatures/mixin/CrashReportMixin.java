@@ -14,7 +14,7 @@ public class CrashReportMixin {
         try {
             stringBuilder.append("\n\n-- Changed Creatures Mod --\n");
             stringBuilder.append("If you crash due to the Changed Creatures mod, please report it at:\n");
-            stringBuilder.append("https://github.com/hhdsjgit/Good-blocks/issues\n");
+            stringBuilder.append("https://github.com/EyroIceDragon/Changed_Creatures/issues\n");
         }catch(Throwable ignored){
             //No do anything
         }

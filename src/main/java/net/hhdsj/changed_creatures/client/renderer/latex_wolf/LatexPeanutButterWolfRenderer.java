@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures.client.renderer.latex_wolf;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.latex_wolf.ModelLatexPeanutButterWolf;
 import net.hhdsj.changed_creatures.entity.simple.LatexPeanutButterWolfEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
@@ -27,6 +28,6 @@ public class LatexPeanutButterWolfRenderer extends AdvancedHumanoidRenderer<Late
 
     @Override
     public @NotNull ResourceLocation getTextureLocation(@NotNull LatexPeanutButterWolfEntity entity) {
-        return new ResourceLocation("changed_creatures:textures/entities/latex/latex_peanut_butter.png");
+        return ChangedCreature.CCRL("textures/entities/latex/latex_peanut_butter.png");
     }
 }

@@ -1,5 +1,6 @@
 package net.hhdsj.changed_creatures.client.renderer.latex_dragon;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.armors.changed.ArmorLatexMaleWolfWingedDragonModel;
 import net.hhdsj.changed_creatures.client.models.latex_dragon.ModelLatexXuanJinDragon;
 import net.hhdsj.changed_creatures.entity.simple.LatexXuanJinDragonEntity;
@@ -13,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class LatexXuanJinDragonRenderer extends AdvancedHumanoidRenderer<LatexXuanJinDragonEntity, ModelLatexXuanJinDragon> {
 
-    ResourceLocation TextureEntity = new ResourceLocation("changed_creatures:textures/entities/latex/latex_xuan_jin_dragon.png");
+    ResourceLocation TextureEntity = ChangedCreature.CCRL("textures/entities/latex/latex_xuan_jin_dragon.png");
 
     public LatexXuanJinDragonRenderer(EntityRendererProvider.Context context) {
         super(context, new ModelLatexXuanJinDragon(context.bakeLayer(ModelLatexXuanJinDragon.LAYER_LOCATION)),

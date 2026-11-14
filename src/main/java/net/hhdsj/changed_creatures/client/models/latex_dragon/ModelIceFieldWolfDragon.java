@@ -32,7 +32,7 @@ import java.util.List;
 
 public class ModelIceFieldWolfDragon extends AdvancedHumanoidModel<LatexIceFieldWolfDragonEntity>{
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this models's constructor
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("changed_creatures", "latexnewfoxunified"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ChangedCreature.CCRL("latexnewfoxunified"), "main");
     private final ModelPart LeftLeg;
     public final ModelPart RightLeg;
     private final ModelPart RightArm;

@@ -4,6 +4,7 @@ package net.hhdsj.changed_creatures.client.renderer.latex_dragon;
 public class LatexIqGoldDragonRenderer {
 }*/
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.latex_dragon.ModelLatexIqGoldDragon;
 import net.hhdsj.changed_creatures.entity.simple.LatexIqGoldDragonEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
@@ -18,7 +19,7 @@ public class LatexIqGoldDragonRenderer extends AdvancedHumanoidRenderer<LatexIqG
         super(context, new ModelLatexIqGoldDragon(context.bakeLayer(ModelLatexIqGoldDragon.LAYER_LOCATION)),
                 ArmorLatexMaleWingedDragonModel.MODEL_SET,
                 0.5f);
-        this.addLayer(new EmissiveBodyLayer<>(this, new ResourceLocation("changed_creatures", "textures/entities/latex/latex_iq_gold_dragon_light.png")));
+        this.addLayer(new EmissiveBodyLayer<>(this, ChangedCreature.CCRL("textures/entities/latex/latex_iq_gold_dragon_light.png")));
         this.addLayer(new LatexParticlesLayer<>(this, getModel()));
         this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
         //this.addLayer(CustomEyesLayer.builder(this, context.getModelSet())
@@ -29,6 +30,6 @@ public class LatexIqGoldDragonRenderer extends AdvancedHumanoidRenderer<LatexIqG
 
     @Override
     public ResourceLocation getTextureLocation(LatexIqGoldDragonEntity entity) {
-        return new ResourceLocation("changed_creatures:textures/entities/latex/latex_iq_gold_dragon.png");
+        return ChangedCreature.CCRL("textures/entities/latex/latex_iq_gold_dragon.png");
     }
 }

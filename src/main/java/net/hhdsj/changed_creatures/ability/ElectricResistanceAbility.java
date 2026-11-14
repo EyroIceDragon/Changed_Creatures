@@ -9,7 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import java.util.List;
 
 public class ElectricResistanceAbility extends AbstractAbility {
-    private final ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(ChangedCreature.MODID,"textures/gui/ability/latex_ability_anit_lightning.png");
+    private final ResourceLocation texture = ChangedCreature.CCRL("textures/gui/ability/latex_ability_anit_lightning.png");
     public ElectricResistanceAbility() {
         super(Component.translatable("ability.changed_creatures.electric_resistance.name"), 0xFFFFFF, 5);
     }

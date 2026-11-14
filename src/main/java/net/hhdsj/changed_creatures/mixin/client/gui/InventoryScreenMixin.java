@@ -1,6 +1,7 @@
 package net.hhdsj.changed_creatures.mixin.client.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModTransfurVariants;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
@@ -39,8 +40,7 @@ public abstract class InventoryScreenMixin extends EffectRenderingInventoryScree
     }
 
     @Unique
-    private static final ResourceLocation GOODBLOCK_INVENTORY =
-            new ResourceLocation("changed_creatures", "textures/gui/protogen_inventory.png");
+    private static final ResourceLocation INVENTORY_TEXTURE = ChangedCreature.CCRL("textures/gui/protogen_inventory.png");
 
     @Unique
     private static final float DARK_RED = 5.0F / 255.0F;
@@ -82,13 +82,13 @@ public abstract class InventoryScreenMixin extends EffectRenderingInventoryScree
         int j = this.topPos;
 
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        RenderSystem.setShaderTexture(0, GOODBLOCK_INVENTORY);
+        RenderSystem.setShaderTexture(0, INVENTORY_TEXTURE);
 
         graphics.setColor(DARK_RED, DARK_GREEN, DARK_BLUE, 0.3F);
-        graphics.blit(GOODBLOCK_INVENTORY, i, j, 256, 0, this.imageWidth, this.imageHeight, 768, 256);
+        graphics.blit(INVENTORY_TEXTURE, i, j, 256, 0, this.imageWidth, this.imageHeight, 768, 256);
 
         graphics.setColor(CYAN_RED, CYAN_GREEN, CYAN_BLUE, 0.3F);
-        graphics.blit(GOODBLOCK_INVENTORY, i, j, 0, 0, this.imageWidth, this.imageHeight, 768, 256);
+        graphics.blit(INVENTORY_TEXTURE, i, j, 0, 0, this.imageWidth, this.imageHeight, 768, 256);
 
         graphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
 

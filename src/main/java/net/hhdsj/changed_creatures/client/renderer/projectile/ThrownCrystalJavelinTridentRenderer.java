@@ -2,7 +2,9 @@ package net.hhdsj.changed_creatures.client.renderer.projectile;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.entity.simple.ThrownCrystalJavelinTrident;
+import net.hhdsj.changed_creatures.init.ChangedCreatureModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -14,17 +16,16 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import net.hhdsj.changed_creatures.init.ChangedCreatureModItems;
 import org.jetbrains.annotations.NotNull;
 
 public class ThrownCrystalJavelinTridentRenderer extends EntityRenderer<ThrownCrystalJavelinTrident> {
 
     // 纹理路径
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation("changed_creatures", "textures/item/thrown_crystal_javelin_trident.png");
+            ChangedCreature.CCRL("textures/item/thrown_crystal_javelin_trident.png");
 
     private static final ResourceLocation MODEL =
-            new ResourceLocation("changed_creatures:custom/thrown_crystal_javelin_trident");
+            ChangedCreature.CCRL("custom/thrown_crystal_javelin_trident");
 
     private final ItemRenderer itemRenderer;
 

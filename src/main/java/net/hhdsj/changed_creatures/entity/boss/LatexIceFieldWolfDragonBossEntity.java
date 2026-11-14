@@ -67,8 +67,7 @@ public class LatexIceFieldWolfDragonBossEntity extends ChangedEntity{
 
     private int obsidianBreakCooldown = 0;
     private int AttackInUse = 1;
-    private int ticksInUse = 300;
-    // 删除这行: private Level level;  // 不需要，使用父类的 level()
+    private int ticksInUse = 300;)
 
     public LatexIceFieldWolfDragonBossEntity(PlayMessages.SpawnEntity packet, Level world) {
         this(ChangedCreatureModEntities.LATEX_ICE_FIELD_WOLF_DRAGON_BOSS.get(), world);

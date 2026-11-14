@@ -1,10 +1,10 @@
 package net.hhdsj.changed_creatures.Enchantments;
 
+import net.hhdsj.changed_creatures.init.ChangedCreatureModTransfurVariants;
 import net.ltxprogrammer.changed.entity.TransfurCause;
 import net.ltxprogrammer.changed.entity.TransfurContext;
-import net.ltxprogrammer.changed.init.ChangedRegistry;
+import net.ltxprogrammer.changed.entity.variant.TransfurVariant;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class ThreeMonthArrowEnchantments extends Enchantment {
 
-    private final ResourceLocation formVariant = new ResourceLocation("changed_creatures", "form_latex_three_month_wolf");
+    private final TransfurVariant formVariant = ChangedCreatureModTransfurVariants.LATEX_THREE_MONTH_WOLF.get();
 
     public ThreeMonthArrowEnchantments() {
         super(Enchantment.Rarity.VERY_RARE, EnchantmentCategory.BOW, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
@@ -24,14 +24,9 @@ public class ThreeMonthArrowEnchantments extends Enchantment {
 
         // 攻击逻辑 Attack Logic
         if (target instanceof LivingEntity livingTarget) {
-
-            final var variant = ChangedRegistry.TRANSFUR_VARIANT.get().getValue(this.formVariant);
-
-            if (variant != null && !livingTarget.level().isClientSide) {
-                // 触发变体转化（80%可能）Trigger transfur transformation (80% chance)
-                if (livingTarget.getRandom().nextFloat() < 0.8f) {
-                    ProcessTransfur.progressTransfur(livingTarget, 3f, variant, TransfurContext.hazard(TransfurCause.GRAB_REPLICATE));
-                }
+            // 触发变体转化（80%可能）Trigger transfur transformation (80% chance)
+            if (livingTarget.getRandom().nextFloat() < 0.8f) {
+                ProcessTransfur.progressTransfur(livingTarget, 3f, this.formVariant, TransfurContext.hazard(TransfurCause.GRAB_REPLICATE));
             }
         }
 

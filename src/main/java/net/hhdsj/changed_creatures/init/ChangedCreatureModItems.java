@@ -76,7 +76,6 @@ public class ChangedCreatureModItems {
 	public static RegistryObject<Item> LATEX_FILLED_ALL_MUG_ITEM;
 
 	// 工具类
-	public static RegistryObject<Item> FLUTE;
 	public static RegistryObject<Item> Latex_Night_Owl_Goo_Item;
 
 	// 植物/生成类
@@ -175,7 +174,6 @@ public class ChangedCreatureModItems {
 		DRAGONFRUIT = ITEMS.register("latex_dragon_fruit", LatexDragonFruitItem::new);
 		Frost_Condensed_Crystal_Cluster = ITEMS.register("frost_condensed_crystal_clustert", FrostCondensedCrystalClusterItem::new);
 		Impure_Frost_Condensed_Crystal_Cluster = ITEMS.register("impure_frost_condensed_crystal_clustert", ImpureFrostCondensedCrystalClusterItem::new);
-		FLUTE = ITEMS.register("flute", FluteItem::new);
 
 		PALETREE = ITEMS.register("pale_tree", PaleTreeItem::new);
 		LatexCrystalJellyItem = ITEMS.register("latex_crystal_jelly", LatexCrystalJellyItem::new);

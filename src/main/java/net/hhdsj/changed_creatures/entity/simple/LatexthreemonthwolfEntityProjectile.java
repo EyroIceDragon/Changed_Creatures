@@ -42,7 +42,7 @@ public class LatexthreemonthwolfEntityProjectile extends AbstractArrow {
             SynchedEntityData.defineId(LatexthreemonthwolfEntityProjectile.class, EntityDataSerializers.FLOAT);
     
     private int life = 1200;
-    private ResourceLocation formVariant = new ResourceLocation("changed_creatures", "form_latex_three_month_wolf");
+    private ResourceLocation formVariant = ChangedCreature.CCRL("form_latex_three_month_wolf");
     private float projectileDamage = 1.0f;
     private int shakeTime = 0;
     private boolean inGround = false;

@@ -32,6 +32,6 @@ public class LatexBlueveCatRenderer extends
 
     @Override
     public ResourceLocation getTextureLocation(LatexBlueveCatEntity entity) {
-        return new ResourceLocation("changed_creatures:textures/entities/latex/latex_blueve_cat.png");
+        return ChangedCreature.CCRL("textures/entities/latex/latex_blueve_cat.png");
     }
 }

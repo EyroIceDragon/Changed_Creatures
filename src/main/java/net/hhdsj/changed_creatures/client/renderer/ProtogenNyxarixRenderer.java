@@ -1,6 +1,7 @@
 package net.hhdsj.changed_creatures.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.ModelProtogenNyxarix;
 import net.hhdsj.changed_creatures.client.models.armors.changed.ArmorProtogenNyxarixWaterSquidDogModel;
 import net.hhdsj.changed_creatures.entity.simple.ProtogenNyxarixEntity;
@@ -10,8 +11,8 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
 public class ProtogenNyxarixRenderer extends AdvancedHumanoidRenderer<ProtogenNyxarixEntity, ModelProtogenNyxarix> {
-    public static final ResourceLocation DEFAULT_SKIN_LOCATION = new ResourceLocation("changed_creatures:textures/entities/latex/protogen_nyxarix.png");
-    public static final ResourceLocation DEFAULT_LIGHT_SKIN_LOCATION = new ResourceLocation("changed_creatures:textures/entities/latex/protogen_nyxarix_light.png");
+    public static final ResourceLocation DEFAULT_SKIN_LOCATION = ChangedCreature.CCRL("textures/entities/latex/protogen_nyxarix.png");
+    public static final ResourceLocation DEFAULT_LIGHT_SKIN_LOCATION = ChangedCreature.CCRL("textures/entities/latex/protogen_nyxarix_light.png");
 
     public ProtogenNyxarixRenderer(EntityRendererProvider.Context context) {
         super(context, new ModelProtogenNyxarix(context.bakeLayer(ModelProtogenNyxarix.LAYER_LOCATION)), ArmorProtogenNyxarixWaterSquidDogModel.MODEL_SET, 0.65f);

@@ -2,19 +2,15 @@
 package net.hhdsj.changed_creatures.item;
 
 import net.hhdsj.changed_creatures.init.ChangedCreatureModMobEffects;
-import net.hhdsj.changed_creatures.util.ProgressTransfurExt;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.entity.Entity;
-
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
-
-import static java.lang.Math.random;
 
 public class ImpureuraniumItem extends Item {
 
@@ -31,17 +27,10 @@ public class ImpureuraniumItem extends Item {
 	@Override
 	public void inventoryTick(ItemStack itemstack, Level world, @NotNull Entity entity, int slot, boolean selected) {
 		super.inventoryTick(itemstack, world, entity, slot, selected);
-
 		if (selected) {
-			if (entity == null) {
-				return;
-			}
-			//获取现在的实体,给实体个效果
-			if (entity instanceof LivingEntity _entity) {
-				_entity.addEffect(new MobEffectInstance(ChangedCreatureModMobEffects.RADIATION.get(), 60, 1));
-                if (random() >= 0.5f) {
-					ProgressTransfurExt.execute(_entity,"changed_creatures:form_latex_radiation_fox");
-                }
+            //获取现在的实体,给实体个效果
+			if (entity instanceof LivingEntity liv_entity) {
+				liv_entity.addEffect(new MobEffectInstance(ChangedCreatureModMobEffects.RADIATION.get(), 60, 1));
             }
 		}
 	}

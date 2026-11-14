@@ -47,7 +47,7 @@ public abstract class PainiteArmorItem extends ArmorItem {
         }
         @Override public int getEnchantmentValue() { return 50; }
         @Override public @NotNull SoundEvent getEquipSound() {
-            SoundEvent sound = ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("changed_creatures:item.armor.equip_netherite"));
+            SoundEvent sound = ForgeRegistries.SOUND_EVENTS.getValue(ChangedCreature.CCRL("item.armor.equip_netherite"));
             return sound != null ? sound : SoundEvents.ARMOR_EQUIP_NETHERITE;
         }
         @Override public @NotNull Ingredient getRepairIngredient() { return Ingredient.of(Items.NETHERITE_INGOT); }

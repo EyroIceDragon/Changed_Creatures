@@ -9,7 +9,6 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.PlayerTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
@@ -26,7 +25,7 @@ public class ChangedCreaturesAdvancementProvider implements ForgeAdvancementProv
                         new ItemStack(ChangedCreatureModItems.PALETREE.get()),
                         Component.translatable("advancements.changed_creatures.root.title"),
                         Component.translatable("advancements.changed_creatures.root.descr"),
-                        new ResourceLocation("textures/gui/advancements/backgrounds/stone.png"),
+                        ChangedCreature.CCRL("minecraft","textures/gui/advancements/backgrounds/stone.png"),
                         FrameType.TASK,
                         true,
                         true,

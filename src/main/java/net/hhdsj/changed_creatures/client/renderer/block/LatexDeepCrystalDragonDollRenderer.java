@@ -2,9 +2,9 @@ package net.hhdsj.changed_creatures.client.renderer.block;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.block.LatexDeepCrystalDragonDollBlockEntity;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 public class LatexDeepCrystalDragonDollRenderer implements BlockEntityRenderer<LatexDeepCrystalDragonDollBlockEntity> {
 
     private static final ResourceLocation MODEL_LOCATION =
-            new ResourceLocation("changed_creatures", "block/latex_crystal_jelly_dragon_doll");
+            ChangedCreature.CCRL("block/latex_crystal_jelly_dragon_doll");
 
     private final ItemRenderer itemRenderer;
 

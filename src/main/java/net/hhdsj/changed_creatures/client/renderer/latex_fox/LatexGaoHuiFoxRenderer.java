@@ -1,6 +1,7 @@
 
 package net.hhdsj.changed_creatures.client.renderer.latex_fox;
 
+import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.latex_fox.ModelLatexGaoHuiFox;
 import net.hhdsj.changed_creatures.entity.simple.LatexGaoHuiFoxEntity;
 import net.ltxprogrammer.changed.client.renderer.AdvancedHumanoidRenderer;
@@ -20,7 +21,7 @@ public class LatexGaoHuiFoxRenderer extends
 		this.addLayer(new LatexParticlesLayer<>(this, this.getModel()));
         this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
 		this.addLayer(new EmissiveBodyLayer<>(this,
-				new ResourceLocation("changed_creatures", "textures/entities/latex/latex_gao_hui_fox_light.png")));
+				ChangedCreature.CCRL("textures/entities/latex/latex_gao_hui_fox_light.png")));
 		this.addLayer(new CustomEyesLayer<>(
 				this, context.getModelSet(),
 				CustomEyesLayer::scleraColor,
@@ -32,6 +33,6 @@ public class LatexGaoHuiFoxRenderer extends
 
 	@Override
 	public ResourceLocation getTextureLocation(LatexGaoHuiFoxEntity entity) {
-		return new ResourceLocation("changed_creatures:textures/entities/latex/latex_gao_hui_fox.png");
+		return ChangedCreature.CCRL("textures/entities/latex/latex_gao_hui_fox.png");
 	}
 }

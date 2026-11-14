@@ -15,11 +15,7 @@ import java.util.List;
 
 public class PoisonResistanceAbility extends AbstractAbility {
 
-    private final ResourceLocation texture =
-            ResourceLocation.fromNamespaceAndPath(
-                    ChangedCreature.MODID,
-                    "textures/gui/ability/latex_ability_poison_resistance.png"
-            );
+    private final ResourceLocation texture = ChangedCreature.CCRL("textures/gui/ability/latex_ability_poison_resistance.png");
 
     public PoisonResistanceAbility() {
         super(Component.translatable("ability.changed_creatures.poison_resistance.name"), 0xFFFFFF, 2);

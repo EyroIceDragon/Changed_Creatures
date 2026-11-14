@@ -14,7 +14,7 @@ import java.util.List;
 
 public class TailModel extends Model {
 
-    private static final ResourceLocation TAIL_TEXTURE = new ResourceLocation("changed_creatures:textures/entities/tail_white.png");
+    private static final ResourceLocation TAIL_TEXTURE = ChangedCreature.CCRL("textures/entities/tail_white.png");
 
     private final float[] targetYRot = new float[3];
     private final float[] currentYRot = new float[3];

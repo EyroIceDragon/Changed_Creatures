@@ -42,8 +42,8 @@ public class ArrowReplacementHandler {
         if (formId == null) return;
 
         // 检查是否是有效的形态
-        boolean isValidForm = Objects.equals(formId, new ResourceLocation("changed_creatures", "form_latex_three_month_wolf")) ||
-                Objects.equals(formId, new ResourceLocation("changed_creatures", "form_latex_ice_field_wolf_dragon"));
+        boolean isValidForm = Objects.equals(formId, ChangedCreature.CCRL("form_latex_three_month_wolf")) ||
+                Objects.equals(formId, ChangedCreature.CCRL("form_latex_ice_field_wolf_dragon"));
         if (!isValidForm) return;
 
         if (!(bow.getItem() instanceof BowItem)) return;
@@ -68,11 +68,11 @@ public class ArrowReplacementHandler {
         LatexthreemonthwolfEntityProjectile customArrow = new LatexthreemonthwolfEntityProjectile(level, player);
 
         // 设置变体
-        if (Objects.equals(formId, new ResourceLocation("changed_creatures", "form_latex_three_month_wolf"))) {
-            customArrow.setFormVariant(new ResourceLocation("changed_creatures", "form_latex_three_month_wolf"));
+        if (Objects.equals(formId, ChangedCreature.CCRL("form_latex_three_month_wolf"))) {
+            customArrow.setFormVariant(ChangedCreature.CCRL("form_latex_three_month_wolf"));
         }
-        if (Objects.equals(formId, new ResourceLocation("changed_creatures", "form_latex_ice_field_wolf_dragon"))) {
-            customArrow.setFormVariant(new ResourceLocation("changed_creatures", "form_latex_ice_field_wolf_dragon"));
+        if (Objects.equals(formId, ChangedCreature.CCRL("form_latex_ice_field_wolf_dragon"))) {
+            customArrow.setFormVariant(ChangedCreature.CCRL("form_latex_ice_field_wolf_dragon"));
         }
 
         // 设置箭矢属性

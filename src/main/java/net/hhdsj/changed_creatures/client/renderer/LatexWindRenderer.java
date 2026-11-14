@@ -4,23 +4,14 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.other.ModelLatexWing;
-import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
-import net.ltxprogrammer.changed.entity.BasicPlayerInfo;
-import net.ltxprogrammer.changed.entity.PlayerDataExtension;
-import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
-import net.ltxprogrammer.changed.util.Color3;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
-import net.minecraft.client.renderer.entity.layers.ElytraLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 
@@ -31,9 +22,9 @@ import java.util.UUID;
 public class LatexWindRenderer extends AbstractLatexWingRenderer {
 
     private static final ResourceLocation WINGS_TEXTURE =
-            new ResourceLocation("changed_creatures:textures/entities/latex_wind.png");
+            ChangedCreature.CCRL("textures/entities/latex_wind.png");
     private static final ResourceLocation WINGS_EMISSIVE_TEXTURE =
-            new ResourceLocation("changed_creatures:textures/entities/latex_wind_light.png");
+            ChangedCreature.CCRL("textures/entities/latex_wind_light.png");
 
     private final EntityModelSet modelSet;
     private final Map<UUID, ModelLatexWing> playerModels = new HashMap<>();
