@@ -5,7 +5,6 @@ import com.mojang.math.Axis;
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.entity.simple.ThrownCrystalJavelinTrident;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModItems;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -20,12 +19,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class ThrownCrystalJavelinTridentRenderer extends EntityRenderer<ThrownCrystalJavelinTrident> {
 
-    // 纹理路径
     private static final ResourceLocation TEXTURE =
             ChangedCreature.CCRL("textures/item/thrown_crystal_javelin_trident.png");
-
-    private static final ResourceLocation MODEL =
-            ChangedCreature.CCRL("models/custom/thrown_crystal_javelin_trident");
 
     private final ItemRenderer itemRenderer;
 
@@ -42,8 +37,8 @@ public class ThrownCrystalJavelinTridentRenderer extends EntityRenderer<ThrownCr
         poseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partialTicks, entity.yRotO, entity.getYRot()) - 90.0F));
         poseStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(partialTicks, entity.xRotO, entity.getXRot()) + 90.0F));
 
-        BakedModel model = Minecraft.getInstance().getModelManager().getModel(MODEL);
         ItemStack itemStack = new ItemStack(ChangedCreatureModItems.CRYSTAL_JAVELIN.get());
+        BakedModel model = itemRenderer.getModel(itemStack, null, null, 0);
 
         this.itemRenderer.render(
                 itemStack,
@@ -57,7 +52,6 @@ public class ThrownCrystalJavelinTridentRenderer extends EntityRenderer<ThrownCr
         );
 
         poseStack.popPose();
-        super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
     }
 
     @Override

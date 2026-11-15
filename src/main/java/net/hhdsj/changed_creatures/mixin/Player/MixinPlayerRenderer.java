@@ -5,7 +5,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import net.hhdsj.changed_creatures.client.models.other.TailModel;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModModelLayers;
-import net.hhdsj.changed_creatures.network.GoodblockModVariables;
+import net.hhdsj.changed_creatures.network.ChangedCreaturesModVariables;
 import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
@@ -58,7 +58,7 @@ public abstract class MixinPlayerRenderer extends LivingEntityRenderer<AbstractC
             return;
         }
 
-        GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(player);
+        ChangedCreaturesModVariables.PlayerVariables data = PlayerDataGetHelper.get(player);
 
         if (!data.Player_Is_Infection) {
             return;

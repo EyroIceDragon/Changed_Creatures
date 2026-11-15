@@ -1,18 +1,19 @@
 package net.hhdsj.changed_creatures.event;
 
-import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.client.models.other.ModelLatexWing;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModGameRules;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModParticleTypes;
 import net.hhdsj.changed_creatures.init.ChangedCreatureModTransfurVariants;
+import net.hhdsj.changed_creatures.network.ChangedCreaturesModVariables;
 import net.hhdsj.changed_creatures.network.packets.SyncCrystalRingPacket;
-import net.hhdsj.changed_creatures.util.ProgressTransfurExt;
 import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
+import net.hhdsj.changed_creatures.util.ProgressTransfurExt;
 import net.ltxprogrammer.changed.entity.TransfurCause;
 import net.ltxprogrammer.changed.entity.TransfurContext;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariant;
 import net.ltxprogrammer.changed.entity.variant.TransfurVariantInstance;
 import net.ltxprogrammer.changed.init.ChangedRegistry;
+import net.ltxprogrammer.changed.init.ChangedTags;
 import net.ltxprogrammer.changed.process.ProcessTransfur;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.player.AbstractClientPlayer;
@@ -25,16 +26,15 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraft.world.entity.player.Player;
-import net.hhdsj.changed_creatures.network.GoodblockModVariables;
 
-import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -44,42 +44,13 @@ public class PlayerTicksHandler {
     private static final UUID CRYSTAL_SLOW_UUID = UUID.fromString("c8e5c5a4-8f3a-4e2a-9b1c-7d6e5f4a3b2c");
     private static boolean wasFlying = false;
     private static final Random RANDOM = new Random();
-    private static final List<String> LIST_VARIANT = new ArrayList<>(List.of(
-            "changed_creatures:form_orange_fox",
-            "changed_creatures:form_latex_kcahra_shark",
-            "changed_creatures:form_blue_dragon",
-            "changed_creatures:form_darkfu_latex_wolf_male",
-            "changed_creatures:form_latex_ice_dragon",
-            "changed_creatures:form_ink_suger",
-            "changed_creatures:form_black_pup",
-            "changed_creatures:form_white_blue_pup",
-            "changed_creatures:form_latex_purplews_wolf",
-            "changed_creatures:form_latex_three_month_wolf",
-            "changed_creatures:form_latex_yunxq_hot_dragon",
-            "changed_creatures:form_latex_yun_xq_ice_dragon",
-            "changed_creatures:form_latex_ice_field_wolf_dragon",
-            "changed_creatures:form_latex_purple_cooc_wolf",
-            "changed_creatures:form_latex_yun_qi_ice_dragon",
-            "changed_creatures:form_latex_radiation_fox",
-            "changed_creatures:form_latex_night_owl_dragon",
-            "changed_creatures:form_latex_iq_gold_dragon",
-            "changed_creatures:form_latex_dark_purple_dragon_taur",
-            "changed_creatures:form_latex_dark_purple_dragon",
-            "changed_creatures:form_latex_luo_hong_early_spring_fox_dragon",
-            "changed_creatures:form_latex_neondimness_wolf",
-            "changed_creatures:form_latex_cheng_xi_fox",
-            "changed_creatures:form_latex_yao_ling_dragon",
-            "changed_creatures:form_latex_dragon_fruit_wolf",
-            "changed_creatures:form_latex_divine_sword_kitsune",
-            "changed_creatures:form_latex_gao_hui_fox",
-            "changed_creatures:form_latex_hyazinthe_fox",
-            "changed_creatures:form_latex_yue_xi_fox_female",
-            "changed_creatures:form_latex_enkang_dragon_shark",
-            "changed_creatures:form_latex_qian_gui_shark",
-            "changed_creatures:form_latex_dawn_wolf",
-            "changed_creatures:form_latex_blueve_cat"
-    ));
-    private static ResourceLocation FORM_VARIANT = ChangedCreature.CCRL("form_latex_yunxq_hot_dragon");
+    private static final List<TransfurVariant<?>> LIST_VARIANT = ChangedRegistry.TRANSFUR_VARIANT.get()
+            .getValues().stream()
+            .filter(v -> !v.getFormId().equals(ResourceLocation.tryParse("changed:form_special")))
+            .filter(v -> !v.is(ChangedTags.TransfurVariants.TEMPORARY_ONLY))
+            .sorted(Comparator.comparing(v -> v.getFormId().toString()))
+            .toList();
+    private static TransfurVariant FORM_VARIANT = ChangedCreatureModTransfurVariants.LATEX_LUOLONG_DRAGON_SHARK.get();
 
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
@@ -103,7 +74,6 @@ public class PlayerTicksHandler {
         if (player instanceof ServerPlayer sp) {
             sp.getCapability(CrystalRingHandler.CAPABILITY).ifPresent(c -> {
                 if (c.isActive() != shouldHaveRing) {
-                    System.out.println("OK0");
                     c.setActive(shouldHaveRing);
                     SyncCrystalRingPacket.sync(sp);
                 }
@@ -118,24 +88,23 @@ public class PlayerTicksHandler {
             if (gameMode == GameType.CREATIVE || gameMode == GameType.SPECTATOR){
                 return;
             }
-
         }
 
         if (event.phase == TickEvent.Phase.END && !event.player.level().isClientSide()) {
-            GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(player);
+            ChangedCreaturesModVariables.PlayerVariables data = PlayerDataGetHelper.get(player);
 
             if (!data.Player_Is_Infection) {
                 return;
             }
 
             Level level = event.player.level();
-            if (!level.getGameRules().getBoolean(ChangedCreatureModGameRules.TEST_RULE)) {
+            if (!level.getGameRules().getBoolean(ChangedCreatureModGameRules.INFECTION_RULE)) {
                 return;
             }
 
             if (TransfurVariant != null) {
                 data.Player_Infection_tick = 0;
-                data.Player_Is_Infection = true;
+                data.Player_Is_Infection = false;
                 data.syncPlayerVariables(player);
                 return;
             }
@@ -149,16 +118,15 @@ public class PlayerTicksHandler {
             if (data.Player_Infection_tick >= 1000) {
                 player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 50, 1));
                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 50, 2));
-                FORM_VARIANT = ChangedCreature.CCRLP(LIST_VARIANT.get(RANDOM.nextInt(LIST_VARIANT.size())));
-                TransfurVariant<?> variant = ChangedRegistry.TRANSFUR_VARIANT.get().getValue(FORM_VARIANT);
-                if (variant != null) {
-                    ProcessTransfur.progressTransfur(player, 1f, variant, TransfurContext.hazard(TransfurCause.FACE_HAZARD));
+                FORM_VARIANT = LIST_VARIANT.get(RANDOM.nextInt(LIST_VARIANT.size()));
+                if (FORM_VARIANT != null) {
+                    ProcessTransfur.progressTransfur(player, 1f, FORM_VARIANT, TransfurContext.hazard(TransfurCause.FACE_HAZARD));
                 }
             }
 
-            if (data.Player_Infection_tick % 100 == 0) {
-                //System.out.println("Now Player_Infection_tick : " + data.Player_Infection_tick);
-            }
+            /*if (data.Player_Infection_tick % 100 == 0) {
+                System.out.println("Now Player_Infection_tick : " + data.Player_Infection_tick);
+            }*/
         }
     }
 
@@ -237,7 +205,7 @@ public class PlayerTicksHandler {
 
 
         if (event.phase == TickEvent.Phase.END && !event.player.level().isClientSide()) {
-            GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(player);
+            ChangedCreaturesModVariables.PlayerVariables data = PlayerDataGetHelper.get(player);
 
             if (variant != null) {
                 removeCrystalSlowModifier(player);

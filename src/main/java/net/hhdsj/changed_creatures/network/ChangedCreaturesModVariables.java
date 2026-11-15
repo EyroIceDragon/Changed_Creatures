@@ -24,7 +24,7 @@ import java.util.UUID;
 import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class GoodblockModVariables {
+public class ChangedCreaturesModVariables {
 
 	public static double _Progress = 0;
 

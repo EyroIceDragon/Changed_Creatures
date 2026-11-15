@@ -1,7 +1,7 @@
 package net.hhdsj.changed_creatures.world.inventory;
 /*
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.hhdsj.changed_creatures.network.GoodblockModVariables;
+import net.hhdsj.changed_creatures.network.ChangedCreaturesModVariables;
 import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
@@ -21,7 +21,7 @@ public class CrystalJellyInfectionOverlay {
 
         if (player == null) return;
 
-        GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(player);
+        ChangedCreaturesModVariables.PlayerVariables data = PlayerDataGetHelper.get(player);
 
         //if (!data.Crystal_Jelly_Infection) return;
 

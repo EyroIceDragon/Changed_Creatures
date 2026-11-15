@@ -1,6 +1,6 @@
 package net.hhdsj.changed_creatures.item;
 
-import net.hhdsj.changed_creatures.network.GoodblockModVariables;
+import net.hhdsj.changed_creatures.network.ChangedCreaturesModVariables;
 import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.hhdsj.changed_creatures.util.ProgressTransfurExt;
 import net.ltxprogrammer.changed.entity.TransfurCause;
@@ -76,7 +76,7 @@ public class AbstractCamItem extends Item {
     // 在背包
     private void handleInInventoryTick(Player player, ItemStack stack) {
         ProgressTransfurExt.tf(player, 0.1f, "changed_creatures:form_latex_crystal_jelly_dragon", TransfurCause.FACE_HAZARD);
-        GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(player);
+        ChangedCreaturesModVariables.PlayerVariables data = PlayerDataGetHelper.get(player);
         data.Crystal_Jelly_Infection = true;
     }
 

@@ -1,7 +1,7 @@
 package net.hhdsj.changed_creatures.event;
 
 import net.hhdsj.changed_creatures.init.ChangedCreatureModEntities;
-import net.hhdsj.changed_creatures.network.GoodblockModVariables;
+import net.hhdsj.changed_creatures.network.ChangedCreaturesModVariables;
 import net.hhdsj.changed_creatures.util.PlayerDataGetHelper;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -46,7 +46,7 @@ public class CrystalJellyAttackHandler {
     }
 
     private static void onCrystalJellyAttackPlayer(Player player) {
-        GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(player);
+        ChangedCreaturesModVariables.PlayerVariables data = PlayerDataGetHelper.get(player);
 
         if (!data.Crystal_Jelly_Infection) {
             data.Crystal_Jelly_Infection = true;

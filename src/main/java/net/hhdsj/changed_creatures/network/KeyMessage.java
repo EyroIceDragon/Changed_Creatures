@@ -63,7 +63,7 @@ public class KeyMessage {
 				}
 				break;
 			case 2:
-				GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(entity);
+				ChangedCreaturesModVariables.PlayerVariables data = PlayerDataGetHelper.get(entity);
 				data.syncPlayerVariables(entity);
 				boolean can_fly = PlayerDataGetHelper.GetPlayerCanFly(entity);
 				boolean currentGlide = PlayerDataGetHelper.GetPlayerCanGliding(entity);

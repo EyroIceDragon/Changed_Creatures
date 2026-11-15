@@ -67,11 +67,8 @@ public class CCGuiButtonMessage {
 			return;
 		if (buttonID == 0) {;
 			System.out.println(ChangedCreatureModTags.slowInfectionVariants().location());
-			GoodblockModVariables.PlayerVariables data = PlayerDataGetHelper.get(entity);
-			data.Player_Is_Infection = !data.Player_Is_Infection;
 			PlayerDataGetHelper.SetPlayerCanFly(entity,!PlayerDataGetHelper.GetPlayerCanFly(entity));
 			System.out.println(PlayerDataGetHelper.GetPlayerCanFly(entity));
-
 		}
 	}
 
