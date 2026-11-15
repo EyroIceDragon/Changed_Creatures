@@ -81,6 +81,13 @@ public class ChangedCreatureModTabs {
 			tabData.accept(ChangedCreatureModBlocks.LATEX_DAWN_FUZZ_WALL.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.LATEX_MOLTEN_CRYSTAL.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.LATEX_DEEP_CRYSTAL_DRAGON_DOLL.get().asItem());
+			tabData.accept(ChangedCreatureModBlocks.FLOOR_SIGN_ECOLOGICAL_AREA.get().asItem());
+			tabData.accept(ChangedCreatureModBlocks.FLOOR_SIGN_GAS_AREA_WARNING.get().asItem());
+			tabData.accept(ChangedCreatureModBlocks.FLOOR_SIGN_IDENTIFICATION.get().asItem());
+			tabData.accept(ChangedCreatureModBlocks.FLOOR_SIGN_LIGHTING.get().asItem());
+			tabData.accept(ChangedCreatureModBlocks.FLOOR_SIGN_NO_LIGHTING.get().asItem());
+			tabData.accept(ChangedCreatureModBlocks.FLOOR_SIGN_REPAIR.get().asItem());
+			tabData.accept(ChangedCreatureModBlocks.FLOOR_SIGN_WATER_AREA.get().asItem());
 		} else if (tabData.getTabKey() == ITEM.getKey()) {
 			tabData.accept(ChangedCreatureModItems.PAINITESWORD.get());
 			tabData.accept(ChangedCreatureModItems.PAINITEMANUSCRIPT.get());

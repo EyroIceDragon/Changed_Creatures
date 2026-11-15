@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "changed_creatures:block/lighting_sign"
+    },
+    "axis=x": {
+      "model": "changed_creatures:block/lighting_sign",
+      "y": 90
+    }
+  }
+}

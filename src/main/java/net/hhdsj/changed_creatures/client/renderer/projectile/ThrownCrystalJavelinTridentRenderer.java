@@ -25,7 +25,7 @@ public class ThrownCrystalJavelinTridentRenderer extends EntityRenderer<ThrownCr
             ChangedCreature.CCRL("textures/item/thrown_crystal_javelin_trident.png");
 
     private static final ResourceLocation MODEL =
-            ChangedCreature.CCRL("custom/thrown_crystal_javelin_trident");
+            ChangedCreature.CCRL("models/custom/thrown_crystal_javelin_trident");
 
     private final ItemRenderer itemRenderer;
 

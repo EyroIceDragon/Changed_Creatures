@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "changed_creatures:block/gas_area_warning_sign"
+    },
+    "axis=x": {
+      "model": "changed_creatures:block/gas_area_warning_sign",
+      "y": 90
+    }
+  }
+}

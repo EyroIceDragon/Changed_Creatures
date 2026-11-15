@@ -7,15 +7,16 @@ package net.hhdsj.changed_creatures.init;
 import net.hhdsj.changed_creatures.ChangedCreature;
 import net.hhdsj.changed_creatures.item.*;
 import net.hhdsj.changed_creatures.item.tool.*;
+import net.ltxprogrammer.changed.block.FloorSignBlock;
+import net.ltxprogrammer.changed.item.GasCanister;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.item.Rarity;
-import net.minecraftforge.registries.RegistryObject;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.DeferredRegister;
-
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
@@ -51,11 +52,19 @@ public class ChangedCreatureModItems {
 	public static RegistryObject<Item> PALE_WOOD_FENCE_GATE;
 	public static RegistryObject<Item> PALE_WOOD_PRESSURE_PLATE;
 
+	// 告示牌
+	public static RegistryObject<Item> FLOOR_SIGN_ECOLOGICAL_AREA;
+	public static RegistryObject<Item> FLOOR_SIGN_GAS_AREA_WARNING;
+	public static RegistryObject<Item> FLOOR_SIGN_IDENTIFICATION;
+	public static RegistryObject<Item> FLOOR_SIGN_LIGHTING;
+	public static RegistryObject<Item> FLOOR_SIGN_NO_LIGHTING;
+	public static RegistryObject<Item> FLOOR_SIGN_REPAIR;
+	public static RegistryObject<Item> FLOOR_SIGN_WATER_AREA;
+
 	// 功能方块
 	public static RegistryObject<Item> IRONHOT;
 	public static RegistryObject<Item> CATALYZER;
-
-	// 装饰/其他方块
+	public static RegistryObject<Item> LATEX_CRYSTAL_JELLY_GAS_CANISTER;
 
 	// ==================== 普通物品声明 (Normal Items Declaration) ====================
 
@@ -66,7 +75,7 @@ public class ChangedCreatureModItems {
 	public static RegistryObject<Item> IMPUREURANIUMINGOT;
 	public static RegistryObject<Item> BlueCrystaloreItem;
 	public static RegistryObject<Item> LatexCrystalJellyItem;
-    public static RegistryObject<Item> LATEX_LAVA_CRYSTAL;
+	public static RegistryObject<Item> LATEX_LAVA_CRYSTAL;
 	public static RegistryObject<Item> LATEX_DAWN_FUZZ;
 
 	// 食物类
@@ -96,13 +105,6 @@ public class ChangedCreatureModItems {
 	public static RegistryObject<Item> CURSED_SCYTHE;
 
 	public static RegistryObject<Item> CRYSTAL_JAVELIN;
-	// ==================== 唱片声明 (Music Discs Declaration) ====================
-
-	//public static RegistryObject<MusicRecordItem> INKSANS_4;
-	//public static RegistryObject<MusicRecordItem> THEFLUFFYHEARTBEATINTHECUBICLEMUSIC;
-	//public static RegistryObject<MusicRecordItem> FLUTEMUSICA_1RECORDS;
-	//public static RegistryObject<MusicRecordItem> NOTLISTENTHIS;
-	//public static RegistryObject<MusicRecordItem> ANITFRRYMUSIC;
 
 	// ==================== 盔甲声明 (Armors Declaration) ====================
 
@@ -118,13 +120,13 @@ public class ChangedCreatureModItems {
 	public static RegistryObject<Item> PAINITE_ARMOR_LEGGINGS;
 	public static RegistryObject<Item> PAINITE_ARMOR_BOOTS;
 
-    public static RegistryObject<Item> FURSUIT_PROTOGEN_HELMET;
-    public static RegistryObject<Item> FURSUIT_PROTOGEN_CHESTPLATE;
-    public static RegistryObject<Item> FURSUIT_PROTOGEN_LEGGINGS;
+	public static RegistryObject<Item> FURSUIT_PROTOGEN_HELMET;
+	public static RegistryObject<Item> FURSUIT_PROTOGEN_CHESTPLATE;
+	public static RegistryObject<Item> FURSUIT_PROTOGEN_LEGGINGS;
 
-    public static RegistryObject<Item> FURSUIT_FOX_HELMET;
-    public static RegistryObject<Item> FURSUIT_FOX_CHESTPLATE;
-    public static RegistryObject<Item> FURSUIT_FOX_LEGGINGS;
+	public static RegistryObject<Item> FURSUIT_FOX_HELMET;
+	public static RegistryObject<Item> FURSUIT_FOX_CHESTPLATE;
+	public static RegistryObject<Item> FURSUIT_FOX_LEGGINGS;
 
 	public static RegistryObject<Item> FURSUIT_EYRO_ICE_DRAGON_HELMET;
 	public static RegistryObject<Item> FURSUIT_EYRO_ICE_DRAGON_CHESTPLATE;
@@ -134,33 +136,47 @@ public class ChangedCreatureModItems {
 
 	static {
 		LATEX_FILLED_ALL_MUG_ITEM = register("latex_mug", () -> new LatexFilledAllMugItem((new Item.Properties()).stacksTo(16)));
+
 		// -------------------- 方块物品初始化 --------------------
-		CRYO_SUBJECT_CHAMBER = block(ChangedCreatureModBlocks.CRYO_SUBJECT_CHAMBER);
-		LATEX_DEEP_CRYSTAL_DRAGON_DOLL = block(ChangedCreatureModBlocks.LATEX_DEEP_CRYSTAL_DRAGON_DOLL);
-		SULPHURBLOCK = block(ChangedCreatureModBlocks.SULPHURBLOCK);
-		NITREBLOCK = block(ChangedCreatureModBlocks.NITREBLOCK);
-		URANIUMBLOCK = block(ChangedCreatureModBlocks.URANIUMBLOCK);
-		BLUEBLOCK = block(ChangedCreatureModBlocks.BLUEBLOCK);
-		BLACKBLOCK = block(ChangedCreatureModBlocks.BLACKBLOCK);
-		LATEX_DAWN_FUZZ_WALL = block(ChangedCreatureModBlocks.LATEX_DAWN_FUZZ_WALL);
-		LATEX_MOLTEN_CRYSTAL = block(ChangedCreatureModBlocks.LATEX_MOLTEN_CRYSTAL);
+		FLOOR_SIGN_ECOLOGICAL_AREA = blockItem("ecological_area_sign", ChangedCreatureModBlocks.FLOOR_SIGN_ECOLOGICAL_AREA);
+		FLOOR_SIGN_GAS_AREA_WARNING = blockItem("gas_area_warning_sign", ChangedCreatureModBlocks.FLOOR_SIGN_GAS_AREA_WARNING);
+		FLOOR_SIGN_IDENTIFICATION = blockItem("identification_sign", ChangedCreatureModBlocks.FLOOR_SIGN_IDENTIFICATION);
+		FLOOR_SIGN_LIGHTING = blockItem("lighting_sign", ChangedCreatureModBlocks.FLOOR_SIGN_LIGHTING);
+		FLOOR_SIGN_NO_LIGHTING = blockItem("no_lighting_sign", ChangedCreatureModBlocks.FLOOR_SIGN_NO_LIGHTING);
+		FLOOR_SIGN_REPAIR = blockItem("repair_sign", ChangedCreatureModBlocks.FLOOR_SIGN_REPAIR);
+		FLOOR_SIGN_WATER_AREA = blockItem("water_area_sign", ChangedCreatureModBlocks.FLOOR_SIGN_WATER_AREA);
 
-		URANIUM_ORE = block(ChangedCreatureModBlocks.URANIUM_ORE);
-		BLUE_CRYSTALORE = block(ChangedCreatureModBlocks.BLUE_CRYSTALORE);
+		CRYO_SUBJECT_CHAMBER = blockItem("cryo_subject_chamber", ChangedCreatureModBlocks.CRYO_SUBJECT_CHAMBER);
+		LATEX_DEEP_CRYSTAL_DRAGON_DOLL = blockItem("latex_crystal_jelly_dragon_doll", ChangedCreatureModBlocks.LATEX_DEEP_CRYSTAL_DRAGON_DOLL);
+		SULPHURBLOCK = blockItem("sulphur_block", ChangedCreatureModBlocks.SULPHURBLOCK);
+		NITREBLOCK = blockItem("nitre_block", ChangedCreatureModBlocks.NITREBLOCK);
+		URANIUMBLOCK = blockItem("uranium_block", ChangedCreatureModBlocks.URANIUMBLOCK);
+		BLUEBLOCK = blockItem("blueblock", ChangedCreatureModBlocks.BLUEBLOCK);
+		BLACKBLOCK = blockItem("blackblock", ChangedCreatureModBlocks.BLACKBLOCK);
+		LATEX_DAWN_FUZZ_WALL = blockItem("latex_dawn_fuzz_wall", ChangedCreatureModBlocks.LATEX_DAWN_FUZZ_WALL);
+		LATEX_MOLTEN_CRYSTAL = blockItem("latex_molten_crtstal_block", ChangedCreatureModBlocks.LATEX_MOLTEN_CRYSTAL);
 
-		PALE_WOOD_PLANKS = block(ChangedCreatureModBlocks.PALE_WOOD_PLANKS);
-		PALE_WOOD_LEAVES = block(ChangedCreatureModBlocks.PALE_WOOD_LEAVES);
-		PALE_WOOD_LOG = block(ChangedCreatureModBlocks.PALE_WOOD_LOG);
-		PALE_WOOD_WOOD = block(ChangedCreatureModBlocks.PALE_WOOD_WOOD);
-		PALE_WOOD_STAIRS = block(ChangedCreatureModBlocks.PALE_WOOD_STAIRS);
-		PALE_WOOD_SLAB = block(ChangedCreatureModBlocks.PALE_WOOD_SLAB);
-		PALE_WOOD_BUTTON = block(ChangedCreatureModBlocks.PALE_WOOD_BUTTON);
-		PALE_WOOD_FENCE = block(ChangedCreatureModBlocks.PALE_WOOD_FENCE);
-		PALE_WOOD_FENCE_GATE = block(ChangedCreatureModBlocks.PALE_WOOD_FENCE_GATE);
-		PALE_WOOD_PRESSURE_PLATE = block(ChangedCreatureModBlocks.PALE_WOOD_PRESSURE_PLATE);
+		URANIUM_ORE = blockItem("uranium_ore", ChangedCreatureModBlocks.URANIUM_ORE);
+		BLUE_CRYSTALORE = blockItem("blue_crystal_ore", ChangedCreatureModBlocks.BLUE_CRYSTALORE);
 
-		IRONHOT = block(ChangedCreatureModBlocks.IRONHOT);
-		CATALYZER = block(ChangedCreatureModBlocks.CATALYZER);
+		PALE_WOOD_PLANKS = blockItem("pale_wood_planks", ChangedCreatureModBlocks.PALE_WOOD_PLANKS);
+		PALE_WOOD_LEAVES = blockItem("pale_wood_leaves", ChangedCreatureModBlocks.PALE_WOOD_LEAVES);
+		PALE_WOOD_LOG = blockItem("pale_wood_log", ChangedCreatureModBlocks.PALE_WOOD_LOG);
+		PALE_WOOD_WOOD = blockItem("pale_wood_wood", ChangedCreatureModBlocks.PALE_WOOD_WOOD);
+		PALE_WOOD_STAIRS = blockItem("pale_wood_stairs", ChangedCreatureModBlocks.PALE_WOOD_STAIRS);
+		PALE_WOOD_SLAB = blockItem("pale_wood_slab", ChangedCreatureModBlocks.PALE_WOOD_SLAB);
+		PALE_WOOD_BUTTON = blockItem("pale_wood_button", ChangedCreatureModBlocks.PALE_WOOD_BUTTON);
+		PALE_WOOD_FENCE = blockItem("pale_wood_fence", ChangedCreatureModBlocks.PALE_WOOD_FENCE);
+		PALE_WOOD_FENCE_GATE = blockItem("pale_wood_fence_gate", ChangedCreatureModBlocks.PALE_WOOD_FENCE_GATE);
+		PALE_WOOD_PRESSURE_PLATE = blockItem("pale_wood_pressure_plate", ChangedCreatureModBlocks.PALE_WOOD_PRESSURE_PLATE);
+
+		IRONHOT = blockItem("ironhot", ChangedCreatureModBlocks.IRONHOT);
+		CATALYZER = blockItem("catalyzer", ChangedCreatureModBlocks.CATALYZER);
+
+		// 气体罐物品
+		LATEX_CRYSTAL_JELLY_GAS_CANISTER = ITEMS.register("latex_crystal_jelly_gas_canister",
+				() -> new GasCanister(ChangedCreatureModBlocks.LATEX_CRYSTAL_JELLY_GAS_CANISTER.get(),
+						ChangedCreatureModFluids.LATEX_CRYSTAL_JELLY_GAS));
 
 		// -------------------- 普通物品初始化 --------------------
 		Latex_Night_Owl_Goo_Item = ITEMS.register("latex_night_owl_goo", LatexNghtOwlGooItem::new);
@@ -177,7 +193,7 @@ public class ChangedCreatureModItems {
 
 		PALETREE = ITEMS.register("pale_tree", PaleTreeItem::new);
 		LatexCrystalJellyItem = ITEMS.register("latex_crystal_jelly", LatexCrystalJellyItem::new);
-        LATEX_LAVA_CRYSTAL = ITEMS.register("latex_lava_crystal", LatexLavaCrystalItem::new);
+		LATEX_LAVA_CRYSTAL = ITEMS.register("latex_lava_crystal", LatexLavaCrystalItem::new);
 
 		// -------------------- 武器工具初始化 --------------------
 		PAINITESWORD = ITEMS.register("painite_sword", PainiteSwordItem::new);
@@ -192,81 +208,49 @@ public class ChangedCreatureModItems {
 		LUNARDAWNEMANUSCRIPT = ITEMS.register("lunar_dawn_manu_script", LunarDawnManuScriptItem::new);
 
 		CURSED_SCYTHE = ITEMS.register("cursed_scythe", CursedScytheItem::new);
-		CRYSTAL_JAVELIN= ITEMS.register("thrown_crystal_javelin_trident",
+		CRYSTAL_JAVELIN = ITEMS.register("thrown_crystal_javelin_trident",
 				() -> new CrystalJavelinTridentItem(
 						new Item.Properties()
-								.stacksTo(1)    // 三叉戟不可堆叠
-								.durability(250) // 设定耐久度，和原版三叉戟一样
+								.stacksTo(1)
+								.durability(250)
 				));
 
 		// -------------------- 盔甲初始化 --------------------
-		// armora_1 系列
 		ARMORA_1_ARMOR_HELMET = ITEMS.register("armora_1_armor_helmet", Armora1ArmorItem.Helmet::new);
 		ARMORA_1_ARMOR_CHESTPLATE = ITEMS.register("armora_1_armor_chestplate", Armora1ArmorItem.Chestplate::new);
 		ARMORA_1_ARMOR_LEGGINGS = ITEMS.register("armora_1_armor_leggings", Armora1ArmorItem.Leggings::new);
 		ARMORA_1_ARMOR_BOOTS = ITEMS.register("armora_1_armor_boots", Armora1ArmorItem.Boots::new);
-		// painite 系列
+
 		PAINITE_ARMOR_HELMET = ITEMS.register("painite_armor_helmet", PainiteArmorItem.Helmet::new);
 		PAINITE_ARMOR_CHESTPLATE = ITEMS.register("painite_armor_chestplate", PainiteArmorItem.Chestplate::new);
 		PAINITE_ARMOR_LEGGINGS = ITEMS.register("painite_armor_leggings", PainiteArmorItem.Leggings::new);
 		PAINITE_ARMOR_BOOTS = ITEMS.register("painite_armor_boots", PainiteArmorItem.Boots::new);
 
-        FURSUIT_PROTOGEN_HELMET = ITEMS.register("fursuit_protogen_helmet", FursuitProtogenItem.Helmet::new);
-        FURSUIT_PROTOGEN_CHESTPLATE = ITEMS.register("fursuit_protogen_chestplate", FursuitProtogenItem.Chestplate::new);
-        FURSUIT_PROTOGEN_LEGGINGS = ITEMS.register("fursuit_protogen_leggings", FursuitProtogenItem.Leggings::new);
+		FURSUIT_PROTOGEN_HELMET = ITEMS.register("fursuit_protogen_helmet", FursuitProtogenItem.Helmet::new);
+		FURSUIT_PROTOGEN_CHESTPLATE = ITEMS.register("fursuit_protogen_chestplate", FursuitProtogenItem.Chestplate::new);
+		FURSUIT_PROTOGEN_LEGGINGS = ITEMS.register("fursuit_protogen_leggings", FursuitProtogenItem.Leggings::new);
 
-        FURSUIT_FOX_HELMET = ITEMS.register("fursuit_fox_helmet", FursuitFoxItem.Helmet::new);
-        FURSUIT_FOX_CHESTPLATE = ITEMS.register("fursuit_fox_chestplate", FursuitFoxItem.Chestplate::new);
-        FURSUIT_FOX_LEGGINGS = ITEMS.register("fursuit_fox_leggings", FursuitFoxItem.Leggings::new);
+		FURSUIT_FOX_HELMET = ITEMS.register("fursuit_fox_helmet", FursuitFoxItem.Helmet::new);
+		FURSUIT_FOX_CHESTPLATE = ITEMS.register("fursuit_fox_chestplate", FursuitFoxItem.Chestplate::new);
+		FURSUIT_FOX_LEGGINGS = ITEMS.register("fursuit_fox_leggings", FursuitFoxItem.Leggings::new);
 
 		FURSUIT_EYRO_ICE_DRAGON_HELMET = ITEMS.register("fursuit_eyro_end_dragon_helmet", FursuitEyroIceDragonItem.Helmet::new);
 		FURSUIT_EYRO_ICE_DRAGON_CHESTPLATE = ITEMS.register("fursuit_eyro_end_dragon_chestplate", FursuitEyroIceDragonItem.Chestplate::new);
 		FURSUIT_EYRO_ICE_DRAGON_LEGGINGS = ITEMS.register("fursuit_eyro_end_dragon_leggings", FursuitEyroIceDragonItem.Leggings::new);
-
-		// -------------------- 唱片初始化 -------------------- //
-        /*
-		INKSANS_4 = registerRecord("inksans_4", ChangedCreatureModSounds.INK_SANS);
-		THEFLUFFYHEARTBEATINTHECUBICLEMUSIC = registerRecord("thefluffyheartbeatinthecubiclemusic", ChangedCreatureModSounds.INK_SANS);
-		FLUTEMUSICA_1RECORDS = registerRecord("flutemusica_1records", ChangedCreatureModSounds.THE_FLUFFY_HEARTBEAT_IN_THE_CUBICLE);
-		NOTLISTENTHIS = registerRecord("notlistenthis", ChangedCreatureModSounds.ANIT_FURRY_MUSIC);
-		ANITFRRYMUSIC = registerRecord("anitfrrymusic", ChangedCreatureModSounds.ANIT_FURRY_MUSIC);
-		*/
 	}
 
 	// ==================== 辅助方法 (Helper Methods) ====================
 
-	/**
-	 * 注册唱片物品的辅助方法
-	 * @param name 注册名称
-	 * @param soundEventSupplier 声音事件提供者
-	 * @return 注册对象
-	 */
 	private static RegistryObject<MusicRecordItem> registerRecord(String name, Supplier<SoundEvent> soundEventSupplier) {
 		return register(name, () -> new MusicRecordItem(8, soundEventSupplier,
 				new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
 	}
 
-	/**
-	 * 通用物品注册辅助方法
-	 * @param name 注册名称
-	 * @param item 物品提供者
-	 * @return 注册对象
-	 */
 	private static <T extends Item> RegistryObject<T> register(String name, Supplier<T> item) {
 		return ITEMS.register(name, item);
 	}
 
-	/**
-	 * 方块物品注册辅助方法
-	 * @param block 对应的方块注册对象
-	 * @return 方块物品注册对象
-	 */
-	private static RegistryObject<Item> block(RegistryObject<Block> block) {
-        if (block.getId() != null) {
-            return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
-        }
-        return null;
-    }
-
-
+	private static RegistryObject<Item> blockItem(String name, RegistryObject<? extends Block> block) {
+		return ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+	}
 }

@@ -121,6 +121,13 @@ public class ChangedCreaturesBlockLootProvider extends BlockLootSubProvider {
         simpleDrop(ChangedCreatureModBlocks.CATALYZER.get());
         simpleDrop(ChangedCreatureModBlocks.CRYO_SUBJECT_CHAMBER.get());
         simpleDrop(ChangedCreatureModBlocks.LATEX_MOLTEN_CRYSTAL.get());
+        simpleDrop(ChangedCreatureModBlocks.FLOOR_SIGN_ECOLOGICAL_AREA.get());
+        simpleDrop(ChangedCreatureModBlocks.FLOOR_SIGN_GAS_AREA_WARNING.get());
+        simpleDrop(ChangedCreatureModBlocks.FLOOR_SIGN_IDENTIFICATION.get());
+        simpleDrop(ChangedCreatureModBlocks.FLOOR_SIGN_LIGHTING.get());
+        simpleDrop(ChangedCreatureModBlocks.FLOOR_SIGN_NO_LIGHTING.get());
+        simpleDrop(ChangedCreatureModBlocks.FLOOR_SIGN_REPAIR.get());
+        simpleDrop(ChangedCreatureModBlocks.FLOOR_SIGN_WATER_AREA.get());
 
         checkMissingBlockLootTables();
     }

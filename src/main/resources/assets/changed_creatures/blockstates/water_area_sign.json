@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "changed_creatures:block/water_area_sign"
+    },
+    "axis=x": {
+      "model": "changed_creatures:block/water_area_sign",
+      "y": 90
+    }
+  }
+}

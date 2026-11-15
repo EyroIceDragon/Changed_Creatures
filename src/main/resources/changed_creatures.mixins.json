@@ -9,6 +9,7 @@
     "CrashReportMixin",
     "changed.AbstractArmorStandMixin",
     "changed.EntityUtilMixin",
+    "changed.ExoskeletonItemMixin",
     "Player.FoodDataMixin",
     "Player.PlayerHurtMixin",
     "Player.PlayerMixin"

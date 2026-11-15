@@ -46,32 +46,21 @@ public class ChangedCreature {
 		ChangedCreaturesModNewAbiliies.register(bus);
 		ChangedCreatureModFluids.REGISTRY_TYPES.register(bus);
 		ChangedCreatureModFluids.REGISTRY_FLUIDS.register(bus);
-
-		ChangedCreatureModEnchantmentInit.ENCHANTMENTS.register(bus);
-
 		ChangedCreatureModPaintings.REGISTRY.register(bus);
-
 		ChangedCreatureModBlocks.REGISTRY.register(bus);
-
 		ChangedCreatureBlockEntities.BLOCK_ENTITIES.register(bus);
-
 		ChangedCreatureModItems.ITEMS.register(bus);
-
 		ChangedCreatureModEntities.REGISTRY.register(bus);
-
 		ChangedCreatureModEntities.ITEMS.register(bus);
-
 		ChangedCreatureModTabs.REGISTRY.register(bus);
-
 		ChangedCreatureModParticleTypes.REGISTRY.register(bus);
-
 		ChangedCreatureModBiomes.BIOMES.register(bus);
-
 		ChangedCreatureModMobEffects.REGISTRY.register(bus);
-
 		ChangedCreatureModAbilities.REGISTRY.register(bus);
 		ChangedCreatureModMenus.REGISTRY.register(bus);
 		ChangedCreatureModTransfurVariants.REGISTRY.register(bus);
+
+		ChangedCreatureModEnchantmentInit.ENCHANTMENTS.register(bus);
 
 		CrystalRingHandler.registerCapabilities(bus);
 		SyncCrystalRingPacket.register();

@@ -25,7 +25,7 @@ public class ChangedCreaturesAdvancementProvider implements ForgeAdvancementProv
                         new ItemStack(ChangedCreatureModItems.PALETREE.get()),
                         Component.translatable("advancements.changed_creatures.root.title"),
                         Component.translatable("advancements.changed_creatures.root.descr"),
-                        ChangedCreature.CCRL("minecraft","textures/gui/advancements/backgrounds/stone.png"),
+                        ChangedCreature.CCRL("textures/gui/adv_backgroud.png"),
                         FrameType.TASK,
                         true,
                         true,
