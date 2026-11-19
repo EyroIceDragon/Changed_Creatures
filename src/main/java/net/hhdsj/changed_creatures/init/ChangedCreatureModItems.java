@@ -96,7 +96,7 @@ public class ChangedCreatureModItems {
 	public static RegistryObject<Item> PAINITE_AXE;
 	public static RegistryObject<Item> PAINITE_HOE;
 	public static RegistryObject<Item> PAINITE_SHOVEL;
-	public static RegistryObject<Item> PAINITE_PICK_AXE;
+	public static RegistryObject<Item> PAINITE_PICKAXE;
 
 	public static RegistryObject<Item> LUNAR_DAWNE_AXE;
 	public static RegistryObject<Item> LUNAR_DAWNE_HOE;

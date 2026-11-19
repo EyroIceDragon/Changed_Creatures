@@ -29,28 +29,28 @@ public class ChangedCreaturesRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_latex_dawn_fuzz_wall", has(ChangedCreatureModItems.LATEX_DAWN_FUZZ.get()))
                 .save(writer, ChangedCreature.CCRL("latex_dawn_fuzz_wall_recipe"));
 
-        addShaped(ChangedCreatureModItems.LUNARDAWNEAXE.get(), 1, "##", "#S", " S")
+        addShaped(ChangedCreatureModItems.LUNAR_DAWNE_AXE.get(), 1, "##", "#S", " S")
                 .define('#', ChangedCreatureModItems.LATEX_DAWN_FUZZ.get())
                 .define('S', Items.STICK)
                 .unlockedBy("has_dawn_fuzz", has(ChangedCreatureModItems.LATEX_DAWN_FUZZ.get()))
                 .save(writer, ChangedCreature.CCRL("lunar_dawn_axe_recipe"));
 
         // 镐
-        addShaped(ChangedCreatureModItems.LUNARDAWNEMANUSCRIPT.get(), 1, "###", " S ", " S ")
+        addShaped(ChangedCreatureModItems.LUNAR_DAWNE_PICKAXE.get(), 1, "###", " S ", " S ")
                 .define('#', ChangedCreatureModItems.LATEX_DAWN_FUZZ.get())
                 .define('S', Items.STICK)
                 .unlockedBy("has_dawn_fuzz", has(ChangedCreatureModItems.LATEX_DAWN_FUZZ.get()))
                 .save(writer, ChangedCreature.CCRL("lunar_dawn_pickaxe_recipe"));
 
         // 锹
-        addShaped(ChangedCreatureModItems.LUNARDAWNESHOVEL.get(), 1, "#", "S", "S")
+        addShaped(ChangedCreatureModItems.LUNAR_DAWNE_SHOVEL.get(), 1, "#", "S", "S")
                 .define('#', ChangedCreatureModItems.LATEX_DAWN_FUZZ.get())
                 .define('S', Items.STICK)
                 .unlockedBy("has_dawn_fuzz", has(ChangedCreatureModItems.LATEX_DAWN_FUZZ.get()))
                 .save(writer, ChangedCreature.CCRL("lunar_dawn_shovel_recipe"));
 
         // 锄
-        addShaped(ChangedCreatureModItems.LUNARDAWNEHOE.get(), 1, "##", " S", " S")
+        addShaped(ChangedCreatureModItems.LUNAR_DAWNE_HOE.get(), 1, "##", " S", " S")
                 .define('#', ChangedCreatureModItems.LATEX_DAWN_FUZZ.get())
                 .define('S', Items.STICK)
                 .unlockedBy("has_dawn_fuzz", has(ChangedCreatureModItems.LATEX_DAWN_FUZZ.get()))
@@ -126,11 +126,11 @@ public class ChangedCreaturesRecipeProvider extends RecipeProvider {
         stonecutting(writer, Items.BLACK_CONCRETE, ChangedCreatureModItems.BLACKBLOCK.get(), "blackblocks");
 
         // ==================== 锻造台 ====================
-        addSmithing(writer, Items.NETHERITE_SWORD, ChangedAddonItems.PAINITE_BLOCK.get(), ChangedCreatureModItems.PAINITESWORD.get(), "painite_sword_recipe");
-        addSmithing(writer, Items.NETHERITE_AXE, ChangedAddonItems.PAINITE_BLOCK.get(), ChangedCreatureModItems.PAINITEAXE.get(), "painite_axe_recipe_1");
-        addSmithing(writer, Items.NETHERITE_HOE, ChangedAddonItems.PAINITE_BLOCK.get(), ChangedCreatureModItems.PAINITEHOE.get(), "painite_hoe_recipe");
-        addSmithing(writer, Items.NETHERITE_SHOVEL, ChangedAddonItems.PAINITE_BLOCK.get(), ChangedCreatureModItems.PAINITESHOVEL.get(), "painite_shovel_recipe");
-        addSmithing(writer, Items.NETHERITE_PICKAXE, ChangedAddonItems.PAINITE_BLOCK.get(), ChangedCreatureModItems.PAINITEMANUSCRIPT.get(), "painite_pick_axe_recipe");
+        addSmithing(writer, Items.NETHERITE_SWORD, ChangedAddonItems.PAINITE_BLOCK.get(), ChangedCreatureModItems.PAINITE_SWORD.get(), "painite_sword_recipe");
+        addSmithing(writer, Items.NETHERITE_AXE, ChangedAddonItems.PAINITE_BLOCK.get(), ChangedCreatureModItems.PAINITE_AXE.get(), "painite_axe_recipe_1");
+        addSmithing(writer, Items.NETHERITE_HOE, ChangedAddonItems.PAINITE_BLOCK.get(), ChangedCreatureModItems.PAINITE_HOE.get(), "painite_hoe_recipe");
+        addSmithing(writer, Items.NETHERITE_SHOVEL, ChangedAddonItems.PAINITE_BLOCK.get(), ChangedCreatureModItems.PAINITE_SHOVEL.get(), "painite_shovel_recipe");
+        addSmithing(writer, Items.NETHERITE_PICKAXE, ChangedAddonItems.PAINITE_BLOCK.get(), ChangedCreatureModItems.PAINITE_PICKAXE.get(), "painite_pick_axe_recipe");
 
         addSmithing(writer, Items.NETHERITE_HELMET, ChangedAddonItems.PAINITE_BLOCK.get(), ChangedCreatureModItems.PAINITE_ARMOR_HELMET.get(), "painite_armor_helmet_recipe");
         addSmithing(writer, Items.NETHERITE_CHESTPLATE, ChangedAddonItems.PAINITE_BLOCK.get(), ChangedCreatureModItems.PAINITE_ARMOR_CHESTPLATE.get(), "painite_armor_chest_plate_recipe");
