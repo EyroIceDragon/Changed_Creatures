@@ -34,8 +34,13 @@ public class ThrownCrystalJavelinTridentRenderer extends EntityRenderer<ThrownCr
                        @NotNull PoseStack poseStack, @NotNull MultiBufferSource buffer, int packedLight) {
         poseStack.pushPose();
 
-        poseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partialTicks, entity.yRotO, entity.getYRot()) - 90.0F));
-        poseStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(partialTicks, entity.xRotO, entity.getXRot()) + 90.0F));
+        poseStack.mulPose(Axis.YP.rotationDegrees(
+                Mth.lerp(partialTicks, entity.yRotO, entity.getYRot()) - 90.0F
+        ));
+
+        poseStack.mulPose(Axis.ZP.rotationDegrees(
+                Mth.lerp(partialTicks, entity.xRotO, entity.getXRot()) + 90.0F
+        ));
 
         ItemStack itemStack = new ItemStack(ChangedCreatureModItems.CRYSTAL_JAVELIN.get());
         BakedModel model = itemRenderer.getModel(itemStack, null, null, 0);

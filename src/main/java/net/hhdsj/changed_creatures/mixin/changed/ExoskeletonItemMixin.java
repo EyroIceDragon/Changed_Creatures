@@ -25,8 +25,10 @@ public class ExoskeletonItemMixin<T extends AbstractRobot> extends PlaceableEnti
 
     @Inject(method = "allowedInSlot",at = @At("HEAD"), cancellable = true,remap = false)
     public void allowedInSlot(ItemStack itemStack, LivingEntity wearer, AccessorySlotType slot, CallbackInfoReturnable<Boolean> cir) {
-        if (itemStack.getItem() instanceof HidePlayerPartArmor){
-            cir.setReturnValue(false);
+        for (ItemStack stack : wearer.getArmorSlots()) {
+            if (stack.getItem() instanceof HidePlayerPartArmor){
+                cir.setReturnValue(false);
+            }
         }
     }
 }

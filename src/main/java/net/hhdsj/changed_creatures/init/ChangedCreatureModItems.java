@@ -92,16 +92,16 @@ public class ChangedCreatureModItems {
 
 	// ==================== 武器工具声明 (Weapons & Tools Declaration) ====================
 
-	public static RegistryObject<Item> PAINITESWORD;
-	public static RegistryObject<Item> PAINITEAXE;
-	public static RegistryObject<Item> PAINITEHOE;
-	public static RegistryObject<Item> PAINITESHOVEL;
-	public static RegistryObject<Item> PAINITEMANUSCRIPT;
+	public static RegistryObject<Item> PAINITE_SWORD;
+	public static RegistryObject<Item> PAINITE_AXE;
+	public static RegistryObject<Item> PAINITE_HOE;
+	public static RegistryObject<Item> PAINITE_SHOVEL;
+	public static RegistryObject<Item> PAINITE_PICK_AXE;
 
-	public static RegistryObject<Item> LUNARDAWNEAXE;
-	public static RegistryObject<Item> LUNARDAWNEHOE;
-	public static RegistryObject<Item> LUNARDAWNESHOVEL;
-	public static RegistryObject<Item> LUNARDAWNEMANUSCRIPT;
+	public static RegistryObject<Item> LUNAR_DAWNE_AXE;
+	public static RegistryObject<Item> LUNAR_DAWNE_HOE;
+	public static RegistryObject<Item> LUNAR_DAWNE_SHOVEL;
+	public static RegistryObject<Item> LUNAR_DAWNE_PICKAXE;
 	public static RegistryObject<Item> CURSED_SCYTHE;
 
 	public static RegistryObject<Item> CRYSTAL_JAVELIN;
@@ -196,16 +196,16 @@ public class ChangedCreatureModItems {
 		LATEX_LAVA_CRYSTAL = ITEMS.register("latex_lava_crystal", LatexLavaCrystalItem::new);
 
 		// -------------------- 武器工具初始化 --------------------
-		PAINITESWORD = ITEMS.register("painite_sword", PainiteSwordItem::new);
-		PAINITEAXE = ITEMS.register("painite_axe", PainiteAxeItem::new);
-		PAINITEHOE = ITEMS.register("painite_hoe", PainiteHoeItem::new);
-		PAINITESHOVEL = ITEMS.register("painite_shovel", PainiteShovelItem::new);
-		PAINITEMANUSCRIPT = ITEMS.register("painite_manu_script", PainiteManuScriptItem::new);
+		PAINITE_SWORD = ITEMS.register("painite_sword", PainiteSwordItem::new);
+		PAINITE_AXE = ITEMS.register("painite_axe", PainiteAxeItem::new);
+		PAINITE_HOE = ITEMS.register("painite_hoe", PainiteHoeItem::new);
+		PAINITE_SHOVEL = ITEMS.register("painite_shovel", PainiteShovelItem::new);
+		PAINITE_PICKAXE = ITEMS.register("painite_pickaxe", PainiteManuScriptItem::new);
 
-		LUNARDAWNEAXE = ITEMS.register("lunar_dawn_axe", LunarDawnAxeItem::new);
-		LUNARDAWNEHOE = ITEMS.register("lunar_dawn_hoe", LunarDawnHoeItem::new);
-		LUNARDAWNESHOVEL = ITEMS.register("lunar_dawn_shovel", LunarDawnShovelItem::new);
-		LUNARDAWNEMANUSCRIPT = ITEMS.register("lunar_dawn_manu_script", LunarDawnManuScriptItem::new);
+		LUNAR_DAWNE_AXE = ITEMS.register("lunar_dawn_axe", LunarDawnAxeItem::new);
+		LUNAR_DAWNE_HOE = ITEMS.register("lunar_dawn_hoe", LunarDawnHoeItem::new);
+		LUNAR_DAWNE_SHOVEL = ITEMS.register("lunar_dawn_shovel", LunarDawnShovelItem::new);
+		LUNAR_DAWNE_PICKAXE = ITEMS.register("lunar_dawn_pickaxe", LunarDawnManuScriptItem::new);
 
 		CURSED_SCYTHE = ITEMS.register("cursed_scythe", CursedScytheItem::new);
 		CRYSTAL_JAVELIN = ITEMS.register("thrown_crystal_javelin_trident",

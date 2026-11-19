@@ -44,13 +44,7 @@ public class PlayerTicksHandler {
     private static final UUID CRYSTAL_SLOW_UUID = UUID.fromString("c8e5c5a4-8f3a-4e2a-9b1c-7d6e5f4a3b2c");
     private static boolean wasFlying = false;
     private static final Random RANDOM = new Random();
-    private static final List<TransfurVariant<?>> LIST_VARIANT = ChangedRegistry.TRANSFUR_VARIANT.get()
-            .getValues().stream()
-            .filter(v -> !v.getFormId().equals(ResourceLocation.tryParse("changed:form_special")))
-            .filter(v -> !v.is(ChangedTags.TransfurVariants.TEMPORARY_ONLY))
-            .sorted(Comparator.comparing(v -> v.getFormId().toString()))
-            .toList();
-    private static TransfurVariant FORM_VARIANT = ChangedCreatureModTransfurVariants.LATEX_LUOLONG_DRAGON_SHARK.get();
+    private static List<TransfurVariant<?>> LIST_VARIANT = null;
 
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
@@ -82,7 +76,12 @@ public class PlayerTicksHandler {
     }
 
     public static void Player_latex_changed(TickEvent.PlayerTickEvent event,Player player,TransfurVariantInstance<?> TransfurVariant) {
-
+        if (LIST_VARIANT == null) LIST_VARIANT = ChangedRegistry.TRANSFUR_VARIANT.get()
+                .getValues().stream()
+                .filter(v -> !v.getFormId().equals(ResourceLocation.tryParse("changed:form_special")))
+                .filter(v -> !v.is(ChangedTags.TransfurVariants.TEMPORARY_ONLY))
+                .sorted(Comparator.comparing(v -> v.getFormId().toString()))
+                .toList();
         if (player instanceof ServerPlayer serverPlayer) {
             GameType gameMode = serverPlayer.gameMode.getGameModeForPlayer();
             if (gameMode == GameType.CREATIVE || gameMode == GameType.SPECTATOR){
@@ -118,7 +117,7 @@ public class PlayerTicksHandler {
             if (data.Player_Infection_tick >= 1000) {
                 player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 50, 1));
                 player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 50, 2));
-                FORM_VARIANT = LIST_VARIANT.get(RANDOM.nextInt(LIST_VARIANT.size()));
+                TransfurVariant<?> FORM_VARIANT = LIST_VARIANT.get(RANDOM.nextInt(LIST_VARIANT.size()));
                 if (FORM_VARIANT != null) {
                     ProcessTransfur.progressTransfur(player, 1f, FORM_VARIANT, TransfurContext.hazard(TransfurCause.FACE_HAZARD));
                 }

@@ -40,7 +40,7 @@ public class ChangedCreaturesRecipeProvider extends RecipeProvider {
                 .define('#', ChangedCreatureModItems.LATEX_DAWN_FUZZ.get())
                 .define('S', Items.STICK)
                 .unlockedBy("has_dawn_fuzz", has(ChangedCreatureModItems.LATEX_DAWN_FUZZ.get()))
-                .save(writer, ChangedCreature.CCRL("lunar_dawn_manu_script_recipe"));
+                .save(writer, ChangedCreature.CCRL("lunar_dawn_pickaxe_recipe"));
 
         // 锹
         addShaped(ChangedCreatureModItems.LUNARDAWNESHOVEL.get(), 1, "#", "S", "S")

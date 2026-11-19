@@ -6,20 +6,23 @@ license="MIT License"
 modId="changed_creatures"
 displayName="Changed: More Creatures-1.20.1"
 version="1.3.2"
-credits='''
-§bModel help:
-逸云,洛虹·早春,ChengXi程曦,Zirconia Hui(锆晖)
-§rDev help: 缘来007,Glitchkittenrocks
-@sTranslate Help:xxXMinionXxx,Glitchkittenrocks
-'''
 displayURL="https://github.com/hhdsjgit/Changed_Creatures"
 logoFile="logo.png"
 authors="§4Goodtimes2"
-description='''
-Some of the content additions to Changed addon plus and Changed :<
-And Changed is my favourite mod so I make a lot of things to Changed(-mc) mod
+
+credits='''
+§b模型制作 (Model Help):
+§r逸云, 洛虹·早春, ChengXi程曦, Zirconia Hui(锆晖)
+§b开发协助 (Dev Help):
+§r缘来007, Glitchkittenrocks
+§b翻译协助 (Translate Help):
+§rxxXMinionXxx, Glitchkittenrocks, zgteam233
 '''
 
+description='''
+This mod adds some additional content to the Changed addon, plus, and Changed.
+Changed is my favorite mod, so I've created a lot of content for it!
+'''
 [[dependencies.changed_creatures]]
 modId="minecraft"
 mandatory=true
