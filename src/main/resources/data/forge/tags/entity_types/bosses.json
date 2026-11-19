@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "changed_creatures:latex_night_owl_dragon_boss"
+    "changed_creatures:latex_night_owl_dragon_boss",
+    "changed_creatures:latex_ice_field_wolf_dragon_boss"
   ]
 }
