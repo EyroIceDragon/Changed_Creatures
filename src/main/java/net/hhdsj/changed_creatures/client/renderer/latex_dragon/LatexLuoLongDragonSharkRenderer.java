@@ -17,8 +17,8 @@ public class LatexLuoLongDragonSharkRenderer extends AdvancedHumanoidRenderer<La
         super(context, new ModelLatexLuoLongDragonShark(context.bakeLayer(ModelLatexLuoLongDragonShark.LAYER_LOCATION)),
                 ArmorLatexMaleWingedDragonModel.MODEL_SET,
                 0.5f);
-        this.addLayer(new EmissiveBodyLayer<>(this, ChangedCreature.CCRL("textures/entities/latex/light_latex_luolong_dragon_shark.png")));
         this.addLayer(new LatexParticlesLayer<>(this, getModel()));
+        this.addLayer(new EmissiveBodyLayer<>(this, ChangedCreature.CCRL("textures/entities/latex/light_latex_luolong_dragon_shark.png")));
         this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
         this.addLayer(new CustomEyesLayer<>(this, context.getModelSet()));
         this.addLayer(new CustomEyesLayer<>(this, context.getModelSet(), CustomEyesLayer::scleraColor, CustomEyesLayer.fixedColorGlowing(Color3.parseHex("#e2506c")), CustomEyesLayer.fixedColorGlowing(Color3.parseHex("#e2506c")), CustomEyesLayer::noRender, CustomEyesLayer::noRender));

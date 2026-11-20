@@ -37,24 +37,6 @@ public class LatexNightOwlBossRenderer extends AdvancedHumanoidRenderer<LatexNig
         return ChangedCreature.CCRL("textures/entities/boss/latex_night_owl_boss_entity.png");
     }
 
-    /*
-    @Override
-    public void render(@NotNull LatexNightOwlBossEntity entity, float entityYaw, float partialTicks,
-                       @NotNull PoseStack poseStack, @NotNull MultiBufferSource bufferSource, int packedLight) {
-
-        // 在渲染前设置雾颜色（仅客户端）
-        RenderSystem.setShaderFogColor(0.8f, 0.2f, 0.2f); // 红色雾
-        RenderSystem.setShaderFogStart(-8.0f);
-        RenderSystem.setShaderFogEnd(24.0f);
-
-
-        // 调用父类的render方法（注意参数顺序和数量）
-        super.render(entity, entityYaw, partialTicks, poseStack, bufferSource, packedLight);
-
-        // 渲染后重置为默认颜色
-        RenderSystem.setShaderFogColor(1.0f, 1.0f, 1.0f);
-    }*/
-
     @Override
     protected boolean isShaking(@NotNull LatexNightOwlBossEntity _ent) {
         if (_ent.getHealth() < _ent.getMaxHealth() * 0.3)

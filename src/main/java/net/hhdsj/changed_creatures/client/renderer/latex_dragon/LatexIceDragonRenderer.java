@@ -17,8 +17,8 @@ public class LatexIceDragonRenderer extends AdvancedHumanoidRenderer<LatexiceDra
 			//ArmorLatexBigTailDragonModel::new,
 			ArmorLatexBigTailDragonModel.MODEL_SET,
 			0.5f);
-		this.addLayer(new EmissiveBodyLayer<>(this, ChangedCreature.CCRL("textures/entities/latex/latex_ice_dragon_light.png")));
 		this.addLayer(new LatexParticlesLayer<>(this, this.model));
+		this.addLayer(new EmissiveBodyLayer<>(this, ChangedCreature.CCRL("textures/entities/latex/latex_ice_dragon_light.png")));
 		this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
 		this.addLayer(CustomEyesLayer.builder(this, context.getModelSet())
 				.withSclera(Color3.WHITE).withIris(Color3.fromInt(0x7889f3)).build());

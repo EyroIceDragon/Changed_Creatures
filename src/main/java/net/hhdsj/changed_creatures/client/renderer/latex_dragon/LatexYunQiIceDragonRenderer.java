@@ -21,13 +21,13 @@ public class LatexYunQiIceDragonRenderer extends AdvancedHumanoidRenderer<LatexY
 		super(context, new ModelLatexYunQiIceDragon(context.bakeLayer(ModelLatexYunQiIceDragon.LAYER_LOCATION)),
 		ArmorLatexMaleWingedDragonModel.MODEL_SET, 
 		0.5f);
+        this.addLayer(new LatexParticlesLayer<>(this, getModel()));
 		this.addLayer(new EyesLayer<LatexYunQiIceDragonEntity, ModelLatexYunQiIceDragon>(this) {
 			@Override
 			public RenderType renderType() {
 				return RenderType.eyes(ChangedCreature.CCRL("textures/entities/latex/latex_yunqi_ice_dragon_light.png"));
 			}
 		});
-        this.addLayer(new LatexParticlesLayer<>(this, getModel()));
         this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
         this.addLayer(new CustomEyesLayer<>(this, context.getModelSet()));
 		this.addLayer(new CustomEyesLayer<>(this, context.getModelSet(), CustomEyesLayer::scleraColor, CustomEyesLayer::glowingIrisColorLeft, CustomEyesLayer::glowingIrisColorRight, CustomEyesLayer::noRender, CustomEyesLayer::noRender));

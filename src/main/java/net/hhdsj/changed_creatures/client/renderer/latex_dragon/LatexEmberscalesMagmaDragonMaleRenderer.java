@@ -16,9 +16,9 @@ public class LatexEmberscalesMagmaDragonMaleRenderer extends AdvancedHumanoidRen
 		super(context, new ModelLatexEmberscalesMagmaDragonMale(context.bakeLayer(ModelLatexEmberscalesMagmaDragonMale.LAYER_LOCATION)),
 				ArmorLatexMaleWingedDragonModel.MODEL_SET,
 				0.5f);
-		this.addLayer(new EmissiveBodyLayer<>(this, ChangedCreature.CCRL("textures/entities/latex/latex_emberscales_magma_dragon_male_light.png")));
 		this.addLayer(new LatexParticlesLayer<>(this, getModel()));
-        this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
+		this.addLayer(new EmissiveBodyLayer<>(this, ChangedCreature.CCRL("textures/entities/latex/latex_emberscales_magma_dragon_male_light.png")));
+		this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
 		this.addLayer(new CustomEyesLayer<>(this, context.getModelSet(), CustomEyesLayer::scleraColor, CustomEyesLayer.fixedColorGlowing(Color3.parseHex("#ff2700")), CustomEyesLayer.fixedColorGlowing(Color3.parseHex("#ff2700")), CustomEyesLayer::noRender, CustomEyesLayer::noRender));
 		this.addLayer(GasMaskLayer.forSnouted(this, context.getModelSet()));
 		

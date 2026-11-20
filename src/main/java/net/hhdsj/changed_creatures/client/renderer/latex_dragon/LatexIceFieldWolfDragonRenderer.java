@@ -18,7 +18,6 @@ public class LatexIceFieldWolfDragonRenderer extends AdvancedHumanoidRenderer<La
 		0.5f);
 		this.addLayer(new LatexParticlesLayer<>(this, this.model));
 		this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
-		//this.addLayer(new CustomEyesLayer<>(this, context.getModelSet(), CustomEyesLayer::scleraColor, CustomEyesLayer::glowingIrisColorLeft, CustomEyesLayer::glowingIrisColorRight, CustomEyesLayer::noRender, CustomEyesLayer::noRender));
 		this.addLayer(new EmissiveBodyLayer<>(this, ChangedCreature.CCRL("textures/entities/latex/latex_kamona_hsguy_dragonwolf_png_light.png")));
 		this.addLayer(new CustomEyesLayer<>(this, context.getModelSet(), CustomEyesLayer::scleraColor,
 				CustomEyesLayer.fixedColorGlowing(Color3.parseHex("#006400")), CustomEyesLayer.fixedColorGlowing(Color3.parseHex("#006400")),

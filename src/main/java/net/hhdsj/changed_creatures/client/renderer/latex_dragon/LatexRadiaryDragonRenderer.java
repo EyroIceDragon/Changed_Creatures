@@ -16,9 +16,8 @@ public class LatexRadiaryDragonRenderer extends AdvancedHumanoidRenderer<LatexRa
         super(context, new ModelLatexRadiaryDragon(context.bakeLayer(ModelLatexRadiaryDragon.LAYER_LOCATION)),
                 ArmorLatexMaleWingedDragonModel.MODEL_SET,
                 0.5f);
-        this.addLayer(new EmissiveBodyLayer<>(this,
-                ChangedCreature.CCRL("textures/entities/latex/latex_radiary_dragon_light.png")));
         this.addLayer(new LatexParticlesLayer<>(this, getModel()));
+        this.addLayer(new EmissiveBodyLayer<>(this, ChangedCreature.CCRL("textures/entities/latex/latex_radiary_dragon_light.png")));
         this.addLayer(TransfurCapeLayer.normalCape(this, context.getModelSet()));
         this.addLayer(CustomEyesLayer.builder(this, context.getModelSet())
                 .withSclera(Color3.WHITE).withIris(Color3.fromInt(0xff3333)).build());
