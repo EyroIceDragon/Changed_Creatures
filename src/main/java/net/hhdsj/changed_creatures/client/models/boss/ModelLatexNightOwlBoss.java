@@ -64,7 +64,7 @@ public class ModelLatexNightOwlBoss extends AdvancedHumanoidModel<LatexNightOwlB
                         LeftLeg, leftLowerLeg, leftFoot, leftFoot.getChild("LeftPad"), RightLeg, rightLowerLeg, rightFoot, rightFoot.getChild("RightPad"),
 
                         leftWingRoot, leftWingRoot.getChild("leftSecondaries"), leftWingRoot.getChild("leftSecondaries").getChild("leftTertiaries"),
-                        rightWingRoot, rightWingRoot.getChild("rightSecondaries"), rightWingRoot.getChild("rightSecondaries").getChild("rightTertiaries")));
+                        rightWingRoot, rightWingRoot.getChild("rightSecondaries2"), rightWingRoot.getChild("rightSecondaries2").getChild("rightTertiaries2")));
     }
 
     @SuppressWarnings("unused")
@@ -249,11 +249,11 @@ public class ModelLatexNightOwlBoss extends AdvancedHumanoidModel<LatexNightOwlB
                 .texOffs(64, 15).addBox(0.0F, 9.1F, -0.5F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
         PartDefinition LeftArmhair = LeftArm.addOrReplaceChild("LeftArmhair", CubeListBuilder.create().texOffs(72, 0).mirror().addBox(9.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.04F)).mirror(false), PartPose.offset(-10.0F, 0.0F, 0.0F));
-
+        /*
         PartDefinition rightSecondaries = partdefinition.addOrReplaceChild("rightSecondaries", CubeListBuilder.create(), PartPose.offsetAndRotation(-9.3F, -2.5F, 1.5F, 0.0F, 0.0F, 0.5236F));
 
         PartDefinition rightTertiaries = partdefinition.addOrReplaceChild("rightTertiaries", CubeListBuilder.create(), PartPose.offsetAndRotation(-9.0F, -2.5F, 1.5F, 0.0F, 0.0F, 0.9599F));
-
+        */
         return LayerDefinition.create(meshdefinition, 128, 128);
     }
 
