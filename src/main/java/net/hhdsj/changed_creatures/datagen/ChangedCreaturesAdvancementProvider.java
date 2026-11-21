@@ -72,7 +72,7 @@ public class ChangedCreaturesAdvancementProvider implements ForgeAdvancementProv
         Advancement painiteHoe = Advancement.Builder.advancement()
                 .parent(root)
                 .display(
-                        new ItemStack(ChangedCreatureModItems.PAINITEHOE.get()),
+                        new ItemStack(ChangedCreatureModItems.PAINITE_HOE.get()),
                         Component.translatable("advancements.changed_creatures.painite_hoe.title"),
                         Component.translatable("advancements.changed_creatures.painite_hoe.descr"),
                         null,
@@ -81,7 +81,7 @@ public class ChangedCreaturesAdvancementProvider implements ForgeAdvancementProv
                         true,
                         false
                 )
-                .addCriterion("has_painite_hoe", InventoryChangeTrigger.TriggerInstance.hasItems(ChangedCreatureModItems.PAINITEHOE.get()))
+                .addCriterion("has_painite_hoe", InventoryChangeTrigger.TriggerInstance.hasItems(ChangedCreatureModItems.PAINITE_HOE.get()))
                 .save(writer, ChangedCreature.CCRL("painite_hoe"), existingFileHelper);
 
         // ==================== 水晶簇 ====================

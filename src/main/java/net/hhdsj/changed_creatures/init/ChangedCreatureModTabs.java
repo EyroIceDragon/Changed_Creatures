@@ -89,15 +89,15 @@ public class ChangedCreatureModTabs {
 			tabData.accept(ChangedCreatureModBlocks.FLOOR_SIGN_REPAIR.get().asItem());
 			tabData.accept(ChangedCreatureModBlocks.FLOOR_SIGN_WATER_AREA.get().asItem());
 		} else if (tabData.getTabKey() == ITEM.getKey()) {
-			tabData.accept(ChangedCreatureModItems.PAINITESWORD.get());
-			tabData.accept(ChangedCreatureModItems.PAINITEMANUSCRIPT.get());
-			tabData.accept(ChangedCreatureModItems.PAINITEAXE.get());
-			tabData.accept(ChangedCreatureModItems.PAINITEHOE.get());
-			tabData.accept(ChangedCreatureModItems.PAINITESHOVEL.get());
-			tabData.accept(ChangedCreatureModItems.LUNARDAWNEAXE.get());
-			tabData.accept(ChangedCreatureModItems.LUNARDAWNEHOE.get());
-			tabData.accept(ChangedCreatureModItems.LUNARDAWNEMANUSCRIPT.get());
-			tabData.accept(ChangedCreatureModItems.LUNARDAWNESHOVEL.get());
+			tabData.accept(ChangedCreatureModItems.PAINITE_SWORD.get());
+			tabData.accept(ChangedCreatureModItems.PAINITE_PICKAXE.get());
+			tabData.accept(ChangedCreatureModItems.PAINITE_AXE.get());
+			tabData.accept(ChangedCreatureModItems.PAINITE_HOE.get());
+			tabData.accept(ChangedCreatureModItems.PAINITE_SHOVEL.get());
+			tabData.accept(ChangedCreatureModItems.LUNAR_DAWNE_AXE.get());
+			tabData.accept(ChangedCreatureModItems.LUNAR_DAWNE_HOE.get());
+			tabData.accept(ChangedCreatureModItems.LUNAR_DAWNE_PICKAXE.get());
+			tabData.accept(ChangedCreatureModItems.LUNAR_DAWNE_SHOVEL.get());
 			tabData.accept(ChangedCreatureModItems.CURSED_SCYTHE.get());
 			tabData.accept(ChangedCreatureModItems.CRYSTAL_JAVELIN.get());
 			tabData.accept(ChangedCreatureModItems.Impure_Frost_Condensed_Crystal_Cluster.get());

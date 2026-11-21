@@ -19,7 +19,6 @@ import net.ltxprogrammer.changed.client.renderer.animate.AnimatorPresets;
 import net.ltxprogrammer.changed.client.renderer.animate.HumanoidAnimator;
 
 import net.ltxprogrammer.changed.client.renderer.model.AdvancedHumanoidModel;
-;
 
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
