@@ -122,6 +122,7 @@ public class ChangedCreatureModEntities {
     public static final RegistryObject<EntityType<LatexIceFieldWolfDragonBossEntity>> LATEX_ICE_FIELD_WOLF_DRAGON_BOSS;
     public static final RegistryObject<EntityType<LatexNightOwlBossEntity>> LATEX_NIGHT_OWL_DRAGON_BOSS;
     public static final RegistryObject<EntityType<LatexNightOwlEntity>> LATEX_NIGHT_OWL_DRAGON;
+    public static final RegistryObject<EntityType<AbyssNightmareDragonBeastBossEntity>> ABYSS_NIGHT_MARE_DRAGON_BEAST_BOSS;
     public static final RegistryObject<EntityType<LatexIqGoldDragonEntity>> LATEX_IQ_GOLD_DRAGON;
 
     // 其他变体
@@ -143,6 +144,14 @@ public class ChangedCreatureModEntities {
     //其它
     public static final RegistryObject<EntityType<LatexAgmisnBotEntity>> LATEX_AGMISN_BOT;
     static {
+        ABYSS_NIGHT_MARE_DRAGON_BEAST_BOSS = registerSpawning("abyss_night_mare_dragon_beast_boss",0x141414,0x00ffff,
+                EntityType.Builder.of(AbyssNightmareDragonBeastBossEntity::new, MobCategory.MONSTER)
+                        .setShouldReceiveVelocityUpdates(true)
+                        .setTrackingRange(64)
+                        .setUpdateInterval(3)
+                        .sized(0.6f, 1.92f),
+                AbyssNightmareDragonBeastBossEntity::createLatexAttributes);
+
         LATEX_AGMISN_BOT = registerUnSpawning("latex_agmisn_bot",
                 EntityType.Builder.of(LatexAgmisnBotEntity::new, MobCategory.MONSTER)
                         .setShouldReceiveVelocityUpdates(true)
