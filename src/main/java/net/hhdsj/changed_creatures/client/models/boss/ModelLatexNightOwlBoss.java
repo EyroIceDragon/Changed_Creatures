@@ -157,21 +157,21 @@ public class ModelLatexNightOwlBoss extends AdvancedHumanoidModel<LatexNightOwlB
 
         PartDefinition cube_r6 = rightWingRoot.addOrReplaceChild("cube_r6", CubeListBuilder.create().texOffs(62, 43).addBox(-12.775F, -19.75F, 1.2F, 5.0F, 2.0F, 1.0F, new CubeDeformation(-0.01F)), PartPose.offsetAndRotation(2.0F, 20.0F, -2.0F, 0.0F, 0.0F, 0.3491F));
 
-        PartDefinition rightSecondaries2 = rightWingRoot.addOrReplaceChild("rightSecondaries2", CubeListBuilder.create(), PartPose.offsetAndRotation(-7.3F, -7.0F, -0.5F, 0.0F, 0.0F, 0.5236F));
+        PartDefinition rightSecondaries = rightWingRoot.addOrReplaceChild("rightSecondaries", CubeListBuilder.create(), PartPose.offsetAndRotation(-7.3F, -7.0F, -0.5F, 0.0F, 0.0F, 0.5236F));
 
-        PartDefinition cube_r7 = rightSecondaries2.addOrReplaceChild("cube_r7", CubeListBuilder.create().texOffs(58, 32).addBox(1.025F, -30.55F, 1.2F, 1.0F, 14.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(9.3F, 27.0F, -1.5F, 0.0F, 0.0F, -0.48F));
+        PartDefinition cube_r7 = rightSecondaries.addOrReplaceChild("cube_r7", CubeListBuilder.create().texOffs(58, 32).addBox(1.025F, -30.55F, 1.2F, 1.0F, 14.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(9.3F, 27.0F, -1.5F, 0.0F, 0.0F, -0.48F));
 
-        PartDefinition cube_r8 = rightSecondaries2.addOrReplaceChild("cube_r8", CubeListBuilder.create().texOffs(0, 48).addBox(-5.5F, -2.5F, 0.0F, 10.0F, 7.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0551F, 6.3129F, 0.151F, 0.0F, 0.0F, 1.5272F));
+        PartDefinition cube_r8 = rightSecondaries.addOrReplaceChild("cube_r8", CubeListBuilder.create().texOffs(0, 48).addBox(-5.5F, -2.5F, 0.0F, 10.0F, 7.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0551F, 6.3129F, 0.151F, 0.0F, 0.0F, 1.5272F));
 
-        PartDefinition cube_r9 = rightSecondaries2.addOrReplaceChild("cube_r9", CubeListBuilder.create().texOffs(28, 62).addBox(-0.5F, -6.0F, -0.5F, 1.0F, 12.0F, 1.0F, new CubeDeformation(0.01F)), PartPose.offsetAndRotation(-3.6495F, 5.6238F, 0.2F, 0.0F, 0.0F, 0.0262F));
+        PartDefinition cube_r9 = rightSecondaries.addOrReplaceChild("cube_r9", CubeListBuilder.create().texOffs(28, 62).addBox(-0.5F, -6.0F, -0.5F, 1.0F, 12.0F, 1.0F, new CubeDeformation(0.01F)), PartPose.offsetAndRotation(-3.6495F, 5.6238F, 0.2F, 0.0F, 0.0F, 0.0262F));
 
-        PartDefinition cube_r10 = rightSecondaries2.addOrReplaceChild("cube_r10", CubeListBuilder.create().texOffs(0, 55).addBox(-24.525F, -13.85F, 1.648F, 9.0F, 6.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(9.3F, 27.0F, -1.5F, 0.0F, 0.0F, 0.7418F));
+        PartDefinition cube_r10 = rightSecondaries.addOrReplaceChild("cube_r10", CubeListBuilder.create().texOffs(0, 55).addBox(-24.525F, -13.85F, 1.648F, 9.0F, 6.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(9.3F, 27.0F, -1.5F, 0.0F, 0.0F, 0.7418F));
 
-        PartDefinition rightTertiaries2 = rightSecondaries2.addOrReplaceChild("rightTertiaries2", CubeListBuilder.create(), PartPose.offsetAndRotation(0.3F, 0.0F, 0.0F, 0.0F, 0.0F, 0.9599F));
+        PartDefinition rightTertiaries = rightSecondaries.addOrReplaceChild("rightTertiaries", CubeListBuilder.create(), PartPose.offsetAndRotation(0.3F, 0.0F, 0.0F, 0.0F, 0.0F, 0.9599F));
 
-        PartDefinition cube_r11 = rightTertiaries2.addOrReplaceChild("cube_r11", CubeListBuilder.create().texOffs(24, 62).addBox(2.3F, -28.5F, 1.2F, 1.0F, 13.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(6.9F, 28.4F, -1.5F, 0.0F, 0.0F, -0.48F));
+        PartDefinition cube_r11 = rightTertiaries.addOrReplaceChild("cube_r11", CubeListBuilder.create().texOffs(24, 62).addBox(2.3F, -28.5F, 1.2F, 1.0F, 13.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(6.9F, 28.4F, -1.5F, 0.0F, 0.0F, -0.48F));
 
-        PartDefinition cube_r12 = rightTertiaries2.addOrReplaceChild("cube_r12", CubeListBuilder.create().texOffs(20, 48).addBox(-26.125F, -10.525F, 1.64F, 10.0F, 6.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(9.0F, 28.8F, -1.5F, 0.0F, 0.0F, 0.8727F));
+        PartDefinition cube_r12 = rightTertiaries.addOrReplaceChild("cube_r12", CubeListBuilder.create().texOffs(20, 48).addBox(-26.125F, -10.525F, 1.64F, 10.0F, 6.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(9.0F, 28.8F, -1.5F, 0.0F, 0.0F, 0.8727F));
 
         PartDefinition Tail = Torso.addOrReplaceChild("Tail", CubeListBuilder.create(), PartPose.offset(0.0F, 11.0F, 0.0F));
 
@@ -249,11 +249,6 @@ public class ModelLatexNightOwlBoss extends AdvancedHumanoidModel<LatexNightOwlB
                 .texOffs(64, 15).addBox(0.0F, 9.1F, -0.5F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
         PartDefinition LeftArmhair = LeftArm.addOrReplaceChild("LeftArmhair", CubeListBuilder.create().texOffs(72, 0).mirror().addBox(9.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.04F)).mirror(false), PartPose.offset(-10.0F, 0.0F, 0.0F));
-
-        PartDefinition rightSecondaries = partdefinition.addOrReplaceChild("rightSecondaries", CubeListBuilder.create(), PartPose.offsetAndRotation(-9.3F, -2.5F, 1.5F, 0.0F, 0.0F, 0.5236F));
-
-        PartDefinition rightTertiaries = partdefinition.addOrReplaceChild("rightTertiaries", CubeListBuilder.create(), PartPose.offsetAndRotation(-9.0F, -2.5F, 1.5F, 0.0F, 0.0F, 0.9599F));
-
         return LayerDefinition.create(meshdefinition, 128, 128);
     }
 
