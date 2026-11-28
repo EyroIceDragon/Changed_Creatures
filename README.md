@@ -54,7 +54,7 @@ one ability or `simpleadd(abilityRegistryObjects, variantRegistryObjects,
 string IDs.
 
 ## License
-- Source code: [**MIT**](LICENSE-src)
+- Source code: [**MIT**](LICENSE)
 - Model/texture: [**CC BY-NC-ND 4.0**](LICENSE-models)
 
 ## Disclaimer
